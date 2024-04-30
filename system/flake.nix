@@ -21,7 +21,15 @@
     nixosConfigurations.genshin = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
-        ./machines/artheziaconfiguration-genshin.nix
+        ./machines/arthezia/configuration-genshin.nix
+        ./machines/arthezia/configuration-genshin.nix
+        # inputs.home-manager.nixosModules.default
+      ];
+    };
+    nixosConfigurations.mabon = nixpkgs.lib.nixosSystem {
+      specialArgs = {inherit inputs;};
+      modules = [
+        ./machines/mabon/configuration.nix
         # inputs.home-manager.nixosModules.default
       ];
     };
