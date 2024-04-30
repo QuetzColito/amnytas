@@ -23,6 +23,12 @@
     };
   };
 
+  programs.git = {
+    enable = true;
+    userEmail = "stefan.lahne@gmx.de";
+    userName = "Stefan Lahne";
+  };
+
   home.packages = with pkgs; [
 
     # General
