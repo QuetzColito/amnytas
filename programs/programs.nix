@@ -82,6 +82,8 @@
     pngquant
     cliphist
     playerctl
+    pamixer
+    pavucontrol
     (writeShellScriptBin
       "pauseshot"
       ''
