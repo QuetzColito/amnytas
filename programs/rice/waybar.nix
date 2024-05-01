@@ -181,7 +181,7 @@
           default= "▶";
           mpv= "🎵";
           spotify= " ";
-          firefox= " ";
+          firefox= "󰗃 ";
         };
         status-icons= {
           paused= "pause";
