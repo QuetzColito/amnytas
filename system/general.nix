@@ -53,7 +53,7 @@
     home-manager
   ];
 
-  sound.enable = true;
+  sound.enable = false;
   sound.mediaKeys.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
