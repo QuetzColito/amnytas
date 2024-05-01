@@ -30,7 +30,6 @@
       mainbar = {
         layer = "top";
         position = "top";
-        output = ["HDMI-A-1" "DP-1" "DP-2"];
         mod = "dock";
         #exclusive = true;
         passthrough = false;
