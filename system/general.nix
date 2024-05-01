@@ -53,6 +53,11 @@
     home-manager
   ];
 
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
+
   sound.enable = false;
   sound.mediaKeys.enable = true;
   security.rtkit.enable = true;
