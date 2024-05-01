@@ -42,7 +42,6 @@
     appimage-run
     nix-index
     obs-studio
-    docker
 
     # Discord xD
     webcord-vencord

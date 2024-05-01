@@ -11,6 +11,8 @@
     rPackages.languageserver
     rstudioWrapper
     corepack
+    docker
+    lazydocker
   ];
 
 
