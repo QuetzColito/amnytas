@@ -13,11 +13,6 @@
     ./dev/dev.nix
   ];
 
-  programs.rofi = {
-    theme = ./rofi-theme.rasi;
-    enable = true;
-  };
-
   services = {
     arrpc.enable = true;
     wlsunset = {

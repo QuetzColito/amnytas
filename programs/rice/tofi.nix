@@ -17,7 +17,7 @@ in {
     border-width = 0
     outline-width = 0
     result-spacing = 25
-    num-results = 5
+    num-results = 0
     font = monospace
     background-color = #1A1B2630
     selection-color = #7AA2F7
