@@ -3,7 +3,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "arthezia"; # Define your hostname.
+  networking.hostName = "peitha"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Nvidia
@@ -26,5 +26,13 @@
     nvidiaSettings = true;
 
     package = config.boot.kernelPackages.nvidiaPackages.latest;
+  };
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.quetz = {
+    isNormalUser = true;
+    description = "quetz";
+    extraGroups = [ "networkmanager" "wheel" ];
+    packages = [];
   };
 }

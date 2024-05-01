@@ -40,13 +40,6 @@ in
     variant = "";
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.quetz = {
-    isNormalUser = true;
-    description = "quetz";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = [];
-  };
   
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

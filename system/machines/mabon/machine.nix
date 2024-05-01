@@ -27,4 +27,12 @@
 
     package = config.boot.kernelPackages.nvidiaPackages.latest;
   };
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.arthezia = {
+    isNormalUser = true;
+    description = "arthezia";
+    extraGroups = [ "networkmanager" "wheel" ];
+    packages = [];
+  };
 }

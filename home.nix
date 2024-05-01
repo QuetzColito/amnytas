@@ -1,11 +1,7 @@
-{ config, pkgs, ... }:
-
 {
-  home.username = "quetz";
-  home.homeDirectory = "/home/quetz";
-
-  home.stateVersion = "23.11"; # Please read the comment before changing.
-
+  pkgs,
+  ...
+}: {
   nixpkgs.config.allowUnfree = true;
 
   imports = [
@@ -57,7 +53,4 @@
     EDITOR = "vim";
     XCURSOR_THEME = "Bibata-Modern-Classic";
   };
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
 }
