@@ -9,6 +9,17 @@
   imports = [
     ./home.nix
   ];
+  home.file.".config/hypr/hyprpaper.conf".text = ''
+    $WP1 = ~/Media/Wallpaper/ruanmei.jpg
+
+    preload = $WP1
+
+    wallpaper = ,$WP1
+
+    splash = false
+
+    ipc = off
+  '';
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
