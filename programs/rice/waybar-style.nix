@@ -116,7 +116,6 @@
   #workspaces {
     background: #1e1e2e;
     border-radius: 7px;
-    margin-left: 5px;
     padding-right: 5px;
     padding-left: 5px;
     opacity: 1.0;
@@ -150,6 +149,7 @@
   #network {
     color: #f9e2af;
     border-radius: 7px;
+    margin-left: 5px;
     margin-right: 5px;
     border-left: 0px;
     border-right: 0px;
