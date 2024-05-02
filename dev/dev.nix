@@ -4,6 +4,7 @@
     haskell.compiler.ghc94
     cabal-install
     hlint
+    jdt-language-server
     eclipses.eclipse-platform
     #haskellPackages.hls
     #haskellPackages.ghcup
