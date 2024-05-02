@@ -1,10 +1,10 @@
 {config, pkgs, ...}:
 {
   home.packages = with pkgs; [
-    jdk
     haskell.compiler.ghc94
     cabal-install
     hlint
+    eclipses.eclipse-platform
     #haskellPackages.hls
     #haskellPackages.ghcup
     R

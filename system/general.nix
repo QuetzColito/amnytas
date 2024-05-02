@@ -50,6 +50,7 @@ in
     git
     firefox
     home-manager
+    temurin-bin
   ];
 
   virtualisation.docker.rootless = {
