@@ -4,11 +4,6 @@
   programs.alacritty = {
     enable = true;
     settings = {
-
-      shell = {
-        program = "/home/quetz/.nix-profile/bin/zsh";
-      };
-
       window = {
         opacity = 0.75;
         blur = false;

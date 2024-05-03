@@ -25,6 +25,8 @@ in {
 
         "${mod},SPACE,exec,tofi-drun --drun-launch=true"
         "${mod},Q,killactive"
+        "${mod},MINUS,exit"
+        "${mod},BACKSPACE,exec,hyprctl kill"
         "${mod},P,pseudo"
 
         "${mod},H,movefocus,l"

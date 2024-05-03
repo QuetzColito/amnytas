@@ -86,7 +86,7 @@ in
     aagl-gtk-on-nix.module
   ];
 
-  programs.the-honkers-railway-launcher.enable = true;
+  programs.honkers-railway-launcher.enable = true;
 
 
   programs.steam = {

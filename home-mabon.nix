@@ -6,6 +6,8 @@
 
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
+  programs.alacritty.shell.program = "/home/arthezia/.nix-profile/bin/zsh";
+
   imports = [
     ./home.nix
   ];
@@ -21,7 +23,7 @@
     ipc = off
   '';
 
-  programs.waybar.settings.mainbar.output = ["HDMI-A-1" "DP-1" "DP-2"];
+  programs.waybar.settings.mainbar.output = ["eDP-1"];
 
   wayland.windowManager.hyprland.settings = {
     workspace = [
