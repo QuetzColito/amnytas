@@ -12,17 +12,6 @@
     NIXOS_OZONE_WL = "1";
   };
 
-  services.greetd = {
-    enable = true;
-    settings = rec {
-      initial_session = {
-        command = "Hyprland";
-        user = "quetz";
-      };
-    default_session = initial_session;
-    };
-  };
-
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
