@@ -7,7 +7,6 @@ let
 in
 {
   # Enable networking
-  networking.networkmanager.enable = true;
 
   boot.kernelModules = ["v4l2loopback"];
 
