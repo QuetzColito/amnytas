@@ -6,7 +6,7 @@
 
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
-  programs.alacritty.shell.program = "/home/quetz/.nix-profile/bin/zsh";
+  programs.alacritty.settings.shell.program = "/home/quetz/.nix-profile/bin/zsh";
   
   imports = [
     ./home.nix
