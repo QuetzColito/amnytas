@@ -41,8 +41,14 @@ in
   };
 
   
-  # Allow unfree packages
+  # Allow unfree and external packages
   nixpkgs.config.allowUnfree = true;
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      # Missing libraries go here
+    ]
+  };
 
   environment.systemPackages = with pkgs; [
     vim

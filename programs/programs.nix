@@ -75,6 +75,7 @@
     # Utils
     xfce.thunar
     zathura
+    zip
     unzip
     lazygit
 
