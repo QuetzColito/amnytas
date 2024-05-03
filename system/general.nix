@@ -47,7 +47,7 @@ in
     enable = true;
     libraries = with pkgs; [
       # Missing libraries go here
-    ]
+    ];
   };
 
   environment.systemPackages = with pkgs; [
