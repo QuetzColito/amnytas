@@ -25,6 +25,11 @@
 
   programs.waybar.settings.mainbar.output = ["eDP-1"];
 
+  home.packages = with pkgs; [
+    wpa_supplicant
+    wpa_supplicant_gui
+  ];
+
   wayland.windowManager.hyprland.settings = {
     workspace = [
       "1, monitor:eDP-1"
