@@ -58,6 +58,7 @@ in
     jdk
     qemu
     quickemu
+    wineWowPackages.waylandFull
   ];
 
   virtualisation.docker.rootless = {

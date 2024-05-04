@@ -74,6 +74,12 @@
 
     # Utils
     gnome.file-roller
+    gnome.totem
+    gnome.gnome-disk-utility
+    baobab
+    loupe
+    komikku
+    thunderbird
     zathura
     zip
     unzip
