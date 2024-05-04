@@ -88,8 +88,6 @@ in
   ];
 
   programs.honkers-railway-launcher.enable = true;
-  programs.anime-game-launcher.enable = true;
-
 
   programs.steam = {
     enable = true;
