@@ -57,6 +57,7 @@ in
     home-manager
     jdk
     qemu
+    quickemu
   ];
 
   virtualisation.docker.rootless = {
