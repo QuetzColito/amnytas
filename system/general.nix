@@ -56,6 +56,7 @@ in
     firefox
     home-manager
     jdk
+    qemu
   ];
 
   virtualisation.docker.rootless = {
