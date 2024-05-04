@@ -95,6 +95,17 @@ in
     dedicatedServer.openFirewall = true;
   };
 
+  programs.xfconf.enable = true;
+  programs.thunar = {
+    enable = true;
+    plugins = with pkgs.xfce; [
+      thunar-volman
+      thunar-archive-plugin
+      thunar-media-tags-plugin
+      tumbler
+    ];
+  };
+
   fonts.packages = with pkgs; [
       material-icons
       material-design-icons

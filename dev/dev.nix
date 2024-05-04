@@ -9,6 +9,9 @@
     hlint
     jdt-language-server
     eclipses.eclipse-platform
+    rust-analyzer
+    cargo
+    rustc
     #haskellPackages.hls
     #haskellPackages.ghcup
     R

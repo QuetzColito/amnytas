@@ -73,7 +73,7 @@
     })
 
     # Utils
-    xfce.thunar
+    gnome.file-roller
     zathura
     zip
     unzip

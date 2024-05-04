@@ -31,7 +31,6 @@
       Requires = ["graphical-session-pre.target"];
     };
   };
-# Test 
 
   gtk = {
     enable = true;
@@ -44,9 +43,15 @@
       name = "Tokyonight-Dark";
     };
     cursorTheme = {
-            name = "Bibata-Modern-Classic";
-            package = pkgs.bibata-cursors;
-        };
+      name = "Bibata-Modern-Classic";
+      package = pkgs.bibata-cursors;
+    };
+  };
+
+  qt = {
+    enable = true;
+    platformTheme.name = "gtk";
+    style.name = "adwaita-dark";
   };
 
 
