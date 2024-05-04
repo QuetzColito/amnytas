@@ -48,7 +48,7 @@
     cmatrix
     parsec-bin
     qpwgraph
-    neofetch
+    fastfetch
     appimage-run
     nix-index
     obs-studio

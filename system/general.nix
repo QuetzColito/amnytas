@@ -95,6 +95,7 @@ in
     dedicatedServer.openFirewall = true;
   };
 
+  programs.dconf.enable = true; # gnome-related
   programs.xfconf.enable = true;
   programs.thunar = {
     enable = true;
