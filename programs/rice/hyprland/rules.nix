@@ -30,11 +30,11 @@
       "opacity 0.85, class:^file-roller$"
       "forcergbx, class:^file-roller$"
       "opacity 0.95, title:^(.*Discord.*)$"
+      "forcergbx, title:^(.*Discord.*)$"
       "opacity 0.9, class:steam$"
       "forcergbx, class:steam$"
-      "forcergbx, title:^(.*Discord.*)$"
-      "opacity 0.75, title:^(.*YouTube Music.*)$"
-      "forcergbx, title:^(.*YouTube Music.*)$"
+      "opacity 0.95, class:^(YouTube Music)$"
+      "forcergbx, class:^(YouTube Music)$"
 
       # imported stuff
       "idleinhibit focus, class:^(mpv)$"
@@ -54,9 +54,9 @@
       "workspace special silent, title:^(Firefox — Sharing Indicator)$"
       "workspace special silent, title:^(.*is sharing (your screen|a window)\.)$"
 
-      "workspace 2, title:^(.*Discord.*)$"
-      "workspace 7, class:^(firefox), title:^((?!YouTube Music).)*$"
-      "workspace 2, title:^(.*YouTube Music.*)$"
+      "workspace 1, title:^(.*Discord.*)$"
+      "workspace 1, class:^(YouTube Music)$"
+      "workspace 7, class:^(firefox)"
     ];
   };
 }
