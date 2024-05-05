@@ -32,6 +32,17 @@
 
   programs.waybar.settings.mainbar.output = ["HDMI-A-1" "DP-1" "DP-2"];
 
+  wayland.windowManager.hyprland = {
+    settings = {
+      exec-once = [
+        "firefox"
+        "for i in ~/MyGames/YTM/*.AppImage ; do appimage-run $i; done"
+        "flatpak run dev.vencord.Vesktop"
+	      "sleep 5; hyprctl dispatch resizewindowpixel exact 100% 30%,YouTube"
+      ];
+    };
+  };
+
   wayland.windowManager.hyprland.settings = {
     workspace = [
       "1, monitor:DP-1"

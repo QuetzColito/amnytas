@@ -39,7 +39,7 @@ in
     variant = "";
   };
 
-  
+  powerManagement.enable = true;
   # Allow unfree and external packages
   nixpkgs.config.allowUnfree = true;
   programs.nix-ld = {

@@ -37,6 +37,7 @@ in {
         #",XF86Bluetooth, exec, bcn"
         "${mod},M,exec,hyprctl keyword $kw $(($(hyprctl getoption $kw -j | jaq -r '.int') ^ 1))" # toggle no_gaps_when_only
         "${mod},T,togglegroup," # group focused window
+        "${mod},R,swapnext," # swap window
         "${modshift},G,changegroupactive," # switch within the active group
         "${mod},V,togglefloating," # toggle floating for the focused window
         "${mod},F,fullscreen," # fullscreen focused window
@@ -44,11 +45,10 @@ in {
         # workspace controls
         "${modshift},right,movetoworkspace,+1" # move focused window to the next ws
         "${modshift},left,movetoworkspace,-1" # move focused window to the previous ws
+        "${mod},right,workspace,+1" # move focused window to the next ws
+        "${mod},left,workspace,-1" # move focused window to the previous ws
         "${mod},mouse_up,workspace,e+1" # move to the next ws
         "${mod},mouse_down,workspace,e-1" # move to the previous ws
-
-        "ALT, TAB, focusmonitor, +1"
-        "ALT SHIFT, TAB, focusmonitor, -1"
 
         "CTRL ${modshift},S,exec, pauseshot"
         "${modshift},S,exec, grim -g \"$(slurp)\" - | wl-copy"
