@@ -41,6 +41,7 @@
       "idleinhibit focus,class:foot"
       "idleinhibit fullscreen, class:^(firefox)$"
 
+      "float, class:^(org.gnome.Loupe)$"
       "float, title:^(Picture-in-Picture)$"
       "pin, title:^(Picture-in-Picture)$"
 

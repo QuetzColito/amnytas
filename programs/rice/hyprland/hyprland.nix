@@ -21,7 +21,9 @@
         # set cursor for HL itself
         "hyprpaper"
         "firefox"
+        "for i in ~/MyGames/YTM/*.AppImage ; do appimage-run $i; done"
         "flatpak run dev.vencord.Vesktop"
+	      "sleep 5; hyprctl dispatch resizewindowpixel exact 100% 30%,YouTube"
         #"hyprctl setcursor ${pointer.name} ${toString pointer.size}"
       ];
 

@@ -1,7 +1,7 @@
 {config, pkgs, ...}:
 {
   imports = [
-    ./nvim.nix
+    
   ];
   home.packages = with pkgs; [
     haskell.compiler.ghc94
