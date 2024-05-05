@@ -7,7 +7,8 @@
   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.wireless.userControlled.enable = true;
 
-
+  services.xserver.libinput.enable = true;
+  services.xserver.libinput.touchpad.tapping = true;
 
   # Nvidia
   hardware.opengl = {
