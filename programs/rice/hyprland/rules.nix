@@ -55,7 +55,7 @@
       "workspace special silent, title:^(Firefox — Sharing Indicator)$"
       "workspace special silent, title:^(.*is sharing (your screen|a window)\.)$"
 
-      "workspace 1, title:^(.*Discord.*)$"
+      "workspace 1, class:^(vesktop)$"
       "workspace 1, class:^(YouTube Music)$"
       "workspace 7, class:^(firefox)"
     ];
