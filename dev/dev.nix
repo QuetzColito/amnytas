@@ -8,7 +8,6 @@
     haskell.compiler.ghc94
     cabal-install
     hlint
-    jdk
     jdk8
     jdt-language-server
     (eclipses.eclipseWithPlugins {
@@ -31,5 +30,8 @@
     docker
     lazydocker
   ];
+  home.sessionVariables = {
+    JAVA_HOME = "${pkgs.jdk8}";
+  };
 }
 

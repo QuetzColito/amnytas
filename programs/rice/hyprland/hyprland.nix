@@ -1,4 +1,5 @@
 {
+  pkgs,
   ...
 }: {
   imports = [
@@ -36,6 +37,7 @@
         "QT_QPA_PLATFORM,wayland;xcb"
         "GDK_BACKEND,wayland,x11,*"
         "XCURSOR_THEME,Bibata-Modern-Classic"
+        "JAVA_HOME,${pkgs.jdk8}"
       ];
 
       gestures = {

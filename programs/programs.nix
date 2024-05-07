@@ -81,6 +81,7 @@
     komikku
     thunderbird
     zathura
+    usbutils
     zip
     unzip
     lazygit
