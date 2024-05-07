@@ -55,7 +55,6 @@ in
     git
     firefox
     home-manager
-    jdk
     qemu
     quickemu
     wineWowPackages.waylandFull

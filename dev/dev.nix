@@ -3,12 +3,22 @@
   imports = [
     
   ];
+
   home.packages = with pkgs; [
     haskell.compiler.ghc94
     cabal-install
     hlint
+    jdk
+    jdk8
     jdt-language-server
-    eclipses.eclipse-platform
+    (eclipses.eclipseWithPlugins {
+      eclipse = eclipses.eclipse-java;
+      jvmArgs = [ "-Xmx2048m" ];
+      plugins = [ 
+        eclipses.plugins.color-theme 
+        eclipses.plugins.vrapper  
+      ];
+    })
     rust-analyzer
     cargo
     rustc
@@ -21,8 +31,5 @@
     docker
     lazydocker
   ];
-
-
-
 }
 

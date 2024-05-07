@@ -70,7 +70,6 @@
             "9" = "9 ";
             "10"= "10 ";
           };
-          all-outputs = true;
           on-click = "activate";
         };
 

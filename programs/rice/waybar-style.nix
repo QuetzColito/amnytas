@@ -116,7 +116,7 @@
   #workspaces {
     background: #1e1e2e;
     border-radius: 7px;
-    padding-right: 5px;
+    /*padding-right: 5px;*/
     padding-left: 5px;
     opacity: 1.0;
   }

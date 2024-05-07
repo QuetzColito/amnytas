@@ -31,10 +31,13 @@
       "forcergbx, class:^file-roller$"
       "opacity 0.95, title:^(.*Discord.*)$"
       "forcergbx, title:^(.*Discord.*)$"
-      "opacity 0.9, class:steam$"
-      "forcergbx, class:steam$"
+      "opacity 0.9, class:^steam$"
+      "forcergbx, class:^steam$"
       "opacity 0.95, class:^(YouTube Music)$"
       "forcergbx, class:^(YouTube Music)$"
+      "opacity 0.8 0.8 1, class: firefox"
+      "opacity 1 override 1 override 1 override ,title:^(.*YouTube — Mozilla Firefox)|(.*Crunchyroll — Mozilla Firefox)$"
+
 
       # imported stuff
       "idleinhibit focus, class:^(mpv)$"
@@ -58,6 +61,8 @@
       "workspace 1, class:^(vesktop)$"
       "workspace 1, class:^(YouTube Music)$"
       "workspace 7, class:^(firefox)"
+      "workspace 4, class:^(steam_app.*)$"
+      "workspace 9, title:^(Steam)$"
     ];
   };
 }
