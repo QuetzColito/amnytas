@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 let 
-  wallpaper1 = "/Media/Wallpaper/vanitas_sis.jpg"; # EXTERNAL DEPENDENCY
-  wallpaper2 = "/Media/Wallpaper/ruanmei.jpg"; # EXTERNAL DEPENDENCY
-  wallpaper3 = "/Media/Wallpaper/kafu.jpg"; # EXTERNAL DEPENDENCY
+  wallpaper1 = "~/Media/Wallpaper/vanitas_sis.jpg"; # EXTERNAL DEPENDENCY
+  wallpaper2 = "~/Media/Wallpaper/ruanmei.jpg"; # EXTERNAL DEPENDENCY
+  wallpaper3 = "~/Media/Wallpaper/kafu.jpg"; # EXTERNAL DEPENDENCY
 in 
 {
   home.username = "quetz";
