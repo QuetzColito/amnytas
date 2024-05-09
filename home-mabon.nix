@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
-
+let 
+  wallpaper1 = "~/Media/Wallpaper/ruanmei.jpg";
+in
 {
   home.username = "arthezia";
   home.homeDirectory = "/home/arthezia";
@@ -12,11 +14,9 @@
     ./home.nix
   ];
   home.file.".config/hypr/hyprpaper.conf".text = ''
-    $WP1 = ~/Media/Wallpaper/ruanmei.jpg
+    preload = ${wallpaper1}
 
-    preload = $WP1
-
-    wallpaper = ,$WP1
+    wallpaper = ,${wallpaper1}
 
     splash = false
 

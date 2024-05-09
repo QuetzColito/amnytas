@@ -63,14 +63,8 @@
     # Gaming
     osu-lazer-bin
     prismlauncher
-    ferium
     heroic
     protontricks
-    gamescope
-    (pkgs.lutris.override {
-      extraLibraries =  pkgs: [
-      ];
-    })
 
     # Utils
     gnome.file-roller
