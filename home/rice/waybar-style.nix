@@ -99,17 +99,20 @@
     color: #cdd6f4;
   }
   
-  #mpris {
+  .modules-center {
     border-radius: 7px;
-    color: #bb9af7;
     border: 1px solid #414559;
     background: #1e1e2e;
     padding: 5px 10px;
     margin: 5px 5px 0px;
   }
 
+  #mpris {
+    color: #bb9af7;
+  }
+
   #mpris.paused {
-    border: 1px solid #bb9af7;
+    color: #fab387;
   }
 
   #pulseaudio {

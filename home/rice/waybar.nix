@@ -43,10 +43,10 @@
           "hyprland/workspaces"
         ];
         modules-center = [
-          "mpris"
+          "clock"
         ];
         modules-right = [
-          "clock"
+          "mpris"
           "pulseaudio"
           "tray"
         ];
@@ -89,9 +89,11 @@
 
 
         clock = {
-          format =  "  {:%H:%M }";
-          format-alt = "  {:%a, %b %e }";
+          #format =  "  {:%H:%M }";
+          #format-alt = "  {:%a, %b %e }";
+          #tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+          format = "{:%a   %d %b   %H:%M}";
         };
 
 

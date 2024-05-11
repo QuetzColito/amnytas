@@ -42,13 +42,7 @@
     appimage-run
     nix-index
     obs-studio
-
-    # Discord xD
-    webcord-vencord
-    vesktop
-    (discord.override {
-      withVencord = true;
-    })
+    discord
     
     # Gaming
     osu-lazer-bin
