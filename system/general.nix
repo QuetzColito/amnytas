@@ -2,7 +2,7 @@
 let
   aagl-gtk-on-nix = import (builtins.fetchTarball {
     url = "https://github.com/ezKEa/aagl-gtk-on-nix/archive/main.tar.gz";
-    sha256 = sha256:0v0w4clflp4i4k423724gk38lak9rj3g4yl4kpi8j6aqjs3sxi3y;
+    sha256 = sha256:1vfmfw31v2inv792vxgi96k963zwj7hl3lxs45dg2sf46nh4bcrp;
     });
 in
 {
