@@ -18,6 +18,13 @@
       fsType = "ext4";
     };
 
+  fileSystems."home/quetz/storage" =
+    { device = "/dev/sda1";
+      options = [
+        "nofail"
+      ];
+    };
+
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/309A-0376";
       fsType = "vfat";
