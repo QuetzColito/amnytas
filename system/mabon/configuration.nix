@@ -9,7 +9,6 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./machine.nix
-      ../wm/hyprland.nix
       ./hyprland.nix
       ../general.nix
     ];

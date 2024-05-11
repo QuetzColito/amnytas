@@ -1,6 +1,9 @@
 {
   ...
 }: {
+  imports = [
+    ../wm/hyprland.nix
+  ];
   services.greetd = {
     enable = true;
     settings = rec {
