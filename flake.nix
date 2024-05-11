@@ -22,7 +22,7 @@
     };
     homeConfigurations."quetz" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
-      modules = [ ./home-peitha.nix ];
+      modules = [ ./home/peitha.nix ];
     };
 
     nixosConfigurations.mabon = nixpkgs.lib.nixosSystem {
@@ -33,7 +33,7 @@
     };
     homeConfigurations."arthezia" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
-      modules = [ ./home-mabon.nix ];
+      modules = [ ./home/mabon.nix ];
     };
   };
 }
