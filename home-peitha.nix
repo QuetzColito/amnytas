@@ -57,9 +57,9 @@ in
     ];
     monitor = [
       ",highrr,auto,1"
+      "DP-2,2560x1440@59.95,0x0,1"
       "HDMI-A-1,preferred,2560x360,1"
       "DP-1,preferred,-1080x-300,1,transform,1"
-      "DP-2,2560x1440@59.95,0x0,1"
     ];
   };
   # Let Home Manager install and manage itself.

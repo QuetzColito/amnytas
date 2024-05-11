@@ -42,7 +42,8 @@
     border-radius: 7px;
     background: #1e1e2e;
     padding: 3px 5px;
-    margin: 5px 5px 0px;
+    border: 1px solid #414559;
+    margin: 5px 11px 0px;
   }
 
   #custom-shutdown {
@@ -100,13 +101,15 @@
   
   #mpris {
     border-radius: 7px;
+    color: #bb9af7;
+    border: 1px solid #414559;
     background: #1e1e2e;
     padding: 5px 10px;
     margin: 5px 5px 0px;
   }
 
   #mpris.paused {
-    border-bottom: 2px solid #fab387;
+    border: 1px solid #bb9af7;
   }
 
   #pulseaudio {
@@ -117,7 +120,8 @@
     border-radius: 7px;
     background: #1e1e2e;
     padding: 3px 5px;
-    margin: 5px 5px 0px;
+    border: 1px solid #414559;
+    margin: 5px 11px 0px;
   }
 
   #clock {

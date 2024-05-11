@@ -79,6 +79,7 @@
     zip
     unzip
     lazygit
+    imagemagick
 
 
     # Hyprland

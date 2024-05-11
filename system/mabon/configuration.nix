@@ -9,9 +9,9 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./machine.nix
-      ../../wm/hyprland.nix
+      ../wm/hyprland.nix
       ./hyprland.nix
-      ../../general.nix
+      ../general.nix
     ];
 
   system.stateVersion = "23.11"; # Did you read the comment?

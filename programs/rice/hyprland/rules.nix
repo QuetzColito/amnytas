@@ -36,7 +36,7 @@
       "opacity 0.95, class:^(YouTube Music)$"
       "forcergbx, class:^(YouTube Music)$"
       "opacity 0.8 0.8 1, class: firefox"
-      "opacity 1 override 1 override 1 override ,title:^(.*YouTube — Mozilla Firefox)|(.*Crunchyroll — Mozilla Firefox)$"
+      "opacity 1 override 1 override 1 override ,title:^(.*YouTube — Mozilla Firefox)|(.*Crunchyroll.* — Mozilla Firefox)$"
 
 
       # imported stuff
@@ -45,6 +45,8 @@
       "idleinhibit fullscreen, class:^(firefox)$"
 
       "float, class:^(org.gnome.Loupe)$"
+      "float, class:^(xdg-desktop-portal-gtk)$"
+      "float, class:^(moe.launcher.the-honkers-railway-launcher)$"
       "float, title:^(Picture-in-Picture)$"
       "pin, title:^(Picture-in-Picture)$"
 
@@ -60,7 +62,7 @@
 
       "workspace 1, class:^(vesktop)$"
       "workspace 1, class:^(YouTube Music)$"
-      "workspace 7, class:^(firefox)"
+      "workspace 7, class:^(firefox), title:^(.*Mozilla Firefox)$"
       "workspace 4, class:^(steam_app.*)$"
       "workspace 9, title:^(Steam)$"
     ];
