@@ -59,6 +59,7 @@
     komikku
     thunderbird
     zathura
+    onlyoffice-bin
     usbutils
     zip
     unzip
