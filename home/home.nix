@@ -7,6 +7,7 @@
   imports = [
     ./programs/programs.nix
     ./dev/dev.nix
+    ./rice/rice.nix
   ];
 
   services = {

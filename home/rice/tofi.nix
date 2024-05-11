@@ -23,27 +23,3 @@ in {
     selection-color = #7AA2F7
   '';
 }
-
-    #anchor = center
-    #width = 500
-    #height = 300
-    #horizontal = false
-    #font-size = 14
-    #prompt-text = "Run "
-    #font = monospace
-    #ascii-input = false
-    #outline-width = 5
-    #outline-color = #414559
-    #border-width = 2
-    #border-color = #7da6ff
-    #background-color = #303446
-    #text-color = #c6d0f5
-    #selection-color = #7da6ff
-    #min-input-width = 120
-    #late-keyboard-init = true
-    #result-spacing = 10
-    #padding-top = 15
-    #padding-bottom = 15
-    #padding-left = 15
-    #padding-right = 15
-    #width = 100%

@@ -5,7 +5,6 @@
   imports = [
     ./alacritty.nix
     ./zsh.nix
-    ./rice/rice.nix
   ];
 
   programs.vscode = {
@@ -23,15 +22,6 @@
     ];
   };
 
-  services.dunst = {
-    enable = true;
-    configFile = ./dunstrc;
-    iconTheme = {
-      name = "Tokyonight-Dark";
-      package = pkgs.tokyo-night-gtk;
-      size = "32x32";
-    };
-  };
 
   programs.git = {
     enable = true;
