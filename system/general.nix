@@ -1,4 +1,4 @@
-{pkgs, lib, config, ...}:
+{pkgs,pkgs-stable, lib, config, ...}:
 let
   aagl-gtk-on-nix = import (builtins.fetchTarball {
     url = "https://github.com/ezKEa/aagl-gtk-on-nix/archive/main.tar.gz";
