@@ -21,7 +21,6 @@
         pkgs-stable = import nixpkgs-stable {
           inherit system;
           config.allowUnfree = true;
-          config.allowBroken = true;
         };
         inherit inputs system;
       };

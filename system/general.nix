@@ -1,4 +1,4 @@
-{pkgs,pkgs-stable, lib, config, ...}:
+{pkgs, lib, config, ...}:
 let
   aagl-gtk-on-nix = import (builtins.fetchTarball {
     url = "https://github.com/ezKEa/aagl-gtk-on-nix/archive/main.tar.gz";
@@ -49,17 +49,15 @@ in
     ];
   };
 
-  environment.systemPackages = [
-    pkgs.vim
-    pkgs.wget
-    pkgs.git
-    pkgs.firefox
-    pkgs.home-manager
-    pkgs.qemu
-    pkgs.quickemu
-    pkgs.wineWowPackages.waylandFull
-    pkgs-stable.haskellPackages.hls
-    pkgs-stable.haskellPackages.ghcup
+  environment.systemPackages = with pkgs; [
+    vim
+    wget
+    git
+    firefox
+    home-manager
+    qemu
+    quickemu
+    wineWowPackages.waylandFull
   ];
 
   virtualisation.docker.rootless = {
