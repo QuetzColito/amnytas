@@ -18,7 +18,7 @@
       fsType = "ext4";
     };
 
-  fileSystems."home/quetz/storage" =
+  fileSystems."/home/quetz/storage" =
     { device = "/dev/sda1";
       options = [
         "nofail"
