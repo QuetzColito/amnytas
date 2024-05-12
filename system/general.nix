@@ -9,6 +9,7 @@ in
   # Enable networking
 
   boot.kernelModules = ["v4l2loopback"];
+  boot.supportedFilesystems = [ "ntfs" ];
 
   boot.extraModulePackages = with config.boot.kernelPackages;
     [ v4l2loopback.out ];

@@ -51,20 +51,24 @@
     protontricks
 
     # Utils
-    gnome.file-roller
-    gnome.totem
-    gnome.gnome-disk-utility
-    baobab
-    loupe
-    komikku
-    thunderbird
-    zathura
-    onlyoffice-bin
-    usbutils
     zip
     unzip
     lazygit
+    usbutils
+    # Files
+    baobab
+    gnome.gnome-disk-utility
+    gnome.file-roller
+    # Media
+    gnome.totem
+    loupe
+    komikku
     imagemagick
+    # Documents
+    zathura
+    thunderbird
+    onlyoffice-bin
+    obsidian
 
 
     # Hyprland
