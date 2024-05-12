@@ -49,15 +49,17 @@ in
     ];
   };
 
-  environment.systemPackages = with pkgs; [
-    vim
-    wget
-    git
-    firefox
-    home-manager
-    qemu
-    quickemu
-    wineWowPackages.waylandFull
+  environment.systemPackages = [
+    pkgs.vim
+    pkgs.wget
+    pkgs.git
+    pkgs.firefox
+    pkgs.home-manager
+    pkgs.qemu
+    pkgs.quickemu
+    pkgs.wineWowPackages.waylandFull
+    pkgs-stable.haskellPackages.hls
+    pkgs-stable.haskellPackages.ghcup
   ];
 
   virtualisation.docker.rootless = {
