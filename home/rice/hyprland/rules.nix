@@ -15,6 +15,7 @@
       "blur, ^(gtk-layer-shell|anyrun)$"
       "noanim, launcher"
       "noanim, bar"
+      "noanim, ^(steam_app.*)$"
     ];
     windowrulev2 = [
       # only allow shadows for floating windows
