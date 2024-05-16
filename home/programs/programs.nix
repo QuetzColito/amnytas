@@ -36,6 +36,7 @@
     nil
     btop
     cmatrix
+    sl
     parsec-bin
     qpwgraph
     fastfetch
@@ -55,6 +56,7 @@
     unzip
     lazygit
     usbutils
+    poppler_utils
     # Files
     baobab
     gnome.gnome-disk-utility
