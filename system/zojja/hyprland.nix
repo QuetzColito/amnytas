@@ -5,7 +5,7 @@
     ../wm/hyprland.nix
   ];
   services.greetd = {
-    enable = false;
+    enable = true;
     settings = rec {
       initial_session = {
         command = "Hyprland";
