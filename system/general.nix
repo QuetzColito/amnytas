@@ -1,10 +1,10 @@
 {pkgs, lib, config, ...}:
-#let
-#  aagl-gtk-on-nix = import (builtins.fetchTarball {
-#    url = "https://github.com/ezKEa/aagl-gtk-on-nix/archive/main.tar.gz";
-#    sha256 = sha256:1vfmfw31v2inv792vxgi96k963zwj7hl3lxs45dg2sf46nh4bcrp;
-#    });
-#in
+let
+ aagl-gtk-on-nix = import (builtins.fetchTarball {
+   url = "https://github.com/ezKEa/aagl-gtk-on-nix/archive/main.tar.gz";
+   sha256 = sha256:1jd27cswy4y8yars86vj0mhjlhym8mgrzhlwlaks95hkjx6zm48z;
+   });
+in
 {
   # Enable networking
 
@@ -84,11 +84,11 @@
     trusted-public-keys = [ "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI=" ];
   };
 
-#  imports = [
-#    aagl-gtk-on-nix.module
-#  ];
+  imports = [
+    aagl-gtk-on-nix.module
+  ];
 
-#  programs.honkers-railway-launcher.enable = true;
+  programs.honkers-railway-launcher.enable = true;
 
   programs.steam = {
     enable = true;
