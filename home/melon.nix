@@ -25,7 +25,7 @@ in
 
   # programs.waybar.settings.mainbar.output = ["eDP-1"];
 
-  # wayland.windowManager.hyprland.settings = {
+  wayland.windowManager.hyprland.settings = {
   #   workspace = [
    #    "1, monitor:eDP-1"
   #     "2, monitor:eDP-1"
