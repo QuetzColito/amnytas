@@ -3,8 +3,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "peitha"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.hostName = "zojja"; # Define your hostname.
   networking.networkmanager.enable = true;
 
   # Nvidia
@@ -30,9 +29,9 @@
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.quetz = {
+  users.users.melon = {
     isNormalUser = true;
-    description = "quetz";
+    description = "melon";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = [];
   };

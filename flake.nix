@@ -43,5 +43,15 @@
       inherit pkgs;
       modules = [ ./home/mabon.nix ];
     };
+    nixosConfigurations.zojja = nixpkgs.lib.nixosSystem {
+      specialArgs = {inherit inputs;};
+      modules = [
+        ./system/zojja/configuration.nix
+      ];
+    };
+    homeConfigurations."melon" = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+      modules = [ ./home/melon.nix ];
+    };
   };
 }
