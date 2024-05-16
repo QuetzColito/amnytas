@@ -5,10 +5,10 @@
     ../wm/hyprland.nix
   ];
   services.greetd = {
-    enable = true;
+    enable = false;
     settings = rec {
       initial_session = {
-        command = "";
+        command = "Hyprland";
         user = "melon";
       };
     default_session = initial_session;
