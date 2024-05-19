@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
+    stylix.url = "github:danth/stylix";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -26,11 +27,15 @@
       };
       modules = [
         ./system/peitha/configuration.nix
+        inputs.stylix.nixosModules.stylix
       ];
     };
     homeConfigurations."quetz" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
-      modules = [ ./home/peitha.nix ];
+      modules = [ 
+        ./home/peitha.nix 
+        inputs.stylix.homeManagerModules.stylix
+      ];
     };
 
     nixosConfigurations.mabon = nixpkgs.lib.nixosSystem {

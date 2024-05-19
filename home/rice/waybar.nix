@@ -92,8 +92,12 @@
           #format =  "  {:%H:%M }";
           #format-alt = "  {:%a, %b %e }";
           #tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-          tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+          tooltip-format = "<tt><small>{calendar}</small></tt>";
           format = "{:%a   %d %b   %H:%M}";
+          calendar = {
+            week-pos = "right";
+            on-scroll = 1;
+          };
         };
 
 
