@@ -33,7 +33,7 @@
         "QT_QPA_PLATFORM,wayland;xcb"
         "GDK_BACKEND,wayland,x11,*"
         "XCURSOR_THEME,Bibata-Modern-Classic"
-        "JAVA_HOME,${pkgs.jdk8}"
+        "JAVA_HOME,${pkgs.jdk}"
       ];
 
       gestures = {
@@ -68,8 +68,8 @@
         border_size = 2;
 
         # active border color
-        "col.active_border" = "rgb(7da6ff)";
-        "col.inactive_border" = "rgb(414559)";
+        #"col.active_border" = "rgb(7da6ff)";
+        #"col.inactive_border" = "rgb(414559)";
 
         # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
         apply_sens_to_raw = 1;
@@ -95,7 +95,7 @@
         drop_shadow = "no";
         shadow_range = 20;
         shadow_render_power = 5;
-        "col.shadow" = "rgba(292c3cee)";
+        #"col.shadow" = "rgba(292c3cee)";
       };
 
       misc = {

@@ -19,6 +19,7 @@
   #};
 {
   #home.packages = [waybar-wttr];
+  stylix.targets.waybar.enable = false;
   programs.waybar = {
     enable = true;
     style = import ./waybar-style.nix;

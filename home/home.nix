@@ -36,12 +36,13 @@
   gtk = {
     enable = true;
     gtk3.extraConfig.gtk-decoration-layout = "menu:";
-    theme = {
-      name = "Tokyonight-Dark-BL";
-      package = pkgs.tokyo-night-gtk;
-    };
+    #theme = {
+    #  name = "Tokyonight-Dark-BL";
+    #  package = pkgs.tokyo-night-gtk;
+    #};
     iconTheme = {
       name = "Tokyonight-Dark";
+     package = pkgs.tokyo-night-gtk;
     };
     cursorTheme = {
       name = "Bibata-Modern-Classic";
@@ -54,6 +55,8 @@
     platformTheme.name = "gtk";
     style.name = "adwaita-dark";
   };
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-terminal-dark.yaml";
+  stylix.image = ../wallpaper/main.jpg;
 
 
   home.sessionVariables = {

@@ -127,7 +127,7 @@ in
       fira-code-nerdfont
   ];
 
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-terminal-dark.yaml";
   stylix.image = ../wallpaper/main.jpg;
 
 }
