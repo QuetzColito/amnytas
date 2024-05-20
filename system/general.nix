@@ -97,6 +97,21 @@ in
     ];
   };
 
+  fonts.packages = with pkgs; [
+      material-icons
+      material-design-icons
+      roboto
+      work-sans
+      dejavu_fonts
+      iosevka-bin
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+      jetbrains-mono
+      (nerdfonts.override {fonts = ["Iosevka" "JetBrainsMono"];})
+      fira-code-nerdfont
+  ];
+
   
 
 }
