@@ -3,7 +3,8 @@
   ...
 } : {
   stylix = {
-
+    cursor.size = 24;
+    opacity.terminal = 0.75;
     base16Scheme = {
       base01= "1A1B26";
       base00= "16161E";

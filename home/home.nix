@@ -56,4 +56,12 @@
     platformTheme.name = "gtk";
     style.name = "adwaita-dark";
   };
+
+  services.hyprpaper = {
+    enable = true;
+    settings = {
+      splash = false;
+      ipc = "off";
+    };
+  };
 }
