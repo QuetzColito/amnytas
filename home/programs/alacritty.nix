@@ -8,7 +8,7 @@
     enable = true;
     settings = {
       window = {
-        opacity = lib.mkForce 0.75;
+        #opacity = lib.mkForce 0.75;
         blur = false;
       };
 

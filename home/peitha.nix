@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 let 
-  wallpaper1 = "~/Media/Wallpaper/vanitas_sis.jpg"; # EXTERNAL DEPENDENCY
-  wallpaper2 = "~/Media/Wallpaper/ruanmei.jpg"; # EXTERNAL DEPENDENCY
-  wallpaper3 = "~/Media/Wallpaper/kafu.jpg"; # EXTERNAL DEPENDENCY
+  wallpaper1 = "~/nixos/wallpaper/vertical.jpg";
+  wallpaper2 = "~/nixos/wallpaper/main.jpg";
+  wallpaper3 = "~/nixos/wallpaper/side.jpg";
 in 
 {
   home.username = "quetz";
@@ -16,19 +16,19 @@ in
     ./home.nix
   ]; 
 
-    home.file.".config/hypr/hyprpaper.conf".text = ''
-    preload = ${wallpaper1}
-    preload = ${wallpaper2}
-    preload = ${wallpaper3}
+  services.hyprpaper = {
+    preload = [
+      "${wallpaper1}"
+      "${wallpaper2}"
+      "${wallpaper3}"
+    ];
 
-    wallpaper = DP-1,${wallpaper1}
-    wallpaper = DP-2,${wallpaper2}
-    wallpaper = HDMI-A-1,${wallpaper3}
-
-    splash = false
-
-    ipc = off
-  '';
+    wallpaper = [
+      "DP-1,${wallpaper1}"
+      "DP-2,${wallpaper2}"
+      "HDMI-A-1,${wallpaper3}"
+    ];
+  };
 
   programs.waybar.settings.mainbar.output = ["HDMI-A-1" "DP-1" "DP-2"];
 

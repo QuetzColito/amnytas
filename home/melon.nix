@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let 
-  wallpaper1 = "~/Media/Wallpaper/ruanmei.jpg";
+  wallpaper1 = "~/nixos/wallpaper/main.jpg";
 in
 {
   home.username = "melon";
@@ -13,15 +13,16 @@ in
   imports = [
     ./home.nix
   ];
-  home.file.".config/hypr/hyprpaper.conf".text = ''
-    preload = ${wallpaper1}
 
-    wallpaper = ,${wallpaper1}
+  services.hyprpaper = {
+    preload = [
+      "${wallpaper1}"
+    ];
 
-    splash = false
-
-    ipc = off
-  '';
+    wallpaper = [
+      ",${wallpaper1}"
+    ];
+  };
 
   # programs.waybar.settings.mainbar.output = ["eDP-1"];
 
