@@ -17,6 +17,8 @@
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
     in {
+
+      # PEITHA
     nixosConfigurations.peitha = nixpkgs.lib.nixosSystem {
       specialArgs = {
         pkgs-stable = import nixpkgs-stable {
@@ -38,6 +40,7 @@
       ];
     };
 
+      # MABON
     nixosConfigurations.mabon = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
@@ -48,6 +51,8 @@
       inherit pkgs;
       modules = [ ./home/mabon.nix ];
     };
+
+      # ZOJJA
     nixosConfigurations.zojja = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [

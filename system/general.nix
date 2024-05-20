@@ -3,7 +3,10 @@ let
  aagl-gtk-on-nix = import (builtins.fetchTarball "https://github.com/ezKEa/aagl-gtk-on-nix/archive/main.tar.gz");
 in
 {
-  # Enable networking
+  imports = [
+    ../stylix.nix
+    aagl-gtk-on-nix.module
+  ];
 
   boot.kernelModules = ["v4l2loopback"];
   boot.supportedFilesystems = [ "ntfs" ];
@@ -38,14 +41,8 @@ in
   };
 
   powerManagement.enable = true;
-  # Allow unfree and external packages
+  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  programs.nix-ld = {
-    enable = true;
-    libraries = with pkgs; [
-      # Missing libraries go here
-    ];
-  };
 
   environment.systemPackages = with pkgs; [
     vim
@@ -75,15 +72,10 @@ in
 
   services.flatpak.enable = true;
 
-
   nix.settings = {
     substituters = [ "https://ezkea.cachix.org" ];
     trusted-public-keys = [ "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI=" ];
   };
-
-  imports = [
-    aagl-gtk-on-nix.module
-  ];
 
   programs.honkers-railway-launcher.enable = true;
 
@@ -100,34 +92,11 @@ in
     plugins = with pkgs.xfce; [
       thunar-archive-plugin
       thunar-media-tags-plugin
+      thunar-volman
       tumbler
     ];
   };
 
-  fonts.packages = with pkgs; [
-      material-icons
-      material-design-icons
-      roboto
-      work-sans
-      comic-neue
-      source-sans
-      twemoji-color-font
-      comfortaa
-      inter
-      lato
-      lexend
-      jost
-      dejavu_fonts
-      iosevka-bin
-      noto-fonts
-      noto-fonts-cjk
-      noto-fonts-emoji
-      jetbrains-mono
-      (nerdfonts.override {fonts = ["Iosevka" "JetBrainsMono"];})
-      fira-code-nerdfont
-  ];
-
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-terminal-dark.yaml";
-  stylix.image = ../wallpaper/main.jpg;
+  
 
 }

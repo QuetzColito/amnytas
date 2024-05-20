@@ -1,5 +1,7 @@
 {
   pkgs,
+  lib,
+  config,
   ...
 }: {
   imports = [
@@ -69,6 +71,7 @@
 
         # active border color
         #"col.active_border" = "rgb(7da6ff)";
+        "col.active_border" = lib.mkForce "rgb(${config.stylix.base16Scheme.base0C})";
         #"col.inactive_border" = "rgb(414559)";
 
         # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)

@@ -8,6 +8,7 @@
     ./programs/programs.nix
     ./dev/dev.nix
     ./rice/rice.nix
+    ../stylix.nix
   ];
 
   services = {
@@ -54,13 +55,5 @@
     enable = true;
     platformTheme.name = "gtk";
     style.name = "adwaita-dark";
-  };
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-terminal-dark.yaml";
-  stylix.image = ../wallpaper/main.jpg;
-
-
-  home.sessionVariables = {
-    EDITOR = "vim";
-    XCURSOR_THEME = "Bibata-Modern-Classic";
   };
 }

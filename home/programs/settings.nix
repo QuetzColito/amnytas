@@ -12,7 +12,6 @@
     };
     "workbench.iconTheme"= "material-icon-theme";
     "git.openRepositoryInParentFolders"= "always";
-    "editor.suggest.insertMode"= "replace";
     "terminal.integrated.fontFamily"= "MesloLGS NF";
     "editor.linkedEditing"= true;
     "javascript.updateImportsOnFileMove.enabled"= "always";
@@ -263,4 +262,5 @@
     "redhat.telemetry.enabled"= false;
     "terminal.integrated.enablePersistentSessions"= false;
     "workbench.colorTheme"= "Tokyo Night";
+    "workbench.activityBar.location"= "hidden";
 }
