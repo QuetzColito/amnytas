@@ -7,6 +7,7 @@
     ./zsh.nix
   ];
 
+  stylix.targets.vscode.enable = false;
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
@@ -20,6 +21,7 @@
       johnpapa.vscode-peacock
       enkia.tokyo-night
     ];
+    userSettings = import ./settings.nix;
   };
 
 
