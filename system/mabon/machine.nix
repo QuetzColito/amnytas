@@ -6,6 +6,10 @@
   networking.hostName = "mabon"; # Define your hostname.
   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.wireless.userControlled.enable = true;
+  networking.wireless.networks."uni-halle" = {
+    auth = (builtins.readFile /etc/nixos/wpa.txt);
+  };
+
 
   # Nvidia
   hardware.opengl = {

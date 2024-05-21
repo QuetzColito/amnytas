@@ -25,6 +25,7 @@ in
   };
 
   programs.waybar.settings.mainbar.output = ["eDP-1"];
+  programs.waybar.settings.mainbar.modules-left = ["battery"];
 
   wayland.windowManager.hyprland.settings = {
     workspace = [

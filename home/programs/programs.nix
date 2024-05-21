@@ -46,6 +46,8 @@
     nix-index
     obs-studio
     discord
+    pandoc
+    texliveSmall
     
     # Gaming
     osu-lazer-bin

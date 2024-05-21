@@ -45,11 +45,15 @@
       specialArgs = {inherit inputs;};
       modules = [
         ./system/mabon/configuration.nix
+        inputs.stylix.nixosModules.stylix
       ];
     };
     homeConfigurations."arthezia" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
-      modules = [ ./home/mabon.nix ];
+      modules = [ 
+        ./home/mabon.nix
+        inputs.stylix.homeManagerModules.stylix
+      ];
     };
 
       # ZOJJA
