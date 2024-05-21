@@ -46,6 +46,7 @@
     nix-index
     obs-studio
     discord
+    pandoc
     
     # Gaming
     osu-lazer-bin
