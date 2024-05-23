@@ -51,12 +51,6 @@
     };
   };
 
-  qt = {
-    enable = true;
-    platformTheme.name = "gtk";
-    style.name = "adwaita-dark";
-  };
-
   services.hyprpaper = {
     enable = true;
     settings = {

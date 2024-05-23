@@ -24,7 +24,6 @@
   ];
   home.sessionVariables = {
     JAVA_HOME = "${pkgs.jdk17}";
-    TEST = "testing";
   };
 }
 

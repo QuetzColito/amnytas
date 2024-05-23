@@ -70,6 +70,7 @@
     loupe
     komikku
     imagemagick
+    audacity
     # Documents
     zathura
     thunderbird
