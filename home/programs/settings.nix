@@ -258,7 +258,7 @@
     "git.autofetch"= true;
     "terminal.integrated.defaultProfile.linux"= "zsh";
     "git.confirmSync"= false;
-    "editor.fontFamily"= "'IosevkaTerm Nerd Font', 'JetBrainsMono Nerd Font'";
+    "editor.fontFamily"= "'IosevkaTerm Nerd Font'";
     "redhat.telemetry.enabled"= false;
     "terminal.integrated.enablePersistentSessions"= false;
     "workbench.colorTheme"= "Tokyo Night";

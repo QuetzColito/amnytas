@@ -10,14 +10,6 @@
     hlint
     jdk
     jdt-language-server
-    (eclipses.eclipseWithPlugins {
-      eclipse = eclipses.eclipse-java;
-      jvmArgs = [ "-Xmx2048m" ];
-      plugins = [ 
-        eclipses.plugins.color-theme 
-        eclipses.plugins.vrapper  
-      ];
-    })
     rust-analyzer
     cargo
     rustc
@@ -32,6 +24,7 @@
   ];
   home.sessionVariables = {
     JAVA_HOME = "${pkgs.jdk}";
+    TEST = "testing";
   };
 }
 
