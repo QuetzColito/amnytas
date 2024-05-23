@@ -8,7 +8,7 @@
     haskell.compiler.ghc94
     cabal-install
     hlint
-    jdk
+    jdk17
     jdt-language-server
     rust-analyzer
     cargo
@@ -23,7 +23,7 @@
     lazydocker
   ];
   home.sessionVariables = {
-    JAVA_HOME = "${pkgs.jdk}";
+    JAVA_HOME = "${pkgs.jdk17}";
     TEST = "testing";
   };
 }
