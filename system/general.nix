@@ -108,13 +108,6 @@ in
       material-icons
       material-design-icons
       roboto
-      work-sans
-      dejavu_fonts
-      iosevka-bin
-      noto-fonts
-      noto-fonts-cjk
-      noto-fonts-emoji
-      jetbrains-mono
       (nerdfonts.override {fonts = ["IosevkaTerm" "Iosevka" "JetBrainsMono"];})
       fira-code-nerdfont
   ];

@@ -6,13 +6,13 @@
 
     fonts = {
       serif = {
-        package = pkgs.fira-code-nerdfont;
-        name = "FiraCode Nerd Font";
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Serif";
       };
 
       sansSerif = {
-        package = pkgs.fira-code-nerdfont;
-        name = "FiraCode Nerd Font";
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Sans";
       };
 
       monospace = {

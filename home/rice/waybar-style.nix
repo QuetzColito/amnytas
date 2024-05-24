@@ -16,12 +16,13 @@
 
   tooltip {
     /*background: #12121e;*/
-    background: none;
-    box-shadow: none;
+    background: #1e1e2e;
     border-radius: 7px;
     border-width: 2px;
     border-style: solid;
-    border-color: #11111b;
+    border-color: #89cdeb;
+    color: #9aa5ce;
+    margin-top: 10px;
     opacity: 0.75;
   }
 
