@@ -12,7 +12,6 @@
     };
     "workbench.iconTheme"= "material-icon-theme";
     "git.openRepositoryInParentFolders"= "always";
-    "terminal.integrated.fontFamily"= "MesloLGS NF";
     "editor.linkedEditing"= true;
     "javascript.updateImportsOnFileMove.enabled"= "always";
     "update.showReleaseNotes"= false;
@@ -258,9 +257,10 @@
     "git.autofetch"= true;
     "terminal.integrated.defaultProfile.linux"= "zsh";
     "git.confirmSync"= false;
-    "editor.fontFamily"= "'IosevkaTerm Nerd Font'";
+    "editor.fontFamily"= "'FiraCode Nerd Font'";
     "redhat.telemetry.enabled"= false;
     "terminal.integrated.enablePersistentSessions"= false;
+    "terminal.integrated.fontFamily"= "'FiraCode Nerd Font'";
     "workbench.colorTheme"= "Tokyo Night";
     "workbench.activityBar.location"= "hidden";
 }

@@ -3,6 +3,29 @@
   ...
 } : {
   stylix = {
+
+    fonts = {
+      serif = {
+        package = pkgs.fira-code-nerdfont;
+        name = "FiraCode Nerd Font";
+      };
+
+      sansSerif = {
+        package = pkgs.fira-code-nerdfont;
+        name = "FiraCode Nerd Font";
+      };
+
+      monospace = {
+        package = pkgs.fira-code-nerdfont;
+        name = "FiraCode Nerd Font";
+      };
+
+      emoji = {
+        package = pkgs.noto-fonts-emoji;
+        name = "Noto Color Emoji";
+      };
+    };
+
     cursor.size = 24;
     opacity.terminal = 0.75;
     base16Scheme = {

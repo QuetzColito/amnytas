@@ -122,7 +122,7 @@
             format-charging= " {capacity}%";
             format-plugged= " {capacity}%";
             format-alt= "{time} {icon}";
-            format-icons= ["1" "2" "3" "4" "5" "6" "7" "8" "9" "10" "11"];
+            format-icons= ["" "" "" "" "" "" "" "" "" "" ""];
         };
 
         pulseaudio= {
