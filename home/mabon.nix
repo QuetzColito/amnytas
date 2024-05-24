@@ -24,7 +24,7 @@ in
     ];
   };
 
-  programs.waybar.settings.mainbar.modules-left = ["battery"];
+  programs.waybar.settings.mainbar.modules-right = ["battery"];
 
   wayland.windowManager.hyprland.settings = {
     workspace = [
