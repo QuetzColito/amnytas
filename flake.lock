@@ -172,8 +172,11 @@
       "locked": {
         "lastModified": 1716457508,
         "narHash": "sha256-ZxzffLuWRyuMrkVVq7wastNUqeO0HJL9xqfY1QsYaqo=",
+        "lastModified": 1716457508,
+        "narHash": "sha256-ZxzffLuWRyuMrkVVq7wastNUqeO0HJL9xqfY1QsYaqo=",
         "owner": "nix-community",
         "repo": "home-manager",
+        "rev": "850cb322046ef1a268449cf1ceda5fd24d930b05",
         "rev": "850cb322046ef1a268449cf1ceda5fd24d930b05",
         "type": "github"
       },
@@ -224,8 +227,11 @@
       "locked": {
         "lastModified": 1716361217,
         "narHash": "sha256-mzZDr00WUiUXVm1ujBVv6A0qRd8okaITyUp4ezYRgc4=",
+        "lastModified": 1716361217,
+        "narHash": "sha256-mzZDr00WUiUXVm1ujBVv6A0qRd8okaITyUp4ezYRgc4=",
         "owner": "nixos",
         "repo": "nixpkgs",
+        "rev": "46397778ef1f73414b03ed553a3368f0e7e33c2f",
         "rev": "46397778ef1f73414b03ed553a3368f0e7e33c2f",
         "type": "github"
       },
@@ -277,8 +283,11 @@
       "locked": {
         "lastModified": 1716456264,
         "narHash": "sha256-s9Tyj5pEivl/AsvrpkUkfR1Iu3zHfXpviPfe4HbPJ5I=",
+        "lastModified": 1716456264,
+        "narHash": "sha256-s9Tyj5pEivl/AsvrpkUkfR1Iu3zHfXpviPfe4HbPJ5I=",
         "owner": "danth",
         "repo": "stylix",
+        "rev": "290c8aef476ce98fff9cefc059284429d561a085",
         "rev": "290c8aef476ce98fff9cefc059284429d561a085",
         "type": "github"
       },
