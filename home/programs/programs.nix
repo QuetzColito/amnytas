@@ -65,12 +65,14 @@
     baobab
     gnome.gnome-disk-utility
     gnome.file-roller
+    fzf
     # Media
     gnome.totem
     loupe
     komikku
     imagemagick
     audacity
+    vlc
     # Documents
     zathura
     thunderbird
