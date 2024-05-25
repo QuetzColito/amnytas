@@ -1,5 +1,6 @@
 {
   lib,
+  config,
   ...
 }:
 
@@ -7,6 +8,7 @@
   programs.alacritty = {
     enable = true;
     settings = {
+    shell.program = "${config.home.homeDirectory}/.nix-profile/bin/zsh";
       window = {
         #opacity = lib.mkForce 0.75;
         blur = false;

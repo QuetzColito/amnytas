@@ -8,8 +8,6 @@ in
 
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
-  programs.alacritty.settings.shell.program = "/home/arthezia/.nix-profile/bin/zsh";
-
   imports = [
     ./home.nix
   ];
