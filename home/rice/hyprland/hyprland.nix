@@ -130,13 +130,13 @@
         ];
 
         animation = [
-          "windows, 1, 4, overshot, slide"
-          "windowsOut, 1, 4, smoothOut, slide"
+          "windows, 1, 5, overshot, slide"
+          "windowsOut, 1, 6, smoothIn, slide"
           "border,1,10,default"
 
           "fade, 1, 10, smoothIn"
           "fadeDim, 1, 10, smoothIn"
-          "workspaces,1,4,overshot,slidevert"
+          "workspaces,1,4,smoothIn,slidefadevert 50%"
         ];
       };
 

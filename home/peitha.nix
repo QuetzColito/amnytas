@@ -36,7 +36,7 @@ in
     settings = {
       exec-once = [
         "firefox"
-        "for i in ~/MyGames/YTM/*.AppImage ; do appimage-run $i; done" # EXTERNAL DEPENDENCY
+        "for i in ~/apps/ytm/*.AppImage ; do appimage-run $i; done" # EXTERNAL DEPENDENCY
         "flatpak run dev.vencord.Vesktop" # EXTERNAL DEPENDENCY
 	      "sleep 5; hyprctl dispatch resizewindowpixel exact 100% 30%,YouTube"
       ];

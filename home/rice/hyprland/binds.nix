@@ -25,7 +25,8 @@ in {
         "${mod},RETURN,exec,alacritty"
         "${mod},N,exec,thunar"
         "${mod},S,exec,codium"
-        "${mod},Y,exec,for i in ~/MyGames/YTM/*.AppImage ; do appimage-run $i; done" # EXTERNAL DEPENDENCY
+        "${mod},G,exec,steam"
+        "${mod},Y,exec,for i in ~/apps/ytm/*.AppImage ; do appimage-run $i; done" # EXTERNAL DEPENDENCY
         "${mod},D,exec,flatpak run dev.vencord.Vesktop" # EXTERNAL DEPENDENCY
 
         "${mod},SPACE,exec,tofi-drun --drun-launch=true"
@@ -40,10 +41,7 @@ in {
         "${mod},J,movefocus,d"
 
         #",XF86Bluetooth, exec, bcn"
-        "${mod},M,exec,hyprctl keyword $kw $(($(hyprctl getoption $kw -j | jaq -r '.int') ^ 1))" # toggle no_gaps_when_only
-        "${mod},T,togglegroup," # group focused window
         "${mod},R,swapnext," # swap window
-        "${modshift},G,changegroupactive," # switch within the active group
         "${mod},V,togglefloating," # toggle floating for the focused window
         "${mod},F,fullscreen," # fullscreen focused window
 
@@ -64,7 +62,6 @@ in {
 
         "CTRL ${modshift},S,exec, pauseshot"
         "${modshift},S,exec, grim -g \"$(slurp)\" - | wl-copy"
-        "${modshift},O,exec,wl-ocr"
 
         "${modshift},L,exec,hyprlock"
       ]
@@ -75,10 +72,6 @@ in {
       "${mod},mouse:273,resizewindow"
     ];
 
-    binde = [
-      "SUPERALT, L, resizeactive, 80 0"
-      "SUPERALT, H, resizeactive, -80 0"
-    ];
     # binds that are locked, a.k.a will activate even while an input inhibitor is active
     bindl = [
       # media controls
