@@ -4,7 +4,6 @@
     waybar
     dunst
     libnotify
-    hyprpaper
   ];
 
   environment.sessionVariables = {

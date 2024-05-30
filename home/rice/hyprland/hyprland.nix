@@ -22,7 +22,6 @@
       exec-once = [
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         # set cursor for HL itself
-        "hyprpaper"
         "handle_monitor_connect"
         #"hyprctl setcursor ${pointer.name} ${toString pointer.size}"
       ];

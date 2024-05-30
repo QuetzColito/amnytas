@@ -24,10 +24,11 @@ in {
         # App Shortcuts
         "${mod},RETURN,exec,alacritty"
         "${mod},N,exec,thunar"
-        "${mod},S,exec,codium"
+        "${mod},S,exec,codium ~/nixos"
         "${mod},G,exec,steam"
         "${mod},Y,exec,for i in ~/apps/ytm/*.AppImage ; do appimage-run $i; done" # EXTERNAL DEPENDENCY
         "${mod},D,exec,flatpak run dev.vencord.Vesktop" # EXTERNAL DEPENDENCY
+        #"${mod},D,exec,vesktop"
 
         "${mod},SPACE,exec,tofi-drun --drun-launch=true"
         "${mod},Q,killactive"

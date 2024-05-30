@@ -34,9 +34,11 @@ in
   wayland.windowManager.hyprland = {
     settings = {
       exec-once = [
-        "firefox"
-        "for i in ~/apps/ytm/*.AppImage ; do appimage-run $i; done" # EXTERNAL DEPENDENCY
-        "flatpak run dev.vencord.Vesktop" # EXTERNAL DEPENDENCY
+        "[workspace 7 silent] firefox"
+        "[workspace 1 silent] for i in ~/apps/ytm/*.AppImage ; do appimage-run $i; done" # EXTERNAL DEPENDENCY
+        "[workspace 1 silent] flatpak run dev.vencord.Vesktop" # EXTERNAL DEPENDENCY
+        #"[workspace 1 silent] vesktop"
+        "[workspace 2 silent] alacritty"
 	      "sleep 5; hyprctl dispatch resizewindowpixel exact 100% 30%,YouTube"
       ];
     };
