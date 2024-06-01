@@ -91,7 +91,7 @@
 
         cpu = {
           interval = 1;
-          format = "  {}%";
+          format = "  {usage}%";
         };
 
         memory = {
@@ -141,7 +141,7 @@
             tooltip= false;
             format-muted= " Muted";
             on-click= "pamixer -t";
-            on-right-click= "exec pavucontrol";
+            on-right-click= "hyprctl dispatch exec pavucontrol";
             on-scroll-up= "pamixer -i 5";
             on-scroll-down= "pamixer -d 5";
             scroll-step= 5;
