@@ -61,11 +61,15 @@
       specialArgs = {inherit inputs;};
       modules = [
         ./system/zojja/configuration.nix
+        inputs.stylix.nixosModules.stylix
       ];
     };
     homeConfigurations."melon" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
-      modules = [ ./home/melon.nix ];
+      modules = [ 
+        ./home/melon.nix 
+        inputs.stylix.homeManagerModules.stylix
+      ];
     };
   };
 }
