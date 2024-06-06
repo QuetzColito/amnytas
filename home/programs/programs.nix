@@ -66,6 +66,8 @@
     gnome.gnome-disk-utility
     gnome.file-roller
     fzf
+    fd
+    ncdu
     # Media
     gnome.totem
     loupe
