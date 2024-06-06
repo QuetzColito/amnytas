@@ -48,8 +48,9 @@
 
       input = {
         # keyboard layout
-        kb_layout = "eu";
-        kb_options = "caps:escape";
+        kb_layout = "eu,jp";
+        kb_variant = ",kana";
+        kb_options = "caps:escape,grp:alt_space_toggle";
         follow_mouse = 1;
         accel_profile = "flat";
         sensitivity = 0.0;
@@ -57,6 +58,7 @@
           clickfinger_behavior = true;
           tap-to-click = true;
           scroll_factor = 0.5;
+
         };
       };
 
