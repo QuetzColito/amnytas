@@ -59,6 +59,14 @@ in
   programs.nix-ld = {
     enable = true;
     libraries = with pkgs; [
+      xorg.libXcursor
+      xorg.libXinerama
+      xorg.libXext
+      xorg.libXrandr
+      xorg.libXrender
+      xorg.libX11
+      xorg.libXi
+      libGL
       # Add any missing dynamic libraries for unpackaged programs here,
       # NOT in environment.systemPackages
     ];
