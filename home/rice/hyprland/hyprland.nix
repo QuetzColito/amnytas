@@ -11,6 +11,7 @@
   #pointer = config.home.pointerCursor;
   wayland.windowManager.hyprland = {
     enable = true;
+    xwayland.enable = true;
     systemd = {
       variables = ["--all"];
       extraCommands = [
@@ -144,6 +145,9 @@
         pseudotile = false;
         preserve_split = "yes";
         no_gaps_when_only = false;
+      };
+      debug = {
+        disable_logs = false;
       };
 
       "$kw" = "dwindle:no_gaps_when_only";

@@ -58,6 +58,7 @@ in
     ];
     monitor = [
       ",highrr,auto,1"
+      "Unknown-1,disable"
       "DP-2,preferred,0x0,1"
       "HDMI-A-1,preferred,2560x360,1"
       "DP-1,preferred,-1080x-300,1,transform,1"

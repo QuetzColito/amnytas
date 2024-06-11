@@ -15,9 +15,6 @@
     rustc
     #haskellPackages.hls
     #haskellPackages.ghcup
-    R
-    rPackages.languageserver
-    rstudioWrapper
     corepack
     docker
     lazydocker

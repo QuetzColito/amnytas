@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{pkgs, lib, ...}:
 {
   environment.systemPackages = with pkgs; [
     waybar
@@ -17,16 +17,19 @@
   };
 
   services.dbus.enable = true;
-  #xdg.portal = {
-      #enable = true;
-      #config.common.default = "wlr";
-      #wlr.enable = true;
-      #extraPortals = [
-      #pkgs.xdg-desktop-portal-hyprland
+  xdg.portal = {
+      enable = true;
+      config.common.default = "wlr";
+      wlr.enable = lib.mkForce true;
+      extraPortals = [
+      pkgs.xdg-desktop-portal-hyprland
       #pkgs.xdg-desktop-portal
-      #pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-gtk
       #pkgs.xdg-desktop-portal-wlr
-  #  ];
-  #};
+    ];
+  };
+  #boot.kernelParams = [
+  #  "initcall_blacklist=simpledrm_platform_driver_init"
+  #];
 
 }

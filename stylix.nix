@@ -3,6 +3,7 @@
   ...
 } : {
   stylix = {
+    enable = true;
 
     fonts = {
       serif = {
