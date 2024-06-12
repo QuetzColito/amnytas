@@ -8,18 +8,32 @@
   '';
 in {
   home.packages = [pkgs.tofi tofi-emoji];
-  xdg.configFile."tofi/config".text = ''
-    height = 100%
+  xdg.configFile."tofi/config".text = 
+  #''
+  #  height = 100%
+  #  width = 100%
+  #  padding-left = 30%
+  #  padding-top = 30%
+  #  anchor = center
+  #  border-width = 0
+  #  outline-width = 0
+  #  result-spacing = 25
+  #  num-results = 0
+  #  font = monospace
+  #  background-color = #1A1B2630
+  #  selection-color = #7AA2F7
+  #'';
+  ''
     width = 100%
-    padding-left = 30%
-    padding-top = 30%
-    anchor = center
+    height = 100%
     border-width = 0
     outline-width = 0
+    padding-left = 35%
+    padding-top = 35%
     result-spacing = 25
-    num-results = 0
+    num-results = 15
     font = monospace
-    background-color = #1A1B2630
+    background-color = #0005
     selection-color = #7AA2F7
   '';
 }

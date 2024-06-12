@@ -30,7 +30,7 @@ in {
         "${mod},D,exec,flatpak run dev.vencord.Vesktop" # EXTERNAL DEPENDENCY
         #"${mod},D,exec,vesktop"
 
-        "${mod},SPACE,exec,tofi-drun --drun-launch=true"
+        "${mod},SPACE,exec,hyprctl dispatch exec $(tofi-run --ascii-input true)"
         "${mod},Q,killactive"
         "${mod},MINUS,exit"
         "${mod},BACKSPACE,exec,hyprctl kill"
