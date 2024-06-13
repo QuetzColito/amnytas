@@ -19,10 +19,10 @@
       pkgs = nixpkgs.legacyPackages.${system};
       home-modules = [
         inputs.stylix.homeManagerModules.stylix
-        inputs.xremap-flake.nixosModules.default
       ];
       system-modules = [
         inputs.stylix.nixosModules.stylix
+        inputs.xremap-flake.nixosModules.default
       ];
     in {
       # PEITHA

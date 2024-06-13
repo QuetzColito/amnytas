@@ -5,7 +5,6 @@
   imports = [
     ./alacritty.nix
     ./zsh.nix
-    ./xremap.nix
   ];
 
   stylix.targets.vscode.enable = false;

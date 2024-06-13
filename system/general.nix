@@ -5,6 +5,7 @@ in
 {
   imports = [
     ../stylix.nix
+    ./xremap.nix
     aagl-gtk-on-nix.module
   ];
 
