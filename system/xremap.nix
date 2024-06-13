@@ -5,12 +5,15 @@
   services.xremap = {
     /* NOTE: since this sample configuration does not have any DE, xremap needs to be started manually by systemctl --user start xremap */
     serviceMode = "user";
-    userName = config.home.username;
+    userName = builtins.head (builtins.attrNames config.users.users);
+
     # Modmap for single key rebinds
     config.modmap = [
       {
         name = "Global";
-        remap = { "CapsLock" = "Esc"; }; # globally remap CapsLock to Esc
+        remap = { 
+          "CapsLock" = "Esc"; # globally remap CapsLock to Esc
+        }; 
       }
     ];
 
