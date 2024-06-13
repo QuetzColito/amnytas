@@ -5,6 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
     stylix.url = "github:danth/stylix";
+    xremap-flake.url = "github:xremap/nix-flake";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -16,8 +17,14 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+      home-modules = [
+        inputs.stylix.homeManagerModules.stylix
+        inputs.xremap-flake.nixosModules.default
+      ];
+      system-modules = [
+        inputs.stylix.nixosModules.stylix
+      ];
     in {
-
       # PEITHA
     nixosConfigurations.peitha = nixpkgs.lib.nixosSystem {
       specialArgs = {
@@ -29,15 +36,13 @@
       };
       modules = [
         ./system/peitha/configuration.nix
-        inputs.stylix.nixosModules.stylix
-      ];
+      ] ++ system-modules;
     };
     homeConfigurations."quetz" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       modules = [ 
         ./home/peitha.nix 
-        inputs.stylix.homeManagerModules.stylix
-      ];
+      ] ++ home-modules;
     };
 
       # MABON
@@ -45,15 +50,13 @@
       specialArgs = {inherit inputs;};
       modules = [
         ./system/mabon/configuration.nix
-        inputs.stylix.nixosModules.stylix
-      ];
+      ] ++ system-modules;
     };
     homeConfigurations."arthezia" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       modules = [ 
         ./home/mabon.nix
-        inputs.stylix.homeManagerModules.stylix
-      ];
+      ] ++ home-modules;
     };
 
       # ZOJJA
@@ -61,15 +64,13 @@
       specialArgs = {inherit inputs;};
       modules = [
         ./system/zojja/configuration.nix
-        inputs.stylix.nixosModules.stylix
-      ];
+      ] ++ system-modules;
     };
     homeConfigurations."melon" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       modules = [ 
         ./home/melon.nix 
-        inputs.stylix.homeManagerModules.stylix
-      ];
+      ] ++ home-modules;
     };
   };
 }

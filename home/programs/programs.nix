@@ -5,6 +5,7 @@
   imports = [
     ./alacritty.nix
     ./zsh.nix
+    ./xremap.nix
   ];
 
   stylix.targets.vscode.enable = false;
@@ -92,6 +93,7 @@
     bibata-cursors
     wl-clip-persist
     wl-clipboard
+    xclip
     pngquant
     cliphist
     playerctl
