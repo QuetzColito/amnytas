@@ -10,7 +10,10 @@ in
 
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
-  
+  home.packages = with pkgs; [
+    (writeShellScriptBin "popvm" "quickemu --vm ~/storage/pop/popos-22.04-intel.conf")
+  ];
+
   imports = [
     ./home.nix
   ]; 
@@ -38,7 +41,6 @@ in
         "[workspace 1 silent] for i in ~/apps/ytm/*.AppImage ; do appimage-run $i; done" # EXTERNAL DEPENDENCY
         "[workspace 1 silent] flatpak run dev.vencord.Vesktop" # EXTERNAL DEPENDENCY
         #"[workspace 1 silent] vesktop"
-        "[workspace 2 silent] alacritty"
 	      "sleep 5; hyprctl dispatch resizewindowpixel exact 100% 30%,YouTube"
       ];
     };
