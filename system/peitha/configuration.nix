@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ./machine.nix
       ./hyprland.nix
+      #../wm/kde.nix
       ../general.nix
     ];
 
