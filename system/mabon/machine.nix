@@ -25,11 +25,11 @@
     powerManagement.enable = false;
     powerManagement.finegrained = false;
 
-    open = true;
+    open = false;
 
     nvidiaSettings = true;
 
-    package = config.boot.kernelPackages.nvidiaPackages.latest;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.

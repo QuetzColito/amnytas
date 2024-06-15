@@ -26,6 +26,7 @@ in {
         "${mod},N,exec,thunar"
         "${mod},S,exec,codium ~/nixos"
         "${mod},G,exec,steam"
+        "${mod},B,exec,firefox"
         "${mod},Y,exec,for i in ~/apps/ytm/*.AppImage ; do appimage-run $i; done" # EXTERNAL DEPENDENCY
         "${mod},D,exec,flatpak run dev.vencord.Vesktop" # EXTERNAL DEPENDENCY
         #"${mod},D,exec,vesktop"
