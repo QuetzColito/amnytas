@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 let 
   wallpaper1 = "~/nixos/wallpaper/main.jpg";
 in
@@ -25,6 +25,7 @@ in
   programs.waybar.settings.mainbar.modules-right = ["battery"];
 
   wayland.windowManager.hyprland.settings = {
+    input.sensitivity = lib.mkForce 1;
     workspace = [
       "1, monitor:eDP-1"
       "2, monitor:eDP-1"
