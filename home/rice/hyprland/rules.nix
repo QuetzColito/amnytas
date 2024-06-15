@@ -64,7 +64,6 @@
 
       "workspace 1, class:^(vesktop)$"
       "workspace 1, class:^(YouTube Music)$"
-      "workspace 7, class:^(firefox), title:^(.*Mozilla Firefox)$"
       "workspace 4, class:^(steam_app.*)$"
       "workspace 9, title:^(Steam)$"
       "workspace 5, class:codium-url-handler"
