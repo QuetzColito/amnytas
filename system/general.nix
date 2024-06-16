@@ -8,6 +8,8 @@ in
     ./xremap.nix
     aagl-gtk-on-nix.module
   ];
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   boot.kernelModules = ["v4l2loopback"];
   boot.supportedFilesystems = [ "ntfs" ];
