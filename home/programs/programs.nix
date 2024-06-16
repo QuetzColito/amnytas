@@ -50,6 +50,7 @@
     texliveSmall
     
     # Gaming
+    gamescope
     osu-lazer-bin
     prismlauncher
     heroic
