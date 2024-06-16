@@ -84,6 +84,7 @@
 
 
     # Hyprland
+    xorg.xrandr
     wf-recorder
     brightnessctl
     slurp

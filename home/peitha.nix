@@ -37,6 +37,7 @@ in
   wayland.windowManager.hyprland = {
     settings = {
       exec-once = [
+        "xrandr --output DP-2 --primary"
         "[workspace 7 silent] firefox"
         "[workspace 1 silent] for i in ~/apps/ytm/*.AppImage ; do appimage-run $i; done" # EXTERNAL DEPENDENCY
         "[workspace 1 silent] flatpak run dev.vencord.Vesktop" # EXTERNAL DEPENDENCY

@@ -26,6 +26,10 @@ in
 
   wayland.windowManager.hyprland.settings = {
     input.sensitivity = lib.mkForce 1;
+      exec-once = [
+        "xrandr --output eDP-1 --primary"
+        "xrandr --output HDMI-A-1 --primary"
+      ];
     workspace = [
       "1, monitor:eDP-1"
       "2, monitor:eDP-1"
