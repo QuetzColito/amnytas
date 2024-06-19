@@ -263,4 +263,6 @@
     "terminal.integrated.fontFamily"= "'FiraCode Nerd Font'";
     "workbench.colorTheme"= "Tokyo Night";
     "workbench.activityBar.location"= "hidden";
+    "editor.unicodeHighlight.nonBasicASCII" = false;
+
 }
