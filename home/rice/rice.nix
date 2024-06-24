@@ -5,7 +5,8 @@
     ./hyprland/hyprland.nix
     ./tofi.nix
     ./waybar.nix
-    ./dunst.nix
+    #./dunst.nix
+    ./mako.nix
   ];
 
 
