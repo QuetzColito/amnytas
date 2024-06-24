@@ -17,6 +17,7 @@
     #haskellPackages.ghcup
     corepack
     docker
+    maven
     lazydocker
   ];
   home.sessionVariables = {
