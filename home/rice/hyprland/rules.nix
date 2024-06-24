@@ -21,7 +21,7 @@
     windowrulev2 = [
       # only allow shadows for floating windows
       "noshadow, floating:0"
-      "tile, title:Spotify"
+      "tile, class:^DesktopEditors$"
 
       # OWOPACITY
       "opacity 0.85, class:codium-url-handler"
