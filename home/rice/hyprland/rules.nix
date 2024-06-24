@@ -24,6 +24,8 @@
       "tile, title:Spotify"
 
       # OWOPACITY
+      "opacity 0.4, class:^(Dunst)$"
+      "forcergbx, class:^(Dunst)$"
       "opacity 0.85, class:codium-url-handler"
       "forcergbx, class:codium-url-handler"
       "noblur, class:Alacritty"
