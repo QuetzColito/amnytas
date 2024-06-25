@@ -1,7 +1,7 @@
 {config, pkgs, ...}:
 {
   imports = [
-    
+#    ./nvim/nvim.nix 
   ];
 
   home.packages = with pkgs; [
@@ -15,6 +15,7 @@
     rustc
     #haskellPackages.hls
     #haskellPackages.ghcup
+    #neovim
     corepack
     docker
     maven

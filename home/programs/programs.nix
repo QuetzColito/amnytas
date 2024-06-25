@@ -48,6 +48,7 @@
     discord
     pandoc
     texliveSmall
+    gnumake
     
     # Gaming
     gamescope
