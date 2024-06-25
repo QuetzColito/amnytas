@@ -70,6 +70,8 @@
       # NOT in environment.systemPackages
     ];
   };
+  # improves compatability
+  services.envfs.enable = true;
 
   environment.systemPackages = with pkgs; [
     vim
