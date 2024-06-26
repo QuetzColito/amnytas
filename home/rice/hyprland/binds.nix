@@ -54,6 +54,8 @@ in {
         "${mod},left,workspace,-1" # move focus to the previous ws
         "${mod},mouse_up,workspace,e+1" # move to the next ws
         "${mod},mouse_down,workspace,e-1" # move to the previous ws
+        "${modshift},mouse_up,movetoworkspace,+1" # move to the next ws
+        "${modshift},mouse_down,movetoworkspace,-1" # move to the previous ws
 
         # new monitor key
         "${modshift},N,moveworkspacetomonitor,3 1"
