@@ -1,7 +1,7 @@
 {config, pkgs, ...}:
 {
   imports = [
-#    ./nvim/nvim.nix 
+    ./nixvim/nixvim.nix 
   ];
 
   home.packages = with pkgs; [
