@@ -1,7 +1,20 @@
-{config, ...}:
+{config, lib, ...}:
 {  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    systemd-boot.enable = lib.mkForce false;
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot";
+    };
+    grub = {
+      theme =  lib.mkForce ../grub;
+      gfxmodeEfi = "2560x1440x32,1920x1080x24,auto";
+      devices = [ "nodev" ];
+      enable = true;
+      efiSupport = true;
+      useOSProber = true;
+    };
+  };
 
   networking.hostName = "mabon"; # Define your hostname.
   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
