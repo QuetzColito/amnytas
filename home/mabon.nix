@@ -49,6 +49,7 @@ in
     ];
 
   };
+  programs.vscode.userSettings."workbench.colorTheme"= lib.mkForce "Tokyo Night Storm";
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
