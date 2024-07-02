@@ -1,11 +1,8 @@
 { ... } :
 {
-  # imports = [
-  #   ./lsp.nix
-  #   ./cmp.nix
-  #   ./gitsigns.nix
-  #   ./neotree.nix
-  # ];
+  imports = [
+    ./plugins/telescope.nix
+  ];
 
   programs.nixvim.plugins = {
 
