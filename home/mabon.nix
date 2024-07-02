@@ -1,6 +1,6 @@
 { config, pkgs, lib, ... }:
 let 
-  wallpaper1 = "~/nixos/wallpaper/main.jpg";
+  wallpaper1 = "~/nixos/wallpaper/side.jpg";
 in
 {
   home.username = "arthezia";
