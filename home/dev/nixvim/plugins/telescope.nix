@@ -5,11 +5,11 @@
       enable = true;
 
       keymaps = {
-        "<leader>ff" = "find_files";
-        "<leader>fg" = "find_files";
-        "<leader>b" = "find_files";
-        "<leader>fh" = "find_files";
-        "<leader>fd" = "find_files";
+        "<leader>f" = "find_files";
+        # "<leader>fg" = "live_grep";
+        "<leader>b" = "buffers";
+        "<leader>h" = "help_tags";
+        "<leader>d" = "diagnostics";
 
         "<C-p>" = "git_files";
         "<leader>p" = "oldfiles";
@@ -30,4 +30,3 @@
     };
   };
 }
-
