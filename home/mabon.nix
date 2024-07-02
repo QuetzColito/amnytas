@@ -1,5 +1,5 @@
 { config, pkgs, lib, ... }:
-let 
+let
   wallpaper1 = "~/nixos/wallpaper/side.jpg";
 in
 {
