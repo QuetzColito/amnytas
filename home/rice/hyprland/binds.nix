@@ -24,7 +24,7 @@ in {
         # App Shortcuts
         "${mod},RETURN,exec,alacritty"
         "${mod},N,exec,thunar"
-        "${mod},S,exec,codium ~/nixos"
+        "${mod},S,exec,alacritty --working-directory ~/nixos -e nvim ~/nixos"
         "${mod},G,exec,steam"
         "${mod},B,exec,firefox"
         "${mod},Y,exec,for i in ~/apps/ytm/*.AppImage ; do appimage-run $i; done" # EXTERNAL DEPENDENCY

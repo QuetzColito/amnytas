@@ -7,6 +7,7 @@
     ./plugins/cmp.nix
     ./plugins/neotree.nix
     ./plugins/markdown.nix
+    ./plugins/lazygit.nix
   ];
 
   programs.nixvim.plugins = {
@@ -53,8 +54,6 @@
 
     lualine.enable = true;
 
-    lazygit.enable = true;
-
     floaterm = {
       enable = true;
 
@@ -63,7 +62,7 @@
 
       title = "";
 
-      keymaps.toggle = "<leader>,";
+      keymaps.toggle = "<C-J>";
     };
 
   };
