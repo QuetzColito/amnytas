@@ -1,7 +1,7 @@
 {config, pkgs, ...}:
 {
   imports = [
-    ./nixvim/nixvim.nix 
+    ./nixvim/nixvim.nix
   ];
 
   home.packages = with pkgs; [
@@ -25,4 +25,3 @@
     JAVA_HOME = "${pkgs.jdk17}";
   };
 }
-

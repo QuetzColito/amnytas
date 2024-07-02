@@ -2,22 +2,51 @@
 {
   imports = [
     ./plugins/telescope.nix
+    ./plugins/lsp.nix
   ];
 
   programs.nixvim.plugins = {
 
     nvim-autopairs.enable = true;
-    lsp = {
+    transparent.enable = true;
+
+    gitsigns = {
       enable = true;
-      servers = {
-        nixd.enable = true; 
-        hls.enable = true;
-        java-language-server = {
-          enable = true;
-          rootDir = "function() return '/home/quetz/dev/seq/suffix/' end";
-        };
+      settings.signs = {
+        add.text = "+";
+        change.text = "~";
       };
     };
+
+    nvim-colorizer = {
+      enable = true;
+      userDefaultOptions.names = false;
+    };
+
+    oil.enable = true;
+
+    trim = {
+      enable = true;
+      settings = {
+        highlight = true;
+        ft_blocklist = [
+          "checkhealth"
+          "floaterm"
+          "lspinfo"
+          "neo-tree"
+          "TelescopePrompt"
+        ];
+      };
+    };
+
+    comment = {
+      enable = true;
+      settings = {
+        opleader.line = "<C-b>";
+        toggler.line = "<C-b>";
+      };
+    };
+
     lualine.enable = true;
 
     cmp = {

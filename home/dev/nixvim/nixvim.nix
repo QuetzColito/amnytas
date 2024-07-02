@@ -17,6 +17,16 @@
       enable = true;
       settings = {
         transparent = true;
+        on_colors = ''
+        function(colors)
+          colors.bg = colors.none
+          colors.bg_dark = colors.none
+          colors.bg_float = colors.none
+          colors.bg_search = colors.none
+          colors.bg_sidebar = colors.none
+          colors.bg_statusline = colors.none
+        end
+        '';
       };
     };
   };

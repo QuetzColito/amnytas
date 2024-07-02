@@ -28,6 +28,9 @@
           # back and fourth between the two most recent files
           "ga" = ":b#<CR>";
 
+          # open File Explorer
+          "-" = "<CMD>Oil<CR>";
+
           # close by Ctrl+x
           "<C-x>" = ":close<CR>";
 
