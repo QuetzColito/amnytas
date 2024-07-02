@@ -7,7 +7,7 @@
   #   ./neotree.nix
   # ];
 
-  plugins = {
+  programs.nixvim.plugins = {
 
     nvim-autopairs.enable = true;
     lsp = {

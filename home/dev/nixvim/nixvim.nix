@@ -6,10 +6,10 @@
     ./keymap.nix
   ];
 
+  home.shellAliases.v = "nvim";
+
   programs.nixvim = {
     enable = true;
-
-    
 
     clipboard.register = "unnamedplus";
 

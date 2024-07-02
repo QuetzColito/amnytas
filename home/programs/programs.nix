@@ -31,6 +31,10 @@
     userName = "Stefan Lahne";
   };
 
+  programs.zellij = {
+    enable = true;
+  };
+
   home.packages = with pkgs; [
 
     # General

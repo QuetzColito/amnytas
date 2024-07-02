@@ -1,6 +1,8 @@
 {...}:
 
 {
+  home.sessionVariables.SHELL = "zsh";
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;

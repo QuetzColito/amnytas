@@ -1,6 +1,6 @@
 { ... } :
 {
-  opts = {
+  programs.nixvim.opts = {
     number = true;
     scrolloff = 10;
     relativenumber = true;
@@ -12,5 +12,11 @@
     softtabstop=2;
     expandtab = true;
     # wrap = false;
+
+    list = true;
+    listchars = "tab:» ,trail:·,nbsp:␣";
+    cursorline = true;
+    undofile = true;
+    hlsearch = true;
   };
 }
