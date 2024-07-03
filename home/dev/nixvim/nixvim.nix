@@ -6,8 +6,9 @@
     ./keymap.nix
   ];
 
-  home.packages = [
-    pkgs.ripgrep
+  home.packages = with pkgs; [
+    ripgrep
+    haskell-language-server
   ];
 
   home.shellAliases.v = "nvim";
@@ -33,6 +34,12 @@
         '';
       };
     };
+
+    extraConfigLua = ''
+      vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { fg = "#9d7cd8", bg = "none"})
+      vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { fg = "#9ece6a", bg = "none"})
+    '';
+
     autoCmd = [
       # Vertically center document when entering insert mode
       {

@@ -8,7 +8,7 @@
         "<leader>f" = "find_files";
         # "<leader>fg" = "live_grep";
         "<leader>b" = "buffers";
-        "<leader>h" = "help_tags";
+        "<C-h>" = "help_tags";
         "<leader>d" = "diagnostics";
 
         "<C-p>" = "git_files";
