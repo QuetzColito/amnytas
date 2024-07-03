@@ -56,13 +56,15 @@
 
     floaterm = {
       enable = true;
+      shell = "zsh";
+      keymaps.toggle = "<C-L>";
+      keymaps.next = "<C-J>";
+      keymaps.prev = "<C-K>";
+      keymaps.new = "<C-H>";
 
       width = 0.8;
       height = 0.8;
-
       title = "";
-
-      keymaps.toggle = "<C-J>";
     };
 
   };

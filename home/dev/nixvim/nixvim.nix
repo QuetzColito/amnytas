@@ -36,8 +36,9 @@
     };
 
     extraConfigLua = ''
-      vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { fg = "#9d7cd8", bg = "none"})
-      vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { fg = "#9ece6a", bg = "none"})
+      vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { fg = "#9d7cd8", bg = "none"})
+      vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { fg = "#9ece6a", bg = "none"})
+      vim.api.nvim_set_hl(0, "FloatermBorder", { fg = "#9d7cd8", bg = "none"})
     '';
 
     autoCmd = [

@@ -15,6 +15,7 @@
 
     list = true;
     listchars = "tab:» ,trail:·,nbsp:␣";
+    fillchars = "eob:";
     cursorline = true;
     undofile = true;
     hlsearch = true;

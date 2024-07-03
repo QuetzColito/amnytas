@@ -17,6 +17,7 @@
             gD = "references";
             gt = "type_definition";
             gi = "implementation";
+            ca = "code_action";
             K = "hover";
             "<F2>" = "rename";
           };
