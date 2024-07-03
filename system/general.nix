@@ -71,7 +71,7 @@
     ];
   };
   # improves compatability
-  services.envfs.enable = true;
+  # services.envfs.enable = true;
 
   environment.systemPackages = with pkgs; [
     vim
@@ -128,6 +128,6 @@
       fira-code-nerdfont
   ];
 
-  
+
 
 }
