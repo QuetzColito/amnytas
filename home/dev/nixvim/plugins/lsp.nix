@@ -28,7 +28,7 @@
           hls.enable = true;
           java-language-server = {
             enable = true;
-            rootDir = "function() return '/home/quetz/dev/seq/suffix/' end";
+            rootDir = "function() return vim.uv.cwd() end";
           };
           efm = {
             enable = true;
