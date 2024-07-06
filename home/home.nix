@@ -10,6 +10,11 @@
     ./rice/rice.nix
     ../stylix.nix
   ];
+  home.shellAliases = {
+    hs = "home-manager switch --flake ~/nixos";
+    hn = "home-manager news --flake ~/nixos";
+    ns = "sudo nixos-rebuild switch --flake ~/nixos";
+  };
 
   services = {
     arrpc.enable = true;

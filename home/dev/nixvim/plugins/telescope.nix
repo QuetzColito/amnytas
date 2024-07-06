@@ -16,6 +16,8 @@
         "<C-f>" = "live_grep";
       };
 
+      extensions.ui-select.enable = true;
+
       settings.defaults = {
         file_ignore_patterns = [
           "^.git/"

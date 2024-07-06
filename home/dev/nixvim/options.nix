@@ -7,9 +7,9 @@
     breakindent = true;
     copyindent = true;
 
-    shiftwidth = 2;
-    tabstop = 2;
-    softtabstop=2;
+    shiftwidth = 4;
+    tabstop = 4;
+    softtabstop=4;
     expandtab = true;
     # wrap = false;
 

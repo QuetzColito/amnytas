@@ -1,4 +1,4 @@
-{ ... } :
+{ pkgs, ... } :
 {
   imports = [
     ./plugins/telescope.nix
@@ -8,6 +8,10 @@
     ./plugins/neotree.nix
     ./plugins/markdown.nix
     ./plugins/lazygit.nix
+  ];
+
+  programs.nixvim.extraPlugins = with pkgs.vimPlugins; [
+    vim-closetag
   ];
 
   programs.nixvim.plugins = {

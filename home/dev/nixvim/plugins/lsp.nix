@@ -25,11 +25,21 @@
 
         servers = {
           nixd.enable = true;
+          purescriptls.enable = true;
+          svelte.enable = true;
           hls.enable = true;
+
+          rust-analyzer = {
+            enable = true;
+            installCargo = true;
+            installRustc = true;
+          };
+
           java-language-server = {
             enable = true;
             rootDir = "function() return vim.uv.cwd() end";
           };
+
           efm = {
             enable = true;
             extraOptions.init_options = {

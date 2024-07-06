@@ -1,5 +1,5 @@
 {
-  pkgs, 
+  pkgs,
   ...
 }: {
   imports = [
@@ -53,7 +53,7 @@
     pandoc
     texliveSmall
     gnumake
-    
+
     # Gaming
     gamescope
     osu-lazer-bin
@@ -67,6 +67,7 @@
     lazygit
     usbutils
     poppler_utils
+    ffmpeg
     # Files
     baobab
     gnome.gnome-disk-utility
