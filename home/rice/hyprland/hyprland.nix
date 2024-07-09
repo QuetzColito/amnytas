@@ -51,7 +51,7 @@
       input = {
         # keyboard layout
         kb_layout = "eu";
-        kb_options = "caps:escape";
+        kb_options = "caps:escape,lv3:switch";
         follow_mouse = 1;
         accel_profile = "flat";
         sensitivity = 0.0;
