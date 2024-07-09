@@ -18,6 +18,7 @@
 
     nvim-autopairs.enable = true;
     transparent.enable = true;
+    luasnip.enable = true;
 
     gitsigns = {
       enable = true;
