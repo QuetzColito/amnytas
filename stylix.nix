@@ -38,7 +38,7 @@
       base05= "787C99"; # Default Foreground
       base06= "CBCCD1"; # Light Foreground
       base07= "D5D6DB"; # Light Background
-      base08= "F7768E"; # Red # Variables, XML Tags, Markup Link/Lists 
+      base08= "F7768E"; # Red # Variables, XML Tags, Markup Link/Lists
       base09= "FF9E64"; # Orange # Ints, Bools, Consts, XML Attrs, Markup link url
       base0A= "E0AF68"; # Yellow # Classes, Markup bold, Search Text Background
       base0B= "9ECE6A"; # Green # Strings, Inherited Class, Markup Code, Diff Inserted

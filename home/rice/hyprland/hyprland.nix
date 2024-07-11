@@ -24,7 +24,7 @@
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         # set cursor for HL itself
         "handle_monitor_connect"
-        #"wl-paste -t text -w xclip -selection clipboard"
+        "wl-paste -t text -w xclip -selection clipboard"
         #"hyprctl setcursor ${pointer.name} ${toString pointer.size}"
       ];
 
