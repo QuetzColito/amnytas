@@ -84,7 +84,7 @@ in {
       ",XF86AudioNext,exec,playerctl next"
       ",XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
       ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-      ",XF86AudioMute,exec,playerctl play-pause"
+      ",XF86AudioMute,exec,playerctl play-pause" # remap epomaker knob to play/plause
       # ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
     ];
 
