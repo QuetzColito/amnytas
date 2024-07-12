@@ -1,4 +1,5 @@
 {
+    lib,
   pkgs,
   ...
 }: {
@@ -42,13 +43,13 @@
   gtk = {
     enable = true;
     gtk3.extraConfig.gtk-decoration-layout = "menu:";
-    #theme = {
-    #  name = "Tokyonight-Dark-BL";
-    #  package = pkgs.tokyo-night-gtk;
-    #};
+    # theme = lib.mkForce {
+    #  name = "Tokyonight-Dark-B";
+    #  package = pkgs.tokyonight-gtk-theme;
+    # };
     iconTheme = {
-      name = "Tokyonight-Dark";
-     package = pkgs.tokyo-night-gtk;
+        name = "Tokyonight-Dark";
+     package = pkgs.tokyonight-gtk-theme;
     };
     cursorTheme = {
       name = "Bibata-Modern-Classic";

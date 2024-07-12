@@ -24,9 +24,9 @@ in {
         # App Shortcuts
         "${mod},RETURN,exec,alacritty"
         "${mod},N,exec,thunar"
-        "${mod},S,exec,alacritty --working-directory ~/nixos -e nvim ~/nixos"
-        "${mod},G,exec,steam"
-        "${mod},B,exec,firefox"
+        "${mod},S,exec,[workspace 5 silent] alacritty --working-directory ~/nixos -e nvim ~/nixos"
+        "${mod},G,exec,[workspace 9 silent] steam"
+        "${mod},B,exec,[workspace 7 silent] firefox"
         "${mod},Y,exec,for i in ~/apps/ytm/*.AppImage ; do appimage-run $i; done" # EXTERNAL DEPENDENCY
         "${mod},D,exec,flatpak run dev.vencord.Vesktop" # EXTERNAL DEPENDENCY
         #"${mod},D,exec,vesktop"
