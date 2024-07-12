@@ -1,6 +1,7 @@
 { config, pkgs, lib, ... }:
 let
   wallpaper1 = "~/nixos/wallpaper/side.jpg";
+  wallpaper2 = "~/nixos/wallpaper/main.jpg";
 in
 {
   home.username = "arthezia";
@@ -18,7 +19,8 @@ in
     ];
 
     wallpaper = [
-      ",${wallpaper1}"
+      "eDP-1,${wallpaper1}"
+      "HDMI-A-1,${wallpaper2}"
     ];
   };
 
