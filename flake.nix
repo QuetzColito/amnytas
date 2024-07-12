@@ -6,7 +6,6 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
 
     stylix.url = "github:danth/stylix";
-    xremap-flake.url = "github:xremap/nix-flake";
 
     aagl = {
       url = "github:ezKEa/aagl-gtk-on-nix";
@@ -34,7 +33,6 @@
       ];
       system-modules = [
         inputs.stylix.nixosModules.stylix
-        inputs.xremap-flake.nixosModules.default
          {
           imports = [ aagl.nixosModules.default ];
           nix.settings = aagl.nixConfig; # Set up Cachix
@@ -57,8 +55,8 @@
     };
     homeConfigurations."quetz" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
-      modules = [ 
-        ./home/peitha.nix 
+      modules = [
+        ./home/peitha.nix
       ] ++ home-modules;
     };
 
@@ -71,7 +69,7 @@
     };
     homeConfigurations."arthezia" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
-      modules = [ 
+      modules = [
         ./home/mabon.nix
       ] ++ home-modules;
     };
@@ -85,8 +83,8 @@
     };
     homeConfigurations."melon" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
-      modules = [ 
-        ./home/melon.nix 
+      modules = [
+        ./home/melon.nix
       ] ++ home-modules;
     };
   };
