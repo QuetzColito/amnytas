@@ -41,6 +41,10 @@ in {
         "${mod},L,movefocus,r"
         "${mod},K,movefocus,u"
         "${mod},J,movefocus,d"
+        "${modshift},H,workspace,-1"
+        "${modshift},L,workspace,+1"
+        "${modshift},K,movetoworkspace,-1"
+        "${modshift},J,movetoworkspace,+1"
 
         #",XF86Bluetooth, exec, bcn"
         "${mod},R,swapnext," # swap window
