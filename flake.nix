@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
     stylix.url = "github:danth/stylix";
 
@@ -23,7 +24,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, aagl, nixpkgs-stable, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, aagl, nixos-wsl, nixpkgs-stable, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -86,6 +87,24 @@
       modules = [
         ./home/melon.nix
       ] ++ home-modules;
+    };
+
+     # WSL
+    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        nixos-wsl.nixosModules.default
+        inputs.stylix.nixosModules.stylix
+        ./system/nixos/configuration.nix
+      ];
+    };
+    homeConfigurations."nixos" = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+      modules = [
+        ./home/nixos.nix
+        inputs.stylix.homeManagerModules.stylix
+        inputs.nixvim.homeManagerModules.nixvim
+      ];
     };
   };
 }
