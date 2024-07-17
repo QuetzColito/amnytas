@@ -14,9 +14,12 @@ in
         ./home.nix
     ];
 
+    programs.hyprlock.settings.background.path = wallpaper1;
+
     services.hyprpaper.settings = {
         preload = [
             "${wallpaper1}"
+            "${wallpaper2}"
         ];
 
         wallpaper = [

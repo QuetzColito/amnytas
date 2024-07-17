@@ -8,6 +8,7 @@
     ./binds.nix
     ./rules.nix
     ./programs.nix
+    ./hyprlock.nix
   ];
   #pointer = config.home.pointerCursor;
   wayland.windowManager.hyprland = {
@@ -23,6 +24,7 @@
     settings = {
       exec-once = [
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        "hyprlock"
         # set cursor for HL itself
         "handle_monitor_connect"
         "wl-paste -t text -w xclip -selection clipboard"

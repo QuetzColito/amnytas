@@ -88,6 +88,8 @@
     setSocketVariable = true;
   };
 
+  security.pam.services.hyprlock = {};
+
   # sound.mediaKeys.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
