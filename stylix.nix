@@ -30,8 +30,8 @@
     cursor.size = 24;
     opacity.terminal = 0.75;
     base16Scheme = {
-      base01= "1A1B26"; # Default Background
-      base00= "16161E"; # Lighter Background
+      base00= "1A1B26"; # Default Background
+      base01= "16161E"; # Lighter Background
       base02= "2F3549"; # Selection Background
       base03= "444B6A"; # Comments - Invisibles
       base04= "787C99"; # Dark Foreground
