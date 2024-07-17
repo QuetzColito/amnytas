@@ -4,11 +4,11 @@
 } : {
     imports = [
         ./zsh.nix
+        ./yazi.nix
     ];
 
 
     programs = {
-        yazi.enable = true;
 
         git = {
             enable = true;
