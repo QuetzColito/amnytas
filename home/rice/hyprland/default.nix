@@ -7,6 +7,7 @@
   imports = [
     ./binds.nix
     ./rules.nix
+    ./programs.nix
   ];
   #pointer = config.home.pointerCursor;
   wayland.windowManager.hyprland = {

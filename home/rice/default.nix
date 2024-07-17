@@ -1,14 +1,10 @@
-{config, pkgs, ...}:
-
+{...}:
 {
   imports = [
-    ./hyprland/hyprland.nix
+    ./hyprland
     ./tofi.nix
     ./waybar.nix
     #./dunst.nix
     ./mako.nix
   ];
-
-
 }
-

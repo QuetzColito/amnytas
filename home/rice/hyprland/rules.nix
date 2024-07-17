@@ -57,6 +57,8 @@
       #"workspace special silent,class:^(pavucontrol)$"
 
       "float, class:^(imv)$"
+      "noinitialfocus, title:^(Steam)$"
+      "noanim, class:^(ueberzugpp*)$"
 
       # throw sharing indicators away
       "workspace special silent, title:^(Firefox — Sharing Indicator)$"
