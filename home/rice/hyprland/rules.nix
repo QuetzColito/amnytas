@@ -27,6 +27,8 @@
       "opacity 0.85, class:codium-url-handler"
       "forcergbx, class:codium-url-handler"
       "noblur, class:Alacritty"
+      "noblur, class:^kitty$"
+      "noblur, class:^foot$"
       "opacity 0.85, title:^(.*Thunar.*)$"
       "forcergbx, title:^(.*Thunar.*)$"
       "opacity 0.85, class:^file-roller$"
@@ -58,7 +60,6 @@
 
       "float, class:^(imv)$"
       "noinitialfocus, title:^(Steam)$"
-      "noanim, class:^(ueberzugpp*)$"
 
       # throw sharing indicators away
       "workspace special silent, title:^(Firefox — Sharing Indicator)$"

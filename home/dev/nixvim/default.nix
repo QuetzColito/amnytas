@@ -8,6 +8,7 @@
 
     home = {
         shellAliases.v = "nvim";
+        sessionVariables.EDITOR = "nvim";
         packages = with pkgs; [
             ripgrep
             haskell-language-server

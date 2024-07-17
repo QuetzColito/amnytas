@@ -22,9 +22,9 @@ in {
     bind =
       [
         # App Shortcuts
-        "${mod},RETURN,exec,alacritty"
-        "${mod},N,exec,thunar"
-        "${mod},S,exec,[workspace 5] alacritty --working-directory ~/nixos -e nvim ~/nixos"
+        "${mod},RETURN,exec,foot zsh"
+        "${mod},N,exec,foot yazi"
+        "${mod},S,exec,[workspace 5] foot -D ~/nixos nvim ~/nixos"
         "${mod},G,exec,[workspace 9 silent] steam"
         "${mod},B,exec,[workspace 7] firefox"
         "${mod},Y,exec,for i in ~/apps/ytm/*.AppImage ; do appimage-run $i; done" # EXTERNAL DEPENDENCY
