@@ -4,6 +4,7 @@
 }: {
     imports = [
         ./alacritty.nix
+        ./kitty.nix
     ];
 
     stylix.targets.vscode.enable = false;
