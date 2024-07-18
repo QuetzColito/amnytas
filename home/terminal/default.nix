@@ -16,6 +16,12 @@
             userName = "Stefan Lahne";
         };
 
+        oh-my-posh = {
+            enable = true;
+            enableZshIntegration = true;
+            settings = import ./ohmyposh.nix;
+        };
+
         zellij = {
             enable = true;
         };

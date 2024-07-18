@@ -21,7 +21,7 @@
             size = 10000;
         };
 
-        initExtra = "eval \"$(starship init zsh)\" ";
+        # initExtra = "eval \"$(starship init zsh)\" ";
 
         plugins = [
             {
