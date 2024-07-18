@@ -1,13 +1,24 @@
-{ lib, ... }:
-let
+{
+  lib,
+  pkgs,
+  ...
+} : let
   wallpaper1 = "~/nixos/wallpaper/side.jpg";
   wallpaper2 = "~/nixos/wallpaper/main.jpg";
-in
-{
+in {
     home = {
         username = "arthezia";
         homeDirectory = "/home/arthezia";
         stateVersion = "23.11"; # Please read the comment before changing.
+        packages = with pkgs; [
+            (writeShellScriptBin "nvidia-offload" ''
+                export __NV_PRIME_RENDER_OFFLOAD=1
+                export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
+                export __GLX_VENDOR_LIBRARY_NAME=nvidia
+                export __VK_LAYER_NV_optimus=NVIDIA_only
+                exec "$@"
+            '')
+        ];
     };
 
     imports = [
