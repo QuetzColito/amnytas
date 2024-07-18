@@ -38,6 +38,7 @@
         prismlauncher
         heroic
         protontricks
+        xivlauncher
 
         ncdu
         # Media

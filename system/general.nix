@@ -121,6 +121,7 @@
   };
 
   fonts.packages = with pkgs; [
+      inter
       material-icons
       material-design-icons
       roboto
