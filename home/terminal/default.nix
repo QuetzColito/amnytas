@@ -37,8 +37,8 @@
         texliveSmall
         gnumake
         zip
+        unar
         imagemagick
-        unzip
         lazygit
         ffmpeg
         fzf
