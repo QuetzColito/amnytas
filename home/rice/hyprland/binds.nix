@@ -70,8 +70,6 @@ in {
 
         "CTRL ${modshift},S,exec, pauseshot"
         "${modshift},S,exec, grim -g \"$(slurp)\" - | wl-copy"
-
-        "${modshift},L,exec,hyprlock"
       ]
       ++ workspaces;
 
