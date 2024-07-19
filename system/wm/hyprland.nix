@@ -16,6 +16,8 @@
     xwayland.enable = true;
   };
 
+  security.pam.services.hyprlock = {};
+
   services.dbus.enable = true;
   xdg.portal = {
       enable = true;

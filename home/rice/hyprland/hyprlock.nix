@@ -44,7 +44,7 @@ in {
 
             shape = {
                 monitor = "";
-                size = "300, 2160";
+                size = "320, 2160";
                 color = "rgba(${config.stylix.base16Scheme.base01}A0)";
                 position = "0, 0";
                 halign = "right";
