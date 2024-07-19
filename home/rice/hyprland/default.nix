@@ -9,6 +9,7 @@
         ./programs.nix
         ./hyprlock.nix
         ./hyprpaper.nix
+        ./hypridle.nix
     ];
 
     options = {
