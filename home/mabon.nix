@@ -40,7 +40,10 @@
     programs.waybar.settings.mainbar.modules-right = ["battery"];
 
     wayland.windowManager.hyprland.settings = {
-        input.sensitivity = lib.mkForce 1;
+        device = {
+            name = "elan050a:01-04f3:3158-touchpad";
+            sensitivity =  "+1.0";
+        };
     };
     programs.vscode.userSettings."workbench.colorTheme"= lib.mkForce "Tokyo Night Storm";
 }
