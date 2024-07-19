@@ -34,6 +34,7 @@
 
         # Gaming
         gamescope
+        path-of-building
         osu-lazer-bin
         prismlauncher
         heroic
