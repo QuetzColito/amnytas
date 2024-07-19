@@ -19,5 +19,6 @@
         cursorline = true;
         undofile = true;
         hlsearch = true;
+        swapfile = false;
     };
 }
