@@ -1,13 +1,14 @@
 { pkgs, ... } :
 {
     imports = [
-        ./plugins/telescope.nix
-        ./plugins/lsp.nix
-        ./plugins/treesitter.nix
-        ./plugins/cmp.nix
-        ./plugins/neotree.nix
-        ./plugins/markdown.nix
-        ./plugins/lazygit.nix
+        ./telescope.nix
+        ./lsp.nix
+        ./treesitter.nix
+        ./cmp.nix
+        ./neotree.nix
+        ./markdown.nix
+        ./lazygit.nix
+        ./mini.nix
     ];
 
     programs.nixvim.extraPlugins = with pkgs.vimPlugins; [
@@ -15,7 +16,6 @@
     ];
 
     programs.nixvim.plugins = {
-        nvim-autopairs.enable = true;
         transparent.enable = true;
         luasnip.enable = true;
 
