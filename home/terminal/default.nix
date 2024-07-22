@@ -12,8 +12,15 @@
 
         git = {
             enable = true;
-            userEmail = "stefan.lahne@gmx.de";
-            userName = "Stefan Lahne";
+
+            extraConfig = {
+                init.defaultBranch = "main";
+
+                user = {
+                    email = "stefan.lahne@gmx.de";
+                    name = "Stefan Lahne";
+                };
+            };
         };
 
         oh-my-posh = {
