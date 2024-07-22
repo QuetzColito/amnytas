@@ -13,6 +13,7 @@
 
     programs.nixvim.extraPlugins = with pkgs.vimPlugins; [
         vim-closetag
+        yuck-vim
     ];
 
     programs.nixvim.plugins = {
