@@ -3,8 +3,7 @@
     border: none;
     border-radius: 0px;
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: "Iosevka Nerd Font";
-    font-weight: 600;
+    font-family: "Inter Medium";
     font-size: 14px;
     min-height: 20px;
     opacity: 1.0;
@@ -99,7 +98,7 @@
   #workspaces button:hover {
     color: #cdd6f4;
   }
-  
+
   .modules-center {
     border-radius: 7px;
     border: 1px solid #414559;

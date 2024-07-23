@@ -1,8 +1,10 @@
 {
+  pkgs,
   ...
 } : {
-    programs.eww = {
-        enable = true;
-        configDir = ./.;
-    };
+    # programs.eww = {
+    #     enable = true;
+    #     configDir = ./.;
+    # };
+    home.packages = [ pkgs.eww ];
 }

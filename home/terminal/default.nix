@@ -39,6 +39,8 @@
         btop
         cmatrix
         sl
+        jq
+        python3
         fastfetch
         pandoc
         texliveSmall

@@ -48,6 +48,11 @@
       "idleinhibit focus,class:foot"
       "idleinhibit fullscreen, class:^(firefox)$"
 
+      # couldnt get it to work, but keeping it here just in case
+      "float, class:^(awakened-poe-trade)$"
+      "xray 0, class:^(awakened-poe-trade)$"
+      "noblur, class:^(awakened-poe-trade)$"
+
       "float, class:^(org.gnome.Loupe)$"
       "float, class:^(vlc)$"
       "float, class:^(xdg-desktop-portal-gtk)$"

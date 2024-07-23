@@ -36,9 +36,9 @@
         passthrough = false;
         #gtk-layer-shell = true;
         height = 25;
-        modules-left = [ 
+        modules-left = [
           "group/boot"
-          "network" 
+          "network"
           "cpu"
           "memory"
           "hyprland/workspaces"
@@ -60,21 +60,21 @@
           disable-scroll = true;
           format = "{icon}";
           format-icons = {
-            "1" = "󰙯 "; 
-            "2" = " "; 
+            "1" = "󰙯 ";
+            "2" = " ";
             "3" = "󰧮";
             "4" = "󰊴";
             "5" = " ";
-            "6" = " "; 
+            "6" = " ";
             "7" = "󰈹";
             "8" = "󰊠";
             "9" = "󰓓";
             "10" = "󰍹";
-            #"1" = "一"; 
-            #"2" = "二"; 
+            #"1" = "一";
+            #"2" = "二";
             #"3" = "三";
             #"4" = "四";
-            #"5" = "五"; 
+            #"5" = "五";
             #"6" = "六";
             #"7" = "七";
             #"8" = "八";
@@ -96,7 +96,7 @@
 
         memory = {
           interval = 1;
-          format = "  {}%";
+          format = "  {}%";
         };
 
 
@@ -155,7 +155,7 @@
                 default= [" " " " " "];
             };
         };
-        
+
         network= {
             # "interface"= "wlp2*", // (Optional) To force the use of this interface
             format-wifi= "  {signalStrength}%";
@@ -174,7 +174,7 @@
           tooltip-format-connected= " {device_enumerate}";
           tooltip-format-enumerate-connected= "{device_alias}";
         };
-        
+
         mpris= {
           title-len= 40;
           interval=1;
