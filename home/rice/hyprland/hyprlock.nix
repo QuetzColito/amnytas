@@ -10,6 +10,7 @@ in {
         settings = {
             general = {
                 hide_cursor = true;
+                grace = 60;
             };
             background = map ({id, wallpaper, ...}: {
                 monitor = id;

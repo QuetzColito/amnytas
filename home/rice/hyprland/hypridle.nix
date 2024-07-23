@@ -29,20 +29,20 @@
         enable = true;
         settings = {
             general = {
-                lock_cmd = ''loginctl lock-sessions'';
-                unlock_cmd = ''loginctl unlock-sessions'';
+                lock_cmd = ''hyprlock'';
                 ignore_dbus_inhibit = false;
             };
 
-            listener = [{
+            listener = [
+            {
                 timeout = 900;
-                on-timeout = ''hyprctl dispatch dpms off'';
-                on-resume = ''hyprctl dispatch dpms on'';
+                on-timeout = ''loginctl lock-session'';
             }
 
             {
                 timeout = 1020;
-                on-timeout = ''hyprlock'';
+                on-timeout = ''hyprctl dispatch dpms off'';
+                on-resume = ''hyprctl dispatch dpms on'';
             }
 
             {

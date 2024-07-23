@@ -32,7 +32,7 @@
             };
             settings = {
             exec-once = [
-                "hyprlock"
+                "hyprlock --immediate"
                 "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
                 "handle_monitor_connect"
                 "wl-paste -t text -w xclip -selection clipboard"
