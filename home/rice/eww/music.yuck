@@ -1,0 +1,89 @@
+(defwidget music []
+  (eventbox :class "music ${mpris-status == "Playing" ? "music-active" : "music-inactive"}"
+            :onclick "playerctl play-pause"
+            :onrightclick "playerctl next"
+    {mpris-title != "" ? "    ${mpris-status == "Playing" ? "" : ""}  ${mpris-artist} - ${mpris-title}    " : ""}
+  )
+)
+
+(defvar mpris-ignore "-i firefox")
+
+(deflisten mpris-artist :initial ""
+  "playerctl -F metadata xesam:artist -i firefox")
+(deflisten mpris-title :initial ""
+  "playerctl -F metadata xesam:title -i firefox")
+;; (deflisten mpris-art :initial ""
+;;   "playerctl -F metadata mpris:artUrl | sed -u 's/file:\\/\\///'")
+(defvar mpris-art "/tmp/ewwmpriscover")
+(defvar mpris-cover-url "/home/arthezia/imgneww")
+(deflisten mpris-status :initial "Playing"
+  "playerctl -F status -i firefox")
+(deflisten mpris-length :initial ""
+  "playerctl -F metadata mpris:length -i firefox | sed -u 's/.\\{6\\}$//'")
+(defpoll mpris-position :initial "" :interval "1s"
+  "playerctl position -i firefox | sed -u 's/\\..*$//'")
+
+(defpoll volume :interval "10h"
+  "pamixer --get-volume-human")
+
+(defwidget sound []
+  (eventbox :class "sound bar-item"
+            :onclick "pamixer -t"
+            :onscroll "if test \"{}\" = \"down\"
+                        then
+                          sound-down
+                        else
+                          sound-up
+                       fi"
+  "       ${volume}    ")
+)
+
+(defwidget music-widget []
+  (box :orientation "v" :space-evenly false
+    :class "music-widget"
+    :width "350"
+    :height "200"
+    (label :height "25" :class "title" :wrap true :halign "start" :text mpris-title)
+    (label :height "25" :class "artist":wrap true :halign "end" :text mpris-artist)
+    (box :orientation "h" :space-evenly false
+      (image :path "${mpris-art}" :width "120" :height "120")
+      (music-controls)
+    )
+  )
+)
+
+(defwidget music-controls []
+  (box :orientation "v" :class "music-control-center" :space-evenly false
+    (box :orientation "h" :space-evenly false :class "sound-scale"
+      (label :text " " :class "scale-icon")
+      (scale :onchange "playerctl volume .$(echo {} | sed -E 's/^(.)$/0\1/')"
+             :min 0 :max 100 :value 50
+             :width 70 :height 30
+      )
+    )
+    (box :orientation "h" :class "music-controls" :halign "end"
+      (button :onclick "playerctl previous" :class "side" "󰼨")
+      (button :onclick "playerctl play-pause" :class "play"
+              "${mpris-status == "Playing" ? "" : ""}")
+      (button :onclick "playerctl next" :class "side" "󰼧")
+    )
+    (box :orientation "h" :space-evenly false :class "duration-scale"
+      (label :text " " :class "scale-icon")
+      (scale :onchange "playerctl position {}"
+             :min 0 :max mpris-length :value mpris-position
+             :width 70 :height 30
+      )
+    )
+  )
+)
+
+;; (defwindow music
+;;   :monitor 1
+;;   :space-evenly false
+;;   :geometry (geometry :x "13"
+;;                       :y "13"
+;;                       :anchor "top right")
+;;   :stacking "fg"
+;;   :exclusive true
+;;   (music-widget)
+;; )

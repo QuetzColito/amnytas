@@ -34,9 +34,12 @@
             exec-once = [
                 "hyprlock --immediate"
                 "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-                "handle_monitor_connect"
                 "wl-paste -t text -w xclip -selection clipboard"
-            ] ++ map ({id, ...}: "xrandr --output " + id + " --primary") config.monitors;
+                "eww daemon"
+                "eww open bar-0"
+                "eww open bar-1"
+            ] ++ (map ({id, ...}: "xrandr --output " + id + " --primary") config.monitors);
+             # ++ (map ({id, ...}: "eww open bar-" + id) config.monitors);
 
             workspace = builtins.concatLists (
                 map ({workspaces, id, ...} :
@@ -131,8 +134,8 @@
                 vfr = true;
 
                 # window swallowing
-                #enable_swallow = true; # hide windows that spawn other windows
-                #swallow_regex = "^(foot)$";
+                enable_swallow = true; # hide windows that spawn other windows
+                swallow_regex = "^(foot)$";
 
                 # dpms
                 mouse_move_enables_dpms = true; # enable dpms on mouse/touchpad action

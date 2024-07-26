@@ -1,0 +1,22 @@
+(defwidget time []
+  (box :class "time" time))
+
+
+(defpoll time :interval "1s"
+  "date +'%a   %d %b   %H:%M'")
+(defpoll month :interval "10h"
+  "date +%m")
+(defpoll day :interval "10h"
+  "date +%d")
+(defpoll year :interval "10h"
+  "date +%Y")
+
+(defwidget calendar-widget []
+  (box :class "calendar-widget" :valign "fill" :vexpand true
+    (calendar :day day
+              :month month
+              :year year
+              :valign "center"
+    )
+  )
+)

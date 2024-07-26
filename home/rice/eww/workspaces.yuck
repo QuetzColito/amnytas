@@ -1,0 +1,17 @@
+(deflisten workspaces :initial "[]" "eww-get-workspaces")
+(deflisten current_workspace :initial "1" "eww-get-active-workspace")
+(defwidget workspaces []
+  (eventbox :onscroll "eww-change-active-workspace {} ${current_workspace}" :class "workspaces"
+    (box :space-evenly false
+      (label :text "${workspaces}${current_workspace}" :visible false)
+      (for workspace in workspaces
+        (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}"
+          (box :class "workspace-entry ${workspace.id == current_workspace ? "current" : ""} ${workspace.windows > 0 ? "occupied" : "empty"}"
+            (label :class "workspace" :text "${workspace.windows > 0 ? "◆" : "◇"}")
+            (label :class "separator" :text "${workspace.id == 3 || workspace.id == 6 ? "|" : ""}")
+          )
+        )
+      )
+    )
+  )
+)

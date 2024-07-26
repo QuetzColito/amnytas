@@ -3,8 +3,8 @@
   imports = [
     ./hyprland
     ./tofi.nix
-    ./waybar.nix
-    # ./eww
+    # ./waybar.nix
+    ./eww
     # ./dunst.nix
     ./mako.nix
   ];

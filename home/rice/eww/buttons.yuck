@@ -1,0 +1,12 @@
+(defwidget control-buttons []
+  (box :orientation "h" :class "control-buttons"
+    (control-button :command "shutdown now" :color "red" :icon " ")
+    (control-button :command "reboot" :color "orange" :icon "󰜉")
+    (control-button :command "hyprctl dispatch exit" :color "green" :icon "󰗽 ")
+    (control-button :command "hyprlock; sleep 5; hyprctl dispatch dpms off; sleep 5; systemctl suspend" :color "yellow" :icon "󰤄")
+  )
+)
+
+(defwidget control-button [command color icon]
+    (box :class "button"(eventbox :cursor "pointer" :onclick command :class color icon))
+)

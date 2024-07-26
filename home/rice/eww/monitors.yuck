@@ -1,0 +1,24 @@
+(defwidget monitors []
+  (box :orientation "h" :class "monitors"
+    (monitor
+      :value {EWW_BATTERY.BAT1.capacity}
+      :color "${EWW_BATTERY.BAT1.status == "Discharging" &&
+        EWW_BATTERY.BAT1.capacity < 20 ? "red" : "green"}"
+      :icon "${EWW_BATTERY.BAT1.status == "Discharging" ? "󱐤" : "󱐥"}")
+    (monitor :color "cyan" :value {round(EWW_CPU.avg, 0)} :icon " ")
+    (monitor :color "blue" :value {round(EWW_RAM.used_mem_perc,0)} :icon " ")
+    (monitor :color "purple" :value {round(EWW_DISK["/"].used_perc,0)} :icon " ")
+  )
+)
+
+;; Battery states: Full, Discharging,
+
+(defwidget monitor [color value icon]
+  (box :orientation "v" :class "${color} monitor" :space-evenly false :halign "center"
+    (box :orientation "h" :class "stats" :space-evenly true
+      (label :width 100 :text "${value}%")
+      (label :text icon :class "icon")
+    )
+    (progress :width 40 :value value :orientation "h")
+  )
+)
