@@ -6,9 +6,9 @@
             enable = true;
             modules = {
                 ai = {};
-                animate = {
-                    cursor.enable = false;
-                };
+                # animate = {
+                #     cursor.enable = false;
+                # };
                 indentscope = {
                     draw.animation__raw = "MiniIndentscope.gen_animation.none()";
                 };
