@@ -74,9 +74,12 @@
 
       "workspace 1, class:^(vesktop)$"
       "workspace 1, class:^(YouTube Music)$"
-      "workspace 4, class:^(steam_app.*)$"
+      "workspace 6, class:^(steam_app.*)$"
       "workspace 9, title:^(Steam)$"
       "workspace 5, class:codium-url-handler"
+    ];
+    workspace = [
+        "6, gapsout:0, rounding:false, bordersize:0"
     ];
   };
 }
