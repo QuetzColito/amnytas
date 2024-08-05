@@ -50,9 +50,17 @@
       "idleinhibit fullscreen, class:^(firefox)$"
 
       # couldnt get it to work, but keeping it here just in case
-      "float, class:^(awakened-poe-trade)$"
-      "xray 0, class:^(awakened-poe-trade)$"
-      "noblur, class:^(awakened-poe-trade)$"
+      # "fullscreen, class:^(awakened-poe-trade)$"
+      # "xray 0, class:^(awakened-poe-trade)$"
+      # "noblur, class:^(awakened-poe-trade)$"
+        "tag +apt, title:(Awakened PoE Trade)"
+        "float, tag:apt "
+        "noblur, tag:apt"
+        "nofocus, tag:apt" # Disable auto-focus
+        "noshadow, tag:apt"
+        "noborder, tag:apt"
+        "size 100% 100%, tag:apt"
+        "center, tag:apt"
 
       "float, class:^(org.gnome.Loupe)$"
       "float, class:^(vlc)$"
@@ -74,9 +82,10 @@
 
       "workspace 1, class:^(vesktop)$"
       "workspace 1, class:^(YouTube Music)$"
+      # "workspace 9, title:^(Steam)$"
       "workspace 6, class:^(steam_app.*)$"
-      "workspace 9, title:^(Steam)$"
       "workspace 5, class:codium-url-handler"
+      "tile, class:^(steam_app.*)$"
     ];
     workspace = [
         "6, gapsout:0, rounding:false, bordersize:0"

@@ -4,6 +4,8 @@
 (include "./time.yuck")
 (include "./music.yuck")
 
+(defvar eww "eww -c ~/nixos/home/rice/eww")
+
 (defwidget bar []
   (centerbox :orientation "h"
     (bar-area :align "start" (workspaces))
@@ -67,5 +69,6 @@
 
 (defwindow widgets
   :geometry (geometry :anchor "center center")
+  :stacking "overlay"
   (widgets)
 )

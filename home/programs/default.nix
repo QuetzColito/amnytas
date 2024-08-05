@@ -51,5 +51,11 @@
         thunderbird
         onlyoffice-bin
         obsidian
+        (writeShellScriptBin "poetrade"
+        ''
+            for i in ~/apps/poetrade/*.AppImage
+                do appimage-run $i --no-overlay;
+            done
+        '')
     ];
 }
