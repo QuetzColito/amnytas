@@ -9,8 +9,8 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./machine.nix
-      # ./hyprland.nix
-      ../wm/cosmic.nix
+      ./hyprland.nix
+      # ../wm/cosmic.nix
       ../general.nix
     ];
 
