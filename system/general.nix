@@ -36,6 +36,7 @@
   services.xserver.xkb = {
     layout = "eu";
     variant = "";
+    options = "caps:escape,lv3:switch";
   };
 
   services.xserver.desktopManager.runXdgAutostartIfNone = true;
