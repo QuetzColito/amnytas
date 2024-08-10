@@ -1,9 +1,16 @@
 (defwidget time []
-  (box :class "time" time))
+  (box :class "time" time)
+)
 
 
 (defpoll time :interval "1s"
   "date +'%a   %d %b   %H:%M'")
+(defpoll hours :interval "1s"
+  "date +%H")
+(defpoll minutes :interval "1s"
+  "date +%M")
+(defpoll seconds :interval "1s"
+  "date +%S")
 (defpoll month :interval "10h"
   "date +%m")
 (defpoll day :interval "10h"
@@ -11,6 +18,54 @@
 (defpoll year :interval "10h"
   "date +%Y")
 
+(defvar timer 0)
+(defvar last-timer 0)
+(defvar timer-running false)
+
+(defwidget timer-widget []
+  (box :class "timer-widget ${ timer-running ? "purple" : "orange" }" :valign "fill" :vexpand true
+    (label :text { timer / last-timer > 0.66 || !timer-running ? " " : timer / last-timer > 0.33 ? " " : " " } :class "icon")
+    (wheel :magnitude 3600 :bound 86400 :deco "H")
+    (wheel :magnitude 60 :bound 3600 :deco "M")
+    (wheel :magnitude 1 :bound 60 :deco "S")
+    (button :class "icon" :onclick "hyprctl dispatch exec eww-timer ${timer}"
+      ""
+    )
+    (button :class "icon" :onclick
+      "${eww} update timer-running=false; ${eww} update timer=$(${eww} get last-timer)"
+      " 󰜉 "
+    )
+  )
+)
+
+(defwidget wheel [magnitude bound deco]
+  (eventbox
+    :onscroll "if test \"{}\" = \"down\"
+                then
+                  ${eww} update timer=${timer - magnitude < 0 ? timer : timer - magnitude}
+                else
+                  ${eww} update timer=${timer + magnitude}
+               fi"
+    (box :orientation "v" :space-evenly false :valign "center" :class "wheel"
+      {
+        (timer % bound) / magnitude < 10 ?
+        "0${replace((timer % bound) / magnitude, "\\..*", "")}"
+        : replace((timer % bound) / magnitude, "\\..*", "")
+      }
+      (label :text deco)
+    )
+  )
+)
+
+
+
+(defwidget clock-widget []
+  (box :class "clock-widget" :valign "fill" :vexpand true :hexpand false :orientation "h"
+    (label :text hours :class "hours")
+    (label :text minutes :class "minutes")
+    (label :text seconds :class "seconds")
+  )
+)
 (defwidget calendar-widget []
   (box :class "calendar-widget" :valign "fill" :vexpand true
     (calendar :day day

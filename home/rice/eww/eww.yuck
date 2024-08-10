@@ -1,4 +1,5 @@
 (include "./workspaces.yuck")
+(include "./calculator.yuck")
 (include "./buttons.yuck")
 (include "./monitors.yuck")
 (include "./time.yuck")
@@ -58,10 +59,15 @@
 
 (defwidget widgets []
   (box :orientation "v" :space-evenly false
+    (clock-widget)
     (control-buttons)
     (box :orientation "h"
       (calendar-widget)
       (music-widget)
+    )
+    (box :orientation "h"
+      (timer-widget)
+      (calculator-widget)
     )
     (monitors)
   )
@@ -70,5 +76,7 @@
 (defwindow widgets
   :geometry (geometry :anchor "center center")
   :stacking "overlay"
+  :namespace "ewwidgets"
+  :focusable true
   (widgets)
 )

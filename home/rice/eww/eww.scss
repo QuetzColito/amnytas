@@ -11,6 +11,7 @@ $green: #9ece6a;
 $cyan: #7dcfff;
 $blue: #7aa2f7;
 $purple: #bb9af7;
+$opacity: 0.88;
 
 .red { color: $red; }
 .orange { color: $orange; }
@@ -68,7 +69,7 @@ window {
 .music-widget {
   margin: 10px;
   background-color: $bg-night;
-  opacity: .8;
+  opacity: $opacity;
   border-radius: 15px;
   padding: 15px 13px 15px 25px;
 
@@ -124,7 +125,12 @@ window {
       }
     }
 
+    .music-controls {
+      min-width: 275px;
+    }
+
     button {
+      all: unset;
       font-size: 35;
       background: none;
       color: $blue;
@@ -138,11 +144,50 @@ window {
   color: $orange;
 }
 
+.clock-widget {
+  margin: 10px 320px;
+  min-height: 50px;
+  border-radius: 15px;
+  background-color: $bg-night;
+  opacity: $opacity;
+  padding: 3px;
+  font-size: 50;
+
+  .minutes {
+    color: $blue;
+  }
+  .hours {
+    color: $red;
+  }
+  .seconds {
+    color: $green;
+  }
+}
+
+.timer-widget {
+  margin: 10px;
+  min-height: 100px;
+  border-radius: 15px;
+  background-color: $bg-night;
+  opacity: $opacity;
+  padding: 3px;
+  font-size: 25;
+
+  .icon {
+    font-size: 35;
+  }
+
+  button {
+    all: unset;
+  }
+
+}
+
 .calendar-widget {
   margin: 10px;
   border-radius: 15px;
   background-color: $bg-night;
-  opacity: .8;
+  opacity: $opacity;
   padding: 3px;
 
 }
@@ -179,6 +224,36 @@ color: $black;
   }
 }
 
+
+.calculator-widget {
+  margin: 10px;
+  min-height: 100px;
+  border-radius: 15px;
+  background-color: $bg-night;
+  opacity: $opacity;
+  padding: 3px;
+  color: $green;
+
+  button {
+    all: unset;
+    color: $orange;
+    border-bottom: 1px solid $orange;
+    margin: 10px;
+
+  }
+
+  entry {
+    all: unset;
+    background-color: $bg-storm;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 0px 10px;
+    min-width: 400px;
+  }
+
+}
+
+
 .control-buttons {
   box {
     margin: 10px;
@@ -186,7 +261,7 @@ color: $black;
     border-radius: 15px;
     background-color: $bg-night;
     font-size: 50;
-    opacity: .8;
+    opacity: $opacity;
   }
 }
 
@@ -198,7 +273,7 @@ color: $black;
   background-color: $bg-night;
   min-width: 195px;
   font-size: 25;
-  opacity: .8;
+  opacity: $opacity;
   .stats {
   }
 

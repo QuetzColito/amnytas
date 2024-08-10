@@ -40,9 +40,11 @@
         cmatrix
         sl
         jq
+        calc
         python3
         fastfetch
         pandoc
+        mpg123
         texliveSmall
         gnumake
         zip

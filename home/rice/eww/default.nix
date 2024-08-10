@@ -8,6 +8,27 @@ in {
     home.packages = [
         pkgs.eww
         (pkgs.writeShellScriptBin
+            "eww-timer"
+            ''
+            time=$1
+            end="$(($(date +%s) + $time))"
+            ${eww} update last-timer=$1
+            ${eww} update timer-running=true
+            while test "$(${eww} get timer-running)" = "true" && [ "$end" -ge `date +%s` ]
+            do
+                remaining=$(($end - `date +%s`))
+                ${eww} update timer=$remaining
+                sleep .5
+            done
+            if test "$(${eww} get timer-running)" = "true"
+            then
+                mpg123 ~/nixos/home/rice/eww/alert.mp3
+                notify-send "A Timer has finished"
+                ${eww} update timer-running=false
+            fi
+            ''
+        )
+        (pkgs.writeShellScriptBin
             "eww-cover-helper"
             ''
             playerctl -F metadata mpris:artUrl -i firefox | tee -a /tmp/ewwmprisurl | (
@@ -18,7 +39,6 @@ in {
             done
             )
             ''
-
         )
         (pkgs.writeShellScriptBin
             "sound-down"
@@ -32,6 +52,12 @@ in {
             ''
             wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
             ${eww} update volume=$(pamixer --get-volume-human)
+            ''
+        )
+        (pkgs.writeShellScriptBin
+            "togglecurrentbar"
+            ''
+            ${eww} open --toggle bar-$(hyprctl activeworkspace -j | jq '.monitorID')
             ''
         )
         (pkgs.writeShellScriptBin

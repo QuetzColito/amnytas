@@ -2,7 +2,7 @@
   (eventbox :class "music ${mpris-status == "Playing" ? "music-active" : "music-inactive"}"
             :onclick "playerctl play-pause"
             :onrightclick "playerctl next"
-    {mpris-title != "" && mpris-volume > 0 ? "    ${mpris-status == "Playing" ? "" : ""}  ${mpris-artist} - ${mpris-title}    " : ""}
+    (label :limit-width 200 :text {mpris-title != "" ? "    ${mpris-status == "Playing" ? "" : ""}  ${mpris-artist} - ${mpris-title}    " : ""})
   )
 )
 
@@ -61,7 +61,7 @@
              :width 70 :height 30
       )
     )
-    (box :orientation "h" :class "music-controls" :halign "end"
+    (box :orientation "h" :class "music-controls" :halign "end" :space-evenly true
       (button :onclick "playerctl previous" :class "side" "󰼨")
       (button :onclick "playerctl play-pause" :class "play"
               "${mpris-status == "Playing" ? "" : ""}")
