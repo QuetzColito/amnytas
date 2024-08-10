@@ -4,6 +4,7 @@
 }: {
     imports = [
         ./foot.nix
+        ./imv.nix
     ];
 
     stylix.targets.vscode.enable = false;
@@ -43,7 +44,6 @@
 
         ncdu
         # Media
-        imv
         komikku
         audacity
         vlc

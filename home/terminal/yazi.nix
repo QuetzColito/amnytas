@@ -19,7 +19,7 @@
                 edit = [ {run = ''nvim "$@"'';block = true;desc = "Edit";}];
                 play-once = [{run = ''vlc --play-and-exit "$@"'';}];
                 play = [ {run = ''vlc --play-and-pause "$@"''; desc = "Play";}];
-                view = [ {run = ''loupe "$@"''; desc = "view";}];
+                view = [ {run = ''imvs "$@"''; desc = "view";}];
                 open = [ { run = ''xdg-open "$@"''; desc = "Open";}];
                 unzip = [ { run = ''unar "$@"''; desc = "Unzip";}];
                 opendoc = [ { run = ''DesktopEditors $(realpath "$@")''; desc = "Unzip";}];
