@@ -121,6 +121,7 @@
 
   fonts.packages = with pkgs; [
       inter
+      dejavu_fonts
       material-icons
       material-design-icons
       roboto

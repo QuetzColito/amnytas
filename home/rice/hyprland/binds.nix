@@ -50,6 +50,7 @@ in {
         "${mod},R,swapnext," # swap window
         "${mod},V,togglefloating," # toggle floating for the focused window
         "${mod},F,fullscreen," # fullscreen focused window
+        "${modshift},F,exec,pseudo-fullscreen" # fullscreen focused window
 
         # workspace controls
         "${modshift},right,movetoworkspace,+1" # move focused window to the next ws

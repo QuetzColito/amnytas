@@ -35,6 +35,20 @@
             socat - "UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/\$\{HYPRLAND_INSTANCE_SIGNATURE\}/.socket2.sock" | while read -r line; do handle "$line"; done
           '')
         (writeShellScriptBin
+          "pseudo-fullscreen"
+          ''
+            re='^[0-9]+$';
+            id=$(hyprctl activeworkspace -j | jq .id | sed 's/"//g');
+            name=$(hyprctl activeworkspace -j | jq .name | sed 's/"//g');
+            if [[ $name =~ $re ]] ; then
+                hyprctl dispatch renameworkspace $id pseudofullscreen;
+                togglecurrentbar;
+            else
+                hyprctl dispatch renameworkspace $id $id;
+                togglecurrentbar;
+            fi
+          '')
+        (writeShellScriptBin
           "pauseshot"
           ''
             ${hyprpicker}/bin/hyprpicker -r -z &

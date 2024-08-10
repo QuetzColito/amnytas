@@ -130,12 +130,14 @@
                 disable_splash_rendering = true;
                 force_default_wallpaper = 0;
                 disable_hyprland_logo = true;
+                font_family = "Inter";
 
                 vfr = true;
 
                 # window swallowing
                 enable_swallow = true; # hide windows that spawn other windows
                 swallow_regex = "^(foot)$";
+                swallow_exception_regex = "^.*Yazi.*$";
 
                 # dpms
                 mouse_move_enables_dpms = true; # enable dpms on mouse/touchpad action

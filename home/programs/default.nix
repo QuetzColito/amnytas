@@ -43,7 +43,7 @@
 
         ncdu
         # Media
-        loupe
+        imv
         komikku
         audacity
         vlc
@@ -56,6 +56,10 @@
             for i in ~/apps/poetrade/*.AppImage
                 do appimage-run $i --no-overlay;
             done
+        '')
+        (writeShellScriptBin "imvs"
+        ''
+            imv $1 -W $(magick identify -format %w $1) -H$(magick identify -format %h $1)
         '')
     ];
 }
