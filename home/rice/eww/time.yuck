@@ -28,8 +28,8 @@
     (wheel :magnitude 3600 :bound 86400 :deco "H")
     (wheel :magnitude 60 :bound 3600 :deco "M")
     (wheel :magnitude 1 :bound 60 :deco "S")
-    (button :class "icon" :onclick "hyprctl dispatch exec eww-timer ${timer}"
-      ""
+    (button :class "icon" :onclick {timer-running ? "${eww} update timer-running=false" : "hyprctl dispatch exec eww-timer ${timer}"}
+      {timer-running ? "" : "" }
     )
     (button :class "icon" :onclick
       "${eww} update timer-running=false; ${eww} update timer=$(${eww} get last-timer)"
