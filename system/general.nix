@@ -42,11 +42,13 @@
   services.xserver.desktopManager.runXdgAutostartIfNone = true;
 
   i18n.inputMethod = {
-    enabled = "fcitx5";
+    enable = true;
+    type = "fcitx5";
     fcitx5 = {
       waylandFrontend = true;
       addons = with pkgs; [
         fcitx5-mozc
+        fcitx5-nord
         fcitx5-gtk
       ];
     };

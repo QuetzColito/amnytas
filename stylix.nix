@@ -8,12 +8,12 @@
     fonts = {
       serif = {
         package = pkgs.inter;
-        name = "Inter Regular";
+        name = "Inter";
       };
 
       sansSerif = {
         package = pkgs.inter;
-        name = "Inter Regular";
+        name = "Inter";
       };
 
       monospace = {
