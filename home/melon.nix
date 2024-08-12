@@ -15,7 +15,7 @@
         {
             id = "HDMI-A-1";
             wallpaper = "~/nixos/wallpaper/side.jpg";
-            coords = "0x0";
+            config = "0x0";
             workspaces = [ 1 2 3 4 5 6 7 8 9 ];
         }
     ];

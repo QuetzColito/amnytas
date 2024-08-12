@@ -51,7 +51,13 @@
             monitor = [
                 ",highrr,auto,1"
                 "Unknown-1,disable"
-            ] ++ map ({id, coords, ...}: id + ",preferred," + coords + ",1") config.monitors;
+            ] ++ map ({id, coords, rotation ? "", ...}:
+                        id
+                        + ",preferred,"
+                        + coords
+                        + ",1"
+                        + (if rotation == "" then "" else ",transform," + rotation)
+                    ) config.monitors;
 
             env = [
                 "XDG_CURRENT_DESKTOP,Hyprland"
