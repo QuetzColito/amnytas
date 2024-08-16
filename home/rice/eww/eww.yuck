@@ -1,5 +1,5 @@
 (include "./workspaces.yuck")
-(include "./calculator.yuck")
+(include "./utils.yuck")
 (include "./buttons.yuck")
 (include "./monitors.yuck")
 (include "./time.yuck")
@@ -57,6 +57,17 @@
   (bar)
 )
 
+(defwindow bar-vert
+  :monitor 1
+  :geometry (geometry :width "1080px"
+                      :height "10px"
+                      :anchor "top center")
+  :stacking "fg"
+  :exclusive true
+  :namespace "ewwbar"
+  (bar)
+)
+
 (defwidget widgets []
   (box :orientation "v" :space-evenly false
     (clock-widget)
@@ -67,6 +78,7 @@
     )
     (box :orientation "h"
       (timer-widget)
+      (rando-widget)
       (calculator-widget)
     )
     (monitors)

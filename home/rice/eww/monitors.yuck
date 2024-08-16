@@ -1,13 +1,13 @@
 (defwidget monitors []
   (box :orientation "h" :class "monitors"
-    (monitor
-      :value {EWW_BATTERY.BAT1.capacity}
-      :color "${EWW_BATTERY.BAT1.status == "Discharging" &&
-        EWW_BATTERY.BAT1.capacity < 20 ? "red" : "green"}"
-      :icon "${EWW_BATTERY.BAT1.status == "Discharging" ? "󱐤" : "󱐥"}")
     (monitor :color "cyan" :value {round(EWW_CPU.avg, 0)} :icon " ")
     (monitor :color "blue" :value {round(EWW_RAM.used_mem_perc,0)} :icon " ")
     (monitor :color "purple" :value {round(EWW_DISK["/"].used_perc,0)} :icon " ")
+    (monitor
+      :value {EWW_BATTERY == "" ? round(EWW_DISK["/home/quetz/storage"].used_perc, 0) : EWW_BATTERY.BAT1.capacity}
+      :color "${EWW_BATTERY == "" ? "green" : EWW_BATTERY.BAT1.status == "Discharging" &&
+        EWW_BATTERY.BAT1.capacity < 20 ? "red" : "green"}"
+      :icon "${EWW_BATTERY == "" ? " " : EWW_BATTERY.BAT1.status == "Discharging" ? "󱐤" : "󱐥"}")
   )
 )
 

@@ -1,0 +1,112 @@
+(defvar calc-result "0")
+
+(defwidget calculator-widget []
+  (box :class "calculator-widget" :valign "fill" :vexpand true :orientation "v"
+    (input
+      :class "calc-input"
+      :value ""
+      :onchange "${eww} update calc-result=$(calc \"{}\" | sed 's/\\s//')"
+      :halign "start")
+    (button
+      :class "calc-result"
+      :halign "end"
+      :onclick "wl-copy ${calc-result}" "= ${calc-result}"
+    )
+  )
+)
+
+(defvar timer 0)
+(defvar last-timer 0)
+(defvar timer-running false)
+
+(defwidget timer-widget []
+  (box :class "timer-widget ${ timer-running ? "purple" : "orange" }" :orientation "v"
+    (box :valign "fill" :vexpand true
+      (wheel :magnitude 3600 :bound 86400 :deco "H")
+      (wheel :magnitude 60 :bound 3600 :deco "M")
+      (wheel :magnitude 1 :bound 60 :deco "S")
+    )
+    (box :valign "fill" :vexpand true
+      (label :text { timer / last-timer > 0.66 || !timer-running ? " " : timer / last-timer > 0.33 ? " " : " " } :class "icon")
+      (button :class "icon" :onclick {timer-running ? "${eww} update timer-running=false" : "hyprctl dispatch exec eww-timer ${timer}"}
+        {timer-running ? "" : "" }
+      )
+      (button :class "icon" :onclick
+        "${eww} update timer-running=false; ${eww} update timer=$(${eww} get last-timer)"
+        " 󰜉 "
+      )
+    )
+  )
+)
+
+(defwidget wheel [magnitude bound deco]
+  (eventbox
+    :onscroll "if test \"{}\" = \"down\"
+                then
+                  ${eww} update timer=${timer - magnitude < 0 ? timer : timer - magnitude}
+                else
+                  ${eww} update timer=${timer + magnitude}
+               fi"
+    (box :orientation "v" :space-evenly false :valign "center" :class "wheel"
+      {
+        (timer % bound) / magnitude < 10 ?
+        "0${replace((timer % bound) / magnitude, "\\..*", "")}${deco}"
+        : "0${replace((timer % bound) / magnitude, "\\..*", "")}${deco}"
+      }
+    )
+  )
+)
+
+(defvar random 1)
+(defvar maxrandom 6)
+
+(defwidget rando-widget []
+  (box :class "rando-widget cyan" :orientation "h"
+    (eventbox
+      :class "selector"
+      :onscroll "if test \"{}\" = \"down\"
+                  then
+                    ${eww} update maxrandom=${maxrandom < 2 ? maxrandom : maxrandom - 1}
+                  else
+                    ${eww} update maxrandom=${maxrandom + 1}
+                 fi"
+      maxrandom
+    )
+    (button :onclick "delays=(.02 .05 .08 .11 .14 .16)
+                      for i in \${delays[@]}; do
+                          ${eww} update random=$(shuf -i 1-${maxrandom} -n 1);
+                          sleep $i;
+                      done
+      "
+      :timeout "10s"
+      (dieface :value random)
+    )
+  )
+)
+
+(defwidget dieface [value]
+  (overlay
+    (box :class "die" :orientation "v" :style "${maxrandom > 9 ? "opacity: 0" : ""}"
+      (box
+        (diedot :value value :values "[4, 5, 6, 7, 8, 9]")
+        (diedot :value value :values "[8, 9]")
+        (diedot :value value :values "[2, 3, 4, 5, 6, 7, 8, 9]")
+      )
+      (box
+        (diedot :value value :values "[6, 7, 8, 9]")
+        (diedot :value value :values "[1, 3, 5, 7, 9]")
+        (diedot :value value :values "[6, 7, 8, 9]")
+      )
+      (box
+        (diedot :value value :values "[2, 3, 4, 5, 6, 7, 8, 9]")
+        (diedot :value value :values "[8, 9]")
+        (diedot :value value :values "[4, 5, 6, 7, 8, 9]")
+      )
+    )
+    (label :text value :class "result" :style "${maxrandom < 10 ? "opacity: 0" : ""}")
+  )
+)
+
+(defwidget diedot [value values]
+  (label :class "dot" :style {jq(values, "contains([${value}])") ? "" :"opacity: 0"})
+)

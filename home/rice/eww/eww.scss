@@ -174,7 +174,7 @@ window {
   font-size: 25;
 
   .icon {
-    font-size: 35;
+    font-size: 30;
   }
 
   button {
@@ -224,6 +224,31 @@ color: $black;
   }
 }
 
+.rando-widget {
+  margin: 10px;
+  min-height: 100px;
+  border-radius: 15px;
+  background-color: $bg-night;
+  opacity: $opacity;
+  padding: 3px;
+  font-size: 40;
+  button {
+    all: unset;
+    .die {
+      background-color: $cyan;
+      margin: 10px 30px;
+      padding: 2px;
+      border-radius: 10px;
+      .dot {
+        font-size: 13;
+        background-color: $bg-night;
+        border-radius: 100px;
+        margin: 5px;
+      }
+    }
+  }
+}
+
 
 .calculator-widget {
   margin: 10px;
@@ -248,7 +273,7 @@ color: $black;
     border-radius: 10px;
     margin: 5px;
     padding: 0px 10px;
-    min-width: 400px;
+    min-width: 240px;
   }
 
 }
