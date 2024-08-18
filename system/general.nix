@@ -3,14 +3,19 @@
   imports = [
     ../stylix.nix
   ];
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+      loader.systemd-boot.enable = true;
+      loader.efi.canTouchEfiVariables = true;
 
-  boot.kernelModules = ["v4l2loopback"];
-  boot.supportedFilesystems = [ "ntfs" ];
+      tmp.cleanOnBoot = true;
 
-  boot.extraModulePackages = with config.boot.kernelPackages;
-    [ v4l2loopback.out ];
+      kernelModules = ["v4l2loopback"];
+      supportedFilesystems = [ "ntfs" ];
+
+      extraModulePackages = with config.boot.kernelPackages;
+        [ v4l2loopback.out ];
+
+    };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
