@@ -5,6 +5,7 @@
         nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
         nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
         nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+        zen-browser.url = "github:MarceColl/zen-browser-flake";
         nixos-cosmic = {
             url = "github:lilyinstarlight/nixos-cosmic";
             inputs.nixpkgs.follows = "nixpkgs";
@@ -35,6 +36,11 @@
         home-modules = [
             inputs.stylix.homeManagerModules.stylix
             inputs.nixvim.homeManagerModules.nixvim
+            {
+                home.packages = [
+                        inputs.zen-browser.packages."${system}".specific
+                    ];
+            }
         ];
         system-modules = [
             inputs.stylix.nixosModules.stylix
