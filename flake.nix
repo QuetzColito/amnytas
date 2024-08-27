@@ -40,6 +40,7 @@
                 home.packages = [
                         inputs.zen-browser.packages."${system}".specific
                     ];
+                home.sessionVariables.BROWSER = "zen";
             }
         ];
         system-modules = [

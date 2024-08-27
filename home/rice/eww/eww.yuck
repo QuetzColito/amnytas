@@ -57,7 +57,7 @@
   (bar)
 )
 
-(defwindow bar-vert
+(defwindow vert-bar-1
   :monitor 1
   :geometry (geometry :width "1080px"
                       :height "10px"

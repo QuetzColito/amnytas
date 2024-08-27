@@ -24,13 +24,15 @@
 
     monitors = [
         {
-            id = "eDP-1";
+            id = "0";
+            name = "eDP-1";
             wallpaper = "~/nixos/wallpaper/side.jpg";
             coords = "0x0";
             workspaces = [ 1 2 3 7 8 9];
         }
         {
-            id = "HDMI-A-1";
+            id = "1";
+            name = "HDMI-A-1";
             wallpaper = "~/nixos/wallpaper/main.jpg";
             coords = "-1920x0";
             workspaces = [ 4 5 6 ];

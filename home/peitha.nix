@@ -19,20 +19,24 @@
 
     monitors = [
         {
-            id = "DP-1";
+            id = "1";
+            name = "DP-1";
             wallpaper = "~/nixos/wallpaper/vertical.jpg";
             coords = "-1080x-300";
             rotation = "1";
+            bar = "vert-bar-";
             workspaces = [ 1 2 3 ];
         }
         {
-            id = "HDMI-A-1";
+            id = "0";
+            name = "HDMI-A-1";
             wallpaper = "~/nixos/wallpaper/side.jpg";
             coords = "2560x360";
             workspaces = [ 7 8 9 ];
         }
         {
-            id = "DP-2";
+            id = "2";
+            name = "DP-2";
             wallpaper = "~/nixos/wallpaper/main.jpg";
             coords = "0x0";
             workspaces = [ 4 5 6 ];

@@ -19,7 +19,7 @@
         };
     };
 
-    config = {
+    config = let eww = "eww -c ~/nixos/home/rice/eww"; in {
         wayland.windowManager.hyprland = {
             enable = true;
             xwayland.enable = true;
@@ -34,25 +34,25 @@
             exec-once = [
                 "hyprlock --immediate"
                 "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-                "wl-paste -t text -w xclip -selection clipboard"
+                "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service"
+                # "wl-paste -t text -w xclip -selection clipboard"
                 # "fcitx5 -d -r"
                 # "fcitx5-remote -r"
-                "eww daemon"
-                "eww open bar-0"
-                "eww open bar-1"
-            ] ++ (map ({id, ...}: "xrandr --output " + id + " --primary") config.monitors);
-             # ++ (map ({id, ...}: "eww open bar-" + id) config.monitors);
+                "${eww} daemon"
+                "eww-cover-helper"
+            ] ++ (map ({name, ...}: "xrandr --output " + name + " --primary") config.monitors)
+              ++ (map ({id, bar ? "bar-", ...}: "${eww} open " + bar + id) config.monitors);
 
             workspace = builtins.concatLists (
-                map ({workspaces, id, ...} :
-                    map (ws: (builtins.toString ws) + ", monitor:" + id) workspaces
+                map ({workspaces, name, ...} :
+                    map (ws: (builtins.toString ws) + ", monitor:" + name) workspaces
                 ) config.monitors);
 
             monitor = [
                 ",highrr,auto,1"
                 "Unknown-1,disable"
-            ] ++ map ({id, coords, rotation ? "", ...}:
-                        id
+            ] ++ map ({name, coords, rotation ? "", ...}:
+                        name
                         + ",preferred,"
                         + coords
                         + ",1"

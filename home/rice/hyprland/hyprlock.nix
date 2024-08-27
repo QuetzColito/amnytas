@@ -12,8 +12,8 @@ in {
                 hide_cursor = true;
                 grace = 60;
             };
-            background = map ({id, wallpaper, ...}: {
-                monitor = id;
+            background = map ({name, wallpaper, ...}: {
+                monitor = name;
                 path = wallpaper;
                 # all these options are taken from hyprland, see https://wiki.hyprland.org/Configuring/Variables/#blur for explanations
                 # blur_passes = 2; # 0 disables blurring

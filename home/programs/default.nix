@@ -21,7 +21,7 @@
             johnpapa.vscode-peacock
             enkia.tokyo-night
         ];
-        userSettings = import ./vscode-settings.nix;
+        # userSettings = import ./vscode-settings.nix;
     };
 
     home.packages = with pkgs; [

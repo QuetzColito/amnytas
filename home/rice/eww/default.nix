@@ -111,13 +111,6 @@ in {
         )
     ];
     wayland.windowManager.hyprland.settings = {
-        exec-once = [
-            "eww-cover-helper"
-            "${eww} daemon"
-            "${eww} open bar-0"
-            "${eww} open bar-1"
-            "${eww} open bar-2"
-        ];
         bind = [
             "SUPER,E,exec,${eww} open --toggle widgets --screen $(hyprctl activeworkspace -j | jq '.monitorID')"
             "SUPERSHIFT,E,exec,${eww} open --toggle bar-$(hyprctl activeworkspace -j | jq '.monitorID')"

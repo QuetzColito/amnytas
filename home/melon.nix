@@ -13,7 +13,8 @@
 
     monitors = [
         {
-            id = "HDMI-A-1";
+            id = "0";
+            name = "HDMI-A-1";
             wallpaper = "~/nixos/wallpaper/side.jpg";
             config = "0x0";
             workspaces = [ 1 2 3 4 5 6 7 8 9 ];
