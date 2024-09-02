@@ -54,6 +54,7 @@
             "noborder, tag:apt"
             "size 100% 100%, tag:apt"
             "center, tag:apt"
+            # "stayfocused, class:^(steam_app_2121980)$"
 
             "float, class:^(org.gnome.Loupe)$"
             "float, class:^(vlc)$"

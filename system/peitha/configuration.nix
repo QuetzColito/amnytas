@@ -10,7 +10,8 @@
       ./hardware-configuration.nix
       ./machine.nix
       ./hyprland.nix
-      #../wm/kde.nix
+      # ../wm/kde.nix
+      # ../wm/cosmic.nix
       ../general.nix
     ];
 

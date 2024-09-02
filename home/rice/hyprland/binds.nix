@@ -69,6 +69,7 @@ in {
         "${modshift},N,moveworkspacetomonitor,6 1"
 
 
+
         "CTRL ${modshift},S,exec, pauseshot"
         "${modshift},S,exec, grim -g \"$(slurp)\" - | wl-copy"
       ]
