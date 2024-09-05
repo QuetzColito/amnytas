@@ -27,7 +27,7 @@ in {
         "${mod},S,exec,[workspace 5] foot -D ~/nixos nvim ~/nixos"
         "${mod},G,exec,[workspace 9 silent] steam"
         "${mod},B,exec,[workspace 7] zen"
-        "${mod},Y,exec,for i in ~/apps/ytm/*.AppImage ; do appimage-run $i; done" # EXTERNAL DEPENDENCY
+        "${mod},Y,exec,youtubemusic" # EXTERNAL DEPENDENCY
         "${mod},D,exec,flatpak run dev.vencord.Vesktop --enable-wayland-ime" # EXTERNAL DEPENDENCY
         #"${mod},D,exec,vesktop"
 

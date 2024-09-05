@@ -4,6 +4,7 @@
 }: {
     imports = [
         ./foot.nix
+        ./appimages.nix
         ./imv.nix
     ];
 
