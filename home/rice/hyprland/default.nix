@@ -49,7 +49,7 @@
                 ) config.monitors);
 
             monitor = [
-                ",highrr,auto,1"
+                # ",highrr,auto,1"
                 "Unknown-1,disable"
             ] ++ map ({name, coords, rotation ? "", ...}:
                         name
@@ -68,6 +68,13 @@
                 "QT_QPA_PLATFORM,wayland;xcb"
                 "GDK_BACKEND,wayland,x11,*"
                 "XCURSOR_THEME,Bibata-Modern-Classic"
+                "LIBVA_DRIVER_NAME,nvidia"
+                "GBM_BACKEND,nvidia-drm"
+                "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+                "__GL_GSYNC_ALLOWED,0"
+                "__GL_VRR_ALLOWED,0"
+                # "AQ_NO_ATOMIC,1"
+                "NVD_BACKEND,direct"
             ];
 
             gestures = {
