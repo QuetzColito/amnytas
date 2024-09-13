@@ -112,9 +112,6 @@
                 #"col.active_border" = "rgb(7da6ff)";
                 "col.active_border" = lib.mkForce "rgb(${config.stylix.base16Scheme.base0C})";
                 #"col.inactive_border" = "rgb(414559)";
-
-                # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
-                apply_sens_to_raw = 1;
             };
 
             decoration = {
