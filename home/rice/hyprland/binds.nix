@@ -24,6 +24,7 @@ in {
         # App Shortcuts
         "${mod},RETURN,exec,foot zsh"
         "${mod},N,exec,foot yazi"
+        "${mod},I,exec,killall -r fcitx5 || fcitx5"
         "${mod},S,exec,[workspace 5] foot -D ~/nixos nvim ~/nixos"
         "${mod},G,exec,[workspace 9 silent] steam"
         "${mod},B,exec,[workspace 7] zen"

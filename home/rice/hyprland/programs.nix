@@ -20,6 +20,7 @@
         pamixer
         pavucontrol
         socat
+        killall
         (writeShellScriptBin
           "handle_monitor_connect"
           ''
