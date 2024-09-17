@@ -36,10 +36,10 @@
                         installRustc = true;
                     };
 
-                    java-language-server = {
-                        enable = true;
-                        rootDir = "function() return vim.uv.cwd() end";
-                    };
+                    # java-language-server = {
+                    #     enable = true;
+                    #     rootDir = "function() return vim.uv.cwd() end";
+                    # };
 
                     efm = {
                         enable = true;

@@ -5,6 +5,7 @@
     imports = [
         ./zsh.nix
         ./yazi.nix
+        ./nixvim
     ];
 
 
@@ -38,6 +39,9 @@
         starship
         btop
         cmatrix
+        docker
+        lazydocker
+        micro
         sl
         jq
         calc

@@ -7,7 +7,6 @@
 
     imports = [
         ./programs
-        ./dev
         ./rice
         ./terminal
         ../stylix.nix
