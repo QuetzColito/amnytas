@@ -77,6 +77,7 @@
             "workspace 6, class:^(steam_app.*)$"
             "workspace 6, class:^(moe\.launcher.*)$"
             "workspace 6, class:^(starrail\.exe)$"
+            "renderunfocused, class:^(starrail\.exe)$"
             "workspace 5, class:codium-url-handler"
             "tile, class:^(steam_app.*)$"
         ];
