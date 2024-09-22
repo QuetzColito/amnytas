@@ -28,7 +28,7 @@
                     purescriptls.enable = true;
                     svelte.enable = true;
                     hls.enable = true;
-                    tsserver.enable = true;
+                    ts-ls.enable = true;
 
                     rust-analyzer = {
                         enable = true;
