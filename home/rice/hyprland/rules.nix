@@ -34,10 +34,11 @@
             "forcergbx, class:^steam$"
             "opacity 0.95, class:^(YouTube Music)$"
             "forcergbx, class:^(YouTube Music)$"
-            "opacity 0.8 0.8 1, class: firefox"
+            "opacity 0.8, class: firefox"
             "opacity 1 override 1 override 1 override ,title:^(.*YouTube — Mozilla Firefox)|(.*Crunchyroll.* — Mozilla Firefox)$"
-            "opacity 0.8 0.8 1, title: ^(.*Zen Browser)$"
+            "opacity 0.8, title: ^(.*Zen Browser)$"
             "opacity 1 override 1 override 1 override ,title:^(.*YouTube — Zen Browser)|(.*Crunchyroll.* — Zen Browser)$"
+            "opacity 1 override 1 override 1 override ,fullscreen:1"
 
 
             # "idleinhibit fullscreen, class:^(firefox)$"
