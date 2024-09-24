@@ -71,8 +71,8 @@
             "workspace special silent, title:^(.*is sharing (your screen|a window)\.)$"
 
             # organization
-            "workspace 1, class:^(vesktop)$"
-            "workspace 1, class:^(YouTube Music)$"
+            "workspace 3, class:^(vesktop)$"
+            "workspace 3, class:^(YouTube Music)$"
             "workspace 9, title:^(Steam)$"
             "workspace 6, class:^(steam_app.*)$"
             "workspace 6, class:^(moe\.launcher.*)$"

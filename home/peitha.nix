@@ -47,8 +47,8 @@
         settings = {
             exec-once = [
             "[workspace 7 silent] zen"
-            "[workspace 1 silent] for i in ~/apps/ytm/*.AppImage ; do appimage-run $i; done" # EXTERNAL DEPENDENCY
-            "[workspace 1 silent] flatpak run dev.vencord.Vesktop" # EXTERNAL DEPENDENCY
+            "[workspace 3 silent] for i in ~/apps/ytm/*.AppImage ; do appimage-run $i; done" # EXTERNAL DEPENDENCY
+            "[workspace 3 silent] vesktop --enable-wayland-ime"
               "sleep 5; hyprctl dispatch resizewindowpixel exact 100% 30%,YouTube"
             ];
         };

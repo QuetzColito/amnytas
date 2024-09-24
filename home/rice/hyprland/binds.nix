@@ -29,7 +29,8 @@ in {
         "${mod},G,exec,[workspace 9 silent] steam"
         "${mod},B,exec,[workspace 7] zen"
         "${mod},Y,exec,youtubemusic" # EXTERNAL DEPENDENCY
-        "${mod},D,exec,flatpak run dev.vencord.Vesktop --enable-wayland-ime" # EXTERNAL DEPENDENCY
+        # "${mod},D,exec,flatpak run dev.vencord.Vesktop --enable-wayland-ime" # EXTERNAL DEPENDENCY
+        "${mod},D,exec,vesktop --enable-wayland-ime"
         #"${mod},D,exec,vesktop"
 
         "${mod},SPACE,exec,hyprctl dispatch exec $(tofi-run --ascii-input true)"

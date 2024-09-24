@@ -32,6 +32,7 @@
         appimage-run
         obs-studio
         discord
+        vesktop
         protonmail-desktop
 
         # Gaming
