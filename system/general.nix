@@ -62,21 +62,21 @@
   powerManagement.enable = true;
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  programs.nix-ld = {
-    enable = true;
-    libraries = with pkgs; [
-      xorg.libXcursor
-      xorg.libXinerama
-      xorg.libXext
-      xorg.libXrandr
-      xorg.libXrender
-      xorg.libX11
-      xorg.libXi
-      libGL
-      # Add any missing dynamic libraries for unpackaged programs here,
-      # NOT in environment.systemPackages
-    ];
-  };
+  # programs.nix-ld = {
+  #   enable = true;
+  #   libraries = with pkgs; [
+  #     xorg.libXcursor
+  #     xorg.libXinerama
+  #     xorg.libXext
+  #     xorg.libXrandr
+  #     xorg.libXrender
+  #     xorg.libX11
+  #     xorg.libXi
+  #     libGL
+  #     # Add any missing dynamic libraries for unpackaged programs here,
+  #     # NOT in environment.systemPackages
+  #   ];
+  # };
   # improves compatability
   # services.envfs.enable = true;
 

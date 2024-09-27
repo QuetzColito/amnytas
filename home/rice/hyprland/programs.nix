@@ -16,6 +16,7 @@
         xclip
         # pngquant
         cliphist
+        clipnotify
         playerctl
         pamixer
         pavucontrol
