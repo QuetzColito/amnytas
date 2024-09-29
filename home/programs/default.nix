@@ -49,6 +49,7 @@
         komikku
         audacity
         vlc
+        pinta
         # Documents
         thunderbird
         onlyoffice-bin
