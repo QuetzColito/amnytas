@@ -110,7 +110,7 @@
 
                 # active border color
                 #"col.active_border" = "rgb(7da6ff)";
-                "col.active_border" = lib.mkForce "rgb(${config.stylix.base16Scheme.base0C})";
+                "col.active_border" = lib.mkForce "rgb(${config.stylix.base16Scheme.base0C}) rgb(${config.stylix.base16Scheme.base0E}) 45deg";
                 #"col.inactive_border" = "rgb(414559)";
             };
 
@@ -165,12 +165,14 @@
                     "smoothOut, 0.36, 0, 0.66, -0.56"
                     "smoothIn, 0.25, 1, 0.5, 1"
                     "overshot, 0.4,0.8,0.2,1.2"
+                    "linear, 0.0, 0.0, 1.0, 1.0"
                 ];
 
                 animation = [
                     "windows, 1, 5, overshot, slide"
                     "windowsOut, 1, 6, smoothIn, slide"
                     "border,1,10,default"
+                    "borderangle, 1, 100, linear, loop"
 
                     "fade, 1, 10, smoothIn"
                     "fadeDim, 1, 10, smoothIn"
