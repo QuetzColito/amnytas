@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs,
   config,
   ...
 } : {
@@ -30,6 +31,7 @@
                     "systemctl --user start hyprland-session.target"
                 ];
             };
+            plugins = [ pkgs.hyprlandPlugins.hyprtrails ];
             settings = {
             exec-once = [
                 "hyprlock --immediate"
@@ -113,6 +115,8 @@
                 "col.active_border" = lib.mkForce "rgb(${config.stylix.base16Scheme.base0C}) rgb(${config.stylix.base16Scheme.base0E}) 45deg";
                 #"col.inactive_border" = "rgb(414559)";
             };
+
+            plugin.hyprtrails.color = "rgba(${config.stylix.base16Scheme.base0E}ff)";
 
             decoration = {
                 # fancy corners
