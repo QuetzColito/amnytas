@@ -31,6 +31,7 @@ in {
         "${mod},Y,exec,youtubemusic" # EXTERNAL DEPENDENCY
         # "${mod},D,exec,flatpak run dev.vencord.Vesktop --enable-wayland-ime" # EXTERNAL DEPENDENCY
         "${mod},D,exec,vesktop --enable-wayland-ime"
+        "${mod},C,exec,wl-paste | wl-copy"
         #"${mod},D,exec,vesktop"
 
         "${mod},SPACE,exec,hyprctl dispatch exec $(tofi-run --ascii-input true)"
