@@ -4,13 +4,14 @@
 (include "./monitors.yuck")
 (include "./time.yuck")
 (include "./music.yuck")
+(include "./recording.yuck")
 
 (defvar eww "eww -c ~/nixos/home/rice/eww")
 
 (defwidget bar []
   (centerbox :orientation "h"
     (bar-area :align "start" (workspaces))
-    (bar-area :align "center" (time))
+    (bar-area :align "center" (recording) (time))
     (bar-area :align "end" (music) (sound) (systray))
   )
 )

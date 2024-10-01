@@ -110,10 +110,4 @@ in {
              ''
         )
     ];
-    wayland.windowManager.hyprland.settings = {
-        bind = [
-            "SUPER,E,exec,${eww} open --toggle widgets --screen $(hyprctl activeworkspace -j | jq '.monitorID')"
-            "SUPERSHIFT,E,exec,${eww} open --toggle bar-$(hyprctl activeworkspace -j | jq '.monitorID')"
-        ];
-    };
 }
