@@ -66,7 +66,7 @@
                 "XDG_SESSION_TYPE,wayland"
                 "XDG_SESSION_DESKTOP,Hyprland"
                 "CLUTTER_BACKEND,wayland"
-                "SDL_VIDEODRIVER,wayland"
+                # "SDL_VIDEODRIVER,wayland"
                 "QT_QPA_PLATFORM,wayland;xcb"
                 "GDK_BACKEND,wayland,x11,*"
                 "XCURSOR_THEME,Bibata-Modern-Classic"
