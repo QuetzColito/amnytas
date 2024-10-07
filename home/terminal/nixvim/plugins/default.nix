@@ -19,6 +19,7 @@
     programs.nixvim.plugins = {
         transparent.enable = true;
         luasnip.enable = true;
+        web-devicons.enable = true;
 
         gitsigns = {
             enable = true;
