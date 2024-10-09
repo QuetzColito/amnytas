@@ -6,6 +6,7 @@
         nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
         nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
         zen-browser.url = "github:MarceColl/zen-browser-flake";
+        ags.url = "github:Aylur/ags";
         nixos-cosmic = {
             url = "github:lilyinstarlight/nixos-cosmic";
             inputs.nixpkgs.follows = "nixpkgs";
@@ -74,6 +75,7 @@
         };
         homeConfigurations."quetz" = home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
+            extraSpecialArgs = { inherit inputs; };
             modules = [
                 ./home/peitha.nix
             ] ++ home-modules;
@@ -88,6 +90,7 @@
         };
         homeConfigurations."arthezia" = home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
+            extraSpecialArgs = { inherit inputs; };
             modules = [
                 ./home/mabon.nix
             ] ++ home-modules;
@@ -102,6 +105,7 @@
         };
         homeConfigurations."melon" = home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
+            extraSpecialArgs = { inherit inputs; };
             modules = [
                 ./home/melon.nix
             ] ++ home-modules;
