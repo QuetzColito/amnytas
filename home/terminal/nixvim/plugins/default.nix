@@ -9,6 +9,7 @@
         ./markdown.nix
         ./lazygit.nix
         ./mini.nix
+        ./tex.nix
     ];
 
     programs.nixvim.extraPlugins = with pkgs.vimPlugins; [
