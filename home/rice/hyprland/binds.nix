@@ -3,7 +3,7 @@
 }: let
   mod = "SUPER";
   modshift = "${mod}SHIFT";
-  eww = "eww -c ~/nixos/home/rice/eww";
+  ags = "ags -c ~/nixos/home/rice/ags/config.js";
 
   # binds $mod + [shift +] {1..10} to [move to] workspace {1..10} (stolen from fufie)
   workspaces = builtins.concatLists (builtins.genList (
@@ -42,8 +42,8 @@ in {
         "${mod},P,pseudo"
 
 
-        "${mod},E,exec,${eww} open --toggle widgets --screen $(hyprctl activeworkspace -j | jq '.monitorID')"
-        "${modshift},E,exec,${eww} open --toggle bar-$(hyprctl activeworkspace -j | jq '.monitorID')"
+        "${mod},E,exec,${ags} --toggle-window dashboard"
+        "${modshift},E,exec,${ags} open --toggle-window bar$(hyprctl activeworkspace -j | jq '.monitorID')"
 
         "${mod},H,movefocus,l"
         "${mod},L,movefocus,r"
@@ -76,9 +76,9 @@ in {
         "${modshift},N,moveworkspacetomonitor,5 1"
         "${modshift},N,moveworkspacetomonitor,6 1"
 
-        ''${modshift},X,exec,${eww} update recording=true & wf-recorder -y -f ~/Videos/wf-recording.mp4 -g "$(slurp)"''
-        ''CTRL ${mod},X,exec,${eww} update recording=true & wf-recorder -y -f ~/Videos/wf-recording.mp4 -g "$(slurp -o)"''
-        "${mod},X,exec,pkill --signal SIGINT wf-recorder & ${eww} update recording=false"
+        ''${modshift},X,exec,${ags} -r recording.value=true & wf-recorder -y -f ~/Videos/wf-recording.mp4 -g "$(slurp)"''
+        ''CTRL ${mod},X,exec,${ags} -r recording.value=true & wf-recorder -y -f ~/Videos/wf-recording.mp4 -g "$(slurp -o)"''
+        "${mod},X,exec,pkill --signal SIGINT wf-recorder & ${ags} -r recording.value=false"
         "CTRL ${modshift},S,exec, grimblast --freeze copy area"
         "${modshift},S,exec, grimblast copy area"
         "ALT ${modshift},S,exec, grimblast copy active"

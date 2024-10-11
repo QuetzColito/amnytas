@@ -79,6 +79,7 @@
   # };
   # improves compatability
   # services.envfs.enable = true;
+  services.gvfs.enable = true;
 
   environment.systemPackages = with pkgs; [
     vim

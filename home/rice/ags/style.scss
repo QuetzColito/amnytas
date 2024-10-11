@@ -1,0 +1,349 @@
+$bg-night: #1a1b26;
+$fg-light: #CBCCD1;
+$bg-storm: #24283b;
+$bg-select: #2f3549;
+$text: #787C99;
+$black: #414868;
+$red: #f7768e;
+$orange: #ff9e64;
+$yellow: #E0AF68;
+$green: #9ece6a;
+$cyan: #7dcfff;
+$blue: #7aa2f7;
+$purple: #bb9af7;
+$opacity: 0.88;
+
+.red { color: $red; }
+.orange { color: $orange; }
+.yellow { color: $yellow; }
+.green { color: $green; }
+.cyan { color: $cyan; }
+.blue { color: $blue; }
+.purple { color: $purple; }
+
+* {
+  font-family: "Inter Medium";
+}
+
+window {
+  all: unset; //Unsets everything so you can style everything from scratch
+}
+
+// Bar
+
+.bar-area {
+  all: unset;
+  font-size: 14px;
+  background-color: $bg-storm;
+  margin: 5px 11px 0;
+  padding: 8px 10px;
+  border-radius: 7px;
+}
+
+.workspace-entry {
+  color: $blue;
+}
+
+.separator {
+  color: $text;
+}
+
+.current {
+  color: $purple;
+}
+
+.sound {
+  color: $blue;
+}
+
+// Music
+
+.music-active {
+  color: $purple;
+}
+
+.music-inactive {
+  color: $orange;
+}
+
+.music-widget {
+  margin: 10px;
+  background-color: $bg-night;
+  opacity: $opacity;
+  border-radius: 15px;
+  padding: 15px 13px 15px 25px;
+
+
+  .title {
+    opacity: 1;
+    font-size: 20px;
+    color: $purple;
+  }
+
+  .artist {
+    opacity: 1;
+    font-size: 17px;
+    color: $text;
+    margin-right: 12px;
+    margin-bottom: 3px;
+  }
+
+  .music-control-center {
+    opacity: 1;
+    box label {
+      margin: 0px 20px;
+    }
+
+    .sound-scale {
+      color: $blue;
+      scale trough highlight {
+        background-color: $blue;
+      }
+    }
+
+    .duration-scale {
+      color: $purple;
+
+      scale trough highlight {
+        background-color: $purple;
+      }
+    }
+
+    scale trough {
+      background-color: $bg-storm;
+      border-radius: 50px;
+      min-height: 15px;
+      min-width: 180px;
+
+      highlight {
+        color: #000000;
+        border-radius: 10px;
+      }
+
+      slider {
+        all:unset;
+      }
+    }
+
+    .music-controls {
+      min-width: 275px;
+    }
+
+    button {
+      all: unset;
+      font-size: 35px;
+      background: none;
+      color: $blue;
+    }
+  }
+}
+
+// Time
+
+.time {
+  color: $orange;
+}
+
+.clock-widget {
+  margin: 10px 320px;
+  min-height: 50px;
+  border-radius: 15px;
+  background-color: $bg-night;
+  opacity: $opacity;
+  padding: 3px;
+  font-size: 50px;
+
+  .minutes {
+    color: $blue;
+  }
+  .hours {
+    color: $red;
+  }
+  .seconds {
+    color: $green;
+  }
+}
+
+.timer-widget {
+  margin: 10px;
+  min-height: 100px;
+  border-radius: 15px;
+  background-color: $bg-night;
+  opacity: $opacity;
+  padding: 3px;
+  font-size: 25px;
+
+  .icon {
+    font-size: 30px;
+  }
+
+  button {
+    all: unset;
+  }
+
+}
+
+.calendar-widget {
+  margin: 10px;
+  border-radius: 15px;
+  background-color: $bg-night;
+  opacity: $opacity;
+  padding: 3px;
+
+}
+
+calendar:selected {
+  color: $blue;
+  background: none;
+}
+
+calendar.header {
+  color: $blue;
+  font-weight: bold;
+  border: none;
+}
+
+calendar.button {
+color: $blue;
+}
+
+calendar.highlight {
+color: $purple;
+font-weight: bold;
+}
+
+calendar:indeterminate {
+color: $black;
+}
+
+.background {
+  all: unset;
+  calendar {
+    border: none;
+    background: none;
+  }
+}
+
+.rando-widget {
+  margin: 10px;
+  min-height: 100px;
+  border-radius: 15px;
+  background-color: $bg-night;
+  opacity: $opacity;
+  padding: 3px;
+  font-size: 40px;
+  button {
+    all: unset;
+    .die {
+      background-color: $cyan;
+      margin: 10px 30px;
+      padding: 2px;
+      border-radius: 10px;
+      .dot {
+        font-size: 13px;
+        background-color: $bg-night;
+        border-radius: 100px;
+        margin: 5px;
+      }
+    }
+  }
+}
+
+.img {
+  min-width: 120px;
+  min-height: 120px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 13px;
+  margin-right: 1em;
+}
+
+
+.calculator-widget {
+  margin: 10px;
+  min-height: 100px;
+  border-radius: 15px;
+  background-color: $bg-night;
+  opacity: $opacity;
+  padding: 3px;
+  color: $green;
+
+  label {
+    all: unset;
+    color: $orange;
+    border-bottom: 1px solid $orange;
+    margin: 10px;
+
+  }
+
+  entry {
+    all: unset;
+    background-color: $bg-storm;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 0px 10px;
+    min-width: 240px;
+  }
+
+}
+
+
+.button {
+    margin: 10px;
+    min-height: 100px;
+    /* width: 400px; */
+    border-radius: 15px;
+    background-color: $bg-night;
+    font-size: 50px;
+    opacity: $opacity;
+}
+
+.monitor {
+  margin: 10px;
+  padding: 10px 5px;
+  min-height: 100px;
+  border-radius: 15px;
+  background-color: $bg-night;
+  min-width: 195px;
+  font-size: 25px;
+  opacity: $opacity;
+  .stats {
+  }
+
+  .icon {
+    font-size: 40px;
+  }
+
+
+  trough {
+    margin: 20px 10px 10px 10px ;
+    background-color: $bg-storm;
+    border-radius: 50px;
+    min-width: 30px;
+    min-height: 20px;
+
+    progress {
+    min-width: 30px;
+    background-color: $red;
+    min-height: 20px;
+      color: #000000;
+      border-radius: 10px;
+    }
+  }
+}
+
+.green trough progress {
+  background-color: $green;
+}
+
+.cyan trough progress {
+  background-color: $cyan;
+}
+
+.blue trough progress {
+  background-color: $blue;
+}
+
+.purple trough progress {
+  background-color: $purple;
+}

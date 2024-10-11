@@ -4,7 +4,7 @@
     ./hyprland
     ./tofi.nix
     # ./waybar.nix
-    ./eww
+    # ./eww
     ./ags
     # ./dunst.nix
     ./mako.nix

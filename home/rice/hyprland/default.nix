@@ -20,7 +20,7 @@
         };
     };
 
-    config = let eww = "eww -c ~/nixos/home/rice/eww"; in {
+    config = let ags = "ags -c ~/nixos/home/rice/ags/config.js"; in {
         wayland.windowManager.hyprland = {
             enable = true;
             xwayland.enable = true;
@@ -37,13 +37,8 @@
                 "hyprlock --immediate"
                 "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
                 "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service"
-                # "wl-paste -t text -w xclip -selection clipboard"
-                # "fcitx5 -d -r"
-                # "fcitx5-remote -r"
-                "${eww} daemon"
-                "eww-cover-helper"
-            ] ++ (map ({name, ...}: "xrandr --output " + name + " --primary") config.monitors)
-              ++ (map ({id, bar ? "bar-", ...}: "${eww} open " + bar + id) config.monitors);
+                "${ags}"
+            ] ++ (map ({name, ...}: "xrandr --output " + name + " --primary") config.monitors);
 
             workspace = builtins.concatLists (
                 map ({workspaces, name, ...} :

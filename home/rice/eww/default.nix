@@ -55,12 +55,6 @@ in {
             ''
         )
         (pkgs.writeShellScriptBin
-            "togglecurrentbar"
-            ''
-            ${eww} open --toggle bar-$(hyprctl activeworkspace -j | jq '.monitorID')
-            ''
-        )
-        (pkgs.writeShellScriptBin
             "eww-change-active-workspace"
              ''
                 function clamp {
