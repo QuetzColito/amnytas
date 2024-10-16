@@ -20,13 +20,6 @@
 
     services = {
         arrpc.enable = true;
-        hyprpaper = {
-            enable = true;
-            settings = {
-                splash = false;
-                ipc = "off";
-            };
-        };
     };
 
     # systemd.user.targets.tray = {

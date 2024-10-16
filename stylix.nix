@@ -48,7 +48,7 @@
       base0F= "D18616"; # Dark Orange # Deprecated, Opening/Closing Embedded Language Tags
     };
 
-    image = ./wallpaper/main.jpg;
+    image = ./wallpaper/5.png;
 
   };
 

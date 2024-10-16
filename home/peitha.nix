@@ -21,23 +21,19 @@
         {
             id = "1";
             name = "DP-1";
-            wallpaper = "~/nixos/wallpaper/vertical.jpg";
             coords = "-1080x50";
             rotation = "1";
-            bar = "vert-bar-";
             workspaces = [ 1 2 3 ];
         }
         {
             id = "0";
             name = "HDMI-A-1";
-            wallpaper = "~/nixos/wallpaper/side.jpg";
             coords = "2560x660";
             workspaces = [ 7 8 9 ];
         }
         {
             id = "2";
             name = "DP-2";
-            wallpaper = "~/nixos/wallpaper/main.jpg";
             coords = "0x0";
             workspaces = [ 4 5 6 ];
         }

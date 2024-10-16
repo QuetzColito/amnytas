@@ -38,6 +38,7 @@
                 "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
                 "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service"
                 "${ags}"
+                "hyprpaperswitch"
             ] ++ (map ({name, ...}: "xrandr --output " + name + " --primary") config.monitors);
 
             workspace = builtins.concatLists (
