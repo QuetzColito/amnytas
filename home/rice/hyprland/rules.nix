@@ -76,6 +76,7 @@
             "workspace 3, class:^(YouTube Music)$"
             "workspace 9, title:^(Steam)$"
             "workspace 6, class:^(steam_app.*)$"
+            "workspace 6, class:^(gamescope)$"
             "workspace 6, class:^(moe\.launcher.*)$"
             "workspace 6, class:^(starrail\.exe)$"
             "renderunfocused, class:^(starrail\.exe)$"

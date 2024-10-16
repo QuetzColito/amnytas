@@ -70,8 +70,11 @@
                 "__GLX_VENDOR_LIBRARY_NAME,nvidia"
                 "__GL_GSYNC_ALLOWED,0"
                 "__GL_VRR_ALLOWED,0"
+                "ELECTRON_OZONE_PLATFORM_HINT,auto"
                 # "AQ_NO_ATOMIC,1"
                 "NVD_BACKEND,direct"
+                ("XKB_DEFAULT_LAYOUT," + config.wayland.windowManager.hyprland.settings.input.kb_layout)
+                ("XKB_DEFAULT_OPTIONS," + config.wayland.windowManager.hyprland.settings.input.kb_options)
             ];
 
             gestures = {
@@ -95,6 +98,10 @@
                     tap-to-click = true;
                     scroll_factor = 0.5;
                 };
+            };
+
+            cursor = {
+                no_hardware_cursors = true;
             };
 
             general = {
