@@ -25,12 +25,14 @@
 
                 servers = {
                     nixd.enable = true;
-                    purescriptls.enable = true;
                     svelte.enable = true;
-                    hls.enable = true;
-                    ts-ls.enable = true;
+                    hls = {
+                        enable = true;
+                        installGhc = true;
+                    };
+                    ts_ls.enable = true;
 
-                    rust-analyzer = {
+                    rust_analyzer = {
                         enable = true;
                         installCargo = true;
                         installRustc = true;

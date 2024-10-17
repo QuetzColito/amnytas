@@ -15,11 +15,12 @@
         wl-clipboard
         xclip
         # pngquant
-        cliphist
+        # cliphist
         clipnotify
         playerctl
         pamixer
         pavucontrol
+        pwvucontrol
         socat
         killall
         (writeShellScriptBin
