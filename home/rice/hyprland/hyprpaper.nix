@@ -27,8 +27,8 @@
             "hyprpaperswitch"
             ''socat -U - UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock \
             | grep --line-buffered '^workspacev2>>' \
-            | sed -r -u 's/^.*,/hyprpaperswitchw/' \
-            | while read line; do "$line"; done
+            | sed -ur 's/^.*>>|,.*$//g' \
+            | while read line; do "hyprpaperswitchw$line"; done
             ''
         )
     ] ++ (map (
