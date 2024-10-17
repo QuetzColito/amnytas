@@ -4,7 +4,6 @@
 } : {
     home = {
         username = "quetz";
-        homeDirectory = "/home/quetz";
 
         stateVersion = "23.11"; # Please read the comment before changing.
 
@@ -13,26 +12,24 @@
         ];
     };
 
-    imports = [
-        ./home.nix
-    ];
+    programs.git.extraConfig.user = {
+        email = "stefan.lahne@proton.me";
+        name = "Stefan Lahne";
+    };
 
     monitors = [
         {
-            id = "1";
             name = "DP-1";
             coords = "-1080x50";
             rotation = "1";
             workspaces = [ 1 2 3 ];
         }
         {
-            id = "0";
             name = "HDMI-A-1";
             coords = "2560x660";
             workspaces = [ 7 8 9 ];
         }
         {
-            id = "2";
             name = "DP-2";
             coords = "0x0";
             workspaces = [ 4 5 6 ];

@@ -3,7 +3,6 @@
 
     inputs = {
         nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-        nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
         nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
         zen-browser.url = "github:MarceColl/zen-browser-flake";
         ags.url = "github:Aylur/ags";
@@ -30,103 +29,35 @@
         };
     };
 
-    outputs = { nixos-cosmic, nixpkgs, aagl, nixos-wsl, nixpkgs-stable, home-manager, ... }@inputs:
+    outputs = { nixpkgs, home-manager, ... }@inputs:
     let
         system = "x86_64-linux";
         pkgs = nixpkgs.legacyPackages.${system};
-        home-modules = [
-            inputs.stylix.homeManagerModules.stylix
-            inputs.nixvim.homeManagerModules.nixvim
-            {
-                home.packages = [
-                        inputs.zen-browser.packages."${system}".specific
-                    ];
-                home.sessionVariables.BROWSER = "zen";
-            }
-        ];
-        system-modules = [
-            inputs.stylix.nixosModules.stylix
-            nixos-cosmic.nixosModules.default
-            {
-                nix.settings = {
-                    substituters = [ "https://cosmic.cachix.org/" ];
-                    trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
-                };
-            }
-            {
-                imports = [ aagl.nixosModules.default ];
-                nix.settings = aagl.nixConfig; # Set up Cachix
-                programs.honkers-railway-launcher.enable = true;
-            }
-        ];
-    in {
-        # PEITHA
-        nixosConfigurations.peitha = nixpkgs.lib.nixosSystem {
-            specialArgs = {
-                pkgs-stable = import nixpkgs-stable {
-                    inherit system;
-                    config.allowUnfree = true;
-                };
-                inherit inputs system;
+        mkSystemConfig = name: {
+            inherit name;
+            # System Config
+            value = nixpkgs.lib.nixosSystem {
+                inherit system;
+                specialArgs = { inherit inputs system; };
+                modules = [
+                    ./system/${name}
+                ] ++ (if name == "wsl" then [] else [ ./system/general ./system/${name}/hardware-configuration.nix ]) ;
             };
-            modules = [
-                ./system/peitha/configuration.nix
-            ] ++ system-modules;
         };
-        homeConfigurations."quetz" = home-manager.lib.homeManagerConfiguration {
-            inherit pkgs;
-            extraSpecialArgs = { inherit inputs; };
-            modules = [
-                ./home/peitha.nix
-            ] ++ home-modules;
+        mkHomeConfig = name: {
+            inherit name;
+            # Home Config
+            value = home-manager.lib.homeManagerConfiguration {
+                inherit pkgs;
+                extraSpecialArgs = { inherit inputs system; };
+                modules = [
+                    ./home/${name}.nix
+                ] ++ (if name == "wsl" then [] else [ ./home/home.nix ]) ;
+            };
         };
+    in {
+        nixosConfigurations = builtins.listToAttrs (map mkSystemConfig [ "peitha" "mabon" "zojja" "wsl" "visitor" ]);
 
-        # MABON
-        nixosConfigurations.mabon = nixpkgs.lib.nixosSystem {
-            specialArgs = {inherit inputs;};
-            modules = [
-                ./system/mabon/configuration.nix
-            ] ++ system-modules;
-        };
-        homeConfigurations."arthezia" = home-manager.lib.homeManagerConfiguration {
-            inherit pkgs;
-            extraSpecialArgs = { inherit inputs; };
-            modules = [
-                ./home/mabon.nix
-            ] ++ home-modules;
-        };
-
-        # ZOJJA
-        nixosConfigurations.zojja = nixpkgs.lib.nixosSystem {
-            specialArgs = {inherit inputs;};
-            modules = [
-                ./system/zojja/configuration.nix
-            ] ++ system-modules;
-        };
-        homeConfigurations."melon" = home-manager.lib.homeManagerConfiguration {
-            inherit pkgs;
-            extraSpecialArgs = { inherit inputs; };
-            modules = [
-                ./home/melon.nix
-            ] ++ home-modules;
-        };
-
-        # WSL
-        nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            modules = [
-                nixos-wsl.nixosModules.default
-                inputs.stylix.nixosModules.stylix
-                ./system/nixos/configuration.nix
-            ];
-        };
-        homeConfigurations."nixos" = home-manager.lib.homeManagerConfiguration {
-            inherit pkgs;
-            modules = [
-                ./home/nixos.nix
-                inputs.stylix.homeManagerModules.stylix
-                inputs.nixvim.homeManagerModules.nixvim
-            ];
-        };
+        homeConfigurations = builtins.listToAttrs (map mkHomeConfig [ "quetz" "arthezia" "melon" "wsl" "visitor" ]);
     };
 }

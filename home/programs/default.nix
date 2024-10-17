@@ -1,5 +1,7 @@
 {
   pkgs,
+  inputs,
+  system,
   ...
 }: {
     imports = [
@@ -25,7 +27,11 @@
         # userSettings = import ./vscode-settings.nix;
     };
 
-    home.packages = with pkgs; [
+    home.sessionVariables.BROWSER = "zen";
+
+    home.packages = [
+        inputs.zen-browser.packages."${system}".specific
+    ] ++ (with pkgs; [
         # General
         parsec-bin
         qpwgraph
@@ -64,5 +70,5 @@
         ''
             imv $1 -W $(magick identify -format %w $1) -H$(magick identify -format %h $1)
         '')
-    ];
+    ]);
 }

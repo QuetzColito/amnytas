@@ -5,7 +5,6 @@
 } : {
     home = {
         username = "arthezia";
-        homeDirectory = "/home/arthezia";
         stateVersion = "23.11"; # Please read the comment before changing.
         packages = with pkgs; [
             (writeShellScriptBin "nvidia-offload" ''
@@ -18,26 +17,28 @@
         ];
     };
 
+    programs.git.extraConfig.user = {
+        email = "stefan.lahne@proton.me";
+        name = "Stefan Lahne";
+    };
+
+
     imports = [
         ./home.nix
     ];
 
     monitors = [
         {
-            id = "0";
             name = "eDP-1";
             coords = "0x0";
             workspaces = [ 1 2 3 7 8 9];
         }
         {
-            id = "1";
             name = "HDMI-A-1";
             coords = "-1920x0";
             workspaces = [ 4 5 6 ];
         }
     ];
-
-    programs.waybar.settings.mainbar.modules-right = ["battery"];
 
     wayland.windowManager.hyprland.settings = {
         device = {

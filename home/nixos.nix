@@ -1,10 +1,11 @@
 {
+  inputs,
   ...
 }: {
     imports = [
         ./dev/nixvim
         ./terminal
-        ../stylix.nix
+        ../stylix.nix inputs.stylix.homeManagerModules.stylix
     ];
 
     home = {
@@ -18,6 +19,12 @@
 
         stateVersion = "24.05"; # Please read the comment before changing.
     };
+
+    programs.git.extraConfig.user = {
+        email = "stefan.lahne@proton.me";
+        name = "Stefan Lahne";
+    };
+
 
     nixpkgs.config.allowUnfree = true;
 

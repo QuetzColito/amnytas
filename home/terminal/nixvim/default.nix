@@ -1,6 +1,7 @@
-{ pkgs, ... } :
+{ pkgs, inputs, ... } :
 {
     imports = [
+        inputs.nixvim.homeManagerModules.nixvim
         ./plugins
         ./options.nix
         ./keymap.nix
