@@ -28,11 +28,11 @@
                     svelte.enable = true;
                     hls = {
                         enable = true;
-                        installGhc = true;
+                        # installGhc = true;
                     };
-                    ts_ls.enable = true;
+                    ts-ls.enable = true;
 
-                    rust_analyzer = {
+                    rust-analyzer = {
                         enable = true;
                         installCargo = true;
                         installRustc = true;
