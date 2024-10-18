@@ -12,7 +12,7 @@
         shellAliases = {
             hs = "home-manager switch --flake ~/amnytas";
             hn = "home-manager news --flake ~/amnytas";
-            ns = "sudo nixos-rebuild switch --flake ~/amnytas";
+            ns = "sudo nixos-rebuild switch --flake ~/amnytas#wsl";
         };
         username = "nixos";
         homeDirectory = "/home/nixos";
