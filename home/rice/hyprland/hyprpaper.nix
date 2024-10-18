@@ -8,7 +8,7 @@
                 inherit id;
                 monitorID = name;
                 path = if (self ? wallpaper) then "${name},${self.wallpaper}" else
-                    "~/nixos/wallpaper/${builtins.toString id}${if (self ? rotation) then "v" else ""}.png";
+                    "~/amnytas/wallpaper/${builtins.toString id}${if (self ? rotation) then "v" else ""}.png";
                 command = "${monitorID},${path}";
             }) workspaces) config.monitors;
         wallpaperByMonitor = monitor: (builtins.head (builtins.filter ({monitorID, ...}: monitorID == monitor) wallpapers)).command;

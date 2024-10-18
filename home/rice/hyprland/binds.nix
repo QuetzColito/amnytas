@@ -3,7 +3,7 @@
 }: let
   mod = "SUPER";
   modshift = "${mod}SHIFT";
-  ags = "ags -c ~/nixos/home/rice/ags/config.js";
+  ags = "ags -c ~/amnytas/home/rice/ags/config.js";
 
   # binds $mod + [shift +] {1..10} to [move to] workspace {1..10} (stolen from fufie)
   workspaces = builtins.concatLists (builtins.genList (
@@ -26,7 +26,7 @@ in {
         "${mod},RETURN,exec,foot zsh"
         "${mod},N,exec,foot yazi"
         "${mod},I,exec,killall -r fcitx5 || fcitx5"
-        "${mod},S,exec,[workspace 5] foot -D ~/nixos nvim ~/nixos"
+        "${mod},S,exec,[workspace 5] foot -D ~/amnytas nvim ~/amnytas"
         "${mod},G,exec,[workspace 9 silent] steam"
         "${mod},B,exec,[workspace 7] zen"
         "${mod},Y,exec,youtubemusic" # EXTERNAL DEPENDENCY

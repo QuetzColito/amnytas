@@ -15,7 +15,7 @@ in {
             background = map ({name, workspaces, ...} @self : {
                 monitor = name;
                 path = if (self ? wallpaper) then self.wallpaper else
-                    builtins.head (map (id: "~/nixos/wallpaper/${builtins.toString id}${if (self ? rotation) then "v" else ""}.png"
+                    builtins.head (map (id: "~/amnytas/wallpaper/${builtins.toString id}${if (self ? rotation) then "v" else ""}.png"
                         ) workspaces);
                 # all these options are taken from hyprland, see https://wiki.hyprland.org/Configuring/Variables/#blur for explanations
                 # blur_passes = 2; # 0 disables blurring

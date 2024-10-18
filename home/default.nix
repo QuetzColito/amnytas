@@ -17,9 +17,9 @@
     home = {
         homeDirectory = "/home/${config.home.username}";
         shellAliases = {
-            hs = "home-manager switch --flake ~/nixos";
-            hn = "home-manager news --flake ~/nixos";
-            ns = "sudo nixos-rebuild switch --flake ~/nixos";
+            hs = "home-manager switch --flake ~/amnytas";
+            hn = "home-manager news --flake ~/amnytas";
+            ns = "sudo nixos-rebuild switch --flake ~/amnytas";
         };
     };
 

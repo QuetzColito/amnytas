@@ -2,7 +2,7 @@
   pkgs,
   ...
 } : let
-    eww = "eww -c ~/nixos/home/rice/eww";
+    eww = "eww -c ~/amnytas/home/rice/eww";
 in {
     home.shellAliases.EWW = eww;
     home.packages = [
@@ -22,7 +22,7 @@ in {
             done
             if test "$(${eww} get timer-running)" = "true"
             then
-                mpg123 ~/nixos/home/rice/eww/alert.mp3
+                mpg123 ~/amnytas/home/rice/eww/alert.mp3
                 notify-send "A Timer has finished"
                 ${eww} update timer-running=false
             fi

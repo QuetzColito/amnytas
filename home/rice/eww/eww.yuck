@@ -6,7 +6,7 @@
 (include "./music.yuck")
 (include "./recording.yuck")
 
-(defvar eww "eww -c ~/nixos/home/rice/eww")
+(defvar eww "eww -c ~/amnytas/home/rice/eww")
 
 (defwidget bar []
   (centerbox :orientation "h"

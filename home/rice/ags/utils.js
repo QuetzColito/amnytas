@@ -11,14 +11,14 @@ const timerState = Utils.merge([timer.bind(), timer_running.bind(), last_timer.b
 })
 
 const wheel = (magnitude, bound, deco) => Widget.EventBox({
-    on_scroll_up: () => {timer.value = timer.value + magnitude},
-    on_scroll_down: () => {timer.value = Math.max(timer.value - magnitude, 0)},
+    on_scroll_up: () => { timer.value = timer.value + magnitude },
+    on_scroll_down: () => { timer.value = Math.max(timer.value - magnitude, 0) },
     child: Widget.Label({
         class_name: "wheel",
         vpack: "center",
-        label: timer.bind().as( t => {
+        label: timer.bind().as(t => {
             const v = Math.floor((t % bound) / magnitude);
-            return `${v < 10 ? "0": ""}${v}${deco}`
+            return `${v < 10 ? "0" : ""}${v}${deco}`
         })
     })
 })
@@ -36,7 +36,7 @@ function countdown() {
 
 
 const Timer = () => Widget.Box({
-    class_name: timer_running.bind().as(tr =>`timer-widget ${tr ? "purple" : "orange"}`),
+    class_name: timer_running.bind().as(tr => `timer-widget ${tr ? "purple" : "orange"}`),
     homogeneous: true,
     vertical: true,
     children: [
@@ -55,14 +55,14 @@ const Timer = () => Widget.Box({
             homogeneous: true,
             vexpand: true,
             children: [
-                Widget.Label({class_name: "icon", label: timerState}),
+                Widget.Label({ class_name: "icon", label: timerState }),
                 Widget.Button({
                     on_clicked: () => countdown(),
-                    child: Widget.Label({class_name: "icon", label: timer_running.bind().as(tr => tr ? "" : "")}),
+                    child: Widget.Label({ class_name: "icon", label: timer_running.bind().as(tr => tr ? "" : "") }),
                 }),
                 Widget.Button({
-                    on_clicked: () => {timer_running.value = false; timer.value = last_timer.value},
-                    child: Widget.Label({class_name: "icon", label: "󰜉 "}),
+                    on_clicked: () => { timer_running.value = false; timer.value = last_timer.value },
+                    child: Widget.Label({ class_name: "icon", label: "󰜉 " }),
                 })
             ]
         })
@@ -76,7 +76,7 @@ const Timer = () => Widget.Box({
                 print("KURU KURU!")
                 target.value = Infinity
                 timer_running.value = false
-                Utils.exec("hyprctl dispatch exec mpg123 ~/nixos/home/rice/eww/alert.mp3")
+                Utils.exec("hyprctl dispatch exec mpg123 ~/amnytas/home/rice/eww/alert.mp3")
             }
         }
         self.poll(1000, update)
@@ -97,9 +97,9 @@ const Calculator = () => Widget.Box({
         Widget.Entry({
             hpack: "fill",
             class_name: "calc-input",
-            on_change: ({text}) => Utils.execAsync(["calc", text])
-                                        .then(out => calc_result.value = out.trim())
-                                        .catch(() => {}),
+            on_change: ({ text }) => Utils.execAsync(["calc", text])
+                .then(out => calc_result.value = out.trim())
+                .catch(() => { }),
             on_accept: () => Utils.execAsync(["wl-copy", calc_result.value])
         }),
         Widget.Label({
@@ -125,8 +125,8 @@ const Rando = () => Widget.Box({
     homogeneous: true,
     children: [
         Widget.EventBox({
-            on_scroll_up: () => {diemax.value = diemax.value + 1},
-            on_scroll_down: () => {diemax.value = Math.max(diemax.value - 1, 2)},
+            on_scroll_up: () => { diemax.value = diemax.value + 1 },
+            on_scroll_down: () => { diemax.value = Math.max(diemax.value - 1, 2) },
             child: Widget.Label({ label: diemax.bind().as(v => v + "") })
         }),
         Widget.Button({
@@ -220,7 +220,7 @@ const dieface = () => Widget.Overlay({
 
 const diedot = (v, values) => Widget.Label({
     class_name: "dot",
-        css: values.includes(v) ? "" : "opacity: 0",
+    css: values.includes(v) ? "" : "opacity: 0",
 })
 
 

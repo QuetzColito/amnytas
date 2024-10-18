@@ -18,14 +18,14 @@
             default = [{
                 name = "";
                 coords = "0x0";
-                wallpaper = "~/nixos/wallpaper/4.png";
+                wallpaper = "~/amnytas/wallpaper/4.png";
                 workspaces = [1 2 3 4 5 6 7 8 9];
             }];
             type = lib.types.listOf lib.types.attrs;
         };
     };
 
-    config = let ags = "ags -c ~/nixos/home/rice/ags/config.js"; in {
+    config = let ags = "ags -c ~/amnytas/home/rice/ags/config.js"; in {
         wayland.windowManager.hyprland = {
             enable = true;
             xwayland.enable = true;
@@ -54,7 +54,8 @@
             monitor = [
                 # ",highrr,auto,1"
                 "Unknown-1,disable"
-            ] ++ map ({name, coords, rotation ? "", ...}:
+            ] ++ map ({name, coords, rotation ? "", ...} @ monitor:
+                        if monitor ? config then monitor.config else
                         name
                         + ",preferred,"
                         + coords

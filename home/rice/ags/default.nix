@@ -1,6 +1,6 @@
 { inputs, pkgs, ... }:
 let
-    ags = "ags -c ~/nixos/home/rice/ags/config.js";
+    ags = "ags -c ~/amnytas/home/rice/ags/config.js";
 in
 {
     # add the home manager module

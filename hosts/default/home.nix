@@ -12,7 +12,7 @@
         #     name = "HDMI-A-1";
         #
         #     # optional, if you dont want wallpapers per workspace
-        #     # wallpaper = "~/nixos/wallpaper/side.jpg";
+        #     # wallpaper = "~/amnytas/wallpaper/side.jpg";
         #
         #     # optional if you need it
         #     # rotation = "1";
