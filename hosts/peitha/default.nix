@@ -1,7 +1,5 @@
 { ... }:
 {
-    hostName = "peitha"; # Define your hostname.
-    mainUser = "quetz"; # Define username
     wm = "Hyprland";
     isNvidia = true;
     wantGrub = true;

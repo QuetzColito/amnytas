@@ -5,7 +5,7 @@
     imports = [
         ./dev/nixvim
         ./terminal
-        ../stylix.nix inputs.stylix.homeManagerModules.stylix
+        ../../stylix.nix inputs.stylix.homeManagerModules.stylix
     ];
 
     home = {

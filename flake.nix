@@ -6,12 +6,12 @@
         nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
         zen-browser.url = "github:MarceColl/zen-browser-flake";
         ags.url = "github:Aylur/ags";
+        stylix.url = "github:danth/stylix";
+
         nixos-cosmic = {
             url = "github:lilyinstarlight/nixos-cosmic";
             inputs.nixpkgs.follows = "nixpkgs";
         };
-
-        stylix.url = "github:danth/stylix";
 
         aagl = {
             url = "github:ezKEa/aagl-gtk-on-nix";
@@ -33,31 +33,43 @@
     let
         system = "x86_64-linux";
         pkgs = nixpkgs.legacyPackages.${system};
-        mkSystemConfig = name: {
-            inherit name;
+        hosts = [
+            { host = "peitha"; user = "quetz"; }
+            { host = "mabon"; user = "arthezia"; }
+            { host = "zojja"; user = "melon"; }
+            { host = "wsl"; user = "nixos"; }
+        ];
+        mkSystemConfig = {host, user }: {
+            name = host;
             # System Config
             value = nixpkgs.lib.nixosSystem {
                 inherit system;
                 specialArgs = { inherit inputs system; };
                 modules = [
-                    ./system/${name}
-                ] ++ (if name == "wsl" then [] else [ ./system/general ./system/${name}/hardware-configuration.nix ]) ;
+                    ./hosts/${host}
+                ] ++ (if host == "wsl" then [ {mainUser = "nixos"; hostName = "nixos"; } ] else [
+                    { mainUser = user; hostName = host; }
+                    ./hosts/${host}/hardware-configuration.nix
+                    ./system
+                ]);
             };
         };
-        mkHomeConfig = name: {
-            inherit name;
+        mkHomeConfig = {host, user}: {
+            name = user;
             # Home Config
             value = home-manager.lib.homeManagerConfiguration {
                 inherit pkgs;
                 extraSpecialArgs = { inherit inputs system; };
                 modules = [
-                    ./home/${name}.nix
-                ] ++ (if name == "wsl" then [] else [ ./home/home.nix ]) ;
+                    ./hosts/${host}/home.nix
+                    { home.username = user;}
+                ] ++ (if host == "wsl" then [] else [
+                    ./home
+                ]);
             };
         };
     in {
-        nixosConfigurations = builtins.listToAttrs (map mkSystemConfig [ "peitha" "mabon" "zojja" "wsl" "visitor" ]);
-
-        homeConfigurations = builtins.listToAttrs (map mkHomeConfig [ "quetz" "arthezia" "melon" "wsl" "visitor" ]);
+        nixosConfigurations = builtins.listToAttrs (map mkSystemConfig hosts);
+        homeConfigurations = builtins.listToAttrs (map mkHomeConfig hosts);
     };
 }

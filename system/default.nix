@@ -1,7 +1,7 @@
 {pkgs, lib, config, inputs, ...}:
 {
     imports = [
-        ../../stylix.nix inputs.stylix.nixosModules.stylix
+        ../stylix.nix inputs.stylix.nixosModules.stylix
         ./wm
         ./aagl.nix
         ./nvidia.nix

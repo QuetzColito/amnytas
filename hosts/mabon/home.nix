@@ -4,8 +4,8 @@
   ...
 } : {
     home = {
-        username = "arthezia";
         stateVersion = "23.11"; # Please read the comment before changing.
+
         packages = with pkgs; [
             (writeShellScriptBin "nvidia-offload" ''
                 export __NV_PRIME_RENDER_OFFLOAD=1
@@ -21,11 +21,6 @@
         email = "stefan.lahne@proton.me";
         name = "Stefan Lahne";
     };
-
-
-    imports = [
-        ./home.nix
-    ];
 
     monitors = [
         {

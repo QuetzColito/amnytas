@@ -1,9 +1,5 @@
 {...}:
 {
-    imports = [ ./hardware-configuration.nix ];
-
-    hostName = "mabon"; # Define your hostname.
-    mainUser = "arthezia"; # Define username
     wm = "Hyprland";
     isNvidia = true;
     wantGrub = true;
