@@ -123,8 +123,8 @@
             nixos-generate-config --show-hardware-config > hardware-configuration.nix
 
             echo "{...} : {
-                isNvidia = \"$nvidia\";
-                wantGrub = \"$grub\";
+                isNvidia = $nvidia;
+                wantGrub = $grub;
                 system$stateVersion
             }" >> default.nix
 
