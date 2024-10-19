@@ -1,5 +1,7 @@
 { pkgs, inputs, ... } :
 {
+    # not gonna document nixvim because i dont really understand most of it,
+    # just copied other peoples stuff until it did what i wanted it to do
     imports = [
         inputs.nixvim.homeManagerModules.nixvim
         ./plugins

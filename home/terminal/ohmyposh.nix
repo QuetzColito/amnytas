@@ -1,4 +1,5 @@
 {
+    # this is basically the setup from https://www.youtube.com/watch?v=9U8LCjuQzdc
     version = 2;
     final_space = true;
     console_title_template = "{{ .Shell }} in {{ .Folder }}";

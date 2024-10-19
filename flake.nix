@@ -1,6 +1,7 @@
 {
     description = "Quetz Nixos Configuration";
 
+    # all the git repos needed
     inputs = {
         nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
         nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
@@ -34,14 +35,19 @@
         system = "x86_64-linux";
         pkgs = nixpkgs.legacyPackages.${system};
         lib = nixpkgs.lib;
+
+        # builds the system flake output for every host
         mkSystemConfig = {host, user }: {
             name = host;
             # System Config
             value = nixpkgs.lib.nixosSystem {
+                # not sure if i need this, but doesnt hurt i guess
                 inherit system;
+                # pass these in so we can access all the flake inputs in the config
                 specialArgs = { inherit inputs system; };
                 modules = [
                     ./hosts/${host}
+                # wsl uses a more basic config, since it is only tty
                 ] ++ (if host == "wsl" then [ {mainUser = "nixos"; hostName = "nixos"; } ] else [
                     { mainUser = user; hostName = host; }
                     ./hosts/${host}/hardware-configuration.nix
@@ -53,20 +59,33 @@
             name = user;
             # Home Config
             value = home-manager.lib.homeManagerConfiguration {
+                # not sure if i need this, but doesnt hurt i guess
                 inherit pkgs;
+                # pass these in so we can access all the flake inputs in the config
                 extraSpecialArgs = { inherit inputs system; };
                 modules = [
                     ./hosts/${host}/home.nix
                     { home.username = user;}
+                # wsl uses a more basic config, since it is only tty
                 ] ++ (if host == "wsl" then [] else [
                     ./home
                 ]);
             };
         };
     in {
+        # apply the functions to the hostlist
         nixosConfigurations = builtins.listToAttrs (map mkSystemConfig (import ./hostlist.nix));
         homeConfigurations = builtins.listToAttrs (map mkHomeConfig (import ./hostlist.nix));
 
+        # install script, does the following
+        # - clone the repo into ~/amnytas
+        # - ask for the 4 module options
+        # - try to extract stateVersion from /etc/nixos/configuration.nix
+        # - add a new host to hostlist.nix
+        # - regenerate the hardware-configuration and adds it to the new host directory
+        # - also create host-specific home.nix for home-manger and default.nix for nixos
+        # - run nixos-rebuild switch
+        # - run home-manger switch
         install = pkgs.writeShellScriptBin "install"
         ''
             cd ~

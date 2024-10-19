@@ -3,6 +3,8 @@
 }: {
     wayland.windowManager.hyprland.settings = {
         layerrule = [
+            # layers are things like the widgets, wallpaper, bar and launcher (basically everything that isnt a window)
+            # apparently there are 2 levels above the windows and 2 below
             "xray 0, launcher"
             "ignorezero, launcher"
             "noanim, launcher"
@@ -39,23 +41,6 @@
             "opacity 0.8, title: ^(.*Zen Browser)$"
             "opacity 1 override 1 override 1 override ,title:^(.*YouTube — Zen Browser)|(.*Crunchyroll.* — Zen Browser)$"
             "opacity 1 override 1 override 1 override ,fullscreen:1"
-
-
-            # "idleinhibit fullscreen, class:^(firefox)$"
-
-            # couldnt get it to work, but keeping it here just in case
-            # "fullscreen, class:^(awakened-poe-trade)$"
-            # "xray 0, class:^(awakened-poe-trade)$"
-            # "noblur, class:^(awakened-poe-trade)$"
-            "tag +apt, title:(Awakened PoE Trade)"
-            "float, tag:apt "
-            "noblur, tag:apt"
-            "nofocus, tag:apt" # Disable auto-focus
-            "noshadow, tag:apt"
-            "noborder, tag:apt"
-            "size 100% 100%, tag:apt"
-            "center, tag:apt"
-            # "stayfocused, class:^(steam_app_2121980)$"
 
             "float, class:^(org.gnome.Loupe)$"
             "float, class:^(vlc)$"

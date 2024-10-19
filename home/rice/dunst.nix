@@ -1,4 +1,5 @@
 # See dunst(5) for all configuration options
+# not using this anymore, using mako instead
 {
     pkgs,
     ...
@@ -118,4 +119,3 @@
         };
     };
 }
-

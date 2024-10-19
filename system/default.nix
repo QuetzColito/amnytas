@@ -7,6 +7,7 @@
         ./nvidia.nix
         ./grub
     ];
+
     options = {
         mainUser = lib.mkOption {
             default = "nixos";
@@ -21,6 +22,8 @@
             type = lib.types.str;
         };
     };
+
+    # A lot of stuff in here was generated at the start and i didnt touch it
 
     config = {
         boot = {
@@ -86,10 +89,15 @@
             };
         };
 
+        # Important for laptop, dunno about desktop
         powerManagement.enable = true;
+
         nixpkgs.config.allowUnfree = true;
+
+        # needed for AGS Mpris
         services.gvfs.enable = true;
 
+        # only basic stuff
         environment.systemPackages = with pkgs; [
             vim
             wget
@@ -98,14 +106,16 @@
             home-manager
             qemu
             quickemu
-            wineWowPackages.waylandFull
+            wineWowPackages.waylandFull # dunno why i have this
         ];
 
+        # Docker
         virtualisation.docker.rootless = {
             enable = true;
             setSocketVariable = true;
         };
 
+        # Sound
         # sound.mediaKeys.enable = true;
         programs.noisetorch.enable=true;
         security.rtkit.enable = true;
@@ -118,14 +128,17 @@
             jack.enable = true;
         };
 
+        # Flatpak, although i actually dont need it anymore rn
         services.flatpak.enable = true;
 
+        # Steam
         programs.steam = {
             enable = true;
             remotePlay.openFirewall = true;
             dedicatedServer.openFirewall = true;
         };
 
+        # Thunar stuff, only using thunar when i need drag and drop xD
         programs.dconf.enable = true; # gnome-related
         programs.xfconf.enable = true;
         programs.thunar = {
@@ -138,6 +151,7 @@
             ];
         };
 
+        # fonts, dont remove the cjk one or kana will look ugly
         fonts.packages = with pkgs; [
             inter
             dejavu_fonts

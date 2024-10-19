@@ -10,6 +10,7 @@
         ./imv.nix
     ];
 
+    # VScodium, although i dont use it anymore
     stylix.targets.vscode.enable = false;
     programs.vscode = {
         enable = true;
@@ -27,6 +28,9 @@
         # userSettings = import ./vscode-settings.nix;
     };
 
+    # for good measure, dunno if it does anything
+    # (i manually edited desktop entries to get it to be default)
+    # basically just copied the firefox one
     home.sessionVariables.BROWSER = "zen";
 
     home.packages = [
@@ -61,12 +65,7 @@
         thunderbird
         onlyoffice-bin
         obsidian
-        (writeShellScriptBin "poetrade"
-        ''
-            for i in ~/apps/poetrade/*.AppImage
-                do appimage-run $i --no-overlay;
-            done
-        '')
+        # autoscale imv to the image
         (writeShellScriptBin "imvs"
         ''
             imv $1 -W $(magick identify -format %w $1) -H$(magick identify -format %h $1)

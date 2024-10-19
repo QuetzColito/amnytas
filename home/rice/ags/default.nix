@@ -23,6 +23,8 @@ in
         # additional packages to add to gjs's runtime
         extraPackages = with pkgs; [
             gtksourceview
+            # changed this from the snippet i got from the website because home-manger complained
+            # but seems to work
             webkitgtk_6_0
             accountsservice
         ];

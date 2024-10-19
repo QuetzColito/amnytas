@@ -2,6 +2,7 @@
   pkgs,
   ...
 } : {
+    # Styles almost everything (this file is used in both system config and home config)
     stylix = {
         enable = true;
 
@@ -48,7 +49,7 @@
             base0F= "D18616"; # Dark Orange # Deprecated, Opening/Closing Embedded Language Tags
         };
 
-        image = ./wallpaper/5.png;
+        image = ./wallpaper/4.png;
 
     };
 

@@ -3,6 +3,8 @@
   lib,
   ...
 } : {
+    # not 100% happy with the config, but it mostly works for me
+    # and didnt really have the motivation to deep dive into this
     programs.yazi = {
         enable = true;
 

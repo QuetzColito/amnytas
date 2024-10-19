@@ -2,8 +2,9 @@
   pkgs,
   ...
 } : {
+# simple, yet very useful imo
   home.packages = [pkgs.tofi];
-  xdg.configFile."tofi/config".text = 
+  xdg.configFile."tofi/config".text =
   ''
     width = 100%
     height = 100%

@@ -6,6 +6,7 @@
 
     system.stateVersion = "23.11"; # Did you read the comment?
 
+    # Optimus prime because laptop
     hardware.nvidia.prime = {
         offload = {
             enable = true;

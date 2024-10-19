@@ -3,6 +3,9 @@
   lib,
   ...
 }:
+
+# havent used this in a few months
+
 #with lib;
   #waybar-wttr = pkgs.stdenv.mkDerivation {
   #  name = "waybar-wttr";

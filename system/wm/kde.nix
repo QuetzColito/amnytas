@@ -1,3 +1,4 @@
+# --- KDE, for whenever something doesnt work in Hyprland (which actually is pretty rare)
 { pkgs, lib, config, ... }:
 {
     config = lib.mkIf (config.wm == "Kde") {

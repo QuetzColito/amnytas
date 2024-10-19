@@ -35,11 +35,14 @@
         }
     ];
 
+    # Touchpad too slo
     wayland.windowManager.hyprland.settings = {
         device = {
             name = "elan050a:01-04f3:3158-touchpad";
             sensitivity =  "+1.0";
         };
     };
+
+    # Display not bright enough
     programs.vscode.userSettings."workbench.colorTheme"= lib.mkForce "Tokyo Night Storm";
 }

@@ -23,6 +23,7 @@
     };
 
     home.packages = [
+        # listens for workspace changes and then calls one of the scripts from below
         (pkgs.writeShellScriptBin
             "hyprpaperswitch"
             ''socat -U - UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock \
@@ -31,6 +32,7 @@
             | while read line; do "hyprpaperswitchw$line"; done
             ''
         )
+        # this is a separate script for each workspace (a bit stupid yes, but it works :P)
     ] ++ (map (
             {id, command, ...}: pkgs.writeShellScriptBin
                 "hyprpaperswitchw${builtins.toString id}"

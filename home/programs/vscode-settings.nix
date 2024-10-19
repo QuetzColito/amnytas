@@ -1,4 +1,5 @@
 {
+    # currently not in use, my work laptop has a better config, but is Windows :/
     "boot-java.rewrite.reconcile"= true;
     "git.enableSmartCommit"= true;
     "terminal.integrated.defaultProfile.windows"= "Git Bash";
@@ -188,7 +189,7 @@
             "commands"= [
                 "editor.action.outdentLines"
             ];
-        } 
+        }
         {
             "before"= [
                 ">"

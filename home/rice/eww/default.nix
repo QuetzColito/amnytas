@@ -1,3 +1,4 @@
+# Not using eww anymore, but as of writing this is basically equivalent to my ags setup
 {
   pkgs,
   ...

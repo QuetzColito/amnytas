@@ -2,6 +2,7 @@
   config,
   ...
 } : {
+    # dont think the options are very important
     programs.imv = {
         enable = true;
         settings.options = {

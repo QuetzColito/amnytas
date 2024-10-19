@@ -1,6 +1,5 @@
 {
   pkgs,
-  config,
   lib,
   ...
 } : {
@@ -19,6 +18,7 @@
                 init.defaultBranch = "main";
                 include.path = "~/amnytas/home/terminal/themes.gitconfig";
             };
+            # prettier lazygit, not 100% happy with this tho
             delta = {
                 enable = true;
                 options = {
@@ -43,6 +43,7 @@
     programs.lazygit = {
         enable = true;
         settings = {
+            # for some reason, without mkForce the colors all get weird
             gui.theme = lib.mkForce {
                 activeBorderColor = [ "magenta" "bold" ];
                 inactiveBorderColor = [ "cyan" ];
@@ -65,6 +66,7 @@
         };
     };
 
+    # better cat
     programs.bat = {
         enable = true;
         config = {
@@ -72,6 +74,7 @@
         };
     };
 
+    # better ls? not sure if ill use this yet
     programs.eza.enable = true;
 
     home.packages = with pkgs; [

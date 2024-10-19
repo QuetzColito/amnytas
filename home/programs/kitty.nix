@@ -2,6 +2,7 @@
   lib,
   ...
 } : {
+    # didnt use because had annoying defaults
     programs.kitty = {
         enable = true;
         shellIntegration.mode = "no-cursor";

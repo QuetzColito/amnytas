@@ -7,6 +7,7 @@
 
         packages = with pkgs; [
             (writeShellScriptBin "popvm" "quickemu --vm ~/storage/pop/popos-22.04-intel.conf")
+            # This still doesnt work consistently, no idea how to do it better
             (writeShellScriptBin "resize-ytm"
             ''
                 count=0
@@ -54,6 +55,7 @@
         }
     ];
 
+    # some autostarts
     wayland.windowManager.hyprland = {
         settings = {
             exec-once = [

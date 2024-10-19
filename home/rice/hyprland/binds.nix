@@ -5,7 +5,7 @@
     modshift = "${mod}SHIFT";
     ags = "ags -c ~/amnytas/home/rice/ags/config.js";
 
-    # binds $mod + [shift +] {1..10} to [move to] workspace {1..10} (stolen from fufie)
+    # binds $mod + [shift +] {1..10} to [move to] workspace {1..10} (stolen from fufie) (stolen from sioodmy :P)
     workspaces = builtins.concatLists (builtins.genList (
         x: let
             ws = let
@@ -58,7 +58,10 @@ in {
             "${mod},R,swapnext," # swap window
             "${mod},V,togglefloating," # toggle floating for the focused window
             "${mod},F,fullscreen," # fullscreen focused window
-            "${modshift},F,exec,pseudo-fullscreen" # fullscreen focused window
+            "${modshift},F,exec,pseudo-fullscreen" # disable gaps and borders on current workspace
+                                                   # and disable bar on the current monitor
+                                                   # practically makes a tiled window fullscreen
+                                                   # shouldve probably called it maximize xD
 
             # workspace controls
             "${modshift},right,movetoworkspace,+1" # move focused window to the next ws
@@ -76,9 +79,12 @@ in {
             "${modshift},N,moveworkspacetomonitor,5 1"
             "${modshift},N,moveworkspacetomonitor,6 1"
 
+            # recording
             ''${modshift},X,exec,${ags} -r recording.value=true & wf-recorder -y -f ~/Videos/wf-recording.mp4 -g "$(slurp)"''
             ''CTRL ${mod},X,exec,${ags} -r recording.value=true & wf-recorder -y -f ~/Videos/wf-recording.mp4 -g "$(slurp -o)"''
             "${mod},X,exec,pkill --signal SIGINT wf-recorder & ${ags} -r recording.value=false"
+
+            # Screenshots
             "${modshift},S,exec, grimblast copy area"
             "CTRL ${modshift},S,exec, grimblast --freeze copy area"
             "CTRL ${mod},S,exec, grimblast --freeze copy output"
@@ -101,6 +107,7 @@ in {
             # ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ];
     };
+    # Disable all keybinds with mod U until you press it again (useful when using a vm)
     wayland.windowManager.hyprland.extraConfig =
     ''
         bind = ${mod},U,submap,immersive

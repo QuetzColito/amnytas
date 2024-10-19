@@ -1,3 +1,4 @@
+# --- Cosmic, tried it out once, maybe one day ill switch to it
 { inputs, lib, config, ... } : {
     imports = [ inputs.nixos-cosmic.nixosModules.default ];
 
