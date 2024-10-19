@@ -8,13 +8,14 @@ https://github.com/user-attachments/assets/5c66eb6f-b504-4857-b43d-9f7cd78b732e
 
 - Tokyo Night Color Scheme throughout the system (mostly thanks to stylix)
 - Widgets made with AGS
-- Wallpaper changes depending on Workspace ([see all wallpapers](https://github.com/QuetzColito/amnytas/wallpaper))
+- Wallpaper changes depending on Workspace ([see all wallpapers](https://github.com/QuetzColito/amnytas/wallpaper/README.md))
+- hyprlock config
 - Nvidia drivers working (at least on my 4070ti, 1050ti and laptop 4060)
 - usable across multiple systems
 - arlecchino grub theme :>
 - a nixvim config (prob not the best, but works for me ^^)
 - pseudofullscreen (in case an application/game (*cough* gw2) doesnt behave in fullscreen)
-- hotkeys for almost anything youd wanna do
+- hotkeys for almost anything I wanna do (look at ./home/rice/hyprland/binds.nix)
 - MOZC IME for typing Japanese
 
 ![terminals](https://github.com/user-attachments/assets/8b9d94f7-7e7e-4f88-ada8-b2c8fc611fbf)
