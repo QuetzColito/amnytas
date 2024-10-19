@@ -79,9 +79,9 @@ in {
             ''${modshift},X,exec,${ags} -r recording.value=true & wf-recorder -y -f ~/Videos/wf-recording.mp4 -g "$(slurp)"''
             ''CTRL ${mod},X,exec,${ags} -r recording.value=true & wf-recorder -y -f ~/Videos/wf-recording.mp4 -g "$(slurp -o)"''
             "${mod},X,exec,pkill --signal SIGINT wf-recorder & ${ags} -r recording.value=false"
-            "CTRL ${modshift},S,exec, grimblast --freeze copy area"
             "${modshift},S,exec, grimblast copy area"
-            "ALT ${modshift},S,exec, grimblast copy active"
+            "CTRL ${modshift},S,exec, grimblast --freeze copy area"
+            "CTRL ${mod},S,exec, grimblast --freeze copy output"
         ] ++ workspaces;
 
         bindm = [
