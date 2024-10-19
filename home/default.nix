@@ -29,8 +29,8 @@
         enable = true;
         gtk3.extraConfig.gtk-decoration-layout = "menu:";
         iconTheme = {
-            name = "Tokyonight-Dark";
-            package = pkgs.elementary-xfce-icon-theme;
+            name = "Papirus-Dark";
+            package = pkgs.papirus-icon-theme;
         };
         cursorTheme = {
             name = "Bibata-Modern-Classic";
