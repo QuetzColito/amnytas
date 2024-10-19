@@ -1,5 +1,7 @@
 {
   pkgs,
+  config,
+  lib,
   ...
 } : {
     imports = [
@@ -13,7 +15,18 @@
 
         git = {
             enable = true;
-            extraConfig.init.defaultBranch = "main";
+            extraConfig = {
+                init.defaultBranch = "main";
+                include.path = "~/amnytas/home/terminal/themes.gitconfig";
+            };
+            delta = {
+                enable = true;
+                options = {
+                    features = "villsau";
+                    syntax-theme = "base16-stylix";
+                    line-numbers = true;
+                };
+            };
         };
 
         oh-my-posh = {
@@ -27,8 +40,41 @@
         };
     };
 
+    programs.lazygit = {
+        enable = true;
+        settings = {
+            gui.theme = lib.mkForce {
+                activeBorderColor = [ "magenta" "bold" ];
+                inactiveBorderColor = [ "cyan" ];
+                searchingActiveBorderColor = [ "cyan" "bold" ];
+                optionsTextColor = [ "cyan" "bold" ];
+                selectedLineBgColor = [ "default" ];
+                inactiveViewSelectedBorderColor = [ "bold" ];
+                cherryPickedCommitFgColor = [ "blue" ];
+                cherryPickedCommitBgColor = [ "cyan" ];
+                markedBaseCommitFgColor = [ "blue" ];
+                markedBaseCommitBgColor = [ "yellow" ];
+                unstagedChangesColor = [ "red" ];
+                defaultFgColor = [ "default" ];
+            };
+            git.paging = {
+                colorArg = "always";
+                pager = "delta --paging=never";
+            };
+
+        };
+    };
+
+    programs.bat = {
+        enable = true;
+        config = {
+            paging = "never";
+        };
+    };
+
+    programs.eza.enable = true;
+
     home.packages = with pkgs; [
-        starship
         btop
         cmatrix
         docker
@@ -37,7 +83,6 @@
         sl
         jq
         calc
-        python3
         fastfetch
         pandoc
         mpg123
@@ -46,9 +91,9 @@
         zip
         unar
         imagemagick
-        lazygit
         ffmpeg
         fzf
         fd
+        tldr
     ];
 }
