@@ -7,6 +7,26 @@
 
         packages = with pkgs; [
             (writeShellScriptBin "popvm" "quickemu --vm ~/storage/pop/popos-22.04-intel.conf")
+            (writeShellScriptBin "resize-ytm"
+            ''
+                count=0
+
+                socat -U - UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock \
+                | grep --line-buffered '^openwindow' \
+                | stdbuf -oL cut -d',' -f2 \
+                | while read -r line; do
+                    if [[ "$line" == "3" ]]; then
+                        ((count++))
+                    fi
+
+                    if [[ $count -eq 3 ]]; then
+                        hyprctl dispatch focuswindow YouTube
+                        hyprctl dispatch swapnext
+                        hyprctl dispatch resizeactive exact 100% 30%
+                        exit 0
+                    fi
+                done
+            '')
         ];
     };
 
@@ -37,10 +57,10 @@
     wayland.windowManager.hyprland = {
         settings = {
             exec-once = [
-            "[workspace 7 silent] zen"
-            "[workspace 3 silent] for i in ~/apps/ytm/*.AppImage ; do appimage-run $i; done" # EXTERNAL DEPENDENCY
-            "[workspace 3 silent] vesktop --enable-wayland-ime"
-              "sleep 5; hyprctl dispatch resizewindowpixel exact 100% 30%,YouTube"
+                "resize-ytm"
+                "[workspace 7 silent] zen"
+                "[workspace 3 silent] youtubemusic" # EXTERNAL DEPENDENCY
+                "[workspace 3 silent] vesktop --enable-wayland-ime"
             ];
         };
     };
