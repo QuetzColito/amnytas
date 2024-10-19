@@ -31,6 +31,9 @@
             supportedFilesystems = [ "ntfs" ];
             extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback.out ];
         };
+
+        networking.hostName = config.hostName;
+
         users.users = builtins.listToAttrs [{ name = config.mainUser; value = {
             isNormalUser = true;
             description = config.mainUser;
