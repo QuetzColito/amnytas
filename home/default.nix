@@ -30,7 +30,7 @@
         gtk3.extraConfig.gtk-decoration-layout = "menu:";
         iconTheme = {
             name = "Tokyonight-Dark";
-            package = pkgs.tokyonight-gtk-theme;
+            package = pkgs.elementary-xfce-icon-theme;
         };
         cursorTheme = {
             name = "Bibata-Modern-Classic";
