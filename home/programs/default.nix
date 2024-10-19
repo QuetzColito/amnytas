@@ -47,6 +47,7 @@
         osu-lazer-bin
         prismlauncher
         heroic
+        legendary-gl
         protontricks
         xivlauncher
 
