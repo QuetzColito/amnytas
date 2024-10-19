@@ -6,7 +6,7 @@ import { SysTray } from './sysTray.js'
 import { Workspaces } from './hyprland.js'
 import { utils } from './utils.js'
 
-// ----- Bar ----- //
+// ----- Recording Indicator ----- //
 
 const recording = Variable(false)
 globalThis.recording = recording
@@ -67,5 +67,5 @@ Utils.exec(`sassc ${scss} ${css}`)
 
 App.config({
     style: css,
-    windows: [Bar(0), Bar(1), Bar(2), dashboard()]
+    windows: [dashboard(), ...hyprland.monitors.map(m => Bar(m.id))]
 })

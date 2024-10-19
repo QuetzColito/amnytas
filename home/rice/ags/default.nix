@@ -8,6 +8,7 @@ in
     home.shellAliases.AGS = ags;
     home.packages = [
         pkgs.sassc
+        (pkgs.writeShellScriptBin "reloadags" "${ags} -q; ${ags}")
         (pkgs.writeShellScriptBin
             "togglecurrentbar"
             ''
