@@ -21,6 +21,7 @@ https://github.com/user-attachments/assets/5c66eb6f-b504-4857-b43d-9f7cd78b732e
 ![terminals](https://github.com/user-attachments/assets/8b9d94f7-7e7e-4f88-ada8-b2c8fc611fbf)
 ![vertical](https://github.com/user-attachments/assets/2b57bbb9-255b-442c-b996-e7422113d8c2)
 ![widgets](https://github.com/user-attachments/assets/9e0dfd5d-2eac-4289-b706-95ee646afab9)
+![hyprlock](https://github.com/user-attachments/assets/c9a1f143-9709-49ff-934a-4d05e1c5642a)
 
 ### Wanna try it out?
 
