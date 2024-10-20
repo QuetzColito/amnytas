@@ -1,5 +1,6 @@
 {
-    # currently not in use, my work laptop has a better config, but is Windows :/
+    # currently not in use
+    # my work laptop has a better config, but is Windows, so id have to convert it back from json :/
     "boot-java.rewrite.reconcile"= true;
     "git.enableSmartCommit"= true;
     "terminal.integrated.defaultProfile.windows"= "Git Bash";

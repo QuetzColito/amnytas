@@ -4,7 +4,7 @@
     wayland.windowManager.hyprland.settings = {
         layerrule = [
             # layers are things like the widgets, wallpaper, bar and launcher (basically everything that isnt a window)
-            # apparently there are 2 levels above the windows and 2 below
+            # they can be on 4 levels, 2 above the windows and 2 below
             "xray 0, launcher"
             "ignorezero, launcher"
             "noanim, launcher"
@@ -37,9 +37,11 @@
             "opacity 0.95, class:^(YouTube Music)$"
             "forcergbx, class:^(YouTube Music)$"
             "opacity 0.8, class: firefox"
-            "opacity 1 override 1 override 1 override ,title:^(.*YouTube — Mozilla Firefox)|(.*Crunchyroll.* — Mozilla Firefox)$"
             "opacity 0.8, title: ^(.*Zen Browser)$"
+            # Disable opacity when watching videos
+            "opacity 1 override 1 override 1 override ,title:^(.*YouTube — Mozilla Firefox)|(.*Crunchyroll.* — Mozilla Firefox)$"
             "opacity 1 override 1 override 1 override ,title:^(.*YouTube — Zen Browser)|(.*Crunchyroll.* — Zen Browser)$"
+            # Disable all opacity when going fullscreen
             "opacity 1 override 1 override 1 override ,fullscreen:1"
 
             "float, class:^(org.gnome.Loupe)$"
@@ -64,8 +66,10 @@
             "workspace 6, class:^(gamescope)$"
             "workspace 6, class:^(moe\.launcher.*)$"
             "workspace 6, class:^(starrail\.exe)$"
+            # make starrail not freeze in the background
             "renderunfocused, class:^(starrail\.exe)$"
             "workspace 5, class:codium-url-handler"
+            # dont think this actually works
             "tile, class:^(steam_app.*)$"
         ];
 

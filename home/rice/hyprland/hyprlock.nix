@@ -12,14 +12,13 @@ in {
                 hide_cursor = true;
                 grace = 60;
             };
+            # take the wallpaper of the first workspace per monitor
             background = map ({name, workspaces, ...} @self : {
                 monitor = name;
                 path = if (self ? wallpaper) then self.wallpaper else
                     builtins.head (map (id: "~/amnytas/wallpaper/${builtins.toString id}${if (self ? rotation) then "v" else ""}.png"
                         ) workspaces);
-                # all these options are taken from hyprland, see https://wiki.hyprland.org/Configuring/Variables/#blur for explanations
-                # blur_passes = 2; # 0 disables blurring
-                blur_passes = 0; # 0 disables blurring
+                blur_passes = 0;
                 blur_size = 2;
                 new_optimizations = true;
                 ignore_opacity = false;

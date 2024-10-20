@@ -86,6 +86,7 @@
         # - also create host-specific home.nix for home-manger and default.nix for nixos
         # - run nixos-rebuild switch
         # - run home-manger switch
+        # cancel it during the rebuild if you wanna change someting before the first build
         install = pkgs.writeShellScriptBin "install"
         ''
             cd ~

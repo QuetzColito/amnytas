@@ -2,6 +2,8 @@
   pkgs,
   ...
 } : {
+    # should be all the packages needed for the hyprland config
+    # (cant be asked to write lib.meta.getExe pkgs.package everywhere)
     home.packages = with pkgs; [
         xorg.xrandr
         wf-recorder
@@ -23,6 +25,7 @@
         pwvucontrol
         socat
         killall
+        # the maximize script, toggles bar and renames the workspace so a special workspace rule will take effect
         (writeShellScriptBin
           "pseudo-fullscreen"
           ''

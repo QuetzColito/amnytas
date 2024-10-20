@@ -16,6 +16,7 @@
             enable = true;
             extraConfig = {
                 init.defaultBranch = "main";
+                # TODO: use fetchFromGitHub
                 include.path = "~/amnytas/home/terminal/themes.gitconfig";
             };
             # prettier lazygit, not 100% happy with this tho

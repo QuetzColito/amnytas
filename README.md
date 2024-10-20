@@ -34,9 +34,13 @@ nix run github:QuetzColito/amnytas#install --extra-experimental-features "nix-co
 
 on nixos x86_64 with a user with a preconfigured password and the script will install the whole config to ~/amnytas
 
-If you wanna know what exactly the script does, it isnt super long and located in flake.nix ^^
+If you wanna know what exactly the script does, it isnt super long and explained in the comment in flake.nix ^^
 
 If you want to add extra config before the install abort the script once it starts nixos-rebuild and edit /hosts/<yourhost>/
+
+I tried to document the important/unintuitive parts :3
+
+
 
 ## Where I stole it all from c:
 

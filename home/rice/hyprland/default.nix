@@ -139,9 +139,8 @@
                     border_size = 2;
 
                     # active border color
-                    #"col.active_border" = "rgb(7da6ff)";
+                    # gradient border \o/
                     "col.active_border" = lib.mkForce "rgb(${config.stylix.base16Scheme.base0C}) rgb(${config.stylix.base16Scheme.base0E}) 45deg";
-                    #"col.inactive_border" = "rgb(414559)";
                 };
 
                 plugin.hyprtrails.color = "rgba(${config.stylix.base16Scheme.base0E}ff)";
@@ -203,6 +202,7 @@
                     animation = [
                         "windows, 1, 5, overshot, slide"
                         "windowsOut, 1, 6, smoothIn, slide"
+                        # rotating border
                         "border,1,10,default"
                         "borderangle, 1, 100, linear, loop"
 
@@ -217,6 +217,7 @@
                     preserve_split = "yes";
                     no_gaps_when_only = false;
                 };
+
                 debug = {
                     disable_logs = false;
                 };

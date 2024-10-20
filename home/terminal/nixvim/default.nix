@@ -2,6 +2,7 @@
 {
     # not gonna document nixvim because i dont really understand most of it,
     # just copied other peoples stuff until it did what i wanted it to do
+    # (mostly taken from the examples in the nixvim docu)
     imports = [
         inputs.nixvim.homeManagerModules.nixvim
         ./plugins
@@ -27,12 +28,14 @@
             enable = true;
             settings = {
                 transparent = true;
+                # actual transparency
                 on_colors = ''
                     function(colors)
                         colors.bg = colors.none
                         colors.bg_dark = colors.none
                         colors.bg_float = colors.none
                         colors.bg_search = colors.none
+                        -- one day this started to make it crash D:
                         -- colors.bg_sidebar = colors.none
                         colors.bg_statusline = colors.none
                     end

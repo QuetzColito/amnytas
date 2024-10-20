@@ -9,6 +9,7 @@
         enable = true;
 
         plugins = {
+        # TODO: use fetchFromGitHub
             compress = ./compress.yazi;
         };
 
