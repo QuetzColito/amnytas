@@ -36,7 +36,7 @@ on nixos x86_64 with a user with a preconfigured password and the script will in
 
 If you wanna know what exactly the script does, it isnt super long and explained in the comment in flake.nix ^^
 
-If you want to add extra config before the install abort the script once it starts nixos-rebuild and edit /hosts/<yourhost>/
+If you want to add extra config before the install abort the script once it starts nixos-rebuild and edit /hosts/\<yourhost\>/
 
 I tried to document the important/unintuitive parts :3
 
