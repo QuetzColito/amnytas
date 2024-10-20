@@ -10,7 +10,7 @@ https://github.com/user-attachments/assets/5c66eb6f-b504-4857-b43d-9f7cd78b732e
 - Widgets made with AGS
 - Wallpaper changes depending on Workspace ([see all wallpapers](https://github.com/QuetzColito/amnytas/blob/main/wallpaper/README.md))
 - hyprlock config
-- Nvidia drivers working (at least on my 4070ti, 1050ti and laptop 4060)
+- Nvidia driver setup
 - usable across multiple systems
 - arlecchino grub theme :>
 - a nixvim config (prob not the best, but works for me ^^)
@@ -39,6 +39,24 @@ If you wanna know what exactly the script does, it isnt super long and explained
 If you want to add extra config before the install abort the script once it starts nixos-rebuild and edit /hosts/\<yourhost\>/
 
 I tried to document the important/unintuitive parts :3
+
+## Software Used
+
+|                   |               |
+| ----------------- | ------------- |
+| Distro            | NixOs         |
+| WM/Compositor     | Hyprland      |
+| Terminal          | foot          |
+| Shell             | zsh           |
+| Prompt            | ohmyposh      |
+| Bar/Widgets       | AGS           |
+| Browser           | Zen,Firefox   |
+| Text Editor       | neovim        |
+| File Manager      | yazi,Thunar   |
+| Notifications     | mako          |
+| image viewer      | imv           |
+| screen recording  | wf-recorder   |
+| music player      | ytm by th-ch  |
 
 
 
