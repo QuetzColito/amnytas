@@ -27,7 +27,7 @@ in {
             # App Launcher (only scans executables, cant be bothered with desktop entries)
             "${mod},SPACE,exec,hyprctl dispatch exec $(tofi-run --ascii-input true)"
             # Terminal
-            "${mod},RETURN,exec,foot zsh"
+            "${mod},RETURN,exec,foot"
             # Settings
             "${mod},S,exec,[workspace 5] foot -D ~/amnytas nvim ~/amnytas"
             # File Manager
