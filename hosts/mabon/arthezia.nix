@@ -15,6 +15,8 @@
                 exec "$@"
             '')
         ];
+
+        shellAliases.hss = "home-manager switch --flake ~/amnytas#arthezia-mobile";
     };
 
     programs.git.extraConfig.user = {

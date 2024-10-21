@@ -64,7 +64,7 @@
                 # pass these in so we can access all the flake inputs in the config
                 extraSpecialArgs = { inherit inputs system; };
                 modules = [
-                    ./hosts/${host}/home.nix
+                    ./hosts/${host}/${user}.nix
                     { home.username = user;}
                 # wsl uses a more basic config, since it is only tty
                 ] ++ (if host == "wsl" then [] else [
@@ -75,7 +75,7 @@
     in {
         # apply the functions to the hostlist
         nixosConfigurations = builtins.listToAttrs (map mkSystemConfig (import ./hostlist.nix));
-        homeConfigurations = builtins.listToAttrs (map mkHomeConfig (import ./hostlist.nix));
+        homeConfigurations = builtins.listToAttrs (map mkHomeConfig (import ./hostlist.nix ++ [{ host = "mabon"; user = "arthezia-mobile";}]));
 
         # install script, does the following
         # - clone the repo into ~/amnytas
