@@ -25,7 +25,7 @@ in {
         [
             # App Shortcuts
             # App Launcher (only scans binaries, cant be bothered with desktop entries)
-            "${mod},SPACE,exec,tofi-run --ascii-input true"
+            "${mod},SPACE,exec,hyprctl dispatch exec $(tofi-run --ascii-input true)"
             # Terminal
             "${mod},RETURN,exec,foot zsh"
             # Settings
