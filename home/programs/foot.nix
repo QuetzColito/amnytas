@@ -1,13 +1,11 @@
-{
-  ...
-} : {
-    # This is what sane defaults looks like o.o
-    programs.foot = {
-        enable = true;
-        settings.main.shell = "zsh";
-    };
+{...}: {
+  # This is what sane defaults looks like o.o
+  programs.foot = {
+    enable = true;
+    settings.main.shell = "zsh";
+  };
 
-    home.sessionVariables = {
-        TERMINAL = "foot";
-    };
+  home.sessionVariables = {
+    TERMINAL = "foot";
+  };
 }

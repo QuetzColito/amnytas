@@ -1,8 +1,6 @@
-{...}:
-{
-    wm = "Hyprland";
-    isNvidia = true;
+{...}: {
+  wm = "Hyprland";
+  isNvidia = true;
 
-    system.stateVersion = "23.11"; # Did you read the comment?
-
+  system.stateVersion = "23.11"; # Did you read the comment?
 }
