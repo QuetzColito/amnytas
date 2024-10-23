@@ -18,6 +18,7 @@
         homeDirectory = "/home/${config.home.username}";
         # very handy for editing the config
         shellAliases = {
+            e = "hyprctl dispatch exec --";
             hs = "home-manager switch --flake ~/amnytas";
             hn = "home-manager news --flake ~/amnytas";
             ns = "sudo nixos-rebuild switch --flake ~/amnytas";
