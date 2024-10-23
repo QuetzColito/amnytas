@@ -9,7 +9,7 @@ in {
 
         settings = {
             general = {
-                hide_cursor = true;
+                # hide_cursor = true;
                 grace = 60;
             };
             # take the wallpaper of the first workspace per monitor
