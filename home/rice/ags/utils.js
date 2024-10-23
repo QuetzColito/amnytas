@@ -131,12 +131,12 @@ const Rando = () => Widget.Box({
         }),
         Widget.Button({
             on_clicked: () => randomize(),
-            child: diefacee()
+            child: dieface()
         })
     ]
 })
 
-const diefacee = () => Widget.Stack({
+const dieface = () => Widget.Stack({
     shown: diemax.bind().as(m => m < 10 ? 'die' : 'numeric'),
     children: {
         'die': Widget.Box({
@@ -176,46 +176,6 @@ const diefacee = () => Widget.Stack({
             label: dievalue.bind().as(v => v + "")
         })
     }
-})
-const dieface = () => Widget.Overlay({
-    child: Widget.Box({
-        class_name: "die",
-        homogeneous: true,
-        vertical: true,
-        css: diemax.bind().as(m => m > 9 ? "opacity: 0" : ""),
-        children: dievalue.bind().as(v => [
-            Widget.Box({
-                homogeneous: true,
-                children: [
-                    diedot(v, [4, 5, 6, 7, 8, 9]),
-                    diedot(v, [8, 9]),
-                    diedot(v, [2, 3, 4, 5, 6, 7, 8, 9])
-                ]
-            }),
-            Widget.Box({
-                homogeneous: true,
-                children: [
-                    diedot(v, [6, 7, 8, 9]),
-                    diedot(v, [1, 3, 5, 7, 9]),
-                    diedot(v, [6, 7, 8, 9])
-                ]
-            }),
-            Widget.Box({
-                homogeneous: true,
-                children: [
-                    diedot(v, [2, 3, 4, 5, 6, 7, 8, 9]),
-                    diedot(v, [8, 9]),
-                    diedot(v, [4, 5, 6, 7, 8, 9])
-                ]
-            }),
-        ])
-
-    }),
-    overlays: [Widget.Label({
-        class_name: "result",
-        css: diemax.bind().as(m => m < 10 ? "opacity: 0" : ""),
-        label: dievalue.bind().as(v => v + "")
-    })]
 })
 
 const diedot = (v, values) => Widget.Label({
