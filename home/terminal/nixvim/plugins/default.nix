@@ -21,7 +21,7 @@
         transparent.enable = true;
         luasnip.enable = true;
         web-devicons.enable = true;
-        hardtime.enable = true;
+        # hardtime.enable = true;
 
         gitsigns = {
             enable = true;
