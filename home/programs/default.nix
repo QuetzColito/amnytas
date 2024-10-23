@@ -54,9 +54,11 @@
         legendary-gl
         protontricks
         xivlauncher
+        vkbasalt
 
         ncdu
         # Media
+        spotify
         komikku
         audacity
         vlc
