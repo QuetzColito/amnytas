@@ -59,10 +59,10 @@
     wayland.windowManager.hyprland = {
         settings = {
             exec-once = [
-                "resize-ytm"
                 "[workspace 7 silent] zen"
                 "[workspace 3 silent] youtubemusic" # EXTERNAL DEPENDENCY
                 "[workspace 3 silent] vesktop --enable-wayland-ime"
+                "sleep 5; hyprctl dispatch resizewindowpixel exact 100% 30% YouTube"
             ];
         };
     };
