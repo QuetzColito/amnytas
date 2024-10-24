@@ -1,7 +1,6 @@
-{...}: let
+{config, ...}: let
   mod = "SUPER";
   modshift = "${mod}SHIFT";
-  ags = "ags -c ~/amnytas/home/rice/ags/config.js";
 
   # binds $mod + [shift +] {1..10} to [move to] workspace {1..10} (stolen from fufie)
   # (stolen from sioodmy :P) although i dont really use ws 10
@@ -59,9 +58,9 @@ in {
         "${mod},MINUS,exit"
 
         # Open Widgets
-        "${mod},E,exec,${ags} --toggle-window dashboard"
+        "${mod},E,exec,${config.agsCommand} --toggle-window dashboard"
         # Toggle Bar on current monitor
-        "${modshift},E,exec,${ags} open --toggle-window bar$(hyprctl activeworkspace -j | jq '.monitorID')"
+        "${modshift},E,exec,${config.agsCommand} open --toggle-window bar$(hyprctl activeworkspace -j | jq '.monitorID')"
 
         # move focus with hjkl
         "${mod},H,movefocus,l"
@@ -95,10 +94,10 @@ in {
         "${modshift},mouse_down,movetoworkspace,-1" # move to the previous ws
 
         # recording
-        ''${modshift},X,exec,${ags} -r recording.value=true & wf-recorder -y -f ~/Videos/wf-recording.mp4 -g "$(slurp)"''
-        ''CTRL ${mod},X,exec,${ags} -r recording.value=true & wf-recorder -y -f ~/Videos/wf-recording.mp4 -g "$(slurp -o)"''
+        ''${modshift},X,exec,wf-recorder -y -f ~/Videos/wf-recording.mp4 -g "$(slurp)"''
+        ''CTRL ${mod},X,exec,wf-recorder -y -f ~/Videos/wf-recording.mp4 -g "$(slurp -o)"''
         # stop recording
-        "${mod},X,exec,pkill --signal SIGINT wf-recorder & ${ags} -r recording.value=false"
+        "${mod},X,exec,stop-recording"
 
         # Screenshots
         "${modshift},S,exec, grimblast copy area"
