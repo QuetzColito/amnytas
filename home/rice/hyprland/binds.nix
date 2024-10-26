@@ -22,7 +22,8 @@ in {
       [
         # App Shortcuts
         # App Launcher (only scans executables, cant be bothered with desktop entries)
-        "${mod},SPACE,exec,hyprctl dispatch exec $(tofi-run --ascii-input true)"
+        # my-tofi-run is defined in tofi.nix and adds foot if package is in tuiPackages
+        "${mod},SPACE,exec,hyprctl dispatch exec $(my-tofi-run)"
         # Terminal
         "${mod},RETURN,exec,foot"
         # Settings

@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }: {
   imports = [
@@ -75,26 +76,32 @@
   # better ls? not sure if ill use this yet
   programs.eza.enable = true;
 
-  home.packages = with pkgs; [
+  home.packages = with pkgs;
+    [
+      docker
+      micro
+      jq
+      calc
+      pandoc
+      texliveSmall
+      mpg123
+      zip
+      unar
+      imagemagick
+      ffmpeg
+      fd
+      tldr
+      gnumake
+    ]
+    ++ config.tuiPackages;
+  tuiPackages = with pkgs; [
+    yazi
     btop
     cmatrix
-    docker
     lazydocker
-    micro
     sl
-    jq
-    calc
     fastfetch
-    pandoc
-    mpg123
-    texliveSmall
-    gnumake
-    zip
-    unar
-    imagemagick
-    ffmpeg
     fzf
-    fd
-    tldr
+    zellij
   ];
 }
