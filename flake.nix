@@ -129,7 +129,7 @@
       pkgs.writeShellScriptBin "install"
       ''
         cd ~
-        ${lib.meta.getExe pkgs.git} clone https://github.com/QuetzColito/amnytas.git
+        ${lib.getExe pkgs.git} clone https://github.com/QuetzColito/amnytas.git
         cd amnytas || (echo "couldnt find ~/amnytas, did the git clone fail?" & exit)
 
         read -p "What hostName should the system use?
@@ -191,7 +191,7 @@
             home$stateVersion
         }" >> home.nix
 
-        ${lib.meta.getExe pkgs.git} add .
+        ${lib.getExe pkgs.git} add .
 
         echo "running nixos-rebuild switch --flake ~/amnytas#$host $installBootloader to build system config"
         nixos-rebuild switch --flake ~/amnytas#$host $installBootloader

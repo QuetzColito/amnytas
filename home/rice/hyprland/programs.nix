@@ -4,7 +4,7 @@
   ...
 }: {
   # should be all the packages needed for the hyprland config
-  # (cant be asked to write lib.meta.getExe pkgs.package everywhere)
+  # (cant be asked to write lib.getExe pkgs.package everywhere)
   home.packages = with pkgs; [
     xorg.xrandr
     brightnessctl
@@ -42,7 +42,7 @@
     )
     (
       writeShellScriptBin "wf-recorder"
-      "${config.agsCommand} -r recording.value=true; ${lib.meta.getExe wf-recorder} $@"
+      "${config.agsCommand} -r recording.value=true; ${lib.getExe wf-recorder} $@"
     )
     (
       writeShellScriptBin "stop-recording"

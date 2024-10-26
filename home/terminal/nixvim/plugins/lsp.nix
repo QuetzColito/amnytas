@@ -36,7 +36,7 @@ in {
 
             settings = {
               nixpkgs.expr = "import <nixpkgs> { }";
-              formatting.command = ["${lib.meta.getExe pkgs.alejandra}"];
+              formatting.command = ["${lib.getExe pkgs.alejandra}"];
               options = {
                 nixos.expr = "(builtins.getFlake \"/home/${user}/amnytas\").nixosConfigurations.${host}.options";
                 home-manager.expr = "(builtins.getFlake \"/home/${user}/amnytas\").homeConfigurations.${user}.options";
@@ -54,7 +54,7 @@ in {
             enable = true;
             installCargo = true;
             installRustc = true;
-            settings.rustfmt.overrideCommand = ["${lib.meta.getExe pkgs.rustfmt}"];
+            settings.rustfmt.overrideCommand = ["${lib.getExe pkgs.rustfmt}"];
           };
 
           # java-language-server = {
