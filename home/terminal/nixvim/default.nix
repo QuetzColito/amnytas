@@ -13,6 +13,8 @@
     ./keymap.nix
   ];
 
+  stylix.targets.nixvim.enable = false;
+
   home = {
     shellAliases.v = "nvim";
     sessionVariables.EDITOR = "nvim";

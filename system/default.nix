@@ -172,7 +172,7 @@
       material-icons
       material-design-icons
       roboto
-      noto-fonts-cjk
+      noto-fonts-cjk-sans
       (nerdfonts.override {fonts = ["IosevkaTerm" "Iosevka" "JetBrainsMono"];})
       fira-code-nerdfont
     ];
