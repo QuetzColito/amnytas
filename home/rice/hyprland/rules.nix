@@ -65,6 +65,8 @@
       "workspace 6, class:^(moe\.launcher.*)$"
       "workspace 6, class:^(starrail\.exe)$"
       # make starrail not freeze in the background
+      "renderunfocused, class:^(steam_app.*)$"
+
       "renderunfocused, class:^(starrail\.exe)$"
       "workspace 5, class:codium-url-handler"
       # dont think this actually works
