@@ -33,8 +33,11 @@
 
   config = {
     boot = {
-      loader.systemd-boot.enable = true;
-      loader.efi.canTouchEfiVariables = true;
+      loader = {
+        systemd-boot.enable = true;
+        systemd-boot.configurationLimit = 2;
+        efi.canTouchEfiVariables = true;
+      };
       tmp.cleanOnBoot = true;
       kernelModules = ["v4l2loopback"];
       supportedFilesystems = ["ntfs"];
