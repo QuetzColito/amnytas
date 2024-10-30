@@ -30,10 +30,16 @@
             desc = "Edit";
           }
         ];
-        play-once = [{run = ''vlc --play-and-exit "$@"'';}];
+        play-once = [{run = ''mpv "$@"'';}];
+        play-audio = [
+          {
+            run = ''foot --override=app-id=ffoot --override=initial-window-size-chars=70x5 mpv "$@"'';
+            desc = "Play Audio";
+          }
+        ];
         play = [
           {
-            run = ''vlc --play-and-pause "$@"'';
+            run = ''mpv --keep-open=yes "$@"'';
             desc = "Play";
           }
         ];
@@ -83,7 +89,7 @@
           }
           {
             mime = "audio/*";
-            use = ["play-once"];
+            use = ["play-audio"];
           }
           {
             mime = "image/*";

@@ -10,6 +10,8 @@
     ./imv.nix
   ];
 
+  programs.mpv.enable = true;
+
   # VScodium, although i dont use it anymore
   stylix.targets.vscode.enable = false;
   programs.vscode = {

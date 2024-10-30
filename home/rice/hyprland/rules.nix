@@ -45,6 +45,8 @@
 
       "float, class:^(org.gnome.Loupe)$"
       "float, class:^(vlc)$"
+      "float, class:^(mpv)$"
+      "float, class:^(ffoot)$"
       "float, class:^(xdg-desktop-portal-gtk)$"
       "float, class:^(moe.launcher.the-honkers-railway-launcher)$"
       "float, title:^(Picture-in-Picture)$"
