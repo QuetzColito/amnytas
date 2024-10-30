@@ -3,11 +3,10 @@
   isNvidia = true;
   wantGrub = true;
 
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 
-  # extra ssd (could be in hardware-configuration.nix too by now)
   fileSystems."/home/quetz/storage" = {
-    device = "/dev/sda1";
+    device = "/dev/sda4";
     options = ["nofail"];
   };
 }

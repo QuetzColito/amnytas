@@ -46,6 +46,7 @@
       discord
       vesktop
       protonmail-desktop
+      brave
 
       # Gaming
       gamescope
@@ -60,6 +61,7 @@
 
       ncdu
       # Media
+      gnome-disk-utility
       spotify
       komikku
       audacity

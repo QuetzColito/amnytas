@@ -35,6 +35,7 @@
       "opacity 0.95, class:^(YouTube Music)$"
       "forcergbx, class:^(YouTube Music)$"
       "opacity 0.8, class: firefox"
+      "opacity 0.8, class: Brave-browser"
       "opacity 0.8, title: ^(.*Zen Browser)$"
       # Disable opacity when watching videos
       "opacity 1 override 1 override 1 override ,title:^(.*YouTube — Mozilla Firefox)|(.*Crunchyroll.* — Mozilla Firefox)$"
