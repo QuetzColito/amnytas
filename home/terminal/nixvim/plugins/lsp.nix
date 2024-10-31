@@ -43,6 +43,7 @@ in {
               };
             };
           };
+          gopls.enable = true;
           svelte.enable = true;
           hls = {
             enable = true;
