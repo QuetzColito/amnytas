@@ -33,7 +33,7 @@
         play-once = [{run = ''mpv "$@"'';}];
         play-audio = [
           {
-            run = ''foot --override=app-id=ffoot --override=initial-window-size-chars=70x5 mpv "$@"'';
+            run = ''mpa "$@"'';
             desc = "Play Audio";
           }
         ];
