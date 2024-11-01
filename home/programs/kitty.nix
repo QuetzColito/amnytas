@@ -1,4 +1,4 @@
-{lib, ...}: {
+{config, ...}: {
   # didnt use because had annoying defaults
   programs.kitty = {
     enable = true;
@@ -6,7 +6,7 @@
     settings = {
       enable_audio_bell = false;
       cursor_blink_interval = 0;
-      shell = "nu";
+      shell = config.home.sessionVariables.SHELL;
     };
   };
 }

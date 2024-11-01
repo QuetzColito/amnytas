@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   imports = [
     ./telescope.nix
     ./lsp.nix
@@ -20,6 +24,7 @@
     transparent.enable = true;
     luasnip.enable = true;
     web-devicons.enable = true;
+    rainbow-delimiters.enable = true;
     # hardtime.enable = true;
 
     gitsigns = {
@@ -63,7 +68,7 @@
 
     floaterm = {
       enable = true;
-      shell = "zsh";
+      shell = config.home.sessionVariables.SHELL;
       keymaps = {
         toggle = "<C-L>";
         next = "<C-J>";

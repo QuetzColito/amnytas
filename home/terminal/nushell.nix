@@ -1,24 +1,29 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: {
   home = {
-    shellAliases.nd = "nix develop -c nu";
-
-    sessionVariables = {
-      SHELL = "nu";
+    shellAliases = {
+      nd = "nix develop -c nu";
+      nix-shell = "nix-shell --command nu";
+      ll = "ls";
+      lt = "eza --tree";
+      ls = "eza";
     };
+
+    sessionVariables.SHELL = "nu";
   };
   programs.nushell = {
     enable = true;
     shellAliases = config.home.shellAliases;
-    environmentVariables =
-      {
-        PROMPT_INDICATOR_VI_INSERT = "";
-        PROMPT_INDICATOR_VI_NORMAL = "";
-      }
-      // config.home.sessionVariables;
+    environmentVariables = {
+      PROMPT_INDICATOR_VI_INSERT = "";
+      PROMPT_INDICATOR_VI_NORMAL = "";
+      SHELL = config.home.sessionVariables.SHELL;
+      EDITOR = config.home.sessionVariables.EDITOR;
+    };
     # stolen from Aylur
     extraConfig = let
       conf = builtins.toJSON {
@@ -68,7 +73,6 @@
     in ''
       $env.config = ${conf};
       ${completions ["cargo" "git" "nix" "npm" "curl"]}
-      alias lss = ls
     '';
   };
 }

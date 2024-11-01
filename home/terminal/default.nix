@@ -34,10 +34,7 @@
   };
 
   # better ls? not sure if ill use this yet
-  programs.eza = {
-    enable = true;
-    enableNushellIntegration = true;
-  };
+  programs.eza.enable = true;
 
   home.packages = with pkgs;
     [

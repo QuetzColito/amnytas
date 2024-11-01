@@ -47,14 +47,14 @@ in {
           svelte.enable = true;
           hls = {
             enable = true;
-            installGhc = true;
+            installGhc = false;
           };
           ts_ls.enable = true;
 
           rust_analyzer = {
             enable = true;
-            installCargo = true;
-            installRustc = true;
+            installCargo = false;
+            installRustc = false;
             settings.rustfmt.overrideCommand = ["${lib.getExe pkgs.rustfmt}"];
           };
 
