@@ -5,16 +5,18 @@
   ...
 }: {
   imports = [
-    ./zsh.nix
+    # ./zsh.nix
     ./yazi.nix
     ./nixvim
     ./git.nix
+    ./nushell.nix
   ];
 
   programs = {
     oh-my-posh = {
       enable = true;
       enableZshIntegration = true;
+      enableNushellIntegration = true;
       settings = import ./ohmyposh.nix;
     };
 
@@ -32,7 +34,10 @@
   };
 
   # better ls? not sure if ill use this yet
-  programs.eza.enable = true;
+  programs.eza = {
+    enable = true;
+    enableNushellIntegration = true;
+  };
 
   home.packages = with pkgs;
     [

@@ -257,7 +257,7 @@
   "explorer.confirmDragAndDrop" = false;
   "window.menuBarVisibility" = "toggle";
   "git.autofetch" = true;
-  "terminal.integrated.defaultProfile.linux" = "zsh";
+  "terminal.integrated.defaultProfile.linux" = "nu";
   "git.confirmSync" = false;
   "editor.fontFamily" = "'FiraCode Nerd Font'";
   "redhat.telemetry.enabled" = false;

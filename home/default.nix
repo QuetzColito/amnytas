@@ -29,10 +29,10 @@
       # very handy for editing the config
       shellAliases = {
         e = "hyprctl dispatch exec --";
+        lz = "lazygit";
         hs = "home-manager switch --flake ~/amnytas";
         hn = "home-manager news --flake ~/amnytas";
         ns = "sudo nixos-rebuild switch --flake ~/amnytas";
-        nu = "nix flake update --commit-lockfile";
       };
     };
 

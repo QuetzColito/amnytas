@@ -6,7 +6,7 @@
     settings = {
       enable_audio_bell = false;
       cursor_blink_interval = 0;
-      shell = "zsh";
+      shell = "nu";
     };
   };
 }
