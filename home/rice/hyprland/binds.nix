@@ -58,6 +58,8 @@ in {
         # Kill Hyprland, was more useful without greetd
         "${mod},MINUS,exit"
 
+        # Open Special Workspace
+        "${mod},W,togglespecialworkspace"
         # Open Widgets
         "${mod},E,exec,${config.agsCommand} --toggle-window dashboard"
         # Toggle Bar on current monitor
