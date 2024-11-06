@@ -122,6 +122,7 @@
           "__GL_GSYNC_ALLOWED,0"
           "__GL_VRR_ALLOWED,0"
           "ELECTRON_OZONE_PLATFORM_HINT,auto"
+          "NIXOS_OZONE_WL,1"
           # "AQ_NO_ATOMIC,1"
           "NVD_BACKEND,direct"
           # needed to get the layout into gamescope
