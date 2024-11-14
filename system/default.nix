@@ -32,6 +32,13 @@
   # A lot of stuff in here was generated at the start and i didnt touch it
 
   config = {
+    # programs.nix-ld = {
+    #   enable = true;
+    #   libraries = with pkgs; [ ];
+    # };
+    # environment.sessionVariables = {
+    #   DOTNET_ROOT = "${pkgs.dotnet-sdk}";
+    # };
     boot = {
       loader = {
         systemd-boot.enable = true;
