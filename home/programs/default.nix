@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgs-stable,
   inputs,
   system,
   ...
@@ -51,7 +52,7 @@
       brave
 
       # Gaming
-      gamescope
+      pkgs-stable.gamescope
       path-of-building
       osu-lazer-bin
       prismlauncher
@@ -71,6 +72,7 @@
       pinta
       conjure
       # Documents
+      zotero
       thunderbird
       onlyoffice-bin
       obsidian

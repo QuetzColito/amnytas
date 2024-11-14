@@ -4,6 +4,7 @@
   # all the git repos needed
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     zen-browser.url = "github:MarceColl/zen-browser-flake";
     ags.url = "github:Aylur/ags";
@@ -32,11 +33,13 @@
 
   outputs = {
     nixpkgs,
+    nixpkgs-stable,
     home-manager,
     ...
   } @ inputs: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
+    pkgs-stable = nixpkgs-stable.legacyPackages.${system};
     lib = nixpkgs.lib;
 
     # builds the system flake output for every host
@@ -50,13 +53,13 @@
         # not sure if i need this, but doesnt hurt i guess
         inherit system;
         # pass these in so we can access all the flake inputs in the config
-        specialArgs = {inherit inputs system;};
+        specialArgs = {inherit inputs pkgs-stable system;};
         modules =
           [
             ./hosts/${host}
-            # wsl uses a more basic config, since it is only tty
           ]
           ++ (
+            # wsl uses a more basic config, since it is only tty
             if host == "wsl"
             then [
               {
@@ -85,7 +88,7 @@
         # not sure if i need this, but doesnt hurt i guess
         inherit pkgs;
         # pass these in so we can access all the flake inputs in the config
-        extraSpecialArgs = {inherit inputs system;};
+        extraSpecialArgs = {inherit inputs pkgs-stable system;};
         modules =
           [
             ./hosts/${host}/${user}.nix
