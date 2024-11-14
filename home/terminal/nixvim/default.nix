@@ -53,9 +53,9 @@
       vim.api.nvim_set_hl(0, "FloatermBorder", { fg = "#9d7cd8", bg = "none"})
       vim.filetype.add({extension = { purs = 'purescript' } })
       vim.g.closetag_filenames = '*.html,*.xhtml,*.phtml'
-      vim.g.closetag_xhtml_filenames = '*.xhtml,*.jsx,*.svelte'
-      vim.g.closetag_filetypes = 'html,xhtml,phtml,svelte'
-      vim.g.closetag_xhtml_filetypes = 'xhtml,jsx,svelte'
+      vim.g.closetag_xhtml_filenames = '*.xhtml,*.jsx,*.svelte,*.xml'
+      vim.g.closetag_filetypes = 'html,xhtml,phtml,svelte,xml'
+      vim.g.closetag_xhtml_filetypes = 'xhtml,jsx,svelte,xml'
     '';
 
     autoCmd = [
