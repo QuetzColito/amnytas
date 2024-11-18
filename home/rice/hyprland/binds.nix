@@ -106,8 +106,11 @@ in {
         "${modshift},S,exec, grimblast copy area"
         "CTRL ${modshift},S,exec, grimblast --freeze copy area"
         "CTRL ${mod},S,exec, grimblast --freeze copy output"
-        # see above
+
+        # Color Picker
+        "${modshift},C,exec, hyprpicker | wl-copy"
       ]
+      # see above
       ++ workspaces;
 
     bindm = [

@@ -65,6 +65,8 @@
 
       ncdu
       # Media
+      inkscape
+      gcolor3
       gnome-disk-utility
       spotify
       komikku
@@ -78,6 +80,10 @@
       onlyoffice-bin
       obsidian
       # autoscale imv to the image
+      # (writeShellScriptBin "imvs"
+      #   ''
+      #     imv $1 -W 212 -H 333
+      #   '')
       (writeShellScriptBin "imvs"
         ''
           imv $1 -W $(magick identify -format %w $1) -H$(magick identify -format %h $1)
@@ -85,6 +91,11 @@
       (writeShellScriptBin "mpa"
         ''
           foot --override=app-id=floatfoot --override=initial-window-size-chars=70x5 mpv --no-audio-display $@
+        '')
+      (writeShellScriptBin "t"
+        ''
+          convert "$1"_Card.webp ~/Pictures/cards/originals/"$1".png
+          rm "$1"_Card.webp
         '')
     ]);
 }

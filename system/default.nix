@@ -181,6 +181,7 @@
       dejavu_fonts
       material-icons
       material-design-icons
+      google-fonts
       roboto
       noto-fonts-cjk-sans
       (nerdfonts.override {fonts = ["IosevkaTerm" "Iosevka" "JetBrainsMono"];})
