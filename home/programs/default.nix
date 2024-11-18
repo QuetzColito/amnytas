@@ -1,6 +1,6 @@
 {
   pkgs,
-  pkgs-stable,
+  # pkgs-stable,
   inputs,
   system,
   ...
@@ -52,7 +52,7 @@
       brave
 
       # Gaming
-      pkgs-stable.gamescope
+      gamescope
       path-of-building
       osu-lazer-bin
       prismlauncher
