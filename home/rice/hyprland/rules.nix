@@ -61,6 +61,7 @@
 
       # organization
       "workspace 3, class:^(vesktop)$"
+      "workspace 3, class:^(equibop)$"
       "workspace 3, class:^(YouTube Music)$"
       "workspace 9, title:^(Steam)$"
       "workspace 6, class:^(steam_app.*)$"
