@@ -25,7 +25,7 @@
       nvidiaSettings = true;
 
       # using stable since it has explicit sync now
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      package = config.boot.kernelPackages.nvidiaPackages.latest;
     };
   };
 }

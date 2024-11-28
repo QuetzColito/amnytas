@@ -59,7 +59,6 @@
       prismlauncher
       heroic
       legendary-gl
-      protontricks
       xivlauncher
       vkbasalt
 

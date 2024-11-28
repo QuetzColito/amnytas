@@ -50,7 +50,7 @@
       imagemagick
       ffmpeg
       fd
-      tldr
+      tealdeer
       gnumake
     ]
     ++ config.tuiPackages;

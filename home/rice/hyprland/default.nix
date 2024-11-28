@@ -191,9 +191,9 @@
           };
 
           # shadow config
-          drop_shadow = "no";
-          shadow_range = 20;
-          shadow_render_power = 5;
+          # drop_shadow = "no";
+          # shadow_range = 20;
+          # shadow_render_power = 5;
           #"col.shadow" = "rgba(292c3cee)";
         };
 
@@ -229,8 +229,8 @@
           ];
 
           animation = [
-            "windows, 1, 5, overshot, slide"
-            "windowsOut, 1, 6, smoothIn, slide"
+            "windows, 1, 4, smoothIn, slide"
+            # "windowsOut, 1, 3, smoothIn, slide"
             # rotating border
             "border,1,10,default"
             "borderangle, 1, 100, linear, loop"
@@ -244,7 +244,7 @@
         dwindle = {
           pseudotile = false;
           preserve_split = "yes";
-          no_gaps_when_only = false;
+          # no_gaps_when_only = false;
         };
 
         debug = {

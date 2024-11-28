@@ -33,6 +33,7 @@
         hs = "home-manager switch --flake ~/amnytas";
         hn = "home-manager news --flake ~/amnytas";
         ns = "sudo nixos-rebuild switch --flake ~/amnytas";
+        nfu = "nix flake update --commit-lock-file";
       };
     };
 
