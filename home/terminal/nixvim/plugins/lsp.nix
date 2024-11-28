@@ -47,11 +47,11 @@ in {
           svelte.enable = true;
           hls = {
             enable = true;
-            installGhc = false;
+            # installGhc = false;
           };
-          ts_ls.enable = true;
+          ts-ls.enable = true;
 
-          rust_analyzer = {
+          rust-analyzer = {
             enable = true;
             installCargo = false;
             installRustc = false;

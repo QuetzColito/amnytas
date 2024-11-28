@@ -48,7 +48,7 @@
       obs-studio
       discord
       vesktop
-      equibop
+      # equibop
       protonmail-desktop
       brave
 
