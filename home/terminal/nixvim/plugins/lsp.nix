@@ -17,6 +17,7 @@ in {
           diagnostic = {
             "<leader>k" = "goto_prev";
             "<leader>j" = "goto_next";
+            "<leader>e" = "open_float";
           };
 
           lspBuf = {

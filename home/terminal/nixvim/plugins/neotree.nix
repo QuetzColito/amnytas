@@ -3,7 +3,7 @@
     keymaps = [
       {
         mode = "n";
-        key = "<leader>e";
+        key = "<leader>E";
         action = ":Neotree action=focus reveal toggle<CR>";
         options.silent = true;
       }
