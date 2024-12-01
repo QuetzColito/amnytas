@@ -5,6 +5,7 @@ import { Calendar, Clock, Time } from './time.js'
 import { SysTray } from './sysTray.js'
 import { Workspaces } from './hyprland.js'
 import { utils } from './utils.js'
+import style from './style.scss'
 
 // ----- Recording Indicator ----- //
 
@@ -68,4 +69,10 @@ Utils.exec(`sassc ${scss} ${css}`)
 App.config({
     style: css,
     windows: [dashboard(), ...hyprland.monitors.map(m => Bar(m.id))]
+})
+
+App.start({
+    css: style,
+    instanceName: "ags-bar",
+    main: () => App.get_monitors().map(Bar),
 })

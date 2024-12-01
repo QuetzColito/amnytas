@@ -61,9 +61,9 @@ in {
         # Open Special Workspace
         "${mod},W,togglespecialworkspace"
         # Open Widgets
-        "${mod},E,exec,${config.agsCommand} --toggle-window dashboard"
+        "${mod},E,exec,ags --toggle-window dashboard"
         # Toggle Bar on current monitor
-        "${modshift},E,exec,${config.agsCommand} open --toggle-window bar$(hyprctl activeworkspace -j | jq '.monitorID')"
+        "${modshift},E,exec,togglecurrentbar"
 
         # move focus with hjkl
         "${mod},H,movefocus,l"

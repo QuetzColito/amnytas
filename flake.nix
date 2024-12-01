@@ -7,7 +7,7 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     zen-browser.url = "github:MarceColl/zen-browser-flake";
-    ags.url = "github:Aylur/ags/v1";
+    ags.url = "github:Aylur/ags";
     stylix.url = "github:danth/stylix";
 
     nixos-cosmic = {

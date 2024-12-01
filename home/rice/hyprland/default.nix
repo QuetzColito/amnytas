@@ -39,7 +39,6 @@
   };
 
   config = let
-    ags = "ags -c ~/amnytas/home/rice/ags/config.js";
   in {
     wayland.windowManager.hyprland = {
       enable = true;
@@ -61,7 +60,7 @@
             "hyprlock --immediate"
             "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
             "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service"
-            "${ags}"
+            # "ags run ~/amnytas/home/rice/ags/app.ts"
             "hyprpaperswitch"
             # this used to help with games, dunno if still needed
           ]

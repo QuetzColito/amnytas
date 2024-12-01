@@ -57,6 +57,12 @@ window {
 .sound {
   color: $blue;
 }
+// SysTray
+.systray-icon {
+  padding: 0 0;
+  margin: -4px 0;
+  background-color: $bg-storm;
+}
 
 // Music
 
@@ -324,28 +330,24 @@ color: $black;
     min-width: 30px;
     min-height: 20px;
 
-    progress {
-    min-width: 30px;
-    background-color: $red;
-    min-height: 20px;
-      color: #000000;
-      border-radius: 10px;
+    slider {
+      background-color: #00000000;
     }
   }
 }
 
-.green trough progress {
-  background-color: $green;
+.green trough {
+  color: $green;
 }
 
-.cyan trough progress {
-  background-color: $cyan;
+.cyan trough highlight {
+  color: $cyan;
 }
 
-.blue trough progress {
+.blue trough highlight {
   background-color: $blue;
 }
 
-.purple trough progress {
-  background-color: $purple;
+.purple trough {
+  color: $purple;
 }
