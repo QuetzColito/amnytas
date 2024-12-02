@@ -19,10 +19,10 @@
     enable = true;
     shellAliases = config.home.shellAliases;
     environmentVariables = {
-      PROMPT_INDICATOR_VI_INSERT = "''";
-      PROMPT_INDICATOR_VI_NORMAL = "''";
-      SHELL = "'${config.home.sessionVariables.SHELL}'";
-      EDITOR = "'${config.home.sessionVariables.EDITOR}'";
+      PROMPT_INDICATOR_VI_INSERT = "";
+      PROMPT_INDICATOR_VI_NORMAL = "";
+      SHELL = "${config.home.sessionVariables.SHELL}";
+      EDITOR = "${config.home.sessionVariables.EDITOR}";
     };
     # stolen from Aylur
     extraConfig = let

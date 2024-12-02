@@ -1,7 +1,7 @@
 {config, ...}: let
   anchored = x: y: (builtins.toString (x - 25)) + ", " + (builtins.toString (y + 0));
 in {
-  # stylix.targets.hyprlock.enable = false;
+  stylix.targets.hyprlock.enable = false;
   programs.hyprlock = {
     enable = true;
 

@@ -179,14 +179,11 @@
     # fonts, dont remove the cjk one or kana will look ugly
     fonts.packages = with pkgs; [
       inter
-      dejavu_fonts
       material-icons
       material-design-icons
-      google-fonts
       roboto
       noto-fonts-cjk-sans
-      (nerdfonts.override {fonts = ["IosevkaTerm" "Iosevka" "JetBrainsMono"];})
-      fira-code-nerdfont
+      nerd-fonts.geist-mono
     ];
   };
 }
