@@ -4,7 +4,7 @@
   # all the git repos needed
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     zen-browser.url = "github:MarceColl/zen-browser-flake";
     ags.url = "github:Aylur/ags/v1";
@@ -28,6 +28,11 @@
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    ytm-src = {
+      url = "https://github.com/th-ch/youtube-music/releases/download/v3.6.2/YouTube-Music-3.6.2.AppImage";
+      flake = false;
     };
   };
 

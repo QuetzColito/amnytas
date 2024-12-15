@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   # pkgs-stable,
   inputs,
@@ -32,8 +33,6 @@
   };
 
   # for good measure, dunno if it does anything
-  # (i manually edited desktop entries to get it to be default)
-  # basically just copied the firefox one
   home.sessionVariables.BROWSER = "zen";
 
   home.packages =
@@ -46,8 +45,9 @@
       qpwgraph
       appimage-run
       obs-studio
-      discord
+      discord-canary
       vesktop
+      jetbrains.idea-community
       # equibop
       protonmail-desktop
       brave
@@ -96,5 +96,14 @@
           convert "$1"_Card.webp ~/Pictures/cards/originals/"$1".png
           rm "$1"_Card.webp
         '')
+      (let
+        pname = "YouTube-Music";
+        version = "3.6.2";
+
+        src = inputs.ytm-src;
+      in
+        appimageTools.wrapType2 {
+          inherit pname version src;
+        })
     ]);
 }
