@@ -68,16 +68,16 @@
 
     floaterm = {
       enable = true;
-      shell = config.home.sessionVariables.SHELL;
-      keymaps = {
-        toggle = "<C-L>";
-        next = "<C-J>";
-        prev = "<C-K>";
-        new = "<C-H>";
+      settings = {
+        shell = config.home.sessionVariables.SHELL;
+        keymap_toggle = "<C-L>";
+        keymap_next = "<C-J>";
+        keymap_prev = "<C-K>";
+        keymap_new = "<C-H>";
+        width = 0.8;
+        height = 0.8;
+        title = "";
       };
-      width = 0.8;
-      height = 0.8;
-      title = "";
     };
   };
 }
