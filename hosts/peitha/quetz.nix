@@ -32,7 +32,7 @@
     settings = {
       exec-once = [
         "[workspace 7 silent] zen"
-        "[workspace 3 silent] youtubemusic" # EXTERNAL DEPENDENCY
+        "[workspace 3 silent] YouTube-Music" # EXTERNAL DEPENDENCY
         "[workspace 3 silent] vesktop --enable-wayland-ime"
         "sleep 5; hyprctl dispatch resizewindowpixel exact 100% 41%,YouTube"
       ];

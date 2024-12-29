@@ -35,7 +35,7 @@ in {
         # Browser
         "${mod},B,exec,[workspace 7] zen"
         # Music Player
-        "${mod},Y,exec,youtubemusic" # EXTERNAL DEPENDENCY
+        "${mod},Y,exec,YouTube-Music" # EXTERNAL DEPENDENCY
         # Discord
         "${mod},D,exec,vesktop --enable-wayland-ime"
         # Windows Task Manager keybind cause why not

@@ -52,7 +52,7 @@
         ];
       };
       # Trails \o/
-      plugins = [pkgs.hyprlandPlugins.hyprtrails];
+      # plugins = [pkgs.hyprlandPlugins.hyprtrails];
       settings = {
         exec-once =
           [

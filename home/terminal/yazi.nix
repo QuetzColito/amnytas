@@ -1,10 +1,15 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   # not 100% happy with the config, but it mostly works for me
   # and didnt really have the motivation to deep dive into this
+  home.packages = with pkgs; [
+    xdragon
+  ];
+
   programs.yazi = {
     enable = true;
 
@@ -344,6 +349,11 @@
           on = ["."];
           run = "hidden toggle";
           desc = "Toggle the visibility of hidden files";
+        }
+        {
+          on = ["<C-n>"];
+          run = ''shell --confirm 'dragon -x -i -T "$1"' '';
+          desc = "Sort by size";
         }
         {
           on = ["s"];

@@ -22,7 +22,7 @@
       padding-top = 35%
       result-spacing = 25
       num-results = 15
-      font = monospace
+      font = GeistMono Nerd Font Mono
       background-color = #0005
       selection-color = #7AA2F7
     '';

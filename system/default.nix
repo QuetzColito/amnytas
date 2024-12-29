@@ -48,8 +48,13 @@
       tmp.cleanOnBoot = true;
       kernelModules = ["v4l2loopback"];
       supportedFilesystems = ["ntfs"];
-      extraModulePackages = with config.boot.kernelPackages; [v4l2loopback.out];
+      extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
+      extraModprobeConfig = ''
+        options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
+      '';
     };
+
+    security.polkit.enable = true;
 
     networking.hostName = config.hostName;
 
@@ -179,14 +184,11 @@
     # fonts, dont remove the cjk one or kana will look ugly
     fonts.packages = with pkgs; [
       inter
-      dejavu_fonts
       material-icons
       material-design-icons
-      google-fonts
       roboto
       noto-fonts-cjk-sans
-      (nerdfonts.override {fonts = ["IosevkaTerm" "Iosevka" "JetBrainsMono"];})
-      fira-code-nerdfont
+      nerd-fonts.geist-mono
     ];
   };
 }
