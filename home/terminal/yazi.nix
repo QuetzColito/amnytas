@@ -245,7 +245,7 @@
         # Selection
         {
           on = ["<Space>"];
-          run = ["select --state=none" "arrow 1"];
+          run = ["toggle --state=none" "arrow 1"];
           desc = "Toggle the current selection state";
         }
         {
@@ -260,7 +260,7 @@
         }
         {
           on = ["<C-a>"];
-          run = "select_all --state=true";
+          run = "toggle_all --state=true";
           desc = "Select all files";
         }
         {

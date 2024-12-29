@@ -14,6 +14,7 @@
         export __VK_LAYER_NV_optimus=NVIDIA_only
         exec "$@"
       '')
+      acpi
     ];
 
     shellAliases.hss = "home-manager switch --flake ~/amnytas#arthezia-mobile";

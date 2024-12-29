@@ -1,6 +1,5 @@
 {
   lib,
-  pkgs,
   config,
   ...
 }: {
@@ -60,7 +59,7 @@
             "hyprlock --immediate"
             "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
             "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service"
-            # "ags run ~/amnytas/home/rice/ags/app.ts"
+            "ags run ~/amnytas/home/rice/ags/app.ts"
             "hyprpaperswitch"
             # this used to help with games, dunno if still needed
           ]

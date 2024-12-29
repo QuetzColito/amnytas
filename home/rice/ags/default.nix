@@ -23,7 +23,7 @@
         pkgs.writeShellScriptBin
         "togglecurrentbar"
         ''
-          ags toggle bar-$(hyprctl activeworkspace -j | jq '.monitorID') --instance ags-bar
+          ags toggle bar-$(hyprctl activeworkspace -j | jq '.monitorID')
         ''
       )
     ];

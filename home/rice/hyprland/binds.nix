@@ -61,7 +61,7 @@ in {
         # Open Special Workspace
         "${mod},W,togglespecialworkspace"
         # Open Widgets
-        "${mod},E,exec,ags --toggle-window dashboard"
+        "${mod},E,exec,ags request toggleDashboard"
         # Toggle Bar on current monitor
         "${modshift},E,exec,togglecurrentbar"
 

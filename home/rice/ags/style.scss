@@ -252,6 +252,8 @@ color: $black;
         background-color: $bg-night;
         border-radius: 100px;
         margin: 5px;
+        min-height: 10px;
+        min-width: 10px;
       }
     }
   }
@@ -309,7 +311,7 @@ color: $black;
 .monitor {
   margin: 10px;
   padding: 10px 5px;
-  min-height: 100px;
+  min-height: 50px;
   border-radius: 15px;
   background-color: $bg-night;
   min-width: 195px;

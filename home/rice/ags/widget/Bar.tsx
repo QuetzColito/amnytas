@@ -3,7 +3,6 @@ import { Variable, GLib, bind } from "astal"
 import { Astal, Gtk, Gdk } from "astal/gtk3"
 import Hyprland from "gi://AstalHyprland"
 import Mpris from "gi://AstalMpris"
-import Battery from "gi://AstalBattery"
 import Tray from "gi://AstalTray"
 import Wp from "gi://AstalWp"
 import AstalMpris from "gi://AstalMpris?version=0.1"
@@ -64,7 +63,7 @@ function Music() {
         {bind(mpris, "players").as(ps => ps.slice(0, 1).map(p => {
             const loop = bind(p, "loop_status").as(v => viewLoop(v))
             const pbstatus = bind(p, "playback_status").as(v => v === AstalMpris.PlaybackStatus.PLAYING ? " " : " ")
-            const title = bind(p, "title").as(v => v + " - " + p.artist)
+            const title = Variable.derive([bind(p, "title"), bind(p, "artist")], (t, a) => t + " - " + a)
             return <eventbox
                 className={bind(p, "playback_status").as(pbs => `music ${pbs === AstalMpris.PlaybackStatus.PLAYING ? "purple" : "orange"}`)}
                 onClick={(_, e) => e.button === Astal.MouseButton.PRIMARY ? p.play_pause() : p.set_loop_status(toggleloop(p.loop_status))}
@@ -73,7 +72,7 @@ function Music() {
                 <box>
                     <label label={loop} />
                     <label label={pbstatus} />
-                    <label label={title} truncate={true} />
+                    <label label={bind(title)} truncate />
                 </box>
             </eventbox >
         }
@@ -84,7 +83,7 @@ function Music() {
 
 function Workspaces() {
 
-    const dispatch = (ws: String) => hyprland.message_async(`dispatch workspace ${ws}`, null);
+    const dispatch = (ws: string) => hyprland.dispatch("workspace", ws);
 
     return <eventbox className="workspaces">
         <box>
