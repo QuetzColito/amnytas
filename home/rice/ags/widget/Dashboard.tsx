@@ -170,7 +170,7 @@ const diemax = Variable(6);
 const dievalue = Variable(1);
 const randomize = () => [20, 50, 80, 110, 140, 160].forEach(i => {
     timeout(i, () => {
-        dievalue.set(Math.ceil(Math.random() * (diemax.get() - 1) + 1))
+        dievalue.set(Math.ceil(Math.random() * (diemax.get())))
     })
 })
 
@@ -298,7 +298,7 @@ function Calendar() {
 }
 const hyprland = Hyprland.get_default()
 
-const isVisible = Variable(true);
+const isVisible = Variable(false);
 const toGdkMonitor = (m: AstalHyprland.Monitor) => {
     return App.get_monitors().find(gm => gm.model === m.model)!
 }

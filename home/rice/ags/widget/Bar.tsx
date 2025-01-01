@@ -84,6 +84,8 @@ function Music() {
 function Workspaces() {
 
     const dispatch = (ws: string) => hyprland.dispatch("workspace", ws);
+    const occupied = Variable.derive([bind(hyprland, "clients"), bind(hyprland, "workspaces"), bind(hyprland, "focusedWorkspace")],
+        (cls, wss, _) => (i: number) => cls.some(c => c.workspace.id === i) || wss.find(ws => ws.id === i)?.clients.length! > 0)
 
     return <eventbox className="workspaces">
         <box>
@@ -92,8 +94,8 @@ function Workspaces() {
                     <box className={bind(hyprland, "focusedWorkspace")
                         .as(active => active.id == i ? "workspace-entry current" : "workspace-entry")}>
                         <label
-                            label={bind(hyprland, "workspaces")
-                                .as(wss => wss.find(ws => ws.id === i)?.clients.length! > 0 ? " ◆ " : " ◇ ")}
+                            label={bind(occupied)
+                                .as(occ => occ(i) ? " ◆ " : " ◇ ")}
                             className="workspace"
                         />
                         <label
