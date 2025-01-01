@@ -995,13 +995,13 @@
     "ytm-src": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-ZAK7PM82BNqCoaKayb3AU1/vJncKFt5uzwrAZYLgv9k=",
+        "narHash": "sha256-0DwhoLYnrKMIpVlT17LFdBjDH4sDK3/DfsJCHY13ZzU=",
         "type": "file",
-        "url": "https://github.com/th-ch/youtube-music/releases/download/v3.6.2/YouTube-Music-3.6.2.AppImage"
+        "url": "https://github.com/th-ch/youtube-music/releases/download/v3.7.1/YouTube-Music-3.7.1.AppImage"
       },
       "original": {
         "type": "file",
-        "url": "https://github.com/th-ch/youtube-music/releases/download/v3.6.2/YouTube-Music-3.6.2.AppImage"
+        "url": "https://github.com/th-ch/youtube-music/releases/download/v3.7.1/YouTube-Music-3.7.1.AppImage"
       }
     },
     "zen-browser": {
