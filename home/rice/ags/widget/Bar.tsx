@@ -20,6 +20,19 @@ function Time({ format = "%a   %d %b   %H:%M" }) {
     />
 }
 
+const isRecording = Variable(false);
+
+export function setRecording(value: boolean) {
+    isRecording.set(value);
+}
+
+function Recording() {
+    return <label
+        className="red"
+        label={bind(isRecording).as(v => v ? "  " : "")}
+    />
+}
+
 
 function Audio() {
     const speaker = Wp.get_default()?.audio.defaultSpeaker!
@@ -156,6 +169,7 @@ export default function Bar(monitor: Gdk.Monitor) {
                 <Workspaces />
             </box>
             <box halign={Gtk.Align.CENTER} className="bar-area">
+                <Recording />
                 <Time />
             </box>
             <box halign={Gtk.Align.END} className="bar-area">

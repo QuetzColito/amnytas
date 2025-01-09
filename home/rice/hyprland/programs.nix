@@ -42,11 +42,11 @@
     )
     (
       writeShellScriptBin "wf-recorder"
-      "${config.agsCommand} -r recording.value=true; ${lib.getExe wf-recorder} $@"
+      "ags request startRecording; ${lib.getExe wf-recorder} $@"
     )
     (
       writeShellScriptBin "stop-recording"
-      "pkill --signal SIGINT wf-recorder & ${config.agsCommand} -r recording.value=false"
+      "pkill --signal SIGINT wf-recorder & ags request stopRecording"
     )
   ];
 }
