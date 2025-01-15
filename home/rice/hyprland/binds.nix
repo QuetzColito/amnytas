@@ -34,6 +34,8 @@ in {
         "${mod},G,exec,[workspace 9 silent] steam"
         # Browser
         "${mod},B,exec,[workspace 7] zen"
+        # Alt Browser
+        "${modshift},B,exec,[workspace 8] brave"
         # Music Player
         "${mod},Y,exec,YouTube-Music" # EXTERNAL DEPENDENCY
         # Discord
@@ -59,7 +61,7 @@ in {
         "${mod},MINUS,exit"
 
         # Open Special Workspace
-        "${mod},W,togglespecialworkspace"
+        "${mod},Z,togglespecialworkspace"
         # Open Widgets
         "${mod},E,exec,ags request toggleDashboard"
         # Toggle Bar on current monitor
