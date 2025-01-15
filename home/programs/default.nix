@@ -55,6 +55,7 @@
 
       # Gaming
       gamescope
+      gamemode
       path-of-building
       osu-lazer-bin
       prismlauncher
