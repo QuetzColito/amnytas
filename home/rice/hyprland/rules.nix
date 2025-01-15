@@ -17,6 +17,7 @@
       # why wouldnt you wanna tile >.>
       "tile, class:^DesktopEditors$"
       "tile, class:^pobfrontend$"
+      "fullscreen, class:^osu!$"
 
       # OWOPACITY
       "opacity 0.85, class:codium-url-handler"
