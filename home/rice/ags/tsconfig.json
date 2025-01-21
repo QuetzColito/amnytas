@@ -2,14 +2,10 @@
     "$schema": "https://json.schemastore.org/tsconfig",
     "compilerOptions": {
         "experimentalDecorators": true,
-        "strict": true,
-        "target": "ES2022",
+        "jsx": "react-jsx",
+        "jsxImportSource": "astal/gtk3",
         "module": "ES2022",
         "moduleResolution": "Bundler",
-        // "checkJs": true,
-        // "allowJs": true,
-        "jsx": "react-jsx",
-        "jsxImportSource": "/home/arthezia/.local/share/ags/gtk3",
         "paths": {
             "astal": [
                 "/home/arthezia/.local/share/ags"
@@ -18,5 +14,7 @@
                 "/home/arthezia/.local/share/ags/*"
             ]
         },
+        "strict": true,
+        "target": "ES2022"
     }
 }

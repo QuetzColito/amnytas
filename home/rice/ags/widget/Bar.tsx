@@ -128,22 +128,33 @@ function SysTray() {
     const tray = Tray.get_default()
 
     return <box>
-        {bind(tray, "items").as(items => items.map(function(item: any) {
-            if (item.iconThemePath)
-                App.add_icons(item.iconThemePath)
-
-            const menu = item.create_menu()
-
-            return <button
-                className="systray-icon"
-                tooltipMarkup={bind(item, "tooltipMarkup")}
-                onDestroy={() => menu?.destroy()}
-                onClickRelease={self => {
-                    menu?.popup_at_widget(self, Gdk.Gravity.SOUTH, Gdk.Gravity.NORTH, null)
-                }}>
-                <icon gIcon={bind(item, "gicon")} />
-            </button>
-        }))}
+        {bind(tray, "items").as((items) =>
+            items
+                .filter((item) => item.gicon)
+                .map((item) => (
+                    <menubutton
+                        className="systray-icon"
+                        tooltipMarkup={bind(item, "tooltipMarkup")}
+                        usePopover={false}
+                        actionGroup={bind(item, "actionGroup").as((ag) => ["dbusmenu", ag])}
+                        menuModel={bind(item, "menuModel")}
+                        onButtonReleaseEvent={(self, event) => {
+                            const [_, x, y] = event.get_root_coords();
+                            const button = event.get_button()[1];
+                            const { PRIMARY, SECONDARY } = Astal.MouseButton;
+                            const { SOUTH, NORTH } = Gdk.Gravity;
+                            if (button === PRIMARY) {
+                                item.activate(x, y);
+                            } else if (button === SECONDARY) {
+                                self.get_popup()?.popup_at_widget(self, SOUTH, NORTH, event);
+                            }
+                            return true;
+                        }}
+                    >
+                        <icon gicon={bind(item, "gicon")} />
+                    </menubutton>
+                )),
+        )}
     </box>
 }
 
