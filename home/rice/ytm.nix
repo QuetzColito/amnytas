@@ -31,6 +31,8 @@
     --unthemed-yet: inherit !important;
 
     --yt-spec-commerce-filled-hover: var(--ctp-accent) !important;
+    --ytmusic-scrollbar-width: 0px !important;
+    --ytd-scrollbar-width: 0px !important;
   }
 
   i.material-icons
