@@ -5,11 +5,11 @@
   ...
 }: {
   imports = [
-    # ./zsh.nix
+    ./zsh.nix
     ./yazi.nix
     ./nixvim
     ./git.nix
-    ./nushell.nix
+    # ./nushell.nix
   ];
 
   programs = {
