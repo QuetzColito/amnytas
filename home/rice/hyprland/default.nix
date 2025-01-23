@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: {
   imports = [
@@ -29,7 +30,7 @@
         {
           name = "";
           coords = "0x0";
-          wallpaper = "~/amnytas/wallpaper/4.png";
+          wallpaper = "~/amnytas/wallpaper/7.png";
           workspaces = [1 2 3 4 5 6 7 8 9];
         }
       ];
@@ -51,7 +52,7 @@
         ];
       };
       # Trails \o/
-      # plugins = [pkgs.hyprlandPlugins.hyprtrails];
+      plugins = [pkgs.hyprlandPlugins.hyprtrails];
       settings = {
         exec-once =
           [
@@ -59,10 +60,12 @@
             "hyprlock --immediate"
             "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
             "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service"
+            # Widgets and Bar
             "ags run ~/amnytas/home/rice/ags/app.ts"
+            # Wallpaperswitcher
             "hyprpaperswitch"
-            # this used to help with games, dunno if still needed
           ]
+          # Used to help with games, dunno if still needed
           ++ (map ({name, ...}: "xrandr --output " + name + " --primary") config.monitors);
 
         # Nix magic :D
@@ -165,12 +168,11 @@
           # border thiccness
           border_size = 2;
 
-          # active border color
           # gradient border \o/
           "col.active_border" = lib.mkForce "rgb(${config.stylix.base16Scheme.base0C}) rgb(${config.stylix.base16Scheme.base0E}) 45deg";
         };
 
-        plugin.hyprtrails.color = "rgba(${config.stylix.base16Scheme.base0E}ff)";
+        plugin.hyprtrails.color = "rgba(${config.stylix.base16Scheme.base0E}88)";
 
         decoration = {
           # fancy corners

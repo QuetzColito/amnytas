@@ -33,9 +33,9 @@
 
           # "gc" = "Vgc";
 
-          # save by Space+s or Ctrl+s
-          "<leader>s" = ":w<CR>";
-          "<C-s>" = ":w<CR>";
+          # One-handed Write/Quit
+          "<leader>w" = ":w<CR>";
+          "<leader>q" = ":q<CR>";
 
           # navigate to left/right window
           "<leader>h" = "<C-w>h";

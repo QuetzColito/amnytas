@@ -13,7 +13,7 @@
     --ctp-sapphire: var(--base0D);
     --ctp-blue: var(--base0D);
     --ctp-lavender: var(--base0E);
-    --ctp-text: var(--base04);
+    --ctp-text: var(--base05);
     --ctp-subtext1: var(--base08);
     --ctp-subtext0: var(--base0B);
     --ctp-overlay2: var(--base0A);

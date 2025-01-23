@@ -39,8 +39,8 @@
       "opacity 0.8, class: Brave-browser"
       "opacity 0.8, title: ^(.*Zen Browser)$"
       # Disable opacity when watching videos
-      "opacity 1 override 1 override 1 override ,title:^(.*YouTube — Mozilla Firefox)|(.*Crunchyroll.* — Mozilla Firefox)$"
-      "opacity 1 override 1 override 1 override ,title:^(.*YouTube — Zen Browser)|(.*Crunchyroll.* — Zen Browser)$"
+      "opacity 1 override 1 override 1 override ,title:^(.*Twitch — Mozilla Firefox)|(.*YouTube — Mozilla Firefox)|(.*Crunchyroll.* — Mozilla Firefox)$"
+      "opacity 1 override 1 override 1 override ,title:^(.*Twitch — Zen Browser)|(.*YouTube — Zen Browser)|(.*Crunchyroll.* — Zen Browser)$"
       # Disable all opacity when going fullscreen
       "opacity 1 override 1 override 1 override ,fullscreen:1"
 
@@ -62,24 +62,21 @@
 
       # organization
       "workspace 3, class:^(vesktop)$"
-      "workspace 3, class:^(equibop)$"
       "workspace 3, class:^(com.github.th_ch.youtube_music)$"
       "workspace 9, title:^(Steam)$"
       "workspace 6, class:^(steam_app.*)$"
       "workspace 6, class:^(gamescope)$"
       "workspace 6, class:^(moe\.launcher.*)$"
       "workspace 6, class:^(starrail\.exe)$"
+      "workspace 5, class:codium-url-handler"
+
       # make starrail not freeze in the background
       "renderunfocused, class:^(steam_app.*)$"
-
       "renderunfocused, class:^(starrail\.exe)$"
-      "workspace 5, class:codium-url-handler"
-      # dont think this actually works
-      "tile, class:^(steam_app.*)$"
     ];
 
     workspace = [
-      "name:pseudofullscreen, gapsout:0, rounding:false, bordersize:0"
+      "name:pseudofullscreen, gapsin:0, gapsout:0, rounding:false, bordersize:0"
     ];
   };
 }
