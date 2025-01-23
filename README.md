@@ -50,7 +50,7 @@ I tried to document the important/unintuitive parts :3
 | Shell             | zsh           |
 | Prompt            | ohmyposh      |
 | Bar/Widgets       | AGS           |
-| Browser           | Zen,Firefox   |
+| Browser           | Zen Browser   |
 | Text Editor       | neovim        |
 | File Manager      | yazi,Thunar   |
 | Notifications     | mako          |

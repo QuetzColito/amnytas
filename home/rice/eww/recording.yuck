@@ -1,5 +1,0 @@
-(defwidget recording []
-  (box :class "red" {recording ? "  " : ""})
-)
-
-(defvar recording false)

@@ -1,6 +1,6 @@
 {...}: {
   home = {
-    stateVersion = "24.05";
+    stateVersion = "24.11";
     # set to the nixpkgs version of your system (look at /etc/nixos/configuration.nix if unsure)
   };
 
