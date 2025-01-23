@@ -1,18 +1,18 @@
-// one day i should connect this to stylix
-// but the day i change my theme is gonna be a painful one anyways
-$bg-night: #1a1b26;
-$fg-light: #CBCCD1;
-$bg-storm: #24283b;
-$bg-select: #2f3549;
-$text: #787C99;
-$black: #414868;
-$red: #f7768e;
-$orange: #ff9e64;
-$yellow: #E0AF68;
-$green: #9ece6a;
-$cyan: #7dcfff;
-$blue: #7aa2f7;
-$purple: #bb9af7;
+@use './../../../../.config/stylix/colours.scss' as stylix;
+$bg-night: stylix.$base00;
+$fg-light: stylix.$base06;
+/* $bg-storm: #24283b; */
+$bg-storm: stylix.$base01;
+$bg-select: stylix.$base02;
+$text: stylix.$base05;
+$black: stylix.$base04;
+$red: stylix.$base08;
+$orange: stylix.$base09;
+$yellow: stylix.$base0A;
+$green: stylix.$base0B;
+$cyan: stylix.$base0C;
+$blue: stylix.$base0D;
+$purple: stylix.$base0E;
 $opacity: 0.88;
 
 .red { color: $red; }
@@ -40,6 +40,7 @@ window {
   margin: 5px 11px 0;
   padding: 8px 10px;
   border-radius: 7px;
+  opacity: 0.75;
 }
 
 .workspace-entry {

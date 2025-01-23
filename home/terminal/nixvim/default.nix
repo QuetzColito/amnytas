@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  lib,
   ...
 }: {
   # not gonna document nixvim because i dont really understand most of it,
@@ -46,6 +47,8 @@
         '';
       };
     };
+    # colorschemes.rose-pine.enable = true;
+    # colorschemes.rose-pine.transparentBackground = true;
 
     extraConfigLua = ''
       vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { fg = "#9d7cd8", bg = "none"})
