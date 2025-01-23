@@ -10,6 +10,7 @@
     ./foot.nix
     ./appimages.nix
     ./imv.nix
+    inputs.spicetify-nix.homeManagerModules.default
   ];
 
   programs.mpv.enable = true;
@@ -30,6 +31,13 @@
       enkia.tokyo-night
     ];
     # userSettings = import ./vscode-settings.nix;
+  };
+  programs.spicetify = let
+    spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+  in {
+    enable = true;
+    # enabledExtensions = with spicePkgs.extensions; [
+    # ];
   };
 
   # for good measure, dunno if it does anything
@@ -69,7 +77,6 @@
       inkscape
       gcolor3
       gnome-disk-utility
-      spotify
       komikku
       audacity
       vlc

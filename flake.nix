@@ -9,6 +9,10 @@
     zen-browser.url = "github:MarceColl/zen-browser-flake";
     ags.url = "github:Aylur/ags";
     stylix.url = "github:danth/stylix";
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";

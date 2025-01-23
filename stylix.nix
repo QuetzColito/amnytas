@@ -33,7 +33,7 @@
       base02 = "2F3549"; # Selection Background
       base03 = "444B6A"; # Comments - Invisibles
       base04 = "787C99"; # Dark Foreground
-      base05 = "787C99"; # Default Foreground
+      base05 = "A9B1D6"; # Default Foreground
       base06 = "CBCCD1"; # Light Foreground
       base07 = "D5D6DB"; # Light Background
       base08 = "F7768E"; # Red # Variables, XML Tags, Markup Link/Lists
