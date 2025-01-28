@@ -68,11 +68,13 @@
       "workspace 6, class:^(gamescope)$"
       "workspace 6, class:^(moe\.launcher.*)$"
       "workspace 6, class:^(starrail\.exe)$"
+      "workspace 6, class:^(ffxiv_dx11\.exe)$"
       "workspace 5, class:codium-url-handler"
 
       # make starrail not freeze in the background
-      "renderunfocused, class:^(steam_app.*)$"
       "renderunfocused, class:^(starrail\.exe)$"
+      "renderunfocused, class:^(steam_app.*)$"
+      "renderunfocused, class:^(ffxiv_dx11\.exe)$"
     ];
 
     workspace = [
