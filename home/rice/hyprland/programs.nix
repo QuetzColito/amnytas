@@ -1,8 +1,4 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
+{pkgs, ...}: {
   # should be all the packages needed for the hyprland config
   # (cant be asked to write lib.getExe pkgs.package everywhere)
   home.packages = with pkgs; [

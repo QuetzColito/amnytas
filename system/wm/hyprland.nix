@@ -14,33 +14,16 @@
     programs.hyprland = {
       enable = true;
       xwayland.enable = true;
+      withUWSM = true;
     };
 
     security.pam.services.hyprlock = {};
 
-    services.dbus.enable = true;
-    xdg.portal = {
-      enable = true;
-      # gotta investigate if i still need this now that hyprland has aquamarine
-      config.common.default = "wlr";
-      wlr.enable = lib.mkForce true;
-      extraPortals = [
-        pkgs.xdg-desktop-portal-hyprland
-        pkgs.xdg-desktop-portal
-        pkgs.xdg-desktop-portal-gtk
-        #pkgs.xdg-desktop-portal-wlr
-      ];
-    };
-
-    services.greetd = {
-      enable = true;
-      settings = rec {
-        initial_session = {
-          command = "Hyprland";
-          user = config.mainUser;
-        };
-        default_session = initial_session;
-      };
-    };
+    services.getty.autologinUser = config.mainUser;
+    programs.bash.loginShellInit = ''
+      if uwsm check may-start -v; then
+          exec uwsm start hyprland-uwsm.desktop
+      fi
+    '';
   };
 }

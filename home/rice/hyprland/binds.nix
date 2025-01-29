@@ -23,11 +23,11 @@ in {
         # App Shortcuts
         # App Launcher (only scans executables, cant be bothered with desktop entries)
         # my-tofi-run is defined in tofi.nix and adds foot if package is in tuiPackages
-        "${mod},SPACE,exec,hyprctl dispatch exec $(my-tofi-run)"
+        "${mod},SPACE,exec,uwsm app -- $(my-tofi-run)"
         # Terminal
         "${mod},RETURN,exec,foot"
         # Settings
-        "${mod},S,exec,[workspace 5] foot -D ~/amnytas nvim ~/amnytas"
+        "${mod},S,exec,[workspace 5] uwsm app -- foot -D ~/amnytas nvim ~/amnytas"
         # File Manager
         "${mod},N,exec,foot yazi"
         # Gaming

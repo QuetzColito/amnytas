@@ -11,6 +11,7 @@
     ./hyprlock.nix
     ./hyprpaper.nix
     ./hypridle.nix
+    ./uwsm.nix
   ];
 
   # This option is used for hyprland monitor setup, hyprlock and hyprpaper
@@ -43,14 +44,7 @@
     wayland.windowManager.hyprland = {
       enable = true;
       xwayland.enable = true;
-      systemd = {
-        # dunno why this is here but looks important
-        variables = ["--all"];
-        extraCommands = [
-          "systemctl --user stop graphical-session.target"
-          "systemctl --user start hyprland-session.target"
-        ];
-      };
+      systemd.enable = false;
       # Trails \o/
       plugins = [pkgs.hyprlandPlugins.hyprtrails];
       settings = {
@@ -58,12 +52,12 @@
           [
             # fake login screen
             "hyprlock --immediate"
-            "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-            "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service"
             # Widgets and Bar
             "ags run ~/amnytas/home/rice/ags/app.ts"
             # Wallpaperswitcher
             "hyprpaperswitch"
+            "systemctl --user start nm-applet"
+            # gotta find a way to do this properly, but for now this works
           ]
           # Used to help with games, dunno if still needed
           ++ (map ({name, ...}: "xrandr --output " + name + " --primary") config.monitors);
@@ -109,23 +103,6 @@
           config.monitors;
 
         env = [
-          "XDG_CURRENT_DESKTOP,Hyprland"
-          "XDG_SESSION_TYPE,wayland"
-          "XDG_SESSION_DESKTOP,Hyprland"
-          "CLUTTER_BACKEND,wayland"
-          # "SDL_VIDEODRIVER,wayland"
-          "QT_QPA_PLATFORM,wayland;xcb"
-          "GDK_BACKEND,wayland,x11,*"
-          "XCURSOR_THEME,Bibata-Modern-Classic"
-          "LIBVA_DRIVER_NAME,nvidia"
-          "GBM_BACKEND,nvidia-drm"
-          "__GLX_VENDOR_LIBRARY_NAME,nvidia"
-          "__GL_GSYNC_ALLOWED,0"
-          "__GL_VRR_ALLOWED,0"
-          "ELECTRON_OZONE_PLATFORM_HINT,auto"
-          "NIXOS_OZONE_WL,1"
-          # "AQ_NO_ATOMIC,1"
-          "NVD_BACKEND,direct"
           # needed to get the layout into gamescope
           ("XKB_DEFAULT_LAYOUT," + config.wayland.windowManager.hyprland.settings.input.kb_layout)
           ("XKB_DEFAULT_OPTIONS," + config.wayland.windowManager.hyprland.settings.input.kb_options)
@@ -189,12 +166,6 @@
             contrast = 0.7;
             brightness = 0.8;
           };
-
-          # shadow config
-          # drop_shadow = "no";
-          # shadow_range = 20;
-          # shadow_render_power = 5;
-          #"col.shadow" = "rgba(292c3cee)";
         };
 
         misc = {
@@ -230,7 +201,6 @@
 
           animation = [
             "windows, 1, 4, smoothIn, slide"
-            # "windowsOut, 1, 3, smoothIn, slide"
             # rotating border
             "border,1,10,default"
             "borderangle, 1, 100, linear, loop"
@@ -239,16 +209,6 @@
             "fadeDim, 1, 10, smoothIn"
             "workspaces,1,4,smoothIn,slidefadevert 50%"
           ];
-        };
-
-        dwindle = {
-          pseudotile = false;
-          preserve_split = "yes";
-          # no_gaps_when_only = false;
-        };
-
-        debug = {
-          disable_logs = false;
         };
       };
     };
