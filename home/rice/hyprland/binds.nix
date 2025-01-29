@@ -29,19 +29,19 @@ in {
         # Settings
         "${mod},S,exec,[workspace 5] uwsm app -- foot -D ~/amnytas nvim ~/amnytas"
         # File Manager
-        "${mod},N,exec,foot yazi"
+        "${mod},N,exec,uwsm app -- foot yazi"
         # Gaming
-        "${mod},G,exec,[workspace 9 silent] steam"
+        "${mod},G,exec,[workspace 9 silent] uwsm app -- steam"
         # Browser
-        "${mod},B,exec,[workspace 7] zen"
+        "${mod},B,exec,[workspace 7] uwsm app -- zen"
         # Alt Browser
-        "${modshift},B,exec,[workspace 8] brave"
+        "${modshift},B,exec,[workspace 8] uwsm app -- brave"
         # Music Player
-        "${mod},Y,exec,YouTube-Music" # EXTERNAL DEPENDENCY
+        "${mod},Y,exec,uwsm app -- YouTube-Music"
         # Discord
-        "${mod},D,exec,vesktop --enable-wayland-ime"
+        "${mod},D,exec,uwsm app -- vesktop --enable-wayland-ime"
         # Windows Task Manager keybind cause why not
-        "CTRL ALT,DELETE,exec,foot btop -p 0"
+        "CTRL ALT,DELETE,exec,uwsm app -- foot btop -p 0"
         # Toggle Japanese Input
         "${mod},I,exec,killall -r fcitx5 || fcitx5"
         # Having mozc running in the background blocks mouse2+`

@@ -188,6 +188,8 @@
           disable_autoreload = true; # autoreload is unnecessary on nixos, because the config is readonly anyway
         };
 
+        render.explicit_sync = 0;
+
         animations = {
           enabled = true;
           first_launch_animation = true;
