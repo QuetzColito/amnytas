@@ -10,6 +10,7 @@
     ./foot.nix
     ./appimages.nix
     ./imv.nix
+    ./nixcord.nix
     inputs.spicetify-nix.homeManagerModules.default
   ];
 
@@ -54,7 +55,6 @@
       appimage-run
       obs-studio
       discord-canary
-      vesktop
       jetbrains.idea-community
       # equibop
       protonmail-desktop
