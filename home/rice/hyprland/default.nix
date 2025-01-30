@@ -50,14 +50,15 @@
       settings = {
         exec-once =
           [
+            "uwsm finalize"
             # fake login screen
             "hyprlock --immediate; killall -r fcitx5"
             # Widgets and Bar
             "ags run ~/amnytas/home/rice/ags/app.ts"
             # Wallpaperswitcher
             "hyprpaperswitch"
-            "systemctl --user start nm-applet"
             # gotta find a way to do this properly, but for now this works
+            "systemctl --user start nm-applet"
           ]
           # Used to help with games, dunno if still needed
           ++ (map ({name, ...}: "xrandr --output " + name + " --primary") config.monitors);

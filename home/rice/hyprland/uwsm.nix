@@ -1,4 +1,4 @@
-{...}: {
+{config, ...}: {
   # this is from the wiki
   xdg.configFile."uwsm/env-hyprland".text = builtins.concatStringsSep "\nexport " [
     ""
@@ -26,5 +26,9 @@
     "__GL_VRR_ALLOWED=0"
     "ELECTRON_OZONE_PLATFORM_HINT=auto"
     "NIXOS_OZONE_WL=1"
+
+    # Keyboard for games/gamescope
+    ("XKB_DEFAULT_LAYOUT=" + config.wayland.windowManager.hyprland.settings.input.kb_layout)
+    ("XKB_DEFAULT_OPTIONS=" + config.wayland.windowManager.hyprland.settings.input.kb_options)
   ];
 }
