@@ -44,7 +44,7 @@ in {
         "CTRL ALT,DELETE,exec,uwsm app -- foot btop -p 0"
         # Toggle Japanese Input
         "${mod},I,exec,killall -r fcitx5 || fcitx5"
-        # Having mozc running in the background blocks mouse2+`
+        # Having mozc running in the background sometimes blocks some input
         # which is a problem for gaming,
         # so i only activate when i need it and have mozc as my only layout in fcitx5
 

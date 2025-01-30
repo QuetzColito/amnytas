@@ -51,7 +51,7 @@
         exec-once =
           [
             # fake login screen
-            "hyprlock --immediate"
+            "hyprlock --immediate; killall -r fcitx5"
             # Widgets and Bar
             "ags run ~/amnytas/home/rice/ags/app.ts"
             # Wallpaperswitcher
