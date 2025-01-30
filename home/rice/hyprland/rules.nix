@@ -18,12 +18,18 @@
       "tile, class:^DesktopEditors$"
       "tile, class:^pobfrontend$"
       "fullscreen, class:^osu!$"
+      "float, class:^(vlc)$"
+      "float, class:^(imv)$"
+      "float, class:^(mpv)$"
+      "float, class:^(floatfoot)$"
+      "float, class:^(xdg-desktop-portal-gtk)$"
+      "float, class:^(moe.launcher.the-honkers-railway-launcher)$"
+      "float, title:^(Picture-in-Picture)$"
+      "pin, title:^(Picture-in-Picture)$"
 
       # OWOPACITY
       "opacity 0.85, class:codium-url-handler"
       "forcergbx, class:codium-url-handler"
-      "noblur, class:Alacritty"
-      "noblur, class:^kitty$"
       "noblur, class:^foot$"
       "opacity 0.85, title:^(.*Thunar.*)$"
       "forcergbx, title:^(.*Thunar.*)$"
@@ -44,16 +50,7 @@
       # Disable all opacity when going fullscreen
       "opacity 1 override 1 override 1 override ,fullscreen:1"
 
-      "float, class:^(org.gnome.Loupe)$"
-      "float, class:^(vlc)$"
-      "float, class:^(mpv)$"
-      "float, class:^(floatfoot)$"
-      "float, class:^(xdg-desktop-portal-gtk)$"
-      "float, class:^(moe.launcher.the-honkers-railway-launcher)$"
-      "float, title:^(Picture-in-Picture)$"
-      "pin, title:^(Picture-in-Picture)$"
-
-      "float, class:^(imv)$"
+      # Make Steam start less annoying
       "noinitialfocus, title:^(Steam)$"
 
       # throw sharing indicators away
