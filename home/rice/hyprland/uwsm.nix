@@ -1,4 +1,5 @@
 {...}: {
+  # this is from the wiki
   xdg.configFile."uwsm/env-hyprland".text = builtins.concatStringsSep "\nexport " [
     ""
     # AQ_NO_MODIFIERS=1
@@ -11,7 +12,7 @@
   xdg.configFile."uwsm/env".text = builtins.concatStringsSep "\nexport " [
     ""
     "CLUTTER_BACKEND=wayland"
-    "SDL_VIDEODRIVER=wayland"
+    # "SDL_VIDEODRIVER=wayland"
     "QT_QPA_PLATFORM=wayland;xcb"
     "GDK_BACKEND=wayland,x11,*"
 
