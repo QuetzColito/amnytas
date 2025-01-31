@@ -44,9 +44,9 @@
     wayland.windowManager.hyprland = {
       enable = true;
       xwayland.enable = true;
-      systemd.enable = false;
+      systemd.enable = true;
       # Trails \o/
-      plugins = [pkgs.hyprlandPlugins.hyprtrails];
+      # plugins = [pkgs.hyprlandPlugins.hyprtrails];
       settings = {
         exec-once =
           [
@@ -104,6 +104,26 @@
           config.monitors;
 
         env = [
+          "XDG_CURRENT_DESKTOP,Hyprland"
+          "XDG_SESSION_TYPE,wayland"
+          "XDG_SESSION_DESKTOP,Hyprland"
+
+          "CLUTTER_BACKEND,wayland"
+          # "SDL_VIDEODRIVER=wayland"
+          "QT_QPA_PLATFORM,wayland;xcb"
+          "GDK_BACKEND,wayland,x11,*"
+
+          "XCURSOR_THEME,Bibata-Modern-Classic"
+
+          # Nvidia
+          "LIBVA_DRIVER_NAME,nvidia"
+          "GBM_BACKEND,nvidia-drm"
+          "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+          "__GL_GSYNC_ALLOWED,0"
+          "__GL_VRR_ALLOWED,0"
+          "ELECTRON_OZONE_PLATFORM_HINT,auto"
+          "NIXOS_OZONE_WL,1"
+
           # needed to get the layout into gamescope
           ("XKB_DEFAULT_LAYOUT," + config.wayland.windowManager.hyprland.settings.input.kb_layout)
           ("XKB_DEFAULT_OPTIONS," + config.wayland.windowManager.hyprland.settings.input.kb_options)
@@ -189,7 +209,7 @@
           disable_autoreload = true; # autoreload is unnecessary on nixos, because the config is readonly anyway
         };
 
-        render.explicit_sync = 0;
+        # render.explicit_sync = 0;
 
         animations = {
           enabled = true;

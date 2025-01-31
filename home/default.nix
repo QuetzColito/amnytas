@@ -37,6 +37,14 @@
       };
     };
 
+    home.keyboard = {
+      layout = "eu";
+      options = [
+        "caps:escape"
+        "lv3:switch"
+      ];
+    };
+
     # Discord Web Rich Presence (for vesktop)
     services.arrpc.enable = true;
 

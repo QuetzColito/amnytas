@@ -17,6 +17,7 @@
       # why wouldnt you wanna tile >.>
       "tile, class:^DesktopEditors$"
       "tile, class:^pobfrontend$"
+      "tile, class:^(steam_app.*)$"
       "fullscreen, class:^osu!$"
       "float, class:^(vlc)$"
       "float, class:^(imv)$"
