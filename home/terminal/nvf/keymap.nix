@@ -9,7 +9,7 @@
       {
         "<esc>" = "<cmd>noh<CR>";
         "ga" = "<cmd>b#<CR>";
-        "-" = "<cmd>lua MiniFiles.open()<CR>";
+        "-" = "<cmd>Oil<CR>";
 
         # One-handed Write/Quit
         "<leader>w" = ":w<CR>";

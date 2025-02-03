@@ -1,4 +1,8 @@
-_: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   programs.nvf.settings.vim = {
     treesitter.enable = true;
     lsp = {
@@ -6,20 +10,17 @@ _: {
       lspkind.enable = true;
       formatOnSave = true;
     };
+    extraPlugins = with pkgs.vimPlugins; {
+      oil = {
+        package = oil-nvim;
+        setup = ''
+          require('oil').setup()
+        '';
+      };
+    };
     mini = {
       icons.enable = true;
       operators.enable = true;
-      files = {
-        enable = true;
-        setupOpts = {
-          windows.max_number = 1;
-          mappings = {
-            go_in = " ";
-            go_in_plus = "l";
-            go_out_plus = "h";
-          };
-        };
-      };
     };
     terminal.toggleterm = {
       enable = true;
@@ -35,11 +36,11 @@ _: {
     };
     statusline.lualine.enable = true;
     autocomplete.nvim-cmp.enable = true;
-    telescope = {
+    telescope = lib.mkForce {
       enable = true;
       mappings = {
         liveGrep = "<C-f>";
-        findFiles = "<leader>ff";
+        findFiles = "<leader>f";
         open = "<leader>t";
       };
     };
