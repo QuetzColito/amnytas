@@ -9,6 +9,7 @@ _: {
 
       # Languages
       nix.enable = true;
+      rust.enable = true;
     };
   };
 }

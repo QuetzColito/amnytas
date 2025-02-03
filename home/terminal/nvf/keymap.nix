@@ -7,23 +7,16 @@
         inherit key action;
       })
       {
+        # Remove search highlight with escape
         "<esc>" = "<cmd>noh<CR>";
+        # Alternate File
         "ga" = "<cmd>b#<CR>";
+        # Files
         "-" = "<cmd>Oil<CR>";
 
         # One-handed Write/Quit
         "<leader>w" = ":w<CR>";
         "<leader>q" = ":q<CR>";
-
-        # navigate to left/right window
-        "<leader>h" = "<C-w>h";
-        "<leader>l" = "<C-w>l";
-
-        # resize with arrows
-        "<C-Up>" = ":resize -2<CR>";
-        "<C-Down>" = ":resize +2<CR>";
-        "<C-Left>" = ":vertical resize +2<CR>";
-        "<C-Right>" = ":vertical resize -2<CR>";
       };
     visual =
       lib.mapAttrsToList (key: action: {

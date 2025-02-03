@@ -4,12 +4,13 @@
     ./keymap.nix
     ./options.nix
     ./plugins.nix
+    ./extra-plugins.nix
     ./languages.nix
   ];
   programs.nvf = {
     enable = true;
-    # your settings need to go into the settings attribute set
-    # most settings are documented in the appendix
+
+    # Theme
     settings.vim = {
       theme = {
         enable = true;
@@ -17,6 +18,7 @@
         style = "night";
         transparent = true;
       };
+      # Extra Transparency
       luaConfigPost = ''
         vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { fg = "#9d7cd8", bg = "none"})
         vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { fg = "#bb9af7", bg = "none"})
