@@ -1,11 +1,19 @@
 {config, ...}: {
   programs.nvf.settings.vim = {
     treesitter.enable = true;
+    statusline.lualine.enable = true;
+    autocomplete.nvim-cmp.enable = true;
+    autopairs.nvim-autopairs.enable = true;
+    visuals.rainbow-delimiters.enable = true;
+    git.gitsigns.enable = true;
+    binds.whichKey.enable = true;
+
     lsp = {
       enable = true;
       lspkind.enable = true;
       formatOnSave = true;
     };
+
     mini = {
       icons.enable = true;
       operators.enable = true;
@@ -20,6 +28,7 @@
         };
       };
     };
+
     terminal.toggleterm = {
       enable = true;
       mappings.open = "<C-l>";
@@ -33,8 +42,7 @@
         mappings.open = "<C-g>";
       };
     };
-    statusline.lualine.enable = true;
-    autocomplete.nvim-cmp.enable = true;
+
     telescope = {
       enable = true;
       mappings = {
@@ -60,7 +68,5 @@
         treesitter = null;
       };
     };
-    autopairs.nvim-autopairs.enable = true;
-    visuals.rainbow-delimiters.enable = true;
   };
 }
