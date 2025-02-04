@@ -1,8 +1,4 @@
-{
-  lib,
-  config,
-  ...
-}: {
+{config, ...}: {
   programs.nvf.settings.vim = {
     treesitter.enable = true;
     lsp = {
@@ -39,12 +35,29 @@
     };
     statusline.lualine.enable = true;
     autocomplete.nvim-cmp.enable = true;
-    telescope = lib.mkForce {
+    telescope = {
       enable = true;
       mappings = {
         liveGrep = "<C-f>";
         findFiles = "<leader>f";
         open = "<leader>t";
+        buffers = null;
+        diagnostics = null;
+        findProjects = null;
+        gitBranches = null;
+        gitBufferCommits = null;
+        gitCommits = null;
+        gitStash = null;
+        gitStatus = null;
+        helpTags = null;
+        lspDefinitions = null;
+        lspDocumentSymbols = null;
+        lspImplementations = null;
+        lspReferences = null;
+        lspTypeDefinitions = null;
+        lspWorkspaceSymbols = null;
+        resume = null;
+        treesitter = null;
       };
     };
     autopairs.nvim-autopairs.enable = true;
