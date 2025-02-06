@@ -210,6 +210,7 @@
         };
 
         # render.explicit_sync = 0;
+        dwindle.preserve_split = true;
 
         animations = {
           enabled = true;
