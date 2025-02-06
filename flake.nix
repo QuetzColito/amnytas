@@ -48,15 +48,13 @@
 
   outputs = {
     nixpkgs,
-    nixpkgs-stable,
     home-manager,
     ...
   } @ inputs: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
-    pkgs-stable = nixpkgs-stable.legacyPackages.${system};
-    lib = nixpkgs.lib;
-
+    pkgs-stable = inputs.nixpkgs-stable.legacyPackages.${system};
+    lib = pkgs.lib;
     # builds the system flake output for every host
     mkSystemConfig = {
       host,
@@ -65,13 +63,12 @@
       name = host;
       # System Config
       value = nixpkgs.lib.nixosSystem {
-        # not sure if i need this, but doesnt hurt i guess
-        inherit system;
         # pass these in so we can access all the flake inputs in the config
-        specialArgs = {inherit inputs pkgs-stable system;};
+        specialArgs = {inherit inputs;};
         modules =
           [
             ./hosts/${host}
+            {nixpkgs.hostPlatform = system;}
           ]
           ++ (
             # wsl uses a more basic config, since it is only tty
@@ -100,7 +97,6 @@
       name = user;
       # Home Config
       value = home-manager.lib.homeManagerConfiguration {
-        # not sure if i need this, but doesnt hurt i guess
         inherit pkgs;
         # pass these in so we can access all the flake inputs in the config
         extraSpecialArgs = {inherit inputs pkgs-stable system;};
