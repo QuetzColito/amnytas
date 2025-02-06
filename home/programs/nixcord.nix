@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs-stable,
+  ...
+}: {
   imports = [
     inputs.nixcord.homeManagerModules.nixcord
   ];
@@ -7,6 +11,7 @@
     enable = true; # enable Nixcord. Also installs discord package
     discord.enable = false;
     vesktop.enable = true;
+    vesktop.package = pkgs-stable.vesktop;
     config = {
       enabledThemes = ["stylix.theme.css"];
       plugins = {
