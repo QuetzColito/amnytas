@@ -12,6 +12,8 @@
     ./languages.nix
   ];
 
+  home.shellAliases.v = "nvim";
+
   home.packages = with pkgs; [
     zathura
   ];
