@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     inputs.nvf.homeManagerModules.default
     ./keymap.nix
@@ -7,6 +11,11 @@
     ./extra-plugins.nix
     ./languages.nix
   ];
+
+  home.packages = with pkgs; [
+    zathura
+  ];
+
   programs.nvf = {
     enable = true;
 
@@ -31,6 +40,28 @@
         vim.api.nvim_set_hl(0, "FloatTitle", { fg = "#9d7cd8", bg = "none"})
         vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#9d7cd8", bg = "none"})
         vim.api.nvim_set_hl(0, "FloatermBorder", { fg = "#9d7cd8", bg = "none"})
+
+        vim.api.nvim_create_autocmd("BufWritePost", {
+            pattern = "*.tex",
+            callback = function()
+              vim.cmd("silent !lualatex % > /dev/null 2>&1 &")
+            end,
+        })
+
+        vim.api.nvim_create_autocmd("BufReadPost", {
+            pattern = "*.tex",
+            callback = function()
+                local pdf_file = vim.fn.expand("%:r") .. ".pdf"
+                vim.cmd("silent !uwsm app zathura " .. pdf_file .. " > /dev/null 2>&1 &")
+            end,
+        })
+
+        vim.api.nvim_create_autocmd("VimLeavePre", {
+            pattern = "*.tex",
+            callback = function()
+                vim.cmd("silent !pkill zathura > /dev/null 2>&1 &")
+            end,
+        })
       '';
     };
   };

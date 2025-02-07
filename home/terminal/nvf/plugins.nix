@@ -5,6 +5,7 @@
     autocomplete.nvim-cmp.enable = true;
     autopairs.nvim-autopairs.enable = true;
     visuals.rainbow-delimiters.enable = true;
+    ui.colorizer.enable = true;
     git.gitsigns.enable = true;
     binds.whichKey.enable = true;
 
@@ -12,6 +13,9 @@
       enable = true;
       lspkind.enable = true;
       formatOnSave = true;
+      mappings = {
+        goToDefinition = "gd";
+      };
     };
 
     mini = {
