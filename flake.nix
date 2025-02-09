@@ -207,11 +207,11 @@
 
         ${lib.getExe pkgs.git} add .
 
-        echo "running nixos-rebuild switch --flake ~/amnytas#$host $installBootloader to build system config"
-        nixos-rebuild switch --flake ~/amnytas#$host $installBootloader
+        echo "running 'sudo nixos-rebuild switch --flake ~/amnytas#$host $installBootloader' to build system config"
+        sudo nixos-rebuild switch --flake ~/amnytas#$host $installBootloader
 
-        echo "running home-manger switch --flake ~/amnytas#$user to generate user config"
-        home-manger switch --flake ~/amnytas#$user
+        echo "running 'home-manager switch --flake ~/amnytas#$user' to generate user config"
+        home-manager switch --flake ~/amnytas#$user
       '';
   };
 }
