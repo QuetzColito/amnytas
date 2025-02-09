@@ -205,6 +205,8 @@
             home$stateVersion
         }" >> home.nix
 
+        mv home.nix $user.nix
+
         ${lib.getExe pkgs.git} add .
 
         echo "running 'sudo nixos-rebuild switch --flake ~/amnytas#$host $installBootloader' to build system config"
