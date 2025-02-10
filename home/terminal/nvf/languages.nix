@@ -10,6 +10,9 @@ _: {
       # Languages
       nix.enable = true;
       rust.enable = true;
+      ts.enable = true;
+      python.enable = true;
+      java.enable = true;
     };
   };
 }
