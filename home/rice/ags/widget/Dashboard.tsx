@@ -54,7 +54,7 @@ const update_timer: () => number[] = () => {
         return [Math.floor((target - Date.now()) / 1000), target, last_time]
     } else {
         print("KURU KURU!");
-        subprocess("hyprctl dispatch exec mpg123 ~/amnytas/home/rice/eww/alert.mp3");
+        subprocess("hyprctl dispatch exec mpg123 ~/amnytas/home/rice/ags/alert.mp3");
         timer.stopPoll();
         timer_running.set(false);
         return [last_time, Infinity, last_time]
