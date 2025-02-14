@@ -30,7 +30,7 @@
     # General
     inputs.zen-browser.packages."${system}".specific
     parsec-bin
-    rustdesk
+    rustdesk-flutter
     qpwgraph
     appimage-run
     obs-studio
