@@ -38,7 +38,7 @@
     )
     (
       writeShellScriptBin "wf-recorder"
-      "ags request startRecording; ${lib.getExe wf-recorder} $@"
+      ''ags request startRecording; ${lib.getExe wf-recorder} "$@"''
     )
     (
       writeShellScriptBin "stop-recording"
