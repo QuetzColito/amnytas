@@ -19,10 +19,6 @@
       enableNushellIntegration = true;
       settings = import ./ohmyposh.nix;
     };
-
-    zellij = {
-      enable = true;
-    };
   };
 
   # better cat
