@@ -66,11 +66,7 @@
     thunderbird
     onlyoffice-bin
     obsidian
-    # autoscale imv to the image
-    # (writeShellScriptBin "imvs"
-    #   ''
-    #     imv $1 -W 212 -H 333
-    #   '')
+    drawio
     (writeShellScriptBin "imvs"
       ''
         imv $1 -W $(magick identify -format %w $1) -H$(magick identify -format %h $1)
