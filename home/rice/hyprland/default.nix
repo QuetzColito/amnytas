@@ -217,7 +217,7 @@
           first_launch_animation = true;
 
           bezier = [
-            "smoothOut, 0.36, 0, 0.66, -0.56"
+            "smoothOut, 0.25, 1, 0.5, 1"
             "smoothIn, 0.25, 1, 0.5, 1"
             "overshot, 0.4,0.8,0.2,1.2"
             "linear, 0.0, 0.0, 1.0, 1.0"
@@ -225,6 +225,7 @@
 
           animation = [
             "windows, 1, 4, smoothIn, slide"
+            "windowsOut, 1, 4, smoothOut, slide"
             # rotating border
             "border,1,10,default"
             "borderangle, 1, 100, linear, loop"
