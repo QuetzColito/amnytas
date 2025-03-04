@@ -143,7 +143,6 @@
     };
 
     # Sound
-    # sound.mediaKeys.enable = true;
     programs.noisetorch.enable = true;
     security.rtkit.enable = true;
     services.pipewire = {
@@ -157,6 +156,9 @@
 
     # Flatpak, although i actually dont need it anymore rn
     services.flatpak.enable = true;
+
+    # Secrets Manager
+    services.gnome.gnome-keyring.enable = true;
 
     # Steam
     programs.steam = {
