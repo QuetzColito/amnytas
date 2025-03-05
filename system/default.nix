@@ -166,6 +166,7 @@
       protontricks.enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
+      extraCompatPackages = [pkgs.proton-ge-bin];
     };
 
     # Thunar stuff, only using thunar when i need drag and drop xD
