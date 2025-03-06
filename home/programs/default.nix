@@ -75,10 +75,9 @@
       ''
         foot --override=app-id=floatfoot --override=initial-window-size-chars=70x5 mpv --no-audio-display $@
       '')
-    (writeShellScriptBin "t"
+    (writeShellScriptBin "try"
       ''
-        convert "$1"_Card.webp ~/Pictures/cards/originals/"$1".png
-        rm "$1"_Card.webp
+        nix run nixpkgs#$@
       '')
     (let
       pname = "YouTube-Music";
