@@ -41,7 +41,7 @@
     };
 
     ytm-src = {
-      url = "https://github.com/th-ch/youtube-music/releases/download/v3.7.1/YouTube-Music-3.7.1.AppImage";
+      url = "https://github.com/th-ch/youtube-music/releases/download/v3.7.5/YouTube-Music-3.7.5.AppImage";
       flake = false;
     };
   };

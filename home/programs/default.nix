@@ -81,7 +81,7 @@
       '')
     (let
       pname = "YouTube-Music";
-      version = "3.7.1";
+      version = "3.7.5";
 
       src = inputs.ytm-src;
     in
