@@ -19,17 +19,24 @@
       enableNushellIntegration = true;
       settings = import ./ohmyposh.nix;
     };
-  };
 
-  # better cat
-  programs.bat = {
-    enable = true;
-    config = {
-      paging = "never";
+    direnv = {
+      enable = true;
+      enableZshIntegration = true;
+      nix-direnv.enable = true;
+      silent = true;
     };
-  };
 
-  programs.eza.enable = true;
+    # better cat
+    bat = {
+      enable = true;
+      config = {
+        paging = "never";
+      };
+    };
+
+    eza.enable = true;
+  };
 
   home.packages = with pkgs;
     [
@@ -47,6 +54,14 @@
       fd
       tealdeer
       gnumake
+      (writeShellScriptBin "lang"
+        ''
+          nix flake init --template "https://flakehub.com/f/the-nix-way/dev-templates/*#$@"
+        '')
+      (writeShellScriptBin "try"
+        ''
+          nix run nixpkgs#$@
+        '')
     ]
     ++ config.tuiPackages;
   tuiPackages = with pkgs; [

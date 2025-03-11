@@ -75,10 +75,6 @@
       ''
         foot --override=app-id=floatfoot --override=initial-window-size-chars=70x5 mpv --no-audio-display $@
       '')
-    (writeShellScriptBin "try"
-      ''
-        nix run nixpkgs#$@
-      '')
     (let
       pname = "YouTube-Music";
       version = "3.7.5";
