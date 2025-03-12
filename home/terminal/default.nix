@@ -54,14 +54,10 @@
       fd
       tealdeer
       gnumake
-      (writeShellScriptBin "lang"
-        ''
-          nix flake init --template "https://flakehub.com/f/the-nix-way/dev-templates/*#$@"
-        '')
-      (writeShellScriptBin "try"
-        ''
-          nix run nixpkgs#$@
-        '')
+      (writeShellScriptBin
+        "lang"
+        ''nix flake init --template "https://flakehub.com/f/the-nix-way/dev-templates/*#$@"'')
+      (writeShellScriptBin "try" "nix run nixpkgs#$@")
     ]
     ++ config.tuiPackages;
   tuiPackages = with pkgs; [
