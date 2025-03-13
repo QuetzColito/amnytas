@@ -13,6 +13,10 @@ _: {
       ts.enable = true;
       python.enable = true;
       java.enable = true;
+      typst = {
+        enable = true;
+        format.enable = false;
+      };
     };
   };
 }

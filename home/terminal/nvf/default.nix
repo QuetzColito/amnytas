@@ -58,6 +58,23 @@
             end,
         })
 
+        vim.api.nvim_create_autocmd("BufReadPost", {
+            pattern = "*.typ",
+            callback = function()
+                local pdf_file = vim.fn.expand("%:r") .. ".pdf"
+                local typ_file = vim.fn.expand("%:r") .. ".typ"
+                vim.cmd("silent !uwsm app zathura " .. pdf_file .. " > /dev/null 2>&1 &")
+                vim.cmd("silent !typst watch " .. typ_file .. " > /dev/null 2>&1 &")
+            end,
+        })
+
+        vim.api.nvim_create_autocmd("VimLeavePre", {
+            pattern = "*.typ",
+            callback = function()
+                vim.cmd("silent !pkill zathura > /dev/null 2>&1 &")
+            end,
+        })
+
         vim.api.nvim_create_autocmd("VimLeavePre", {
             pattern = "*.tex",
             callback = function()

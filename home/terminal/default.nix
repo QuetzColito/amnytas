@@ -46,6 +46,7 @@
       calc
       pandoc
       texliveSmall
+      typst
       mpg123
       zip
       unar
