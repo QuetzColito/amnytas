@@ -8,7 +8,7 @@
     grim
     hyprpicker
     grimblast
-    bibata-cursors
+    # bibata-cursors
     wl-clip-persist
     wl-clipboard
     xclip

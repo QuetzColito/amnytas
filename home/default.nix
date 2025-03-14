@@ -57,8 +57,8 @@
         package = pkgs.papirus-icon-theme;
       };
       cursorTheme = {
-        name = "Bibata-Modern-Classic";
-        package = pkgs.bibata-cursors;
+        name = "Miku-Cursor";
+        # package = pkgs.bibata-cursors;
       };
     };
   };
