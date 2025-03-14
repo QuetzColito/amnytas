@@ -1,8 +1,10 @@
 @use './../../../../.config/stylix/colours.scss' as stylix;
-$bg-night: stylix.$base00;
+// $bg-night: stylix.$base00;
 $fg-light: stylix.$base06;
 /* $bg-storm: #24283b; */
-$bg-storm: stylix.$base01;
+$bg-storm: rgba(26, 27, 38, 0.75);
+$bg-night: rgba(26, 27, 38, 0.75);
+// $bg-storm: stylix.$base01;
 $bg-select: stylix.$base02;
 $text: stylix.$base05;
 $black: stylix.$base04;
@@ -13,7 +15,7 @@ $green: stylix.$base0B;
 $cyan: stylix.$base0C;
 $blue: stylix.$base0D;
 $purple: stylix.$base0E;
-$opacity: 0.88;
+$opacity: 1;
 
 .red { color: $red; }
 .orange { color: $orange; }
@@ -32,15 +34,18 @@ window {
 }
 
 // Bar
+.bar {
+  background-color: $bg-storm;
+  // opacity: 0.5;
+}
 
 .bar-area {
   all: unset;
   font-size: 14px;
-  background-color: $bg-storm;
-  margin: 5px 11px 0;
+  // margin: 5px 11px 0;
+  // background-color: $bg-storm;
   padding: 8px 10px;
-  border-radius: 7px;
-  opacity: 0.75;
+  // border-radius: 7px;
 }
 
 .workspace-entry {
@@ -62,7 +67,7 @@ window {
 .systray-icon {
   padding: 0 0;
   margin: -4px 0;
-  background-color: $bg-storm;
+  background-color: transparent;
 }
 
 // Music

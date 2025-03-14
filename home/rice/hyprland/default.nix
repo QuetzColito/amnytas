@@ -160,8 +160,8 @@
 
         general = {
           # gaps
-          gaps_in = 6;
-          gaps_out = 11;
+          gaps_in = 0;
+          gaps_out = 0;
 
           # border thiccness
           border_size = 2;
@@ -174,7 +174,7 @@
 
         decoration = {
           # fancy corners
-          rounding = 7;
+          rounding = 0;
 
           # blur
           blur = {

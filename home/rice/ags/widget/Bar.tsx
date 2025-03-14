@@ -168,7 +168,7 @@ const asId = (model: string) => {
 export default function Bar(monitor: Gdk.Monitor) {
     const { TOP, LEFT, RIGHT } = Astal.WindowAnchor
     return <window
-        className="Bar"
+        className="bar"
         name={`bar-${asId(monitor.model)}`}
         setup={self => App.add_window(self)}
         gdkmonitor={monitor}

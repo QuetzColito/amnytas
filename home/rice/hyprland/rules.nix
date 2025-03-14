@@ -7,7 +7,7 @@
       "ignorezero, launcher"
       "noanim, launcher"
       "xray 0, bar"
-      "blur, bar"
+      # "noblur, bar"
       "ignorezero, bar"
       "noanim, bar"
       "blur, notifications"
