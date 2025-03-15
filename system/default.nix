@@ -96,10 +96,13 @@
     };
 
     # Configure keymap in X11
-    services.xserver.xkb = {
-      layout = "eu";
-      variant = "";
-      options = "caps:escape,lv3:switch";
+    services.xserver = {
+      exportConfiguration = true;
+      xkb = {
+        layout = "eu";
+        variant = "";
+        options = "caps:escape,lv3:switch";
+      };
     };
 
     # Fcitx5
