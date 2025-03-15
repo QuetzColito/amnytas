@@ -45,7 +45,4 @@
       sensitivity = "+1.0";
     };
   };
-
-  # Display not bright enough
-  programs.vscode.userSettings."workbench.colorTheme" = lib.mkForce "Tokyo Night Storm";
 }
