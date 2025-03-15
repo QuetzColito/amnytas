@@ -72,6 +72,7 @@
             pattern = "*.typ",
             callback = function()
                 vim.cmd("silent !pkill zathura > /dev/null 2>&1 &")
+                vim.cmd("silent !pkill typst > /dev/null 2>&1 &")
             end,
         })
 
