@@ -6,6 +6,7 @@ import Mpris from "gi://AstalMpris"
 import Tray from "gi://AstalTray"
 import Wp from "gi://AstalWp"
 import AstalMpris from "gi://AstalMpris?version=0.1"
+import { toggleDashboard } from "./Dashboard"
 
 const hyprland = Hyprland.get_default()
 
@@ -13,11 +14,14 @@ function Time({ format = "%a   %d %b   %H:%M" }) {
     const time = Variable<string>("").poll(1000, () =>
         GLib.DateTime.new_now_local().format(format)!)
 
-    return <label
+    return <eventbox
         className="time"
+            cursor="pointer"
         onDestroy={() => time.drop()}
-        label={time()}
-    />
+        onClick={() => toggleDashboard()}
+    >
+        <label label={time()}/>
+  </eventbox>
 }
 
 const isRecording = Variable(false);
@@ -39,6 +43,7 @@ function Audio() {
 
     return <eventbox
         className="sound"
+            cursor="pointer"
         onClick={(_, e) => {
             if (e.button === Astal.MouseButton.PRIMARY) {
                 speaker.set_mute(!speaker.mute)
@@ -78,6 +83,7 @@ function Music() {
             const pbstatus = bind(p, "playback_status").as(v => v === AstalMpris.PlaybackStatus.PLAYING ? " " : " ")
             const title = Variable.derive([bind(p, "title"), bind(p, "artist")], (t, a) => t + " - " + a)
             return <eventbox
+            cursor="pointer"
                 className={bind(p, "playback_status").as(pbs => `music ${pbs === AstalMpris.PlaybackStatus.PLAYING ? "purple" : "orange"}`)}
                 onClick={(_, e) => e.button === Astal.MouseButton.PRIMARY ? p.play_pause() : p.set_loop_status(toggleloop(p.loop_status))}
                 onScroll={(_, e) => e.delta_y < 0 ? p.next() : p.previous()}
@@ -103,7 +109,10 @@ function Workspaces() {
     return <eventbox className="workspaces">
         <box>
             {Array.from({ length: 9 }, (_, i) => i + 1).map(i => (
-                <eventbox onClick={() => dispatch(String(i))}>
+                <eventbox
+                  onClick={() => dispatch(String(i))}
+                  cursor="pointer"
+                >
                     <box className={bind(hyprland, "focusedWorkspace")
                         .as(active => active.id == i ? "workspace-entry current" : "workspace-entry")}>
                         <label
