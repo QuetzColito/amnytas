@@ -7,7 +7,7 @@
   ];
 
   #YTM colours
-  xdg.configFile."stylix/colours.css".text =
+  xdg.configFile."stylix/ytm.css".text =
     builtins.concatStringsSep "\n"
     ([
         "html:not(.style-scope) {"

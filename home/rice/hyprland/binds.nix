@@ -1,4 +1,4 @@
-{config, ...}: let
+_: let
   mod = "SUPER";
   modshift = "${mod}SHIFT";
 
@@ -139,6 +139,20 @@ in {
 
     submap = immersive
     bind = ${mod},U,submap,reset
+    submap = reset
+    bind = ${modshift},R,submap,resize
+
+    submap = resize
+    binde = ${mod}, L, resizeactive, 10 0
+    binde = ${mod}, H, resizeactive, -10 0
+    binde = ${mod}, K, resizeactive, 0 -10
+    binde = ${mod}, J, resizeactive, 0 10
+    binde = ${modshift}, L, resizeactive, 50 0
+    binde = ${modshift}, H, resizeactive, -50 0
+    binde = ${modshift}, K, resizeactive, 0 -50
+    binde = ${modshift}, J, resizeactive, 0 50
+    bind = ${modshift},R,submap,resize
+    bind = ,escape,submap,reset
     submap = reset
   '';
 }

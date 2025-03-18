@@ -1,7 +1,6 @@
 {
   lib,
   config,
-  pkgs,
   ...
 }: {
   imports = [
@@ -39,8 +38,7 @@
     };
   };
 
-  config = let
-  in {
+  config = {
     wayland.windowManager.hyprland = {
       enable = true;
       xwayland.enable = true;
@@ -88,10 +86,8 @@
               rotation ? "",
               ...
             } @ monitor:
-              if monitor ? config
-              then monitor.config
-              else
-                name
+              monitor.config
+              or (name
                 + ",preferred,"
                 + coords
                 + ",1"
@@ -99,7 +95,7 @@
                   if rotation == ""
                   then ""
                   else ",transform," + rotation
-                )
+                ))
           )
           config.monitors;
 

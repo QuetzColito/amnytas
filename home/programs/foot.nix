@@ -4,8 +4,4 @@
     enable = true;
     settings.main.shell = config.home.sessionVariables.SHELL;
   };
-
-  home.sessionVariables = {
-    TERMINAL = "foot";
-  };
 }

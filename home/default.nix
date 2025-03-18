@@ -26,7 +26,6 @@
 
     home = {
       homeDirectory = "/home/${config.home.username}";
-      # very handy for editing the config
       shellAliases = {
         e = "hyprctl dispatch exec --";
         lz = "lazygit";

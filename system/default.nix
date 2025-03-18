@@ -57,6 +57,7 @@
     security.polkit.enable = true;
 
     networking.hostName = config.hostName;
+    programs.nm-applet.enable = true;
 
     users.users = builtins.listToAttrs [
       {
@@ -70,7 +71,6 @@
       }
     ];
 
-    programs.nm-applet.enable = true;
     networking.networkmanager.enable = true;
 
     nix = {
@@ -81,108 +81,31 @@
     # Locale
     time.timeZone = "Europe/Berlin";
 
-    i18n.defaultLocale = "en_US.UTF-8";
+    i18n = {
+      defaultLocale = "en_US.UTF-8";
 
-    i18n.extraLocaleSettings = {
-      LC_ADDRESS = "de_DE.UTF-8";
-      LC_IDENTIFICATION = "de_DE.UTF-8";
-      LC_MEASUREMENT = "de_DE.UTF-8";
-      LC_MONETARY = "de_DE.UTF-8";
-      LC_NAME = "de_DE.UTF-8";
-      LC_NUMERIC = "de_DE.UTF-8";
-      LC_PAPER = "de_DE.UTF-8";
-      LC_TELEPHONE = "de_DE.UTF-8";
-      LC_TIME = "de_DE.UTF-8";
-    };
-
-    # Configure keymap in X11
-    services.xserver = {
-      exportConfiguration = true;
-      xkb = {
-        layout = "eu";
-        variant = "";
-        options = "caps:escape,lv3:switch";
+      extraLocaleSettings = {
+        LC_ADDRESS = "de_DE.UTF-8";
+        LC_IDENTIFICATION = "de_DE.UTF-8";
+        LC_MEASUREMENT = "de_DE.UTF-8";
+        LC_MONETARY = "de_DE.UTF-8";
+        LC_NAME = "de_DE.UTF-8";
+        LC_NUMERIC = "de_DE.UTF-8";
+        LC_PAPER = "de_DE.UTF-8";
+        LC_TELEPHONE = "de_DE.UTF-8";
+        LC_TIME = "de_DE.UTF-8";
       };
-    };
-
-    # Fcitx5
-    # services.xserver.desktopManager.runXdgAutostartIfNone = true;
-
-    i18n.inputMethod = {
-      enable = true;
-      type = "fcitx5";
-      fcitx5 = {
-        waylandFrontend = true;
-        addons = with pkgs; [
-          fcitx5-mozc
-        ];
+      # Fcitx5
+      inputMethod = {
+        enable = true;
+        type = "fcitx5";
+        fcitx5 = {
+          waylandFrontend = true;
+          addons = with pkgs; [
+            fcitx5-mozc
+          ];
+        };
       };
-    };
-
-    # Important for laptop, dunno about desktop
-    powerManagement.enable = true;
-
-    nixpkgs.config.allowUnfree = true;
-
-    # needed for AGS Mpris
-    services.gvfs.enable = true;
-
-    # only basic stuff
-    environment.systemPackages = with pkgs; [
-      vim
-      wget
-      git
-      firefox
-      home-manager
-      qemu
-      quickemu
-      wineWowPackages.waylandFull # dunno why i have this
-    ];
-
-    # Docker
-    virtualisation.docker.rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
-
-    # Sound
-    programs.noisetorch.enable = true;
-    security.rtkit.enable = true;
-    services.pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      wireplumber.enable = true;
-      jack.enable = true;
-    };
-
-    # Flatpak, although i actually dont need it anymore rn
-    services.flatpak.enable = true;
-
-    # Secrets Manager
-    services.gnome.gnome-keyring.enable = true;
-
-    # Steam
-    programs.steam = {
-      enable = true;
-      protontricks.enable = true;
-      remotePlay.openFirewall = true;
-      dedicatedServer.openFirewall = true;
-      extraCompatPackages = [pkgs.proton-ge-bin];
-    };
-
-    # Thunar stuff, only using thunar when i need drag and drop xD
-    programs.dconf.enable = true; # gnome-related
-    programs.xfconf.enable = true;
-    programs.thunar = {
-      enable = true;
-      plugins = with pkgs.xfce; [
-        thunar-archive-plugin
-        thunar-media-tags-plugin
-        thunar-volman
-        tumbler
-      ];
     };
 
     # fonts, dont remove the cjk one or kana will look ugly
@@ -194,5 +117,80 @@
       noto-fonts-cjk-sans
       nerd-fonts.geist-mono
     ];
+
+    services = {
+      # Configure keymap in X11
+      xserver = {
+        exportConfiguration = true;
+        xkb = {
+          layout = "eu";
+          variant = "";
+          options = "caps:escape,lv3:switch";
+        };
+      };
+      # needed for AGS Mpris
+      gvfs.enable = true;
+
+      # Sound
+      pipewire = {
+        enable = true;
+        alsa.enable = true;
+        alsa.support32Bit = true;
+        pulse.enable = true;
+        wireplumber.enable = true;
+        jack.enable = true;
+      };
+      # Flatpak, although i actually dont need it anymore rn
+      flatpak.enable = true;
+
+      # Secrets Manager
+      gnome.gnome-keyring.enable = true;
+    };
+
+    # Important for laptop, dunno about desktop
+    powerManagement.enable = true;
+
+    nixpkgs.config.allowUnfree = true;
+
+    # only basic stuff
+    environment.systemPackages = with pkgs; [
+      vim
+      wget
+      git
+      firefox
+      home-manager
+      qemu
+      quickemu
+    ];
+
+    # Docker
+    virtualisation.docker.rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+
+    programs = {
+      # Steam
+      steam = {
+        enable = true;
+        protontricks.enable = true;
+        remotePlay.openFirewall = true;
+        dedicatedServer.openFirewall = true;
+        extraCompatPackages = [pkgs.proton-ge-bin];
+      };
+
+      # Thunar
+      dconf.enable = true; # gnome-related
+      xfconf.enable = true;
+      thunar = {
+        enable = true;
+        plugins = with pkgs.xfce; [
+          thunar-archive-plugin
+          thunar-media-tags-plugin
+          thunar-volman
+          tumbler
+        ];
+      };
+    };
   };
 }

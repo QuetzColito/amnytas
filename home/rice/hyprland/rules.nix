@@ -1,4 +1,4 @@
-{...}: {
+_: {
   wayland.windowManager.hyprland.settings = {
     layerrule = [
       # layers are things like the widgets, wallpaper, bar and launcher (basically everything that isnt a window)

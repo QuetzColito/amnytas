@@ -7,7 +7,6 @@
 }: {
   imports = [
     ./foot.nix
-    ./appimages.nix
     ./imv.nix
     ./nixcord.nix
     inputs.spicetify-nix.homeManagerModules.default

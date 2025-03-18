@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs-stable,
-  ...
-}: {
+{inputs, ...}: {
   imports = [
     inputs.nixcord.homeManagerModules.nixcord
   ];
