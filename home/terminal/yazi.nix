@@ -233,12 +233,12 @@
 
         {
           on = ["g" "g"];
-          run = "arrow -99999999";
+          run = "arrow top";
           desc = "Move cursor to the top";
         }
         {
           on = ["G"];
-          run = "arrow 99999999";
+          run = "arrow bot";
           desc = "Move cursor to the bottom";
         }
 
