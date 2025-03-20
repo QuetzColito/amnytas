@@ -225,7 +225,7 @@
 
             "fade, 1, 10, smoothOut"
             "fadeDim, 1, 10, smoothOut"
-            "workspaces,1,4,smoothOut,slidefadevert 50%"
+            "workspaces,1,3,smoothOut,slidefadevert 50%"
           ];
         };
       };
