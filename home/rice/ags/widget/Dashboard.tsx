@@ -344,7 +344,7 @@ export default function Dashboard() {
                 {battery.isPresent
                     ? <Monitor
                         color="green"
-                        value={bind(battery, "percentage").as(p => p * 100)}
+                        value={bind(battery, "percentage").as(p => Math.round(p * 100))}
                         icon={bind(battery, "charging").as(c => c ? "󱐥" : "󱐤")}
                     />
                     : <Monitor color="green" value={bind(storage2)} icon=" " />
