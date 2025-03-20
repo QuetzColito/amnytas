@@ -76,6 +76,11 @@
     nix = {
       settings.experimental-features = ["nix-command" "flakes"];
       nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+      gc = {
+        automatic = true;
+        dates = "weekly";
+        options = "--delete-older-than 1w";
+      };
     };
 
     # Locale

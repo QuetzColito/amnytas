@@ -55,10 +55,6 @@
         name = "Papirus-Dark";
         package = pkgs.papirus-icon-theme;
       };
-      cursorTheme = {
-        name = "Miku-Cursor";
-        # package = pkgs.bibata-cursors;
-      };
     };
   };
 }

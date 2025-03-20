@@ -1,6 +1,6 @@
 {
   pkgs,
-  # pkgs-stable,
+  pkgs-stable,
   inputs,
   system,
   ...
@@ -29,7 +29,7 @@
     # General
     inputs.zen-browser.packages."${system}".specific
     parsec-bin
-    rustdesk-flutter
+    pkgs-stable.rustdesk-flutter
     qpwgraph
     appimage-run
     obs-studio

@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   # Styles almost everything (this file is used in both system config and home config)
   stylix = {
     enable = true;
@@ -25,7 +29,32 @@
       };
     };
 
-    cursor.size = 24;
+    cursor = {
+      size = 24;
+      name = "Miku Cursor";
+      # package = inputs.miku-cursors;
+      package = pkgs.stdenv.mkDerivation {
+        pname = "miku-cursors";
+
+        version = "1.2.6";
+
+        src = pkgs.fetchFromGitHub {
+          owner = "QuetzColito";
+          repo = "hatsune-miku-cursors";
+          rev = "aaede540abb3";
+          sha256 = "MYGWFmytWpF0nkRAtIegNuF1kNG9VzOHMBXNLM4xA7k=";
+        };
+
+        buildInputs = [];
+
+        installPhase = ''
+          runHook preInstall
+          install -dm 755 $out/share/icons
+          cp -r Miku\ Cursor $out/share/icons/Miku\ Cursor
+          runHook postInstall
+        '';
+      };
+    };
     opacity.terminal = 0.75;
     base16Scheme = {
       base00 = "16161E"; # Default Background
