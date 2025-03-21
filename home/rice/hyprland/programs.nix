@@ -3,6 +3,7 @@
   # (cant be asked to write lib.getExe pkgs.package everywhere)
   home.packages = with pkgs; [
     xorg.xrandr
+    xorg.setxkbmap
     brightnessctl
     slurp
     grim

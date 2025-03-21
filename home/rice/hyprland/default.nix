@@ -57,6 +57,8 @@
             "hyprpaperswitch"
             # gotta find a way to do this properly, but for now this works
             "systemctl --user start nm-applet"
+            # Keyboardlayout for proton (why you gotta be so difficult x.x)
+            "setxkbmap -layout eu -option 'caps:escape' -option 'lv3:switch'"
           ]
           # Used to help with games, dunno if still needed
           ++ (map ({name, ...}: "xrandr --output " + name + " --primary") config.monitors);
