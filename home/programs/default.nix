@@ -21,6 +21,7 @@
       package = pkgs.vscodium;
     };
   };
+  stylix.targets.vscode.enable = false;
 
   # for good measure, dunno if it does anything
   home.sessionVariables.BROWSER = "zen";
