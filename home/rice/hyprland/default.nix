@@ -58,7 +58,7 @@
             # gotta find a way to do this properly, but for now this works
             "systemctl --user start nm-applet"
             # Keyboardlayout for proton (why you gotta be so difficult x.x)
-            "setxkbmap -layout eu -option 'caps:escape' -option 'lv3:switch'"
+            "setxkbmap -layout ${config.home.keyboard.layout} ${builtins.concatStringsSep " " (map (o: "-option '${o}'") config.home.keyboard.options)}"
           ]
           # Used to help with games, dunno if still needed
           ++ (map ({name, ...}: "xrandr --output " + name + " --primary") config.monitors);
@@ -136,9 +136,9 @@
 
         input = {
           # keyboard layout (eu is us with extra combinations for ä,ï and stuff)
-          kb_layout = "eu";
+          kb_layout = config.home.keyboard.layout;
           # caps as escape best change of my life
-          kb_options = "caps:escape,lv3:switch";
+          kb_options = builtins.concatStringsSep "," config.home.keyboard.options;
           follow_mouse = 1;
           accel_profile = "flat";
           sensitivity = 0.0;
