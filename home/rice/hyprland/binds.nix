@@ -1,6 +1,7 @@
-_: let
+{config, ...}: let
   mod = "SUPER";
   modshift = "${mod}SHIFT";
+  fixcursor = "hyprctl setcursor ${config.stylix.cursor.name} ${builtins.toString config.stylix.cursor.size}";
 
   # binds $mod + [shift +] {1..10} to [move to] workspace {1..10} (stolen from fufie)
   # (stolen from sioodmy :P) although i dont really use ws 10
@@ -105,9 +106,9 @@ in {
         "${mod},X,exec,stop-recording"
 
         # Screenshots
-        "${modshift},S,exec, grimblast copy area"
-        "CTRL ${modshift},S,exec, grimblast --freeze copy area"
-        "CTRL ${mod},S,exec, grimblast --freeze copy output"
+        "${modshift},S,exec, grimblast copy area; ${fixcursor}"
+        "CTRL ${modshift},S,exec, grimblast --freeze copy area ${fixcursor}"
+        "CTRL ${mod},S,exec, grimblast --freeze copy output ${fixcursor}"
 
         # Color Picker
         "${modshift},C,exec, hyprpicker | wl-copy"

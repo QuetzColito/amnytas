@@ -17,6 +17,10 @@
       "QT_QPA_PLATFORM=wayland;xcb"
       "GDK_BACKEND=wayland,x11,*"
 
+      # Todo: Fix Cursor
+      "XCURSOR_THEME=${config.stylix.cursor.name}"
+      "XCURSOR_SIZE=${builtins.toString config.stylix.cursor.size}"
+
       # # Nvidia
       # "LIBVA_DRIVER_NAME=nvidia"
       # "GBM_BACKEND=nvidia-drm"

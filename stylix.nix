@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   # Styles almost everything (this file is used in both system config and home config)
   stylix = {
     enable = true;
@@ -31,8 +27,7 @@
 
     cursor = {
       size = 24;
-      name = "Miku Cursor";
-      # package = inputs.miku-cursors;
+      name = "Miku-Cursor";
       package = pkgs.stdenv.mkDerivation {
         pname = "miku-cursors";
 
@@ -41,8 +36,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "QuetzColito";
           repo = "hatsune-miku-cursors";
-          rev = "aaede540abb3";
-          sha256 = "MYGWFmytWpF0nkRAtIegNuF1kNG9VzOHMBXNLM4xA7k=";
+          rev = "e5b7cb1e46555204039803eb5bdf1c5ae6cdbf8e";
+          sha256 = "SVGYAM4C8X1ptOD/MV3NcCaXs9FeIwjS4Bjcgcr9K4Q=";
         };
 
         buildInputs = [];
@@ -50,7 +45,7 @@
         installPhase = ''
           runHook preInstall
           install -dm 755 $out/share/icons
-          cp -r Miku\ Cursor $out/share/icons/Miku\ Cursor
+          cp -r Miku-Cursor $out/share/icons/Miku-Cursor
           runHook postInstall
         '';
       };
