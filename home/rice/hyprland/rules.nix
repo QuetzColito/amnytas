@@ -71,8 +71,11 @@ _: {
 
       # make starrail not freeze in the background
       "renderunfocused, class:^(starrail\.exe)$"
+      "immediate, class:^(starrail\.exe)$"
       "renderunfocused, class:^(steam_app.*)$"
+      "immediate, class:^(steam_app.*)$"
       "renderunfocused, class:^(ffxiv_dx11\.exe)$"
+      "immediate, class:^(ffxiv_dx11\.exe)$"
     ];
 
     workspace = [
