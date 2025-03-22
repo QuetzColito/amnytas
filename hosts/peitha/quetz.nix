@@ -1,4 +1,4 @@
-{...}: {
+_: {
   home = {
     stateVersion = "24.05"; # Please read the comment before changing.
   };
@@ -34,7 +34,7 @@
         "[workspace 7 silent] uwsm app -- zen"
         "[workspace 3 silent] uwsm app -- YouTube-Music"
         "[workspace 3 silent] uwsm app -- vesktop --enable-wayland-ime"
-        "sleep 5; hyprctl dispatch resizewindowpixel exact 100% 41%,YouTube"
+        "sleep 5; hyprctl dispatch resizewindowpixel exact 100% 41%,youtube_music"
       ];
     };
   };

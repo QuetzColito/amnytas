@@ -328,7 +328,7 @@ export default function Dashboard() {
             <box className="control-buttons" homogeneous={true} spacing={10}>
                 <ControlButton command="shutdown now" color="red" icon=" " />
                 <ControlButton command="reboot" color="orange" icon="󰜉" />
-                <ControlButton command="uwsm stop" color="green" icon="󰗽 " />
+                <ControlButton command="hyprctl dispatch exec -- uwsm stop" color="green" icon="󰗽 " />
                 <ControlButton command="hyprctl dispatch exec -- hyprlock --immediate" color="yellow" icon=" " />
             </box>
             <Calendar />
