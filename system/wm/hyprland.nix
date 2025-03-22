@@ -20,8 +20,7 @@
     services.getty.autologinUser = config.mainUser;
     programs.bash.loginShellInit = ''
       if uwsm check may-start -v; then
-          # exec uwsm start hyprland-uwsm.desktop
-          exec Hyprland
+          exec uwsm start hyprland-uwsm.desktop
       fi
     '';
   };
