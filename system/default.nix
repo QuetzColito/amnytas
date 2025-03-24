@@ -102,7 +102,7 @@
       };
       # Fcitx5
       inputMethod = {
-        enable = true;
+        enable = false;
         type = "fcitx5";
         fcitx5 = {
           waylandFrontend = true;
