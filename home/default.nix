@@ -18,6 +18,10 @@
       default = "nixos";
       type = lib.types.str;
     };
+    isNvidia = lib.mkOption {
+      default = false;
+      type = lib.types.bool;
+    };
   };
 
   config = {

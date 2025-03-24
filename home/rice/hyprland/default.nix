@@ -149,10 +149,7 @@
           };
         };
 
-        # nvidia-specific
-        # cursor = {
-        #   no_hardware_cursors = true;
-        # };
+        cursor.no_hardware_cursors = config.isNvidia;
 
         general = {
           # gaps
@@ -162,7 +159,7 @@
           # border thiccness
           border_size = 2;
 
-          allow_tearing = true;
+          allow_tearing = !config.isNvidia;
 
           # gradient border \o/
           "col.active_border" = lib.mkForce "rgb(${config.stylix.base16Scheme.base0C}) rgb(${config.stylix.base16Scheme.base0E}) 45deg";

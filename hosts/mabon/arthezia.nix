@@ -1,8 +1,4 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   home = {
     stateVersion = "23.11"; # Please read the comment before changing.
 
@@ -24,6 +20,8 @@
     email = "stefan.lahne@proton.me";
     name = "Stefan Lahne";
   };
+
+  isNvidia = true;
 
   monitors = [
     {

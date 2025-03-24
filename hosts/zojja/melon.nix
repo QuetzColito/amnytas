@@ -3,6 +3,8 @@
     stateVersion = "23.11"; # Please read the comment before changing.
   };
 
+  isNvidia = true;
+
   monitors = [
     {
       name = "HDMI-A-1";
