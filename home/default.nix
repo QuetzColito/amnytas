@@ -48,9 +48,6 @@
       ];
     };
 
-    # Discord Web Rich Presence (for vesktop)
-    services.arrpc.enable = true;
-
     gtk = {
       enable = true;
       gtk3.extraConfig.gtk-decoration-layout = "menu:";

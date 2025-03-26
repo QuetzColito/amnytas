@@ -2,6 +2,7 @@
   imports = [
     inputs.nixcord.homeManagerModules.nixcord
   ];
+
   # dont think the options are very important
   programs.nixcord = {
     enable = true; # enable Nixcord. Also installs discord package
@@ -25,7 +26,6 @@
         unindent.enable = true;
         volumeBooster.enable = true;
         webKeybinds.enable = true;
-        webRichPresence.enable = true;
         webScreenShareFixes.enable = true;
         youtubeAdblock.enable = true;
       };
