@@ -50,7 +50,7 @@
           [
             "uwsm finalize"
             # fake login screen
-            "hyprlock --immediate; killall -r fcitx5"
+            "hyprlock --immediate"
             # Widgets and Bar
             "ags run ~/amnytas/home/rice/ags/app.ts"
             # Wallpaperswitcher
@@ -59,6 +59,8 @@
             "systemctl --user start nm-applet"
             # Keyboardlayout for proton (why you gotta be so difficult x.x)
             "setxkbmap -layout ${config.home.keyboard.layout} ${builtins.concatStringsSep " " (map (o: "-option '${o}'") config.home.keyboard.options)}"
+            # Start Polkitagent
+            "systemctl --user enable --now hyprpolkitagent.service"
           ]
           # Used to help with games, dunno if still needed
           ++ (map ({name, ...}: "xrandr --output " + name + " --primary") config.monitors);

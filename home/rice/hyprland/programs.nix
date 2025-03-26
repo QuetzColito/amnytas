@@ -8,6 +8,7 @@
     slurp
     grim
     hyprpicker
+    hyprpolkitagent
     grimblast
     # bibata-cursors
     wl-clip-persist
