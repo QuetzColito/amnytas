@@ -51,7 +51,7 @@
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
     pkgs-stable = inputs.nixpkgs-stable.legacyPackages.${system};
-    lib = pkgs.lib;
+    inherit (pkgs) lib;
     # builds the system flake output for every host
     mkSystemConfig = {
       host,
