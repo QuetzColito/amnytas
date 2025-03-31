@@ -161,7 +161,8 @@
           # border thiccness
           border_size = 2;
 
-          allow_tearing = !config.isNvidia;
+          # allow_tearing = !config.isNvidia;
+          allow_tearing = false;
 
           # gradient border \o/
           "col.active_border" = lib.mkForce "rgb(${config.stylix.base16Scheme.base0C}) rgb(${config.stylix.base16Scheme.base0E}) 45deg";
