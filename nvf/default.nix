@@ -2,6 +2,7 @@
   config.vim =
     (import ./plugins.nix params)
     // {
+      # nvf config is independent of system config and can be used as a standalone flake output
       extraPlugins = import ./extra-plugins.nix pkgs.vimPlugins;
       languages = import ./languages.nix params;
       keymaps = import ./keymap.nix params;

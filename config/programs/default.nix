@@ -7,6 +7,7 @@
 }: {
   imports = [
     ./foot.nix
+    ./aagl.nix
   ];
   users.users.${config.mainUser}.packages = with pkgs; [
     inputs.zen-browser.packages."${system}".specific

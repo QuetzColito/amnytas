@@ -1,4 +1,4 @@
-{...}: {
+_: {
   treesitter.enable = true;
   statusline.lualine.enable = true;
   autocomplete.nvim-cmp.enable = true;

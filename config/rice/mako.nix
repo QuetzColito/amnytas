@@ -17,7 +17,7 @@
     padding=10
 
     border-color=#${config.stylix.base16Scheme.base0C}FF
-    border-radius=10
+    border-radius=0
     border-size=1
 
     max-icon-size=64

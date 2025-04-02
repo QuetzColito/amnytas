@@ -66,15 +66,15 @@
         # pass these in so we can access all the flake inputs in the config
         specialArgs = {inherit inputs self pkgs-stable hh;};
         modules = [
-          ./hosts/${host}
-          ./hosts/${host}/hardware-configuration.nix
+          ./hosts/${host}.nix
+          ./hosts/hardware/${host}.nix
           {
             nixpkgs.hostPlatform = system;
             mainUser = user;
             hostName = host;
           }
           inputs.hjem.nixosModules.default
-          ./system
+          ./config
         ];
       };
     };
@@ -105,11 +105,9 @@
     install =
       pkgs.writeShellScriptBin "install"
       ''
-        echo "Script is not yet rewritten for switch to hjem, aborting."
-        exit
         cd ~
-        ${lib.getExe pkgs.git} clone https://github.com/QuetzColito/amnytas.git
-        cd amnytas || (echo "couldnt find ~/amnytas, did the git clone fail?" & exit)
+        # ${lib.getExe pkgs.git} clone https://github.com/QuetzColito/amnytas.git
+        cd amnytas/hosts || (echo "couldnt find ~/amnytas/hosts, did the git clone fail?" & exit)
 
         read -p "What hostName should the system use?
         " host
@@ -147,38 +145,26 @@
             stateVersion='.stateVersion = "24.05";'
         fi
 
-        echo "adding new host to hostlist"
-        hostlist="hostlist.nix"
+        echo "adding new host $user@$host to hostlist"
+        hostlist="default.nix"
 
         sed -i '$ d' "$hostlist"
         echo "    { host = \"$host\"; user = \"$user\"; }" >> "$hostlist"
         echo "]" >> "$hostlist"
 
-        echo "creating new host directory"
-        mkdir hosts/$host || (echo "hosts/$host already exists, aborting" & exit)
-        cd hosts/$host
-
-        nixos-generate-config --show-hardware-config > hardware-configuration.nix
+        nixos-generate-config --show-hardware-config > hardware/$host.nix
 
         echo "{...} : {
             isNvidia = $nvidia;
             wantGrub = $grub;
+            firstInstall = true;
             system$stateVersion
-        }" >> default.nix
-
-        echo "{...} : {
-            home$stateVersion
-        }" >> home.nix
-
-        mv home.nix $user.nix
+        }" >> $host.nix
 
         ${lib.getExe pkgs.git} add .
 
         echo "running 'sudo nixos-rebuild switch --flake ~/amnytas#$host $installBootloader' to build system config"
         sudo nixos-rebuild switch --flake ~/amnytas#$host $installBootloader
-
-        echo "running 'home-manager switch --flake ~/amnytas#$user' to generate user config"
-        home-manager switch --flake ~/amnytas#$user
       '';
   };
 }

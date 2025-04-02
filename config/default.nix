@@ -1,7 +1,5 @@
 {
-  self,
   pkgs,
-  pkgs-stable,
   lib,
   config,
   inputs,
@@ -10,11 +8,8 @@
   imports = [
     ../stylix.nix
     inputs.stylix.nixosModules.stylix
-    ./wm
-    ./aagl.nix
+    ./DEs
     ./nvidia.nix
-    ../hjem
-    ./grub
   ];
 
   options = {
@@ -30,6 +25,7 @@
       default = "Hyprland"; # Hyprland, Cosmic, Xfce, Kde or none
       type = lib.types.str;
     };
+    firstInstall = lib.mkEnableOption "Enable if cachix isn't setup yet";
   };
 
   # A lot of stuff in here was generated at the start and i didnt touch it
