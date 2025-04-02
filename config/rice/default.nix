@@ -6,22 +6,12 @@
 }: {
   imports = [
     ./hyprland
-    ./hyprutils
     ./mako.nix
     ./tofi.nix
+    ./ags
   ];
 
-  hjem.users.${config.mainUser}.files = {
-    ".config/stylix/ytm.css".text =
-      builtins.concatStringsSep "\n"
-      ([
-          "html:not(.style-scope) {"
-        ]
-        ++ (builtins.attrValues (builtins.mapAttrs
-          (name: value: "  --${name}: #${value};")
-          config.stylix.base16Scheme)))
-      + (import ./ytm.nix);
-
+  files = {
     # Ags colors
     ".config/stylix/colours.scss".text = builtins.concatStringsSep "\n" (builtins.attrValues (builtins.mapAttrs
       (name: value:
@@ -74,18 +64,6 @@
       writeShellScriptBin "stop-recording"
       "pkill --signal SIGINT wf-recorder & ags request stopRecording"
     )
-
-    (inputs.ags.packages.${system}.default.override {
-      extraPackages = with inputs.ags.packages.${pkgs.system}; [
-        battery
-        mpris
-        hyprland
-        wireplumber
-        apps
-        tray
-        # cherry pick packages
-      ];
-    })
 
     tofi
     (writeShellScriptBin

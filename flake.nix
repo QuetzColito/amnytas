@@ -80,7 +80,7 @@
     };
   in {
     # apply the functions to the hostlist
-    nixosConfigurations = builtins.listToAttrs (map mkSystemConfig (import ./hostlist.nix));
+    nixosConfigurations = builtins.listToAttrs (map mkSystemConfig (import ./hosts));
 
     # This will make the package available as a flake output under 'packages'
     packages.x86_64-linux.nvf =

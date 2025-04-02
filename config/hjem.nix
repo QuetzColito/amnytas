@@ -3,12 +3,6 @@
   lib,
   ...
 }: {
-  imports = [
-    ./rice
-    ./terminal
-    ./programs
-  ];
-
   options = {
     files = lib.mkOption {
       default = {};

@@ -5,7 +5,7 @@
 }: let
   anchored = x: y: (builtins.toString (x - 25)) + ", " + (builtins.toString (y + 0));
 in {
-  packages = [pkgs.hyrplock];
+  packages = [pkgs.hyprlock];
   files.".config/hypr/hyprlock.conf".text =
     ''
       general {

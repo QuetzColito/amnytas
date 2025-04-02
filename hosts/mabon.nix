@@ -1,5 +1,4 @@
 {pkgs, ...}: {
-  wm = "Hyprland";
   isNvidia = true;
   wantGrub = true;
 

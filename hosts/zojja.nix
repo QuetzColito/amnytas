@@ -1,5 +1,4 @@
 {lib, ...}: {
-  wm = "Hyprland";
   isNvidia = true;
 
   hardware.nvidia.open = lib.mkForce false;

@@ -1,5 +1,4 @@
 _: {
-  wm = "Hyprland";
   isNvidia = false;
   wantGrub = true;
 

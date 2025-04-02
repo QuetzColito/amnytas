@@ -5,20 +5,17 @@
   config,
   ...
 }: {
-  # add the home manager module
-  imports = [inputs.ags.homeManagerModules.default];
-
   options = {
     agsCommand = lib.mkOption {
-      default = "ags -c ~/amnytas/home/rice/ags/config.js";
+      default = "ags run ~/amnytas/config/rice/ags";
       type = lib.types.str;
     };
   };
+
   config = {
-    home.shellAliases.AGS = config.agsCommand;
-    home.packages = [
+    packages = with pkgs; [
       pkgs.sassc
-      (pkgs.writeShellScriptBin "reloadags" "${config.agsCommand} -q; ${config.agsCommand}")
+      (pkgs.writeShellScriptBin "reloadags" "${config.agsCommand} quit; ${config.agsCommand}")
       (
         pkgs.writeShellScriptBin
         "togglecurrentbar"
@@ -26,20 +23,16 @@
           ags toggle bar-$(hyprctl activeworkspace -j | jq '.monitorID')
         ''
       )
+      (inputs.ags.packages.${system}.default.override {
+        extraPackages = with inputs.ags.packages.${system}; [
+          battery
+          mpris
+          hyprland
+          wireplumber
+          apps
+          tray
+        ];
+      })
     ];
-
-    programs.ags = {
-      enable = true;
-
-      # additional packages to add to gjs's runtime
-      extraPackages = with inputs.ags.packages.${pkgs.system}; [
-        battery
-        mpris
-        hyprland
-        wireplumber
-        apps
-        tray
-      ];
-    };
   };
 }

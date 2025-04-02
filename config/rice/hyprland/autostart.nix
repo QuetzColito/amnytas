@@ -11,7 +11,7 @@
         "hyprlock --immediate"
         "uwsm finalize"
         "hyprpaperswitch; systemctl --user enable --now hyprpaper.service"
-        "ags run ~/amnytas/home/rice/ags"
+        config.agsCommand
         "systemctl --user start nm-applet"
         "systemctl --user enable --now hyprpolkitagent.service"
         "systemctl --user enable --now mako.service"
