@@ -32,8 +32,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    home-manager = {
-      url = "github:nix-community/home-manager";
+    hjem = {
+      url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -44,14 +44,17 @@
   };
 
   outputs = {
+    self,
     nixpkgs,
-    home-manager,
     ...
   } @ inputs: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
     pkgs-stable = inputs.nixpkgs-stable.legacyPackages.${system};
     inherit (pkgs) lib;
+    hh = {
+      mkList = i: is: builtins.concatStringsSep "\n${i}=" ([""] ++ is);
+    };
     # builds the system flake output for every host
     mkSystemConfig = {
       host,
@@ -61,70 +64,33 @@
       # System Config
       value = nixpkgs.lib.nixosSystem {
         # pass these in so we can access all the flake inputs in the config
-        specialArgs = {inherit inputs;};
-        modules =
-          [
-            ./hosts/${host}
-            {nixpkgs.hostPlatform = system;}
-          ]
-          ++ (
-            # wsl uses a more basic config, since it is only tty
-            if host == "wsl"
-            then [
-              {
-                mainUser = "nixos";
-                hostName = "nixos";
-              }
-            ]
-            else [
-              {
-                mainUser = user;
-                hostName = host;
-              }
-              ./hosts/${host}/hardware-configuration.nix
-              ./system
-            ]
-          );
-      };
-    };
-    mkHomeConfig = {
-      host,
-      user,
-    }: {
-      name = user;
-      # Home Config
-      value = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        # pass these in so we can access all the flake inputs in the config
-        extraSpecialArgs = {inherit inputs pkgs-stable system;};
-        modules =
-          [
-            ./hosts/${host}/${user}.nix
-            {
-              home.username = user;
-              hostName = host;
-            }
-            # wsl uses a more basic config, since it is only tty
-          ]
-          ++ (
-            if host == "wsl"
-            then []
-            else [
-              ./home
-            ]
-          );
+        specialArgs = {inherit inputs self pkgs-stable hh;};
+        modules = [
+          ./hosts/${host}
+          ./hosts/${host}/hardware-configuration.nix
+          {
+            nixpkgs.hostPlatform = system;
+            mainUser = user;
+            hostName = host;
+          }
+          inputs.hjem.nixosModules.default
+          ./system
+        ];
       };
     };
   in {
     # apply the functions to the hostlist
     nixosConfigurations = builtins.listToAttrs (map mkSystemConfig (import ./hostlist.nix));
-    homeConfigurations = builtins.listToAttrs (map mkHomeConfig (import ./hostlist.nix
-      ++ [
-        {
-          host = "mabon";
-          user = "arthezia-mobile";
-        }
-      ]));
+
+    # This will make the package available as a flake output under 'packages'
+    packages.x86_64-linux.nvf =
+      (inputs.nvf.lib.neovimConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        modules = [
+          ./nvf
+        ];
+      })
+      .neovim;
 
     # install script, does the following
     # - clone the repo into ~/amnytas
@@ -139,6 +105,8 @@
     install =
       pkgs.writeShellScriptBin "install"
       ''
+        echo "Script is not yet rewritten for switch to hjem, aborting."
+        exit
         cd ~
         ${lib.getExe pkgs.git} clone https://github.com/QuetzColito/amnytas.git
         cd amnytas || (echo "couldnt find ~/amnytas, did the git clone fail?" & exit)

@@ -12,8 +12,4 @@
     host = "zojja";
     user = "melon";
   }
-  {
-    host = "wsl";
-    user = "nixos";
-  }
 ]

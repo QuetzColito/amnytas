@@ -15,10 +15,12 @@
       withUWSM = true;
     };
 
+    # dont remove
     security.pam.services.hyprlock = {};
 
     services.getty.autologinUser = config.mainUser;
-    programs.bash.loginShellInit = ''
+
+    environment.loginShellInit = ''
       if uwsm check may-start -v; then
           exec uwsm start hyprland-uwsm.desktop
       fi

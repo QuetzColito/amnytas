@@ -1,5 +1,7 @@
 {
+  self,
   pkgs,
+  pkgs-stable,
   lib,
   config,
   inputs,
@@ -11,6 +13,7 @@
     ./wm
     ./aagl.nix
     ./nvidia.nix
+    ../hjem
     ./grub
   ];
 
@@ -59,19 +62,39 @@
     networking.hostName = config.hostName;
     programs.nm-applet.enable = true;
 
-    users.users = builtins.listToAttrs [
-      {
-        name = config.mainUser;
-        value = {
-          isNormalUser = true;
-          description = config.mainUser;
-          extraGroups = ["networkmanager" "wheel"];
-          packages = [];
-        };
-      }
-    ];
+    users.users.${config.mainUser} = {
+      isNormalUser = true;
+      shell = pkgs.zsh;
+      description = config.mainUser;
+      extraGroups = ["networkmanager" "wheel"];
+      packages = [
+        (pkgs.stdenv.mkDerivation {
+          pname = "miku-cursors";
+
+          version = "1.2.6";
+
+          src = pkgs.fetchFromGitHub {
+            owner = "QuetzColito";
+            repo = "hatsune-miku-cursors";
+            rev = "e5b7cb1e46555204039803eb5bdf1c5ae6cdbf8e";
+            sha256 = "SVGYAM4C8X1ptOD/MV3NcCaXs9FeIwjS4Bjcgcr9K4Q=";
+          };
+
+          buildInputs = [];
+
+          installPhase = ''
+            runHook preInstall
+            install -dm 755 $out/share/icons
+            cp -r Miku-Cursor $out/share/icons/Miku-Cursor
+            runHook postInstall
+          '';
+        })
+      ];
+    };
 
     networking.networkmanager.enable = true;
+
+    xdg.icons.fallbackCursorThemes = ["Miku-Cursor"];
 
     nix = {
       settings.experimental-features = ["nix-command" "flakes"];
@@ -162,6 +185,7 @@
       vim
       wget
       git
+      kitty
       firefox
       home-manager
       qemu
