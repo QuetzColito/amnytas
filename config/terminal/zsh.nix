@@ -16,7 +16,7 @@
     lz = "lazygit";
     v = "nvim";
     ns = "sudo nixos-rebuild switch --flake ~/amnytas";
-    nu = "nix flake update --commit-lock-file";
+    nu = "nix flake update --flake ~/amnytas --commit-lock-file";
     start = "uwsm app --";
   };
 
