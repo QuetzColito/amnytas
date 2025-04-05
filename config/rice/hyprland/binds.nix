@@ -1,12 +1,12 @@
 {
   hh,
-  config,
+  theme,
   ...
 }: {
   files = let
     mod = "SUPER";
     modshift = "${mod}SHIFT";
-    fixcursor = "hyprctl setcursor ${config.stylix.cursor.name} ${builtins.toString config.stylix.cursor.size}";
+    fixcursor = "hyprctl setcursor ${theme.cursor.name} ${builtins.toString theme.cursor.size}";
     workspaces = builtins.concatLists (builtins.genList (
         x: let
           ws = let

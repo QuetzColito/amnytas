@@ -51,6 +51,7 @@
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
     pkgs-stable = inputs.nixpkgs-stable.legacyPackages.${system};
+    theme = import ./theme.nix pkgs;
     inherit (pkgs) lib;
     hh = {
       mkList = i: is: builtins.concatStringsSep "\n${i}=" ([""] ++ is);
@@ -64,8 +65,9 @@
       # System Config
       value = nixpkgs.lib.nixosSystem {
         # pass these in so we can access all the flake inputs in the config
-        specialArgs = {inherit inputs self pkgs-stable hh;};
+        specialArgs = {inherit inputs self pkgs-stable hh theme;};
         modules = [
+          ./config
           ./hosts/${host}.nix
           ./hosts/hardware/${host}.nix
           {
@@ -73,8 +75,6 @@
             mainUser = user;
             hostName = host;
           }
-          inputs.hjem.nixosModules.default
-          ./config
         ];
       };
     };
@@ -86,9 +86,7 @@
     packages.x86_64-linux.nvf =
       (inputs.nvf.lib.neovimConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        modules = [
-          ./nvf
-        ];
+        modules = [./nvf];
       })
       .neovim;
 
@@ -96,11 +94,10 @@
     # - clone the repo into ~/amnytas
     # - ask for the 4 module options
     # - try to extract stateVersion from /etc/nixos/configuration.nix
-    # - add a new host to hostlist.nix
-    # - regenerate the hardware-configuration and adds it to the new host directory
-    # - also create host-specific home.nix for home-manger and default.nix for nixos
+    # - add a new host to hosts/default.nix
+    # - regenerate the hardware-configuration and adds it under hardware/<host>.nix directory
+    # - also create host-specific <host>.nix
     # - run nixos-rebuild switch
-    # - run home-manger switch
     # cancel it during the rebuild if you wanna change someting before the first build
     install =
       pkgs.writeShellScriptBin "install"
@@ -129,7 +126,7 @@
             nvidia=false
         fi
 
-        read -p "Do you want to install grub? (y/n, default: no) (you will have to enable it in bios)
+        read -p "Do you want to install grub? (y/n, default: no) (you may have to choose it in bios afterwards)
         " grub
         if [[ "$grub" =~ ^[Yy]$ ]]; then
             grub=true
@@ -157,7 +154,7 @@
         echo "{...} : {
             isNvidia = $nvidia;
             wantGrub = $grub;
-            firstInstall = true;
+            firstInstall = true; # You can remove this after install
             system$stateVersion
         }" >> $host.nix
 

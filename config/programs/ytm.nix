@@ -1,4 +1,20 @@
-{config, ...}: {
+{
+  theme,
+  inputs,
+  pkgs,
+  ...
+}: {
+  packages = [
+    (let
+      pname = "YouTube-Music";
+      version = "3.7.5";
+
+      src = inputs.ytm-src;
+    in
+      pkgs.appimageTools.wrapType2 {
+        inherit pname version src;
+      })
+  ];
   files.".config/stylix/ytm.css".text =
     builtins.concatStringsSep "\n"
     ([
@@ -6,7 +22,7 @@
       ]
       ++ (builtins.attrValues (builtins.mapAttrs
         (name: value: "  --${name}: #${value};")
-        config.stylix.base16Scheme)))
+        theme.colours)))
     + ''
 
         --ctp-rosewater: #f2d5cf;

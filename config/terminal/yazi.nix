@@ -1,4 +1,18 @@
 {pkgs, ...}: {
+  packages = with pkgs; [
+    foot
+    imv
+    mpv
+    zathura
+    (writeShellScriptBin "imvs"
+      ''
+        imv $1 -W $(magick identify -format %w $1) -H$(magick identify -format %h $1)
+      '')
+    (writeShellScriptBin "mpa"
+      ''
+        foot --override=app-id=floatfoot --override=initial-window-size-chars=70x5 mpv --no-audio-display $@
+      '')
+  ];
   files = {
     ".config/yazi/plugins/compress.yazi".source = pkgs.fetchFromGitHub {
       owner = "KKV9";

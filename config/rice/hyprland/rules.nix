@@ -18,20 +18,6 @@
         "blur, notifications"
         "ignorezero, notifications"
       ]
-      + hh.mkList "workspace" ([
-          "name:pseudofullscreen, gapsin:0, gapsout:0, rounding:false, bordersize:0"
-        ]
-        ++ (builtins.concatLists (
-          map (
-            {
-              workspaces,
-              name,
-              ...
-            }:
-              map (ws: (builtins.toString ws) + ", monitor:" + name) workspaces
-          )
-          config.monitors
-        )))
       + hh.mkList "windowrulev2" [
         # why wouldnt you wanna tile >.>
         "tile, class:^DesktopEditors$"
@@ -98,6 +84,20 @@
         # "immediate, class:^(steam_app.*)$"
         "renderunfocused, class:^(ffxiv_dx11\.exe)$"
         # "immediate, class:^(ffxiv_dx11\.exe)$"
-      ];
+      ]
+      + hh.mkList "workspace" ([
+          "name:pseudofullscreen, gapsin:0, gapsout:0, rounding:false, bordersize:0"
+        ]
+        ++ (builtins.concatLists (
+          map (
+            {
+              workspaces,
+              name,
+              ...
+            }:
+              map (ws: (builtins.toString ws) + ", monitor:" + name) workspaces
+          )
+          config.monitors
+        )));
   };
 }

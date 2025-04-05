@@ -1,11 +1,16 @@
 {
   config,
+  theme,
   pkgs,
   ...
 }: let
   anchored = x: y: (builtins.toString (x - 25)) + ", " + (builtins.toString (y + 0));
 in {
   packages = [pkgs.hyprlock];
+
+  # dont remove
+  security.pam.services.hyprlock = {};
+
   files.".config/hypr/hyprlock.conf".text =
     ''
       general {
@@ -33,7 +38,7 @@ in {
       shape {
         monitor =
         size = 320, 2160
-        color = rgba(${config.stylix.base16Scheme.base01}A0)
+        color = rgba(${theme.base01}A0)
         position = 0, 0
         halign = right
         valign = top

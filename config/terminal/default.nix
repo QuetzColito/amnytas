@@ -1,6 +1,5 @@
 {
   pkgs,
-  config,
   self,
   ...
 }: let
@@ -19,9 +18,10 @@ in {
     ./oh-my-posh.nix
     ./zsh.nix
     ./yazi.nix
+    ./console.nix
   ];
 
-  users.users.${config.mainUser}.packages = with pkgs;
+  packages = with pkgs;
     [
       self.packages.${pkgs.stdenv.system}.nvf
       docker

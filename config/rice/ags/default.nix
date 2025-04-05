@@ -13,6 +13,7 @@
   };
 
   config = {
+    services.gvfs.enable = true;
     packages = with pkgs; [
       pkgs.sassc
       (pkgs.writeShellScriptBin "reloadags" "${config.agsCommand} quit; ${config.agsCommand}")

@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   lib,
   ...
@@ -13,6 +14,10 @@
       type = lib.types.listOf lib.types.package;
     };
   };
+
+  imports = [
+    inputs.hjem.nixosModules.default
+  ];
 
   config = {
     hjem.clobberByDefault = true;

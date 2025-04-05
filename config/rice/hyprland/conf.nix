@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  theme,
+  ...
+}: {
   files = {
     ".config/hypr/hyprland.conf".text = ''
       source = ~/.config/hypr/rules.conf
@@ -12,7 +16,7 @@
 
           border_size = 2
 
-          col.active_border = rgb(${config.stylix.base16Scheme.base0C}) rgb(${config.stylix.base16Scheme.base0E}) 45deg
+          col.active_border = rgb(${theme.base0C}) rgb(${theme.base0E}) 45deg
           col.inactive_border = rgba(595959aa)
 
           allow_tearing = false

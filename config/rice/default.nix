@@ -1,7 +1,7 @@
 {
   pkgs,
   config,
-  inputs,
+  theme,
   ...
 }: {
   imports = [
@@ -17,7 +17,7 @@
       (name: value:
         "$"
         + "${name}: #${value};")
-      config.stylix.base16Scheme));
+      theme.colours));
   };
   users.users.${config.mainUser}.packages = with pkgs; [
     xorg.xrandr

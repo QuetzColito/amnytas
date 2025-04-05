@@ -18,7 +18,12 @@
     ns = "sudo nixos-rebuild switch --flake ~/amnytas";
     nu = "nix flake update --flake ~/amnytas --commit-lock-file";
     start = "uwsm app --";
+    "nix-shell" = "nix-shell --command zsh";
+    nd = "nix develop -c zsh";
   };
+
+  # no idea how nixos configures zsh
+  files.".zshrc".text = "# Fill this with something so initial config doesnt pop up";
 
   programs.zsh = {
     enable = true;
@@ -32,7 +37,9 @@
     ohMyZsh = {
       enable = true;
       plugins = ["vi-mode"];
-      customPkgs = [pkgs.zsh-vi-mode];
+      customPkgs = with pkgs; [
+        zsh-vi-mode
+      ];
     };
   };
 }

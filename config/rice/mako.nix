@@ -1,22 +1,22 @@
 {
   pkgs,
-  config,
+  theme,
   ...
 }: {
   packages = [pkgs.mako];
   files.".config/mako/config".text = ''
 
-    text-color=#${config.stylix.base16Scheme.base05}FF
+    text-color=#${theme.base05}FF
     format=<b>%s</b>\n%b
     font=Inter
 
-    background-color=#${config.stylix.base16Scheme.base01}CC
+    background-color=#${theme.base01}CC
     height=150
     width=400
     margin=10
     padding=10
 
-    border-color=#${config.stylix.base16Scheme.base0C}FF
+    border-color=#${theme.base0C}FF
     border-radius=0
     border-size=1
 

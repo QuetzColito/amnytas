@@ -1,5 +1,5 @@
-{config, ...}: {
-  hjem.users.${config.mainUser}.files.".config/oh-my-posh/config.toml".text = ''
+_: {
+  files.".config/oh-my-posh/config.toml".text = ''
     version = 2
     final_space = true
     console_title_template = '{{ .Shell }} in {{ .Folder }}'

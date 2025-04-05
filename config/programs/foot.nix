@@ -1,5 +1,10 @@
-{config, ...}: {
-  hjem.users.${config.mainUser}.files.".config/foot/foot.ini".text = ''
+{
+  theme,
+  pkgs,
+  ...
+}: {
+  packages = [pkgs.foot];
+  files.".config/foot/foot.ini".text = ''
     font=monospace:size=12
 
     [mouse]
@@ -7,29 +12,29 @@
 
     [colors]
     alpha=0.75
-    background=${config.stylix.base16Scheme.base00}
-    foreground=${config.stylix.base16Scheme.base05}
+    background=${theme.base00}
+    foreground=${theme.base05}
     # flash=7f7f00
     # flash-alpha=0.5
 
     ## Normal/regular colors (color palette 0-7)
-    regular0=${config.stylix.base16Scheme.base04}  # black
-    regular1=${config.stylix.base16Scheme.base08}  # red
-    regular2=${config.stylix.base16Scheme.base0B}  # green
-    regular3=${config.stylix.base16Scheme.base0A}  # yellow
-    regular4=${config.stylix.base16Scheme.base0D}  # blue
-    regular5=${config.stylix.base16Scheme.base0E}  # magenta
-    regular6=${config.stylix.base16Scheme.base0C}  # cyan
-    regular7=${config.stylix.base16Scheme.base06}  # white
+    regular0=${theme.base04}  # black
+    regular1=${theme.base08}  # red
+    regular2=${theme.base0B}  # green
+    regular3=${theme.base0A}  # yellow
+    regular4=${theme.base0D}  # blue
+    regular5=${theme.base0E}  # magenta
+    regular6=${theme.base0C}  # cyan
+    regular7=${theme.base06}  # white
 
     ## Bright colors (color palette 8-15)
-    bright0=${config.stylix.base16Scheme.base04}   # bright black
-    bright1=${config.stylix.base16Scheme.base08}   # bright red
-    bright2=${config.stylix.base16Scheme.base0B}   # bright green
-    bright3=${config.stylix.base16Scheme.base0A}   # bright yellow
-    bright4=${config.stylix.base16Scheme.base0D}   # bright blue
-    bright5=${config.stylix.base16Scheme.base0E}   # bright magenta
-    bright6=${config.stylix.base16Scheme.base0C}   # bright cyan
-    bright7=${config.stylix.base16Scheme.base06}   # bright white
+    bright0=${theme.base04}   # bright black
+    bright1=${theme.base08}   # bright red
+    bright2=${theme.base0B}   # bright green
+    bright3=${theme.base0A}   # bright yellow
+    bright4=${theme.base0D}   # bright blue
+    bright5=${theme.base0E}   # bright magenta
+    bright6=${theme.base0C}   # bright cyan
+    bright7=${theme.base06}   # bright white
   '';
 }
