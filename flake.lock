@@ -401,6 +401,29 @@
         "type": "github"
       }
     },
+    "hjem-rum": {
+      "inputs": {
+        "hjem": [
+          "hjem"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1743796132,
+        "narHash": "sha256-rWAGq7n/kTb7L4eAaxW2Yf1ahV69HursIspZ+C2G9As=",
+        "owner": "snugnug",
+        "repo": "hjem-rum",
+        "rev": "50d687fe9740edf61ca8225434602330a2970eb1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "snugnug",
+        "repo": "hjem-rum",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -723,6 +746,7 @@
         "aagl": "aagl",
         "ags": "ags",
         "hjem": "hjem",
+        "hjem-rum": "hjem-rum",
         "nixcord": "nixcord",
         "nixos-cosmic": "nixos-cosmic",
         "nixos-wsl": "nixos-wsl",

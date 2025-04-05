@@ -92,6 +92,7 @@
         "GDK_BACKEND=wayland,x11,*"
         "XCURSOR_THEME=Miku-Cursor"
         "XCURSOR_SIZE=24"
+        "GTK_THEME=Tokyonight-Dark"
       ]
       ++ (
         if config.isNvidia

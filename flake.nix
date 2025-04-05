@@ -36,6 +36,11 @@
       url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hjem-rum = {
+      url = "github:snugnug/hjem-rum";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.hjem.follows = "hjem";
+    };
 
     ytm-src = {
       url = "https://github.com/th-ch/youtube-music/releases/download/v3.7.5/YouTube-Music-3.7.5.AppImage";
