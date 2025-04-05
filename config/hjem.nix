@@ -23,8 +23,8 @@
     hjem.clobberByDefault = true;
     hjem.users.${config.mainUser} = {
       enable = true;
-      user = "quetz";
-      directory = "/home/quetz";
+      user = config.mainUser;
+      directory = "/home/${config.mainUser}";
       inherit (config) files;
     };
 
