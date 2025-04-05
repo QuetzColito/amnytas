@@ -1,4 +1,5 @@
 {
+  config,
   theme,
   pkgs,
   ...
@@ -19,19 +20,31 @@
     monospace = [theme.monospace.name];
     emoji = [theme.emoji.name];
   };
-  environment.etc."xdg/gtk-2.0/gtkrc".text = ''
-    gtk-theme-name = "Tokyonight-Dark"
-  '';
+  # environment.etc."xdg/gtk-2.0/gtkrc".text = ''
+  #   gtk-theme-name = "Tokyonight-Dark"
+  # '';
 
-  environment.etc."xdg/gtk-3.0/settings.ini".text = ''
-    [Settings]
-    gtk-theme-name = Tokyonight-Dark
-  '';
+  # environment.etc."xdg/gtk-3.0/settings.ini".text = ''
+  #   [Settings]
+  #   gtk-theme-name = Tokyonight-Dark
+  # '';
+  hjem.users.${config.mainUser}.rum.gtk = {
+    enable = true;
+    packages = with pkgs; [
+      tokyonight-gtk-theme
+      theme.cursor.package
+    ];
+    settings = {
+      theme-name = "Tokyonight-Dark";
+      font-name = "Sans 12";
+      cursor-theme-name = "Miku-Cursor";
+      cursor-theme-size = 24;
+    };
+  };
   xdg.icons.fallbackCursorThemes = [theme.cursor.name];
   packages = with pkgs; [
     theme.cursor.package
     themechanger
-    tokyonight-gtk-theme
     # ayu-theme-gtk
     # (let
     #   rendersvg = runCommand "rendersvg" {} ''

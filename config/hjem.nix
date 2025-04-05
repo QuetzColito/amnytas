@@ -17,6 +17,7 @@
 
   imports = [
     inputs.hjem.nixosModules.default
+    inputs.hjem-rum.nixosModules.default
   ];
 
   config = {
