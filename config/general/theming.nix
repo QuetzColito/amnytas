@@ -14,6 +14,8 @@
     ]
     ++ theme.fonts;
 
+  # TODO: Somewhere KDE has set my font and i cant find out where to overwrite it x.x
+
   # Applying the Theme to as many places as possible >.>
   # The main one used are apparently the dconf settings and GTK_THEME set in usmw/env
   fonts.fontconfig.defaultFonts = {
@@ -50,6 +52,11 @@
       cursor-theme-name = theme.cursor.name;
       cursor-theme-size = theme.cursor.size;
     };
+    # Not sure if this works, but something needs to be done with those files
+    css.gtk4 = ''
+      * {all: unset;}
+      @import url("/etc/profiles/per-user/${config.mainUser}/share/themes/${theme.gtk.name}/gtk-4.0/gtk.css");
+    '';
   };
   xdg.icons.fallbackCursorThemes = [theme.cursor.name];
 
