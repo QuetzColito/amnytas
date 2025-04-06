@@ -90,9 +90,9 @@
         # "SDL_VIDEODRIVER=wayland"
         "QT_QPA_PLATFORM=wayland;xcb"
         "GDK_BACKEND=wayland,x11,*"
-        "XCURSOR_THEME=Miku-Cursor"
-        "XCURSOR_SIZE=24"
-        "GTK_THEME=Tokyonight-Dark"
+        "XCURSOR_THEME=${theme.cursor.name}"
+        "XCURSOR_SIZE=${theme.cursor.size}"
+        "GTK_THEME=${theme.gtk.name}"
       ]
       ++ (
         if config.isNvidia

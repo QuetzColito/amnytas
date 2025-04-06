@@ -37,7 +37,7 @@ pkgs: rec {
   };
 
   cursor = {
-    size = 24;
+    size = "24";
     name = "Miku-Cursor";
     package = pkgs.stdenv.mkDerivation {
       pname = "miku-cursors";
@@ -63,9 +63,32 @@ pkgs: rec {
   };
 
   gtk = {
-    name = "";
-    package = {};
+    name = "palenight";
+    package = pkgs.palenight-theme;
   };
+
+  icons = {
+    name = "TokyoNight-SE";
+    package = pkgs.stdenv.mkDerivation {
+      pname = "tokyonight-icons";
+      version = "v0.2.0";
+
+      src = pkgs.fetchurl {
+        url = "https://github.com/ljmill/tokyo-night-icons/releases/download/v0.2.0/TokyoNight-SE.tar.bz2";
+        sha256 = "s6aqdswMj8Vk7dlTD6gZAq3OlM1PrDodjvhAqsYRlqo=";
+      };
+
+      phases = ["unpackPhase" "installPhase"];
+
+      installPhase = ''
+        runHook preInstall
+        install -dm 755 $out/share/icons
+        cp -r . $out/share/icons/TokyoNight-SE
+        runHook postInstall
+      '';
+    };
+  };
+
   qt = {
     name = "";
     package = {};
