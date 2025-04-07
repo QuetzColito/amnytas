@@ -6,7 +6,7 @@
   files.".config/hypr/monitors.conf".text =
     hh.mkList "monitor"
     ([
-        # ",highrr,auto,1"
+        ",highrr,auto,1"
         "Unknown-1,disable"
       ]
       ++ (map (
@@ -17,10 +17,7 @@
             ...
           } @ monitor:
             monitor.config
-            or (name
-              + ",preferred,"
-              + coords
-              + ",1"
+            or ("${name},preferred,${coords},1"
               + (
                 if rotation == ""
                 then ""
