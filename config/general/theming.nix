@@ -48,7 +48,7 @@
     settings = {
       theme-name = theme.gtk.name;
       icon-theme-name = theme.icons.name;
-      # font-name = "${theme.serif.name} 12";
+      font-name = "${theme.serif.name} 12";
       cursor-theme-name = theme.cursor.name;
       cursor-theme-size = theme.cursor.size;
     };
@@ -60,6 +60,12 @@
   };
 
   xdg.icons.fallbackCursorThemes = [theme.cursor.name];
+
+  qt = {
+    enable = true;
+    style = "gtk2";
+    platformTheme = "gtk2";
+  };
 
   programs.dconf.profiles.user = {
     databases = [
