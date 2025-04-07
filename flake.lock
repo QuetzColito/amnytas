@@ -1060,13 +1060,13 @@
     "ytm-src": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-2Ap0tXwfgDhHJcFUCI+jYEyVTPmSMgS8Givw3YsEzw8=",
+        "narHash": "sha256-s1Pez9/aogKktjxjJ6uEWEBC5MoRF4q2NIsxnKqVmDU=",
         "type": "file",
-        "url": "https://github.com/th-ch/youtube-music/releases/download/v3.7.5/YouTube-Music-3.7.5.AppImage"
+        "url": "https://github.com/th-ch/youtube-music/releases/download/v3.8.0/YouTube-Music-3.8.0.AppImage"
       },
       "original": {
         "type": "file",
-        "url": "https://github.com/th-ch/youtube-music/releases/download/v3.7.5/YouTube-Music-3.7.5.AppImage"
+        "url": "https://github.com/th-ch/youtube-music/releases/download/v3.8.0/YouTube-Music-3.8.0.AppImage"
       }
     },
     "zen-browser": {

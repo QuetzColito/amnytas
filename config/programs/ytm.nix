@@ -7,7 +7,7 @@
   packages = [
     (let
       pname = "YouTube-Music";
-      version = "3.7.5";
+      version = "3.8.0";
 
       src = inputs.ytm-src;
     in
