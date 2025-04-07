@@ -17,7 +17,7 @@
           border_size = 2
 
           col.active_border = rgb(${theme.base0C}) rgb(${theme.base0E}) 45deg
-          col.inactive_border = rgba(595959aa)
+          col.inactive_border = rgb(${theme.base02})
 
           allow_tearing = false
       }
