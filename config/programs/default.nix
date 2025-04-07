@@ -7,6 +7,7 @@
   imports = [
     ./foot.nix
     ./ytm.nix
+    ./discord.nix
     ./gaming.nix
   ];
 
