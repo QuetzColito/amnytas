@@ -48,7 +48,7 @@
     settings = {
       theme-name = theme.gtk.name;
       icon-theme-name = theme.icons.name;
-      font-name = "${theme.serif.name} 12";
+      # font-name = "${theme.serif.name} 12";
       cursor-theme-name = theme.cursor.name;
       cursor-theme-size = theme.cursor.size;
     };
@@ -58,6 +58,7 @@
       @import url("/etc/profiles/per-user/${config.mainUser}/share/themes/${theme.gtk.name}/gtk-4.0/gtk.css");
     '';
   };
+
   xdg.icons.fallbackCursorThemes = [theme.cursor.name];
 
   programs.dconf.profiles.user = {
@@ -67,8 +68,15 @@
         settings = {
           "org/gnome/desktop/interface" = {
             gtk-theme = theme.gtk.name;
-            icon-theme = theme.icons.name;
             color-scheme = "prefer-dark";
+            icon-theme = theme.icons.name;
+            font-name = "${theme.serif.name}, 12";
+            monospace-font-name = "${theme.monospace.name}, 12";
+            cursor-theme = theme.cursor.name;
+            cursor-size = theme.cursor.size;
+          };
+          "org/gnome/shell/extensions/user-theme" = {
+            inherit (theme.gtk) name;
           };
         };
       }
