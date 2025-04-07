@@ -1,6 +1,5 @@
 {
   pkgs,
-  config,
   theme,
   ...
 }: {
@@ -19,7 +18,7 @@
         + "${name}: #${value};")
       theme.colours));
   };
-  users.users.${config.mainUser}.packages = with pkgs; [
+  packages = with pkgs; [
     xorg.xrandr
     xorg.setxkbmap
     brightnessctl

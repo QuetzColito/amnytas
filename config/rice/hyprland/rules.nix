@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  hjem.users.${config.mainUser}.files = {
+  files = {
     ".config/hypr/rules.conf".text =
       hh.mkList "layerrule" [
         # layers are things like the widgets, wallpaper, bar and launcher (basically everything that isnt a window)
@@ -18,7 +18,7 @@
         "blur, notifications"
         "ignorezero, notifications"
       ]
-      + hh.mkList "windowrulev2" [
+      + hh.mkList "windowrule" [
         # why wouldnt you wanna tile >.>
         "tile, class:^DesktopEditors$"
         "tile, class:^pobfrontend$"

@@ -1,6 +1,5 @@
 {
   pkgs,
-  config,
   inputs,
   pkgs-stable,
   ...
@@ -11,7 +10,7 @@
     ./gaming.nix
   ];
 
-  users.users.${config.mainUser}.packages = with pkgs; [
+  packages = with pkgs; [
     # Browser
     inputs.zen-browser.packages.${system}.specific
     brave
