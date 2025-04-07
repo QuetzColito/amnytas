@@ -42,11 +42,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.hjem.follows = "hjem";
     };
-
-    ytm-src = {
-      url = "https://github.com/th-ch/youtube-music/releases/download/v3.8.0/YouTube-Music-3.8.0.AppImage";
-      flake = false;
-    };
   };
 
   outputs = {

@@ -755,7 +755,6 @@
         "nvf": "nvf",
         "spicetify-nix": "spicetify-nix",
         "stylix": "stylix",
-        "ytm-src": "ytm-src",
         "zen-browser": "zen-browser"
       }
     },
@@ -1055,18 +1054,6 @@
         "owner": "numtide",
         "repo": "treefmt-nix",
         "type": "github"
-      }
-    },
-    "ytm-src": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-s1Pez9/aogKktjxjJ6uEWEBC5MoRF4q2NIsxnKqVmDU=",
-        "type": "file",
-        "url": "https://github.com/th-ch/youtube-music/releases/download/v3.8.0/YouTube-Music-3.8.0.AppImage"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://github.com/th-ch/youtube-music/releases/download/v3.8.0/YouTube-Music-3.8.0.AppImage"
       }
     },
     "zen-browser": {

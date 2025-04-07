@@ -39,7 +39,7 @@
           # Alt Browser
           "${modshift},B,exec,[workspace 8] uwsm app -- brave"
           # Music Player
-          "${mod},Y,exec,uwsm app -- YouTube-Music"
+          "${mod},Y,exec,uwsm app -- youtube-music"
           # Discord
           "${mod},D,exec,uwsm app -- vesktop --enable-wayland-ime"
           # Windows Task Manager keybind cause why not

@@ -1,19 +1,10 @@
 {
   theme,
-  inputs,
   pkgs,
   ...
 }: {
   packages = [
-    (let
-      pname = "YouTube-Music";
-      version = "3.8.0";
-
-      src = inputs.ytm-src;
-    in
-      pkgs.appimageTools.wrapType2 {
-        inherit pname version src;
-      })
+    (pkgs.youtube-music.overrideAttrs {version = "3.8.0";})
   ];
   files.".config/stylix/ytm.css".text =
     builtins.concatStringsSep "\n"

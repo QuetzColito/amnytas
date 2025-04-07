@@ -21,7 +21,7 @@
         if config.autostartApps
         then [
           "[workspace 7 silent] uwsm app -- zen"
-          "[workspace 3 silent] uwsm app -- YouTube-Music"
+          "[workspace 3 silent] uwsm app -- youtube-music"
           "[workspace 3 silent] uwsm app -- vesktop --enable-wayland-ime"
         ]
         else []
