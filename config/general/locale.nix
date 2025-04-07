@@ -16,7 +16,7 @@
       LC_TELEPHONE = "de_DE.UTF-8";
       LC_TIME = "de_DE.UTF-8";
     };
-    # Fcitx5
+    # Fcitx5, Disabled cause it fucked up my inputs
     inputMethod = {
       enable = false;
       type = "fcitx5";

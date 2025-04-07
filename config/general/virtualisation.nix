@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  # Qemu for VMs
   environment.systemPackages = with pkgs; [
     qemu
     quickemu

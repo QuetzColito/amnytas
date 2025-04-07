@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     ./locale.nix
-    ./virt.nix
+    ./virtualisation.nix
     ./nvidia.nix
     ./theming.nix
     ./grub

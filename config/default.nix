@@ -3,7 +3,6 @@
   lib,
   config,
   inputs,
-  theme,
   ...
 }: {
   imports = [
@@ -31,13 +30,6 @@
   };
 
   config = {
-    # programs.nix-ld = {
-    #   enable = true;
-    #   libraries = with pkgs; [ ];
-    # };
-    # environment.sessionVariables = {
-    #   DOTNET_ROOT = "${pkgs.dotnet-sdk}";
-    # };
     boot = {
       loader = {
         systemd-boot.enable = true;
