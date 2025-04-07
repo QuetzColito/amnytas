@@ -87,7 +87,6 @@ window {
   border-radius: 15px;
   padding: 15px 13px 15px 25px;
 
-
   .title {
     opacity: 1;
     font-size: 20px;
@@ -199,6 +198,8 @@ window {
 
 .calendar-widget {
   margin: 10px;
+  font-family: "Inter Medium";
+  font-size: 18px;
   border-radius: 15px;
   background-color: $bg-night;
   opacity: $opacity;
@@ -274,7 +275,6 @@ color: $black;
   margin-right: 1em;
 }
 
-
 .calculator-widget {
   margin: 10px;
   min-height: 100px;
@@ -303,7 +303,6 @@ color: $black;
 
 }
 
-
 .button {
     margin: 10px;
     min-height: 100px;
@@ -329,7 +328,6 @@ color: $black;
   .icon {
     font-size: 40px;
   }
-
 
   trough {
     margin: 20px 10px 10px 10px ;
