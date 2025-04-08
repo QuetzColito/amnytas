@@ -30,13 +30,12 @@ $opacity: 1;
 }
 
 window {
-  all: unset; //Unsets everything so you can style everything from scratch
+  all: unset; // Unsets everything so you can style everything from scratch
 }
 
 // Bar
 .bar {
   background-color: $bg-storm;
-  // opacity: 0.5;
 }
 
 .bar-area {
@@ -44,12 +43,14 @@ window {
   font-size: 14px;
   // margin: 5px 11px 0;
   // background-color: $bg-storm;
-  padding: 8px 10px;
+  padding: 4px 10px;
   // border-radius: 7px;
 }
 
 .workspace-entry {
   color: $blue;
+  // kinda hacky, but prevents resize when music is displaying bigger characters like kanji
+  padding: 2px 0;
 }
 
 .separator {
