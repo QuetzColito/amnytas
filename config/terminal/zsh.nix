@@ -22,8 +22,10 @@
     nd = "nix develop -c zsh";
   };
 
-  # no idea how nixos configures zsh
-  files.".zshrc".text = "# Fill this with something so initial config doesnt pop up";
+  files.".zshrc".text = ''
+    # Dont leave this file empty unless you want new user experience :D
+    printf '\033[?12l' # This disables cursor blinking
+  '';
 
   programs.zsh = {
     enable = true;
