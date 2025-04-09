@@ -53,12 +53,15 @@
           { run = 'mpa "$@"', for = "unix" },
       ]
       viewpdf = [
-          { run = 'zathura "$@"', for = "unix" },
+          { run = 'zathura "$@"', desc = "Zathura", for = "unix" },
+      ]
+      term = [
+          { run = 'hyprctl dispatch exec -- foot -D "$1"', desc = "Terminal", for = "unix" },
       ]
       [open]
       rules = [
         # Folder
-        { name = "*/", use = [ "edit", "open", "reveal" ] },
+        { name = "*/", use = [ "edit", "term", "open", "reveal" ] },
         # Text
         { mime = "text/*", use = [ "edit", "reveal" ] },
         # Image
@@ -82,6 +85,7 @@
     ".config/yazi/keymap.toml".text = ''
       [manager]
       prepend_keymap = [
+        { on = "!", run = 'shell "$SHELL" --block', desc = "Open shell here" },
         { on = "z", run = "plugin compress", desc = "Archive selected files" },
         { on = "o", run = "create", desc = "create new file or dir/" },
         { on = "O", run = "create", desc = "create new file or dir/" },
