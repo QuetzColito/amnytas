@@ -21,6 +21,8 @@
   };
 
   packages = with pkgs; [
+    wineWowPackages.full
+    winetricks
     gamescope
     gamemode
     path-of-building
@@ -29,5 +31,9 @@
     heroic
     xivlauncher
     vkbasalt
+    (pkgs.writeShellScriptBin "WuWa"
+      ''
+        WINEDLLOVERRIDES="KRSDKExternal.exe=d" wine ~/My\ Games/jadeite/jadeite.exe 'C:\Program Files\Wuthering Waves\Wuthering Waves Game\Client\Binaries\Win64\Client-Win64-Shipping.exe'
+      '')
   ];
 }
