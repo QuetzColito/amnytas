@@ -6,16 +6,16 @@ https://github.com/user-attachments/assets/5c66eb6f-b504-4857-b43d-9f7cd78b732e
 
 ## Features
 
-- Tokyo Night Color Scheme throughout the system (mostly thanks to stylix)
+- Tokyo Night Color Scheme throughout the system
 - Widgets made with AGS
 - Wallpaper changes depending on Workspace ([see all wallpapers](https://github.com/QuetzColito/amnytas/blob/main/wallpaper/README.md))
 - hyprlock config
-- Nvidia driver setup
+- Nvidia driver setup (although i swapped to amd on my desktop)
 - usable across multiple systems
 - arlecchino grub theme :>
-- a nixvim config (prob not the best, but works for me ^^)
+- a nvf config (also exposed separately as #nvf)
 - pseudofullscreen (in case an application/game (*cough* gw2) doesnt behave in fullscreen)
-- hotkeys for almost anything I wanna do (./home/rice/hyprland/binds.nix)
+- hotkeys for almost anything I wanna do (./config/rice/hyprland/binds.nix)
 - Mozc IME for typing Japanese
 - OwOpacity on everything \~||\~
 
@@ -36,7 +36,7 @@ on nixos x86_64 with a user with a preconfigured password and the script will in
 
 If you wanna know what exactly the script does, it isnt super long and explained in the comment in flake.nix ^^
 
-If you want to add extra config before the install abort the script once it starts nixos-rebuild and edit /hosts/\<yourhost\>/
+If you want to add extra config before the install abort the script once it starts nixos-rebuild and edit /hosts/\<yourhost\>.nix
 
 I tried to document the important/unintuitive parts :3
 
@@ -51,14 +51,12 @@ I tried to document the important/unintuitive parts :3
 | Prompt            | ohmyposh      |
 | Bar/Widgets       | AGS           |
 | Browser           | Zen Browser   |
-| Text Editor       | neovim        |
-| File Manager      | yazi,Thunar   |
+| Text Editor       | neovim (nvf)  |
+| File Manager      | yazi, Thunar  |
 | Notifications     | mako          |
 | image viewer      | imv           |
 | screen recording  | wf-recorder   |
 | music player      | ytm by th-ch  |
-
-
 
 ## Where I stole it all from c:
 
