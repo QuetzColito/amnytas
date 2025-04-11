@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  theme,
+  ...
+}: {
   # Locale
   time.timeZone = "Europe/Berlin";
 
@@ -18,7 +22,7 @@
     };
     # Fcitx5, Disabled cause it fucked up my inputs
     inputMethod = {
-      enable = false;
+      enable = true;
       type = "fcitx5";
       fcitx5 = {
         waylandFrontend = true;
@@ -27,6 +31,15 @@
         ];
       };
     };
+  };
+
+  files.".config/fcitx5/".source = ./fcitx5;
+
+  files.".local/share/fcitx5/themes".source = pkgs.fetchFromGitHub {
+    owner = "ch4xer";
+    repo = "fcitx5-Tokyonight";
+    rev = "d3dcd387a3c995d996187a042b2ff23caa0dc9ae";
+    sha256 = "aLrPNd1vnt8rMzjXaoUSXsW7lQdNEqadyMsFSQX1xeo=";
   };
 
   # Configure keymap in X11 (Other settings may reference this as SPOT)

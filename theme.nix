@@ -132,6 +132,30 @@ pkgs: rec {
       };
   };
 
+  fcitx5 = {
+    name = "Tokyonight-Storm";
+    package = pkgs.stdenv.mkDerivation {
+      pname = "fcitx5-Tokyonight";
+      version = "v1";
+
+      src = pkgs.fetchFromGitHub {
+        owner = "ch4xer";
+        repo = "fcitx5-Tokyonight";
+        rev = "d3dcd387a3c995d996187a042b2ff23caa0dc9ae";
+        sha256 = "aLrPNd1vnt8rMzjXaoUSXsW7lQdNEqadyMsFSQX1xeo=";
+      };
+
+      phases = ["unpackPhase" "installPhase"];
+
+      installPhase = ''
+        runHook preInstall
+        install -dm 755 $out/share/fcitx5/themes
+        cp -r Tokyonight-Storm $out/share/fcitx5/themes/Tokyonight-Storm
+        runHook postInstall
+      '';
+    };
+  };
+
   icons = {
     name = "TokyoNight-SE";
     package = pkgs.stdenv.mkDerivation {
