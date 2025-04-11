@@ -1,7 +1,7 @@
 _: {
   treesitter.enable = true;
   statusline.lualine.enable = true;
-  autocomplete.nvim-cmp.enable = true;
+  autocomplete.blink-cmp.enable = true;
   autopairs.nvim-autopairs.enable = true;
   visuals.rainbow-delimiters.enable = true;
   ui.colorizer.enable = true;
