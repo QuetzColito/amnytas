@@ -294,7 +294,42 @@ function Calendar() {
             showWeekNumbers={true} />
     </box >
 }
+
 const hyprland = Hyprland.get_default()
+
+type InfoProps = {
+    title: string | Binding<string>
+    value: Binding<string>
+}
+
+function Info({title, value}: InfoProps) {
+  return <centerbox css={"padding: 0px 10px;"}>
+    <label
+      className={"grey"}
+      halign={Gtk.Align.START}
+      label={title}
+    />
+    <box/>
+    <label
+      className={"blue"}
+      halign={Gtk.Align.END}
+      truncate
+      label={value}
+    />
+  </centerbox>
+}
+
+function ActiveClient() {
+  return <box vertical homogeneous className={"calendar-widget"}>
+    <label css={"padding: 0px 10px"} truncate className={"purple"} label={bind(hyprland, "focused_client").as(c => c.get_title())} />
+    <Info title={"Class: "} value={ bind(hyprland, "focused_client").as(c => c.get_class() + "")}/>
+    <Info title={"State: "} value={ bind(hyprland, "focused_client").as(c => c.get_fullscreen() ? "Fullscreen": c.get_floating() ? "Floating" : "Tiling" )}/>
+    <Info title={"Monitor: "} value={ bind(hyprland, "focused_monitor").as(m => m.get_name())}/>
+    <Info title={"Resolution: "} value={ bind(hyprland, "focused_monitor").as(m => `${m.get_width()}x${m.get_height()}`)}/>
+    <Info title={"Refresh Rate: "} value={ bind(hyprland, "focused_monitor").as(m => `${m.get_refresh_rate()}Hz`)} />
+    <Info title={"Workspace: "} value={ bind(hyprland, "focused_workspace").as(w => `${w.get_id()}`)}/>
+  </box>
+}
 
 const isVisible = Variable(false);
 const toGdkMonitor = (m: AstalHyprland.Monitor) => {
@@ -321,7 +356,7 @@ export default function Dashboard() {
         visible={bind(isVisible)}
         keymode={Astal.Keymode.ON_DEMAND}
         layer={Astal.Layer.OVERLAY}>
-        <box vertical={true}>
+        <box vertical>
             <Clock />
             <box className="control-buttons" homogeneous={true} spacing={10}>
                 <ControlButton command="shutdown now" color="red" icon=" " />
@@ -329,7 +364,10 @@ export default function Dashboard() {
                 <ControlButton command="hyprctl dispatch exec -- uwsm stop" color="green" icon="󰗽 " />
                 <ControlButton command="hyprctl dispatch exec -- hyprlock --immediate" color="yellow" icon=" " />
             </box>
-            <Calendar />
+            <box className="cal" homogeneous spacing={10}>
+              <Calendar/>
+              <ActiveClient/>
+            </box>
             <box homogeneous={true}>
                 <Timer />
                 <Rando />
