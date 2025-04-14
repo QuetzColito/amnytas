@@ -325,8 +325,8 @@ function ActiveClient() {
     <Info title={"Class: "} value={ bind(hyprland, "focused_client").as(c => c.get_class() + "")}/>
     <Info title={"State: "} value={ bind(hyprland, "focused_client").as(c => c.get_fullscreen() ? "Fullscreen": c.get_floating() ? "Floating" : "Tiling" )}/>
     <Info title={"Monitor: "} value={ bind(hyprland, "focused_monitor").as(m => m.get_name())}/>
-    <Info title={"Resolution: "} value={ bind(hyprland, "focused_monitor").as(m => `${m.get_width()}x${m.get_height()}`)}/>
-    <Info title={"Refresh Rate: "} value={ bind(hyprland, "focused_monitor").as(m => `${m.get_refresh_rate()}Hz`)} />
+    <Info title={"Initial Title: "} value={ bind(hyprland, "focused_client").as(c => c.get_initial_title() + "")}/>
+    <Info title={"Initial Class: "} value={ bind(hyprland, "focused_client").as(c => c.get_initial_class() + "")}/>
     <Info title={"Workspace: "} value={ bind(hyprland, "focused_workspace").as(w => `${w.get_id()}`)}/>
   </box>
 }
