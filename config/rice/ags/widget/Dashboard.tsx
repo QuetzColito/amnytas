@@ -321,13 +321,13 @@ function Info({title, value}: InfoProps) {
 
 function ActiveClient() {
   return <box vertical homogeneous className={"calendar-widget"}>
-    <label css={"padding: 0px 10px"} truncate className={"purple"} label={bind(hyprland, "focused_client").as(c => c.get_title())} />
-    <Info title={"Class: "} value={ bind(hyprland, "focused_client").as(c => c.get_class() + "")}/>
-    <Info title={"State: "} value={ bind(hyprland, "focused_client").as(c => c.get_fullscreen() ? "Fullscreen": c.get_floating() ? "Floating" : "Tiling" )}/>
-    <Info title={"Monitor: "} value={ bind(hyprland, "focused_monitor").as(m => m.get_name())}/>
-    <Info title={"Initial Title: "} value={ bind(hyprland, "focused_client").as(c => c.get_initial_title() + "")}/>
-    <Info title={"Initial Class: "} value={ bind(hyprland, "focused_client").as(c => c.get_initial_class() + "")}/>
-    <Info title={"Workspace: "} value={ bind(hyprland, "focused_workspace").as(w => `${w.get_id()}`)}/>
+    <label css={"padding: 0px 10px"} truncate className={"purple"} label={bind(hyprland, "focused_client").as(c => c?.get_title() ?? "no data")} />
+    <Info title={"Class: "} value={ bind(hyprland, "focused_client").as(c => c?.get_class() ?? "no data")}/>
+    <Info title={"State: "} value={ bind(hyprland, "focused_client").as(c => c?.get_fullscreen() ? "Fullscreen": c?.get_floating() ? "Floating" : "Tiling" )}/>
+    <Info title={"Monitor: "} value={ bind(hyprland, "focused_monitor").as(m => m?.get_name() ?? "no data")}/>
+    <Info title={"Initial Title: "} value={ bind(hyprland, "focused_client").as(c => c?.get_initial_title() ?? "no data")}/>
+    <Info title={"Initial Class: "} value={ bind(hyprland, "focused_client").as(c => c?.get_initial_class() ?? "no data")}/>
+    <Info title={"Workspace: "} value={ bind(hyprland, "focused_workspace").as(w => `${w?.get_id()}`)}/>
   </box>
 }
 
