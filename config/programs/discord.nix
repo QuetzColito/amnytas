@@ -3,485 +3,158 @@
   pkgs,
   ...
 }: {
-  # Not yet 100% Happy with the Theme
   packages = [pkgs.vesktop];
   files = {
-    ".config/vesktop/themes/amnytas.css".text = ''
-        /**
-        * @name base16
-        * @author Stylix
-        * @version 0.0.0
-        * @description Theme configured via NixOS or Home Manager.
-        **/
+    ".config/vesktop/themes/amnytas.theme.css".text = ''
+      /**
+       * @name midnight (base16)
+       * @description a dark, customizable discord theme. based on tokyo night theme (https://github.com/tokyo-night/tokyo-night-vscode-theme).
+       * @author refact0r
+       * @version 2.0.1
+       * @invite nz87hXyvcy
+       * @website https://github.com/refact0r/midnight-discord
+       * @source https://github.com/refact0r/midnight-discord/blob/master/themes/flavors/midnight-tokyo-night.theme.css
+       * @authorId 508863359777505290
+       * @authorLink https://www.refact0r.dev
+      */
 
-        :root {
-            --font-primary: ${theme.sansSerif.name};
-            --font-display: ${theme.sansSerif.name};
-            --font-code: ${theme.monospace.name};
-            --base00: #${theme.base00}; /* Black */
-            --base01: #${theme.base01}; /* Bright Black */
-            --base02: #${theme.base00}; /* Grey */
-            --base03: #${theme.base04}; /* Brighter Grey */
-            --base04: #${theme.base04}; /* Bright Grey */
-            --base05: #${theme.base05}; /* White */
-            --base06: #${theme.base04}; /* Brighter White */
-            --base07: #${theme.base07}; /* Bright White */
-            --base08: #${theme.base08}; /* Red */
-            --base09: #${theme.base09}; /* Orange */
-            --base0A: #${theme.base0A}; /* Yellow */
-            --base0B: #${theme.base0B}; /* Green */
-            --base0C: #${theme.base0C}; /* Cyan */
-            --base0D: #${theme.base0D}; /* Blue */
-            --base0E: #${theme.base0E}; /* Purple */
-            --base0F: #${theme.base0F}; /* Magenta */
+      /* import theme modules */
+      @import url('https://refact0r.github.io/midnight-discord/build/midnight.css');
 
-            --primary-630: var(--base00); /* Autocomplete background */
-            --primary-660: var(--base00); /* Search input background */
-        }
+      body {
+          /* font, change to "" for default discord font */
+          --font: "";
+          --font-primary: ${theme.sansSerif.name};
+          --font-display: ${theme.sansSerif.name};
+          --font-code: ${theme.monospace.name};
 
-          /* Copyright (c) 2025 Cole Schaefer
+          /* sizes */
+          --gap: 5px; /* spacing between panels */
+          --divider-thickness: 2px; /* thickness of unread messages divider and highlighted message borders */
 
-          Permission is hereby granted, free of charge, to any person obtaining a copy
-          of this software and associated documentation files (the "Software"), to deal
-          in the Software without restriction, including without limitation the rights
-          to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-          copies of the Software, and to permit persons to whom the Software is
-          furnished to do so, subject to the following conditions:
+          /* animation/transition options */
+          --animations: on; /* turn off to disable all midnight animations/transitions */
+          --list-item-transition: 0.2s ease; /* transition for list items */
+          --dms-icon-svg-transition: 0.4s ease; /* transition for the dms icon */
 
-          The above copyright notice and this permission notice shall be included in all
-          copies or substantial portions of the Software.
+          /* top bar options */
+          --move-top-bar-buttons: off; /* turn on to move inbox button to the server list (recommend setting top bar height to 24px) */
+          --custom-app-top-bar-height: 36px; /* height of the titlebar/top bar (default is 36px)*/
 
-          THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-          IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-          FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-          AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-          LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-          OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-          SOFTWARE. */
+          /* window controls */
+          --custom-window-controls: on; /* turn off to use discord default window controls */
+          --window-control-size: 14px; /* size of custom window controls */
 
-          .theme-light,
-      .theme-dark,
-      .theme-darker,
-      .theme-midnight,
-      .visual-refresh {
-          --activity-card-background: var(--base01) !important;
-          --background-accent: var(--base03) !important;
-          --background-floating: var(--base02) !important;
-          --background-mentioned-hover: var(--base02) !important;
-          --background-mentioned: var(--base01) !important;
-          --background-message-highlight: var(--base01) !important;
-          --background-message-hover: var(--base00) !important;
-          --background-modifier-accent: var(--base02) !important;
-          --background-modifier-active: var(--base02) !important;
-          --background-modifier-hover: var(--base00) !important;
-          --background-modifier-selected: var(--base01) !important;
-          --background-primary: var(--base00) !important;
-          --background-secondary-alt: var(--base01) !important;
-          --background-secondary: var(--base01) !important;
-          --background-surface-highest: var(--base02) !important;
-          --background-surface-higher: var(--base02) !important;
-          --background-surface-high: var(--base02) !important;
-          --background-tertiary: var(--base00) !important;
-          --background-base-low: var(--base01) !important;
-          --background-base-lower: var(--base00) !important;
-          --background-base-lowest: var(--base00) !important;
-          --background-base-tertiary: var(--base00) !important;
-          --background-code: var(--base02) !important;
-          --background-mod-subtle: var(--base02) !important;
-          --bg-base-secondary: var(--base01) !important;
-          --bg-base-tertiary: var(--base00) !important;
-          --bg-brand: var(--base03) !important;
-          --bg-mod-faint: var(--base01) !important;
-          --bg-overlay-2: var(--base01) !important;
-          --bg-overlay-3: var(--base01) !important;
-          --bg-overlay-color-inverse: var(--base03) !important;
-          --bg-surface-raised: var(--base02) !important;
-          --bg-surface-overlay: var(--base00) !important;
-          --black: var(--base00) !important;
-          --blurple-50: var(--base0B) !important;
-          --border-faint: var(--base02) !important;
-          --brand-05a: var(--base01) !important;
-          --brand-10a: var(--base01) !important;
-          --brand-15a: var(--base01) !important;
-          --brand-260: var(--base0D) !important;
-          --brand-360: var(--base0D) !important;
-          --brand-500: var(--base0F) !important;
-          --brand-560: var(--base01) !important;
-          --button-danger-background: var(--base08) !important;
-          --button-filled-brand-background: var(--base0D) !important;
-          --button-filled-brand-background-hover: var(--base03) !important;
-          --button-filled-brand-text: var(--base00) !important;
-          --button-filled-brand-text-hover: var(--base05) !important;
-          --button-outline-positive-border: var(--base0B) !important;
-          --button-outline-danger-background-hover: var(--base08) !important;
-          --button-outline-danger-border-hover: var(--base08) !important;
-          --button-positive-background: var(--base0B) !important;
-          --button-positive-background-hover: var(--base03) !important;
-          --button-secondary-background: var(--base02) !important;
-          --button-secondary-background-hover: var(--base03) !important;
-          --card-primary-bg: var(--base02) !important;
-          --channel-icon: var(--base04) !important;
-          --channels-default: var(--base04) !important;
-          --channel-text-area-placeholder: var(--base03) !important;
-          --channeltextarea-background: var(--base01) !important;
-          --chat-background-default: var(--base02) !important;
-          --checkbox-background-checked: var(--base0D) !important;
-          --checkbox-border-checked: var(--base0D) !important;
-          --checkbox-background-default: var(--base02) !important;
-          --checkbox-border-default: var(--base03) !important;
-          --control-brand-foreground-new: var(--base0D) !important;
-          --control-brand-foreground: var(--base04) !important;
-          --custom-notice-text: var(--base01) !important;
-          --font-display: var(--font, "gg sans") !important;
-          --font-headline: var(--font, "gg sans") !important;
-          --font-primary: var(--font, "gg sans") !important;
-          --green-330: var(--base0B) !important;
-          --green-360: var(--base0B) !important;
-          --header-primary: var(--base04) !important;
-          --header-secondary: var(--base04) !important;
-          --home-background: var(--base00) !important;
-          --info-warning-foreground: var(--base0A) !important;
-          --input-background: var(--base02) !important;
-          --interactive-active: var(--base05) !important;
-          --interactive-hover: var(--base05) !important;
-          --interactive-muted: var(--base03) !important;
-          --interactive-normal: var(--base05) !important;
-          --mention-background: var(--base03) !important;
-          --mention-foreground: var(--base05) !important;
-          --menu-item-danger-active-bg: var(--base08) !important;
-          --menu-item-danger-hover-bg: var(--base08) !important;
-          --menu-item-default-hover-bg: var(--base03) !important;
-          --message-reacted-background: var(--base02) !important;
-          --message-reacted-text: var(--base05) !important;
-          --modal-background: var(--base01) !important;
-          --modal-footer-background: var(--base00) !important;
-          --notice-background-positive: var(--base0B) !important;
-          --notice-text-positive: var(--base01) !important;
-          --plum-23: var(--base02) !important;
-          --primary-130: var(--base05) !important;
-          --primary-300: var(--base05) !important;
-          --primary-500: var(--base02) !important;
-          --primary-600: var(--base00) !important;
-          --primary-630: var(--base01) !important;
-          --primary-660: var(--base00) !important;
-          --primary-800: var(--base00) !important;
-          --red-400: var(--base08) !important;
-          --red-460: var(--base08) !important;
-          --red-500: var(--base08) !important;
-          --red-630: var(--base08) !important;
-          --red: var(--base08) !important;
-          --scrollbar-auto-thumb: var(--base00) !important;
-          --scrollbar-auto-track: transparent;
-          --scrollbar-thin-thumb: var(--base00) !important;
-          --scrollbar-thin-track: transparent;
-          --search-popout-option-fade: none;
-          --search-popout-option-non-text-color: var(--base07) !important;
-          --status-danger-background: var(--base08) !important;
-          --status-danger: var(--base08) !important;
-          --status-negative: var(--base08) !important;
-          --status-positive-background: var(--base0B) !important;
-          --status-positive-text: var(--base0B) !important;
-          --status-positive: var(--base0B) !important;
-          --status-success: var(--base0B) !important;
-          --status-warning-background: var(--base03) !important;
-          --status-warning: var(--base09) !important;
-          --teal-430: var(--base0C) !important;
-          --text-brand: var(--base07) !important;
-          --text-feedback-positive: var(--base0B) !important;
-          --text-feedback-negative: var(--base08) !important;
-          --text-feedback-warning: var(--base09) !important;
-          --text-feedback-success: var(--base0B) !important;
-          --text-link: var(--base0C) !important;
-          --text-muted: var(--base05) !important;
-          --text-negative: var(--base08) !important;
-          --text-normal: var(--base05) !important;
-          --text-positive: var(--base0B) !important;
-          --text-primary: var(--base05) !important;
-          --text-secondary: var(--base04) !important;
-          --text-tertiary: var(--base03) !important;
-          --text-warning: var(--base09) !important;
-          --textbox-markdown-syntax: var(--base05) !important;
-          --theme-base-color: var(--base00) !important;
-          --white-100: var(--base05) !important;
-          --white-200: var(--base05) !important;
-          --white-500: var(--base05) !important;
-          --white: var(--base05) !important;
-          --yellow-360: var(--base0A) !important;
-          --yellow-300: var(--base0A) !important;
-          --__lottieIconColor: var(--base03) !important;
+          /* dms button icon options */
+          --dms-icon: default; /* set to default to use discord icon, on to use custom icon, off to disable completely */
+          --dms-icon-svg-url: url('https://upload.wikimedia.org/wikipedia/commons/c/c4/Font_Awesome_5_solid_moon.svg'); /* icon svg url. MUST BE A SVG. */
+          --dms-icon-svg-size: 90%; /* size of the svg (css mask-size) */
+          --dms-icon-color-before: var(--icon-secondary); /* normal icon color */
+          --dms-icon-color-after: var(--white); /* icon color when button is hovered/selected */
+
+          /* dms button background options */
+          --dms-background: off; /* off to disable, image to use a background image, color to use a custom color/gradient */
+          --dms-background-image-url: url(""); /* url of the background image */
+          --dms-background-image-size: cover; /* size of the background image (css background-size) */
+          --dms-background-color: linear-gradient(70deg, var(--blue-2), var(--purple-2), var(--red-2)); /* fixed color/gradient (css background) */
+
+          /* background image options */
+          --background-image: off; /* turn on to use a background image */
+          --background-image-url: url(""); /* url of the background image */
+
+          /* transparency/blur options */
+          /* NOTE: TO USE TRANSPARENCY/BLUR, YOU MUST HAVE TRANSPARENT BG COLORS. FOR EXAMPLE: --bg-4: hsla(220, 15%, 10%, 0.7); */
+          --transparency-tweaks: off; /* turn on to remove some elements for better transparency */
+          --remove-bg-layer: off; /* turn on to remove the base --bg-3 layer for use with window transparency (WILL OVERRIDE BACKGROUND IMAGE) */
+          --panel-blur: off; /* turn on to blur the background of panels */
+          --blur-amount: 12px; /* amount of blur */
+          --bg-floating: var(--bg-3); /* you can set this to a more opaque color if floating panels look too transparent */
+
+          /* chatbar options */
+          --flipped-chatbar: on; /* turn on to move the typing indicator above the chatbar */
+          --chatbar-height: 47px; /* height of the chatbar (52px by default, 47px to align it with the user panel) */
+          --chatbar-padding: 8px; /* padding of the chatbar */
+
+          /* other options */
+          --small-user-panel: off; /* turn on to make the user panel smaller like in old discord */
       }
 
-      /*--- Default Folder Color Recolor ---*/
-      .default__459fb {
-          background-color: var(--base07) !important;
-      }
+      /* color options */
+      :root {
+          --colors: on; /* turn off to use discord default colors */
 
-      /*--- Add Friend Button Text Recolor ---*/
-      .addFriend__133bf {
-          color: var(--base00) !important;
-      }
+          /* text colors */
+          --text-0: var(--bg-3); /* text on colored elements */
+          --text-1: #${theme.base05}; /* other normally white text */
+          --text-2: #${theme.base06}; /* headings and important text */
+          --text-3: #${theme.base05}; /* normal text */
+          --text-4: #${theme.base04}; /* icon buttons and channels */
+          --text-5: #${theme.base03}; /* muted channels/chats and timestamps */
 
-      /*--- Close Icon Path Recolor ---*/
-      svg[class^="closeIcon__"] path {
-          fill: var(--base01) !important;
-      }
+          /* background and dark colors */
+          --bg-1: #${theme.base02}; /* dark buttons when clicked */
+          --bg-2: #${theme.base00}; /* dark buttons */
+          --bg-3: #${theme.base00}; /* spacing, secondary elements */
+          --bg-4: #${theme.base01}; /* main background color */
+          --hover: #${theme.base04}20; /* channels and buttons when hovered */
+          --active: #${theme.base04}40; /* channels and buttons when clicked or selected */
+          --active-2: #${theme.base04}30; /* extra state for transparent buttons */
+          --message-hover: #${theme.base00}A0; /* messages when hovered */
 
-      /*--- Listen Along Invite Recolor ---*/
-      .invite__4d3fa {
-          background: var(--base01) !important;
-          border-color: var(--base02) !important;
-      }
+          /* accent colors */
+          --accent-1: var(--blue-1); /* links and other accent text */
+          --accent-2: var(--blue-2); /* small accent elements */
+          --accent-3: var(--blue-3); /* accent buttons */
+          --accent-4: var(--blue-4); /* accent buttons when hovered */
+          --accent-5: var(--blue-5); /* accent buttons when clicked */
+          --accent-new: var(--accent-2); /* stuff that's normally red like mute/deafen buttons */
+          --mention: linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 90%) 40%, transparent); /* background of messages that mention you */
+          --mention-hover: linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 95%) 40%, transparent); /* background of messages that mention you when hovered */
+          --reply: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 90%) 40%, transparent); /* background of messages that reply to you */
+          --reply-hover: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 95%) 40%, transparent); /* background of messages that reply to you when hovered */
 
-      /*--- Activity Card Background Recolor ---*/
-      .card__73069 {
-          background-color: var(--base01);
-      }
+          /* status indicator colors */
+          --online: var(--green-2); /* change to #43a25a for default */
+          --dnd: var(--red-2); /* change to #d83a42 for default */
+          --idle: var(--yellow-2); /* change to #ca9654 for default */
+          --streaming: var(--purple-2); /* change to #593695 for default */
+          --offline: var(--text-4); /* change to #83838b for default offline color */
 
-      div[class^="bar__"] {
-          background-color: var(--base01) !important;
-          border-color: var(--base02) !important;
-      }
-      /*--- Voice Bar Text Recolor ---*/
-      .barText__7aaec {
-          color: var(--base0B) !important;
-      }
-      .unreadIcon__7aaec {
-          color: var(--base0B) !important;
-      }
+          /* border colors */
+          --border-light: #${theme.base00}; /* light border color */
+          --border: #${theme.base00}; /* normal border color */
+          --button-border: #${theme.base00}; /* neutral border color of buttons */
 
-      /*--- Mentions Bar Text Recolor ---*/
-      .mentionsBar__7aaec .barText__7aaec {
-          color: var(--base05) !important;
-      }
+          /* base colors */
+          --red-1: #${theme.base08};
+          --red-2: #${theme.base08};
+          --red-3: #${theme.base08};
+          --red-4: #${theme.base08};
+          --red-5: #${theme.base08};
 
-      /*--- Forum Background Recolor ---*/
-      .container_f369db {
-          background-color: var(--bg-overlay-2);
-      }
+          --green-1: #${theme.base0B};
+          --green-2: #${theme.base0B};
+          --green-3: #${theme.base0B};
+          --green-4: #${theme.base0B};
+          --green-5: #${theme.base0B};
 
-      /*--- Sidebar Icon Recolor ---*/
-      .circleIconButton__5bc7e {
-          color: var(--base04);
-      }
+          --blue-1: #${theme.base0D};
+          --blue-2: #${theme.base0D};
+          --blue-3: #${theme.base0D};
+          --blue-4: #${theme.base0C};
+          --blue-5: #${theme.base0C};
 
-      /*--- Summaries Tag Icon Recolor ---*/
-      .summariesBetaTag_cf58b5 {
-          color: var(--base03);
-      }
+          --yellow-1: #${theme.base0A};
+          --yellow-2: #${theme.base0A};
+          --yellow-3: #${theme.base0A};
+          --yellow-4: #${theme.base0A};
+          --yellow-5: #${theme.base0A};
 
-      /*--- Folder Icon Recolor ---*/
-      div.folderIconWrapper__48112 {
-          background-color: var(--base01) !important;
-      }
-
-      /*--- Voice Chat Action Icon Recolor ---*/
-      path[fill^="rgb(88,101,242)"],
-      path[stroke^="rgb(88,101,242)"] {
-          fill: var(--base05) !important;
-          stroke: var(--base05) !important;
-      }
-      .lottieIcon__5eb9b.lottieIconColors__5eb9b.buttonIcon_e131a9 {
-          --__lottieIconColor: var(--base05) !important;
-      }
-      div[class^="actionButtons"] [class^="button"][class*="buttonColor_"],
-      div[class^="actionButtons"] [class^="button"] [class*="buttonColor_"] {
-          background-color: var(--base02);
-      }
-
-      /* --- Checkbox Recolor (OFF) --- */
-      .container__87bf1 {
-          background-color: var(--base03) !important;
-      }
-      /* --- Checkbox Recolor (ON) --- */
-      .checked__87bf1 {
-          background-color: var(--base0B) !important;
-      }
-      path[fill^="rgba(35, 165, 90, 1)"] {
-          fill: var(--base0B) !important;
-      }
-
-      /* --- Secure Lock Icon Recolor --- */
-      .lockIcon__2666b {
-          display: none;
-      }
-
-      /*--- Status Icon Recolor (DO NOT DISTURB) ---*/
-      svg[fill^="#f23f43"],
-      rect[fill^="#f23f43"] {
-          fill: var(--status-danger) !important;
-      }
-      /*--- Status Icon Recolor (IDLE) ---*/
-      svg[fill^="#f0b232"],
-      rect[fill^="#f0b232"] {
-          fill: var(--status-warning) !important;
-      }
-      /*--- Status Icon Recolor (ONLINE) ---*/
-      path[fill^="#23a55a"],
-      svg[fill^="#23a55a"],
-      rect[fill^="#23a55a"] {
-          fill: var(--status-positive) !important;
-      }
-      /*--- Status Icon Recolor (OFFLINE) ---*/
-      svg[fill^="#80848e"],
-      rect[fill^="#80848e"] {
-          fill: var(--base03) !important;
-      }
-
-      /*--- Default Color Swap ---*/
-      path[fill^="currentColor"],
-      svg[fill^="currentColor"],
-      rect[fill^="currentColor"] {
-          fill: var(--base06) !important;
-      }
-      path[d^="M12 22a10 10 0 1"] {
-          fill: var(--base02) !important;
-      }
-
-      /*--- Voice Chat Icon Badge Recolor ---*/
-      div[class^="iconBadge"] path[d^="M12 3a1 1 0 0 0-1-1h-.06"],
-      div[class^="iconBadge"] path[d^="M15.16 16.51c-.57.28"] {
-          fill: var(--base05) !important;
-      }
-
-      /*--- Nitro Icon Recolor ---*/
-      .premiumLabel_e681d1 svg path,
-      svg.guildBoostBadge__5dba5 path {
-          fill: var(--base0E) !important;
-      }
-
-      /*--- Server Booster Icon Recolor ---*/
-      .premiumIcon__5d473 {
-          color: var(--base0F);
-      }
-
-      /*--- Call Container Recolor ---*/
-      .callContainer_cb9592 {
-          background-color: var(--base00);
-      }
-      .gradientContainer_bfe55a {
-          background-image: var(--base00);
-      }
-
-      /*--- Store Gradient Recolors ---*/
-      .gradient_e9ef78 {
-          background: var(--base01) !important;
-      }
-      .bannerGradient__955a3 {
-          background: var(--base00) !important;
-      }
-
-      /*--- Increase Text Legibility ---*/
-      * {
-          text-rendering: optimizeLegibility !important;
-      }
-
-      /*--- Codeblock Syntax Highlighting Recolor ---*/
-      .hljs-attr {
-          color: var(--base06) !important;
-      }
-      .hljs-attribute {
-          color: var(--base06) !important;
-      }
-      .hljs-number {
-          color: var(--base06) !important;
-      }
-      .hljs-selector-class {
-          color: var(--base06) !important;
-      }
-      .hljs-comment {
-          color: var(--base03) !important;
-      }
-      .hljs-subst {
-          color: var(--base0D) !important;
-      }
-      .hljs-selector-pseudo {
-          color: var(--base0B) !important;
-      }
-      .hljs-section {
-          color: var(--base0B) !important;
-      }
-      .hljs-keyword {
-          color: var(--base08) !important;
-      }
-      .hljs-variable {
-          color: var(--base08) !important;
-      }
-      .hljs-meta {
-          color: var(--base03) !important;
-      }
-      .hljs-built_in {
-          color: var(--base09) !important;
-      }
-      .hljs-string {
-          color: var(--base0B) !important;
-      }
-      .hljs-title {
-          color: var(--base0E) !important;
-      }
-
-      /*--- Visual Refresh Recolor ---*/
-      /*--- BIG WORK IN PROGRESS. DISCORD MADE SOME BIG CHANGES. ---*/
-      .visual-refresh {
-          div[class^="autocomplete__"] {
-              background-color: var(--base02) !important;
-          }
-          path[fill^="rgba(88, 101, 242, 1)"] {
-              fill: var(--base0B) !important;
-          }
-          div[class^="topicsPillContainer"] {
-              --bg-overlay-2: var(--base02) !important;
-          }
-          .bg__960e4 {
-              background: var(--base00) !important;
-          }
-          .wrapper_ef3116 {
-              background-color: var(--base00) !important;
-          }
-          .sidebar_c48ade {
-              background-color: var(--base00) !important;
-          }
-          .searchBar__97492 {
-              background-color: var(--base02) !important;
-          }
-          .channelTextArea_f75fb0 {
-              background: var(--base02) !important;
-          }
-          .chatContent_f75fb0 {
-              background-color: var(--base01) !important;
-          }
-          .members_c8ffbb,
-          .member_c8ffbb {
-              background: var(--base00) !important;
-          }
-          .voiceBar__7aaec {
-              background-color: var(--base02) !important;
-          }
-          button.button__67645.redGlow__67645,
-          span.button__67645.redGlow__67645 {
-              background-color: var(--base02) !important;
-          }
-
-          /*--- Status Icon Recolor (DO NOT DISTURB) ---*/
-          svg[fill^="#d83a42"],
-          rect[fill^="#d83a42"] {
-              fill: var(--status-danger) !important;
-          }
-          /*--- Status Icon Recolor (IDLE) ---*/
-          svg[fill^="#ca9654"],
-          rect[fill^="#ca9654"] {
-              fill: var(--status-warning) !important;
-          }
-          /*--- Status Icon Recolor (ONLINE) ---*/
-          path[fill^="#43a25a"],
-          svg[fill^="#43a25a"],
-          rect[fill^="#43a25a"] {
-              fill: var(--status-positive) !important;
-          }
-          /*--- Status Icon Recolor (OFFLINE) ---*/
-          svg[fill^="#83838b"],
-          rect[fill^="#83838b"] {
-              fill: var(--base03) !important;
-          }
+          --purple-1: #${theme.base0E};
+          --purple-2: #${theme.base0E};
+          --purple-3: #${theme.base0E};
+          --purple-4: #${theme.base0E};
+          --purple-5: #${theme.base0E};
       }
     '';
   };
