@@ -1,10 +1,6 @@
 @use './../../../../.config/stylix/colours.scss' as stylix;
-// $bg-night: stylix.$base00;
 $fg-light: stylix.$base06;
-/* $bg-storm: #24283b; */
-$bg-storm: rgba(26, 27, 38, 0.75);
-$bg-night: rgba(26, 27, 38, 0.75);
-// $bg-storm: stylix.$base01;
+$bg: rgba(stylix.$base01, 0.75);
 $bg-select: stylix.$base02;
 $text: stylix.$base05;
 $black: stylix.$base04;
@@ -35,14 +31,14 @@ window {
 
 // Bar
 .bar {
-  background-color: $bg-storm;
+  background-color: $bg;
 }
 
 .bar-area {
   all: unset;
   font-size: 14px;
   // margin: 5px 11px 0;
-  // background-color: $bg-storm;
+  // background-color: $bg;
   padding: 4px 10px;
   // border-radius: 7px;
 }
@@ -83,7 +79,7 @@ window {
 
 .music-widget {
   margin: 10px;
-  background-color: $bg-night;
+  background-color: $bg;
   opacity: $opacity;
   border-radius: 15px;
   padding: 15px 13px 15px 25px;
@@ -124,7 +120,7 @@ window {
     }
 
     scale trough {
-      background-color: $bg-storm;
+      background-color: $bg;
       border-radius: 50px;
       min-height: 15px;
       min-width: 180px;
@@ -162,7 +158,7 @@ window {
   margin: 10px 320px;
   min-height: 50px;
   border-radius: 15px;
-  background-color: $bg-night;
+  background-color: $bg;
   opacity: $opacity;
   padding: 3px;
   font-size: 50px;
@@ -182,7 +178,7 @@ window {
   margin: 10px;
   min-height: 100px;
   border-radius: 15px;
-  background-color: $bg-night;
+  background-color: $bg;
   opacity: $opacity;
   padding: 3px;
   font-size: 25px;
@@ -202,7 +198,7 @@ window {
   font-family: "Inter Medium";
   font-size: 18px;
   border-radius: 15px;
-  background-color: $bg-night;
+  background-color: $bg;
   opacity: $opacity;
   padding: 3px;
 
@@ -244,7 +240,7 @@ color: $black;
   margin: 10px;
   min-height: 100px;
   border-radius: 15px;
-  background-color: $bg-night;
+  background-color: $bg;
   opacity: $opacity;
   padding: 3px;
   font-size: 40px;
@@ -257,7 +253,7 @@ color: $black;
       border-radius: 10px;
       .dot {
         font-size: 13px;
-        background-color: $bg-night;
+        background-color: $bg;
         border-radius: 100px;
         margin: 5px;
         min-height: 10px;
@@ -280,7 +276,7 @@ color: $black;
   margin: 10px;
   min-height: 100px;
   border-radius: 15px;
-  background-color: $bg-night;
+  background-color: $bg;
   opacity: $opacity;
   padding: 3px;
   color: $green;
@@ -295,7 +291,7 @@ color: $black;
 
   entry {
     all: unset;
-    background-color: $bg-storm;
+    background-color: $bg;
     border-radius: 10px;
     margin: 5px;
     padding: 0px 10px;
@@ -309,7 +305,7 @@ color: $black;
     min-height: 100px;
     /* width: 400px; */
     border-radius: 15px;
-    background-color: $bg-night;
+    background-color: $bg;
     font-size: 50px;
     opacity: $opacity;
 }
@@ -319,7 +315,7 @@ color: $black;
   padding: 10px 5px;
   min-height: 50px;
   border-radius: 15px;
-  background-color: $bg-night;
+  background-color: $bg;
   min-width: 195px;
   font-size: 25px;
   opacity: $opacity;
@@ -332,7 +328,7 @@ color: $black;
 
   trough {
     margin: 20px 10px 10px 10px ;
-    background-color: $bg-storm;
+    background-color: $bg;
     border-radius: 50px;
     min-width: 30px;
     min-height: 20px;
