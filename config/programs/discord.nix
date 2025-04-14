@@ -27,6 +27,8 @@
           --font-primary: ${theme.sansSerif.name};
           --font-display: ${theme.sansSerif.name};
           --font-code: ${theme.monospace.name};
+          font-variant-ligatures: none;
+          font-feature-settings: "case" off;
 
           /* sizes */
           --gap: 5px; /* spacing between panels */
