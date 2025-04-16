@@ -13,7 +13,7 @@
 
   packages = with pkgs; [
     # Browser
-    inputs.zen-browser.packages.${system}.specific
+    (import ./zen.nix pkgs)
     brave
 
     # Util

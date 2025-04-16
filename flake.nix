@@ -6,7 +6,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
-    zen-browser.url = "github:allxrise/zen-browser-flake";
     ags.url = "github:Aylur/ags";
     stylix.url = "github:danth/stylix";
     spicetify-nix = {
