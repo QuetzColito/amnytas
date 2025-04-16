@@ -21,6 +21,12 @@
       /* import theme modules */
       @import url('https://refact0r.github.io/midnight-discord/build/midnight.css');
 
+      .visual-refresh {
+        .bar_c38106 {
+          display: none !important;
+        }
+      }
+
       body {
           /* font, change to "" for default discord font */
           --font: "";
@@ -41,7 +47,7 @@
 
           /* top bar options */
           --move-top-bar-buttons: off; /* turn on to move inbox button to the server list (recommend setting top bar height to 24px) */
-          --custom-app-top-bar-height: 36px; /* height of the titlebar/top bar (default is 36px)*/
+          --custom-app-top-bar-height: 5px; /* height of the titlebar/top bar (default is 36px)*/
 
           /* window controls */
           --custom-window-controls: on; /* turn off to use discord default window controls */
@@ -86,7 +92,7 @@
           --colors: on; /* turn off to use discord default colors */
 
           /* text colors */
-          --text-0: var(--bg-3); /* text on colored elements */
+          --text-0: #${theme.base03}; /* text on colored elements */
           --text-1: #${theme.base05}; /* other normally white text */
           --text-2: #${theme.base06}; /* headings and important text */
           --text-3: #${theme.base05}; /* normal text */
