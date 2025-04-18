@@ -4,6 +4,9 @@
   hardware.nvidia.open = lib.mkForce false;
 
   system.stateVersion = "23.11"; # Did you read the comment?
+
+  autostartApps = true;
+
   monitors = [
     {
       name = "HDMI-A-1";
