@@ -1,6 +1,7 @@
 {
   config,
   theme,
+  lib,
   ...
 }: {
   files = {
@@ -53,10 +54,10 @@
       }
 
       input {
-          kb_layout = eu
-          kb_variant =
+          kb_layout = ${config.services.xserver.xkb.layout}
+          kb_variant = ${config.services.xserver.xkb.variant}
           kb_model =
-          kb_options = caps:escape,lv3:switch
+          kb_options = ${config.services.xserver.xkb.options}
           kb_rules =
 
           follow_mouse = 1
@@ -70,18 +71,25 @@
       }
 
       misc {
-        font_family = "Inter"
+        font_family = "${theme.sansSerif.name}"
         disable_splash_rendering = true
         disable_hyprland_logo = true
         mouse_move_enables_dpms = true # enable dpms on mouse/touchpad action
         key_press_enables_dpms = true # enable dpms on keyboard action
       }
 
+      cursor {
+        no_hardware_cursors = ${
+        if config.isNvidia
+        then "1"
+        else "2"
+      }
+      }
+
       gestures {
           workspace_swipe = true
           workspace_swipe_invert = true
       }
-
     '';
 
     ".config/uwsm/env".text = builtins.concatStringsSep "\nexport " ([
