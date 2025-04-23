@@ -37,7 +37,6 @@ function Recording() {
     />
 }
 
-
 function Audio() {
     const speaker = Wp.get_default()?.audio.defaultSpeaker!
 
@@ -48,7 +47,7 @@ function Audio() {
             if (e.button === Astal.MouseButton.PRIMARY) {
                 speaker.set_mute(!speaker.mute)
             } else {
-                hyprland.message_async('dispatch exec pavucontrol', null)
+                hyprland.message_async('dispatch exec pwvucontrol', null)
             }
         }}
         onScroll={(_, e) => speaker.set_volume(e.delta_y < 0 ? speaker.volume + 0.05 : speaker.volume - 0.05)}
@@ -58,8 +57,6 @@ function Audio() {
         />
     </eventbox>
 }
-
-
 
 function Music() {
     const mpris = Mpris.get_default()

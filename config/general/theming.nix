@@ -58,6 +58,7 @@ in {
 
   # Applying the Theme to as many places as possible >.>
   # The main one used are apparently the dconf settings and GTK_THEME
+  # I read on reddit that setting GTK_THEME breaks libadwaita apps, but didnt have issues yet
   environment = {
     etc."xdg/gtk-2.0/gtkrc".text = gtk2conf;
     etc."xdg/gtk-3.0/settings.ini".text = gtk3conf;

@@ -1,8 +1,4 @@
-{
-  pkgs,
-  theme,
-  ...
-}: {
+{pkgs, ...}: {
   # Locale
   time.timeZone = "Europe/Berlin";
 
@@ -20,7 +16,7 @@
       LC_TELEPHONE = "de_DE.UTF-8";
       LC_TIME = "de_DE.UTF-8";
     };
-    # Fcitx5, Disabled cause it fucked up my inputs
+    # Fcitx5, still not 100% happy, but works for now
     inputMethod = {
       enable = true;
       type = "fcitx5";
@@ -35,6 +31,7 @@
 
   files.".config/fcitx5/".source = ./fcitx5;
 
+  # TODO: add this to theme and connect it to base16
   files.".local/share/fcitx5/themes".source = pkgs.fetchFromGitHub {
     owner = "ch4xer";
     repo = "fcitx5-Tokyonight";
@@ -42,7 +39,7 @@
     sha256 = "aLrPNd1vnt8rMzjXaoUSXsW7lQdNEqadyMsFSQX1xeo=";
   };
 
-  # Configure keymap in X11 (Other settings may reference this as SPOT)
+  # Configure keymap in X11 (Other settings may reference this as single source of truth)
   services.xserver = {
     exportConfiguration = true;
     xkb = {
