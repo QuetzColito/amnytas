@@ -5,17 +5,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
-    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     ags.url = "github:Aylur/ags";
-    stylix.url = "github:danth/stylix";
-    spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixcord = {
-      url = "github:kaylorben/nixcord";
-    };
-
     nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,12 +24,6 @@
     hjem = {
       url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    hjem-rum = {
-      url = "github:snugnug/hjem-rum";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.hjem.follows = "hjem";
     };
   };
 
