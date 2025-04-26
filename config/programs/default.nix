@@ -1,6 +1,5 @@
 {
   pkgs,
-  inputs,
   pkgs-stable,
   ...
 }: {
@@ -52,6 +51,7 @@
 
     # Other
     jetbrains.idea-community
+    vscodium
     appimage-run
   ];
 }
