@@ -6,6 +6,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     ags.url = "github:Aylur/ags";
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";

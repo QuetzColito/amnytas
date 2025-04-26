@@ -8,6 +8,7 @@
     ./ytm.nix
     ./discord.nix
     ./gaming.nix
+    ./spotify.nix
   ];
 
   packages = with pkgs; [
@@ -29,7 +30,6 @@
 
     # Audio
     audacity
-    spotify
 
     # Video
     mpv
