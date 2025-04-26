@@ -11,7 +11,7 @@ in {
   # dont remove
   security.pam.services.hyprlock = {};
 
-  files.".config/hypr/hyprlock.conf".text =
+  files.".config/hypr/hyprlock.conf".text = with theme;
     ''
       general {
         grace = 60
@@ -23,11 +23,13 @@ in {
         dots_size = 0.33 # Scale of input-field height, 0.2 - 0.8
         dots_spacing = 0.15 # Scale of dots' absolute size, 0.0 - 1.0
         dots_center = false
-        outer_color = rgba(40,40,40,0.0)
-        inner_color = rgba(200, 200, 200, 0.8)
-        font_color = rgba(10, 10, 10, 0.8)
+        outer_color = rgb(${base03});
+        inner_color = rgb(${base00});
+        font_color = rgb(${base05});
+        fail_color = rgb(${base08});
+        check_color = rgb(${base0A});
         fade_on_empty = false
-        placeholder_text =  # Text rendered in the input box when it's empty.
+        placeholder_text = # Text rendered in the input box when it's empty.
         hide_input = false
 
         position = ${anchored 0 (-125)}
@@ -38,7 +40,7 @@ in {
       shape {
         monitor =
         size = 320, 2160
-        color = rgba(${theme.base01}A0)
+        color = rgba(${base01}A0)
         position = 0, 0
         halign = right
         valign = top
@@ -48,7 +50,7 @@ in {
         # DATE #
         monitor =
         text = cmd[update:1000] echo "<span>$(date '+%A, %d %B')</span>"
-        color = rgba(250, 250, 250, 0.8)
+        color = rgb(${base05})
         font_size = 12
         font_family = Inter Display
 
@@ -61,7 +63,7 @@ in {
         # TIME #
         monitor =
         text = cmd[update:1000] echo "<span>$(date '+%H:%M')</span>"
-        color = rgba(250, 250, 250, 0.8)
+        color = rgb(${base05})
         font_size = 75
         font_family = Inter Display Bold
 
@@ -74,7 +76,7 @@ in {
         # USER #
         monitor =
         text =    $USER
-        color = rgba(200, 200, 200, 1.0)
+        color = rgb(${base05})
         font_size = 18
         font_family = Inter Display Medium
 
