@@ -15,9 +15,8 @@
     e = "hyprctl dispatch exec --";
     lz = "lazygit";
     v = "nvim";
-    ns = "sudo nixos-rebuild switch --flake ~/amnytas";
+    ns = "nh os switch";
     nu = "nix flake update --flake ~/amnytas --commit-lock-file";
-    start = "uwsm app --";
     "nix-shell" = "nix-shell --command zsh";
     nd = "nix develop -c zsh";
   };
