@@ -75,6 +75,7 @@ in {
     ".config/gtk-4.0/gtk.css".text = gtk4css;
   };
 
+  programs.dconf.enable = true;
   programs.dconf.profiles.user = {
     databases = [
       {

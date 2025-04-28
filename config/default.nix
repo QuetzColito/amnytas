@@ -64,6 +64,12 @@
       settings.experimental-features = ["nix-command" "flakes"];
       nixPath = ["nixpkgs=${inputs.nixpkgs}"];
     };
+    programs.nh = {
+      enable = true;
+      clean.enable = true;
+      clean.extraArgs = "--keep-since 4d --keep 3";
+      flake = "/home/${config.mainUser}/amnytas";
+    };
 
     services = {
       # Sound
@@ -92,28 +98,5 @@
       wget
       git
     ];
-
-    programs = {
-      dconf.enable = true; # gnome-related
-
-      nh = {
-        enable = true;
-        clean.enable = true;
-        clean.extraArgs = "--keep-since 4d --keep 3";
-        flake = "/home/${config.mainUser}/amnytas";
-      };
-
-      # Thunar
-      xfconf.enable = true;
-      thunar = {
-        enable = true;
-        plugins = with pkgs.xfce; [
-          thunar-archive-plugin
-          thunar-media-tags-plugin
-          thunar-volman
-          tumbler
-        ];
-      };
-    };
   };
 }

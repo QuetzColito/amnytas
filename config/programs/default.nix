@@ -11,6 +11,19 @@
     ./spotify.nix
   ];
 
+  programs = {
+    xfconf.enable = true; # Also for Thunar
+    thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [
+        thunar-archive-plugin
+        thunar-media-tags-plugin
+        thunar-volman
+        tumbler
+      ];
+    };
+  };
+
   packages = with pkgs; [
     # Browser
     (import ./zen.nix pkgs)
