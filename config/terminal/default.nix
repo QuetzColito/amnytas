@@ -46,6 +46,7 @@ in {
         "lang"
         ''nix flake init --template "https://flakehub.com/f/the-nix-way/dev-templates/*#$@"'')
       (writeShellScriptBin "try" "nix run nixpkgs#$@")
+      (writeShellScriptBin "bios" "systemctl reboot --firmware-setup")
       (writers.writeRustBin "filter-tofi" {} ''
         use std::env;
         fn main() {
