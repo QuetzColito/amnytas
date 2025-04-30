@@ -28,6 +28,8 @@
           "${mod},SPACE,exec,uwsm app -- $(my-tofi-run)"
           # Terminal
           "${mod},RETURN,exec,foot"
+          # Terminal on Special Workspace
+          ''${modshift},RETURN,exec,hyprctl workspaces -j | jq 'map(.name) | contains(["special:terminal"]) | if . | not then error end' || hyprctl dispatch exec [workspace special:terminal] foot; hyprctl dispatch togglespecialworkspace terminal''
           # Settings
           "${mod},S,exec,[workspace 5] uwsm app -- foot -D ~/amnytas nvim ~/amnytas"
           # File Manager
