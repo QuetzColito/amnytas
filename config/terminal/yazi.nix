@@ -71,7 +71,7 @@
         # Audio
         { mime = "audio/*", use = [ "listen", "reveal" ] },
         # Archive
-        { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", use = [ "extract", "reveal" ] },
+        { name = "*.{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", use = [ "extract", "reveal" ] },
         # JSON
         { mime = "application/{json,ndjson}", use = [ "edit", "reveal" ] },
         { mime = "application/pdf", use = [ "viewpdf", "open", "reveal" ] },
