@@ -31,8 +31,8 @@ in {
     ''
     ''
     + (hh.mkList "preload"
-      (map ({name, ...}: PathByMonitor name)
-        config.monitors))
+      (map ({path, ...}: path)
+        wallpapers))
     + (hh.mkList "wallpaper"
       (map ({name, ...}: CmdByMonitor name)
         config.monitors));
@@ -60,7 +60,7 @@ in {
         }:
           writeShellScriptBin
           "hyprpaperswitchw${builtins.toString id}"
-          "hyprctl hyprpaper reload ${command}"
+          "hyprctl hyprpaper wallpaper ${command}"
       )
       wallpapers);
 }
