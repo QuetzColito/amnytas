@@ -23,6 +23,7 @@
     };
 
     services.getty.autologinUser = config.mainUser;
+    services.getty.autologinOnce = true;
 
     environment.loginShellInit = ''
       if uwsm check may-start; then
