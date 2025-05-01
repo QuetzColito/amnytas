@@ -22,7 +22,7 @@
   };
 
   files.".zshrc".text = ''
-    # Dont leave this file empty unless you want new user experience :D
+    # Dont leave this empty
     printf '\033[?12l' # This disables cursor blinking
   '';
 
@@ -32,8 +32,9 @@
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
 
+    promptInit = ''eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/config.toml)" '';
+
     histSize = 10000;
-    promptInit = ''eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/config.toml)"'';
 
     ohMyZsh = {
       enable = true;
