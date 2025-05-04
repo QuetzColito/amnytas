@@ -29,7 +29,7 @@
           # Terminal
           "${mod},RETURN,exec,foot"
           # Terminal on Special Workspace
-          ''${modshift},RETURN,exec,hyprctl workspaces -j | jq 'map(.name) | contains(["special:terminal"]) | if . | not then error end' || hyprctl dispatch exec [workspace special:terminal] foot; hyprctl dispatch togglespecialworkspace terminal''
+          "${modshift},RETURN,exec,toggleterm"
           # Settings
           "${mod},S,exec,[workspace 5] uwsm app -- foot -D ~/amnytas nvim ~/amnytas"
           # File Manager
@@ -123,8 +123,8 @@
         ",XF86AudioPlay,exec,playerctl play-pause"
         ",XF86AudioPrev,exec,playerctl previous"
         ",XF86AudioNext,exec,playerctl next"
-        ",XF86AudioRaiseVolume, exec, sound-up"
-        ",XF86AudioLowerVolume, exec, sound-down"
+        ",XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+        ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
         ",XF86AudioMute,exec,playerctl play-pause" # remap epomaker knob to play/plause
         # ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
       ])

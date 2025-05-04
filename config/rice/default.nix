@@ -56,6 +56,21 @@
       ''
     )
     (
+      writeShellScriptBin "toggleterm" ''
+        exists=$(hyprctl workspaces -j | jq 'map(.name) | contains(["special:terminal"])')
+        hyprctl dispatch togglespecialworkspace terminal
+
+        [ "$exists" = "true" ] && exit
+
+        # spawn terminal
+        hyprctl dispatch exec [workspace special:terminal] foot
+
+        # ensure focus
+        socat -U - UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock | grep -q 'openwindow>>.*,.*,foot,foot'
+        hyprctl dispatch focuswindow address:$(hyprctl clients -j | jq -r 'map(select(.workspace.name == "special:terminal"))[0].address')
+      ''
+    )
+    (
       writeShellScriptBin "wf-recorder"
       ''ags request startRecording; ${lib.getExe wf-recorder} "$@"''
     )
