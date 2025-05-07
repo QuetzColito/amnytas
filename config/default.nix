@@ -83,7 +83,8 @@
       };
 
       # Flatpak, although i actually dont need it anymore rn
-      flatpak.enable = true;
+      # Disabled because it made me rebuild a broken xwayland version???????
+      # flatpak.enable = true;
 
       # Secrets Manager
       gnome.gnome-keyring.enable = true;
