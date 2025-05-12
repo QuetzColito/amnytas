@@ -4,6 +4,7 @@
     imv
     mpv
     zathura
+    ouch
     (writeShellScriptBin "imvs"
       ''
         imv $1 -W $(magick identify -format %w $1) -H$(magick identify -format %h $1)
@@ -14,11 +15,11 @@
       '')
   ];
   files = {
-    ".config/yazi/plugins/compress.yazi".source = pkgs.fetchFromGitHub {
-      owner = "KKV9";
-      repo = "compress.yazi";
-      rev = "60b24af";
-      sha256 = "sha256-Yf5R3H8t6cJBMan8FSpK3BDSG5UnGlypKSMOi0ZFqzE=";
+    ".config/yazi/plugins/ouch.yazi".source = pkgs.fetchFromGitHub {
+      owner = "ndtoan96";
+      repo = "ouch.yazi";
+      tag = "v0.5.0";
+      sha256 = "p3Xc5+rv3280qwV1H6nrhlkMnK6MWAqv/6Hvf4chtHY=";
     };
     ".config/yazi/theme.toml".text = ''
       [mode]
@@ -81,12 +82,23 @@
         # Fallback
         { name = "*", use = [ "open", "reveal" ] },
       ]
+      [plugin]
+      prepend_previewers = [
+        # Archive previewer
+        { mime = "application/*zip",            run = "ouch" },
+        { mime = "application/x-tar",           run = "ouch" },
+        { mime = "application/x-bzip2",         run = "ouch" },
+        { mime = "application/x-7z-compressed", run = "ouch" },
+        { mime = "application/x-rar",           run = "ouch" },
+        { mime = "application/x-xz",            run = "ouch" },
+        { mime = "application/xz",              run = "ouch" },
+      ]
     '';
     ".config/yazi/keymap.toml".text = ''
       [manager]
       prepend_keymap = [
         { on = "!", run = 'shell "$SHELL" --block', desc = "Open shell here" },
-        { on = "z", run = "plugin compress", desc = "Archive selected files" },
+        { on = "z", run = "plugin ouch", desc = "Compress with ouch"},
         { on = "o", run = "create", desc = "create new file or dir/" },
         { on = "O", run = "create", desc = "create new file or dir/" },
         { on = "e", run = "rename --empty=ext --cursor=end", desc = "Rename at End" },
