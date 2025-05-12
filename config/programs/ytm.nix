@@ -3,8 +3,8 @@
   pkgs,
   ...
 }: {
-  packages = [
-    (pkgs.youtube-music.overrideAttrs {version = "3.8.0";})
+  packages = with pkgs; [
+    youtube-music
   ];
   files.".config/stylix/ytm.css".text =
     builtins.concatStringsSep "\n"

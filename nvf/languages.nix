@@ -2,7 +2,6 @@ _: {
   # global opts
   enableExtraDiagnostics = true;
   enableFormat = true;
-  enableLSP = true;
   enableTreesitter = true;
 
   # Languages
