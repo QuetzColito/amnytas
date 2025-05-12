@@ -36,7 +36,8 @@
     exiftool
 
     # Comms
-    pkgs-stable.rustdesk-flutter
+    # pkgs-stable.rustdesk-flutter
+    rustdesk-flutter
     discord-canary
     thunderbird
     vesktop
