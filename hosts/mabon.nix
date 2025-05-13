@@ -6,23 +6,25 @@
 
   # Optimus prime because laptop
   hardware.nvidia.prime = {
-    offload = {
-      enable = true;
-      enableOffloadCmd = true;
-    };
+    # offload = {
+    #   enable = true;
+    #   enableOffloadCmd = true;
+    # };
+
+    sync.enable = true;
 
     intelBusId = "PCI:0:2:0";
     nvidiaBusId = "PCI:1:0:0";
   };
 
   packages = with pkgs; [
-    (writeShellScriptBin "nvidia-offload" ''
-      export __NV_PRIME_RENDER_OFFLOAD=1
-      export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
-      export __GLX_VENDOR_LIBRARY_NAME=nvidia
-      export __VK_LAYER_NV_optimus=NVIDIA_only
-      exec "$@"
-    '')
+    # (writeShellScriptBin "nvidia-offload" ''
+    #   export __NV_PRIME_RENDER_OFFLOAD=1
+    #   export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
+    #   export __GLX_VENDOR_LIBRARY_NAME=nvidia
+    #   export __VK_LAYER_NV_optimus=NVIDIA_only
+    #   exec "$@"
+    # '')
     acpi
   ];
 
@@ -44,7 +46,8 @@
     }
     {
       name = "HDMI-A-1";
-      coords = "-1920x0";
+      # config = "HDMI-A-1,1920x1080@119.88Hz,-1920x0,1";
+      coords = "-2560x0";
       workspaces = [4 5 6];
     }
   ];
