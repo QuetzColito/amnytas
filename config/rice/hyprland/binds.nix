@@ -47,7 +47,7 @@
           # Windows Task Manager keybind cause why not
           "CTRL ALT,DELETE,exec,uwsm app -- foot btop -p 0"
           # Toggle Japanese Input
-          "${mod},I,exec,killall -r fcitx5 || fcitx5"
+          "${mod},I,exec,if systemctl --user is-active --quiet app-org.fcitx.Fcitx5@autostart.service; then systemctl --user stop app-org.fcitx.Fcitx5@autostart.service; else systemctl --user start app-org.fcitx.Fcitx5@autostart.service; fi"
           # Having mozc running in the background sometimes blocks some input
           # which is a problem for gaming,
           # so i only activate when i need it and have mozc as my only layout in fcitx5
