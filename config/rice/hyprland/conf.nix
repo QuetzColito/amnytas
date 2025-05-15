@@ -86,6 +86,11 @@
       }
       }
 
+      device {
+        name = elan050a:01-04f3:3158-touchpad
+        sensitivity = +1.0
+      }
+
       gestures {
           workspace_swipe = true
           workspace_swipe_invert = true
