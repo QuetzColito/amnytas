@@ -11,7 +11,7 @@
     #   enableOffloadCmd = true;
     # };
 
-    sync.enable = true;
+    reverseSync.enable = true;
 
     intelBusId = "PCI:0:2:0";
     nvidiaBusId = "PCI:1:0:0";
@@ -47,7 +47,7 @@
     {
       name = "HDMI-A-1";
       # config = "HDMI-A-1,1920x1080@119.88Hz,-1920x0,1";
-      coords = "-2560x0";
+      coords = "-1920x0";
       workspaces = [4 5 6];
     }
   ];
