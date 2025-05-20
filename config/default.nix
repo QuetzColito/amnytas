@@ -75,11 +75,8 @@
       # Sound
       pipewire = {
         enable = true;
-        alsa.enable = true;
-        alsa.support32Bit = true;
-        pulse.enable = true;
+        audio.enable = true;
         wireplumber.enable = true;
-        jack.enable = true;
       };
 
       # Flatpak, although i actually dont need it anymore rn
