@@ -8,9 +8,10 @@
 
   config.files = {
     ".config/hypr/autostart.conf".text = hh.mkList "exec-once" ([
-        "hyprlock --immediate; systemctl --user stop app-org.fcitx.Fcitx5@autostart.service"
         "uwsm finalize"
-        "hyprpaperswitch; systemctl --user enable --now hyprpaper.service"
+        "hyprlock --immediate; systemctl --user stop app-org.fcitx.Fcitx5@autostart.service"
+        "hyprpaperswitch"
+        "hyprpaper"
         config.agsCommand
         "systemctl --user start nm-applet"
         "systemctl --user enable --now hyprpolkitagent.service"
