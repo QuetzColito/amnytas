@@ -37,7 +37,7 @@
           # Gaming
           "${mod},G,exec,[workspace 9 silent] uwsm app -- steam"
           # Browser
-          "${mod},B,exec,[workspace 7] uwsm app -- zen"
+          "${mod},B,exec,[workspace 7] uwsm app -- firefox"
           # Alt Browser
           "${modshift},B,exec,[workspace 8] uwsm app -- brave"
           # Music Player

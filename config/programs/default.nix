@@ -27,6 +27,7 @@
   packages = with pkgs; [
     # Browser
     (import ./zen.nix pkgs)
+    firefox
     brave
 
     # Util
