@@ -1,8 +1,4 @@
-{
-  pkgs,
-  pkgs-stable,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./foot.nix
     ./ytm.nix
@@ -22,12 +18,15 @@
         tumbler
       ];
     };
+
+    firefox = {
+      enable = true;
+      nativeMessagingHosts.packages = [pkgs.tridactyl-native];
+    };
   };
 
   packages = with pkgs; [
     # Browser
-    (import ./zen.nix pkgs)
-    firefox
     brave
 
     # Util
