@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   # Locale
   time.timeZone = "Europe/Berlin";
 
@@ -17,7 +22,7 @@
       LC_TIME = "de_DE.UTF-8";
     };
     # Fcitx5, still not 100% happy, but works for now
-    inputMethod = {
+    inputMethod = lib.mkIf (config.wm == "Hyprland") {
       enable = true;
       type = "fcitx5";
       fcitx5 = {

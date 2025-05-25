@@ -16,6 +16,7 @@
     lz = "lazygit";
     v = "nvim";
     ns = "nh os switch";
+    nb = "nh os boot";
     nu = "nix flake update --flake ~/amnytas --commit-lock-file";
     "nix-shell" = "nix-shell --command zsh";
     nd = "nix develop -c zsh";

@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: {
   imports = [
@@ -12,7 +13,7 @@
     ./autostart.nix
   ];
 
-  config = {
+  config = lib.mkIf (config.wm == "Hyprland") {
     environment.systemPackages = with pkgs; [
       libnotify
     ];
@@ -22,8 +23,10 @@
       withUWSM = true;
     };
 
-    services.getty.autologinUser = config.mainUser;
-    services.getty.autologinOnce = true;
+    services = {
+      getty.autologinUser = config.mainUser;
+      getty.autologinOnce = true;
+    };
 
     environment.loginShellInit = ''
       if uwsm check may-start; then

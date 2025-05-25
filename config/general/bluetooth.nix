@@ -10,7 +10,7 @@
     # backend
     hardware.bluetooth.enable = true;
     # applet and gui
-    services.blueman.enable = true;
+    services.blueman.enable = config.wm == "Hyprland";
 
     hardware.bluetooth.settings = {
       # In theory dual should work since it includes bredr,

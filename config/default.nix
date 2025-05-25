@@ -13,8 +13,8 @@
 
     # Pick GUI
     ./rice # Hyprland
-    #./DEs/kde.nix # Kde
-    #./DEs/cosmic.nix # Cosmic
+    ./DEs/kde.nix # Kde
+    ./DEs/cosmic.nix # Cosmic
   ];
 
   options = {
@@ -22,11 +22,18 @@
       default = "nixos";
       type = lib.types.str;
     };
+
     hostName = lib.mkOption {
       default = "nixos";
       type = lib.types.str;
     };
+
     firstInstall = lib.mkEnableOption "Enable if cachix isn't setup yet";
+
+    wm = lib.mkOption {
+      default = "Hyprland"; # Hyprland, KDE, or Cosmic
+      type = lib.types.str;
+    };
   };
 
   config = {
