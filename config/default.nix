@@ -83,17 +83,9 @@
       pipewire = {
         enable = true;
         pulse.enable = true;
+        jack.enable = true;
+        alsa.enable = true;
         wireplumber.enable = true;
-        extraConfig.pipewire."fix-clock"."context.properties"."default.clock.allowed-rates" = "[ 44100 48000 ]";
-        extraConfig.pipewire-pulse = {
-          "buffer-size" = {
-            "pulse.properties" = {
-              "pulse.min.req" = "128/48000";
-              "pulse.min.frag" = "128/48000";
-              "pulse.min.quantum" = "128/48000";
-            };
-          };
-        };
       };
 
       # Flatpak, although i actually dont need it anymore rn
