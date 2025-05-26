@@ -11,7 +11,7 @@
       '')
     (writeShellScriptBin "mpa"
       ''
-        foot --override=app-id=floatfoot --override=initial-window-size-chars=70x5 mpv --no-audio-display $@
+        foot --override=app-id=floatfoot --override=initial-window-size-chars=70x5 mpv --no-audio-display "$1"
       '')
   ];
   files = {
