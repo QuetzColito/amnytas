@@ -13,7 +13,12 @@
         style = "night";
         transparent = true;
       };
-      useSystemClipboard = true;
+
+      clipboard = {
+        enable = true;
+        providers.wl-copy.enable = true;
+        registers = "unnamedplus";
+      };
       # Extra Transparency
       luaConfigPost = ''
         vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { fg = "#9d7cd8", bg = "none"})
