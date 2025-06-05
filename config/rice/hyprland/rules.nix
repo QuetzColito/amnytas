@@ -95,7 +95,7 @@
               name,
               ...
             }:
-              map (ws: (builtins.toString ws) + ", monitor:" + name) workspaces
+              map (ws: "${builtins.toString ws}, monitor:${name}") workspaces
           )
           config.monitors
         )));
