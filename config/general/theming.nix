@@ -46,7 +46,7 @@ in {
 
   xdg.icons.fallbackCursorThemes = [theme.cursor.name];
 
-  # Stealing from catpuccin makes theming easier
+  # Stealing from catppuccin makes theming easier
   environment.systemPackages = with pkgs; [darkly-qt5 darkly];
   qt = {
     enable = true;
@@ -54,9 +54,9 @@ in {
   };
   files.".config/qt6ct/colors/base16.conf".text = with theme.colours; ''
     [ColorScheme]
-    active_colors=#ff${base0C}, #ff${base01}, #ff${base01}, #ff${base05}, #ff${base03}, #ff${base04}, #ff${base0E}, #ff${base06}, #ff${base05}, #ff${base01}, #ff${base00}, #ff${base03}, #ff${base02}, #ff${base0E}, #ff${base09}, #ff${base08}, #ff${base02}, #ff${base05}, #ff${base01}, #ff${base0E}, #8f${base0E}
-    disabled_colors=#ff${base0F}, #ff${base01}, #ff${base01}, #ff${base05}, #ff${base03}, #ff${base04}, #ff${base0F}, #ff${base0F}, #ff${base0F}, #ff${base01}, #ff${base00}, #ff${base03}, #ff${base02}, #ff${base0E}, #ff${base09}, #ff${base08}, #ff${base02}, #ff${base05}, #ff${base01}, #ff${base0F}, #8f${base0F}
-    inactive_colors=#ff${base0C}, #ff${base01}, #ff${base01}, #ff${base05}, #ff${base03}, #ff${base04}, #ff${base0E}, #ff${base06}, #ff${base05}, #ff${base01}, #ff${base00}, #ff${base03}, #ff${base02}, #ff${base0E}, #ff${base09}, #ff${base08}, #ff${base02}, #ff${base05}, #ff${base01}, #ff${base0E}, #8f${base0E}
+    active_colors=#ff${base07}, #ff${base02}, #ff${base06}, #ff${base05}, #ff${base01}, #ff${base02}, #ff${base06}, #ff${base07}, #ff${base05}, #ff${base01}, #ff${base00}, #ff${base00}, #ff${base03}, #ff${base0E}, #ff${base0D}, #ff${base0C}, #ff${base02}, #ff${base05}, #ff${base01}, #ff${base06}, #8f${base04}
+    disabled_colors=#ff${base07}, #ff${base02}, #ff${base06}, #ff${base05}, #ff${base01}, #ff${base02}, #ff${base04}, #ff${base05}, #ff${base04}, #ff${base00}, #ff${base00}, #ff${base00}, #ff${base03}, #ff${base0E}, #ff${base05}, #ff${base04}, #ff${base02}, #ff${base05}, #ff${base01}, #ff${base06}, #8f${base04}
+    inactive_colors=#ff${base07}, #ff${base02}, #ff${base06}, #ff${base05}, #ff${base01}, #ff${base02}, #ff${base04}, #ff${base05}, #ff${base04}, #ff${base00}, #ff${base00}, #ff${base00}, #ff${base03}, #ff${base0E}, #ff${base05}, #ff${base04}, #ff${base02}, #ff${base05}, #ff${base01}, #ff${base06}, #8f${base04}
   '';
   files.".config/qt6ct/qt6ct.conf".text = ''
     [Appearance]
