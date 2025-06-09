@@ -7,17 +7,13 @@
   gtk2conf = ''
     gtk-theme-name =  "${theme.gtk.name}"
     gtk-icon-theme-name = "${theme.icons.name}"
-    gtk-font-name = "${theme.serif.name} 12";
+    gtk-font-name = "${theme.serif.name} 12"
     gtk-cursor-theme-name = "${theme.cursor.name}"
     gtk-cursor-theme-size = "${theme.cursor.size}"
   '';
   gtk3conf = ''
     [Settings]
-    gtk-theme-name = ${theme.gtk.name}
-    gtk-icon-theme-name = ${theme.icons.name}
-    gtk-font-name = "${theme.serif.name} 12";
-    gtk-cursor-theme-name = ${theme.cursor.name}
-    gtk-cursor-theme-size = ${theme.cursor.size}
+    ${gtk2conf}
   '';
   gtk4css = ''
     * {all: unset;}
@@ -45,16 +41,49 @@ in {
     theme.cursor.package
     theme.gtk.package
     theme.icons.package
+    pkgs.colloid-gtk-theme
   ];
 
   xdg.icons.fallbackCursorThemes = [theme.cursor.name];
 
-  # this was easier than expected :D (I don't heavily use qt apps so dont care if it isnt perfect)
+  # Stealing from catpuccin makes theming easier
+  environment.systemPackages = with pkgs; [darkly-qt5 darkly];
   qt = {
     enable = true;
-    style = "gtk2";
-    platformTheme = "gtk2";
+    platformTheme = "qt5ct";
   };
+  files.".config/qt6ct/colors/base16.conf".text = with theme.colours; ''
+    [ColorScheme]
+    active_colors=#ff${base0C}, #ff${base01}, #ff${base01}, #ff${base05}, #ff${base03}, #ff${base04}, #ff${base0E}, #ff${base06}, #ff${base05}, #ff${base01}, #ff${base00}, #ff${base03}, #ff${base02}, #ff${base0E}, #ff${base09}, #ff${base08}, #ff${base02}, #ff${base05}, #ff${base01}, #ff${base0E}, #8f${base0E}
+    disabled_colors=#ff${base0F}, #ff${base01}, #ff${base01}, #ff${base05}, #ff${base03}, #ff${base04}, #ff${base0F}, #ff${base0F}, #ff${base0F}, #ff${base01}, #ff${base00}, #ff${base03}, #ff${base02}, #ff${base0E}, #ff${base09}, #ff${base08}, #ff${base02}, #ff${base05}, #ff${base01}, #ff${base0F}, #8f${base0F}
+    inactive_colors=#ff${base0C}, #ff${base01}, #ff${base01}, #ff${base05}, #ff${base03}, #ff${base04}, #ff${base0E}, #ff${base06}, #ff${base05}, #ff${base01}, #ff${base00}, #ff${base03}, #ff${base02}, #ff${base0E}, #ff${base09}, #ff${base08}, #ff${base02}, #ff${base05}, #ff${base01}, #ff${base0E}, #8f${base0E}
+  '';
+  files.".config/qt6ct/qt6ct.conf".text = ''
+    [Appearance]
+    color_scheme_path=${config.hjem.users.${config.mainUser}.directory}/.config/qt6ct/colors/base16.conf
+    custom_palette=true
+    standard_dialogs=default
+    style=Darkly
+
+    [Fonts]
+    fixed="${theme.sansSerif.name},12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1"
+    general="${theme.sansSerif.name},12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1"
+
+    [Interface]
+    activate_item_on_single_click=1
+    buttonbox_layout=0
+    cursor_flash_time=1000
+    dialog_buttons_have_icons=1
+    double_click_interval=400
+    gui_effects=General, AnimateMenu, AnimateCombo, AnimateTooltip, AnimateToolBox
+    keyboard_scheme=2
+    menus_have_icons=true
+    show_shortcuts_in_context_menus=true
+    stylesheets=@Invalid()
+    toolbutton_style=4
+    underline_shortcut=1
+    wheel_scroll_lines=3
+  '';
 
   # Applying the Theme to as many places as possible >.>
   # The main one used are apparently the dconf settings and GTK_THEME

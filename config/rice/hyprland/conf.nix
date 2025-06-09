@@ -102,6 +102,7 @@
         "CLUTTER_BACKEND=wayland"
         # "SDL_VIDEODRIVER=wayland"
         "QT_QPA_PLATFORM=wayland;xcb"
+        "QT_QPA_PLATFORMTHEME=${config.qt.platformTheme}"
         "GDK_BACKEND=wayland,x11,*"
         "XCURSOR_THEME=${theme.cursor.name}"
         "XCURSOR_SIZE=${theme.cursor.size}"

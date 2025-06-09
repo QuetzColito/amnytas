@@ -63,73 +63,63 @@ pkgs: rec {
   };
 
   gtk = {
-    name = "MateriaBase16";
-    package = let
-      rendersvg = pkgs.runCommand "rendersvg" {} ''
-        mkdir -p $out/bin
-        ln -s ${pkgs.resvg}/bin/resvg $out/bin/rendersvg
-      '';
-      theme-name = gtk.name;
-    in
-      pkgs.stdenv.mkDerivation rec {
-        name = "generated-gtk-theme-${theme-name}";
-        src = pkgs.fetchFromGitHub {
-          owner = "nana-4";
-          repo = "materia-theme";
-          rev = "76cac96ca7fe45dc9e5b9822b0fbb5f4cad47984";
-          sha256 = "sha256-0eCAfm/MWXv6BbCl2vbVbvgv8DiUH09TAUhoKq7Ow0k=";
-        };
-        buildInputs = with pkgs; [
-          sassc
-          bc
-          which
-          rendersvg
-          meson
-          ninja
-          nodePackages.sass
-          gtk4.dev
-          optipng
-        ];
-        phases = ["unpackPhase" "installPhase"];
-        installPhase = ''
-          HOME=/build
-          chmod 777 -R .
-          patchShebangs .
-          mkdir -p $out/share/themes
-          mkdir bin
-          sed -e 's/handle-horz-.*//' -e 's/handle-vert-.*//' -i ./src/gtk-2.0/assets.txt
-
-          cat > /build/gtk-colors << EOF
-            BTN_BG=${base02}
-            BTN_FG=${base06}
-            FG=${base05}
-            BG=${base00}
-            HDR_BTN_BG=${base01}
-            HDR_BTN_FG=${base05}
-            ACCENT_BG=${base0B}
-            ACCENT_FG=${base00}
-            HDR_FG=${base05}
-            HDR_BG=${base02}
-            MATERIA_SURFACE=${base02}
-            MATERIA_VIEW=${base01}
-            MENU_BG=${base02}
-            MENU_FG=${base06}
-            SEL_BG=${base0D}
-            SEL_FG=${base0E}
-            TXT_BG=${base02}
-            TXT_FG=${base06}
-            WM_BORDER_FOCUS=${base05}
-            WM_BORDER_UNFOCUS=${base03}
-            UNITY_DEFAULT_LAUNCHER_STYLE=False
-            NAME=${theme-name}
-            MATERIA_STYLE_COMPACT=True
-          EOF
-
-          echo "Changing colours:"
-          ./change_color.sh -o ${theme-name} /build/gtk-colors -i False -t "$out/share/themes"
-          chmod 555 -R .
+    # Colloid Catppuccin overwritten with base16
+    name = "Colloid-Purple-Dark-Catppuccin";
+    package = (pkgs.colloid-gtk-theme.overrideAttrs
+      (finalAttrs: previousAttrs: {
+        # tried to refactor this to make it less chonky and just failed xD
+        postPatch = ''
+          ${previousAttrs.postPatch}
+          rm src/sass/_color-palette-catppuccin.scss
+          echo "\$red-light: #${base08};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$red-dark: #${base08};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$pink-light: #${base0F};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$pink-dark: #${base0F};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$purple-light: #${base0E};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$purple-dark: #${base0E};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$blue-light: #${base0D};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$blue-dark: #${base0D};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$teal-light: #${base0C};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$teal-dark: #${base0C};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$green-light: #${base0B};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$green-dark: #${base0B};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$yellow-light: #${base0A};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$yellow-dark: #${base0A};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$orange-light: #${base09};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$orange-dark: #${base09};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$grey-050: #${base07};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$grey-100: #${base07};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$grey-150: #${base06};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$grey-200: #${base06};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$grey-250: #${base05};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$grey-300: #${base05};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$grey-350: #${base04};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$grey-400: #${base04};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$grey-450: #${base03};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$grey-500: #${base03};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$grey-550: #${base02};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$grey-600: #${base02};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$grey-650: #${base02};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$grey-700: #${base01};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$grey-750: #${base01};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$grey-800: #${base01};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$grey-850: #${base00};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$grey-900: #${base00};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$grey-950: #${base00};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$white: #${base07};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$black: #${base00};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$button-close: #${base08};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$button-max: #${base0B};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$button-min: #${base09};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$links: #${base0D};" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$default-light: \$blue-light;" >> "src/sass/_color-palette-catppuccin.scss"
+          echo "\$default-dark: \$blue-dark;" >> "src/sass/_color-palette-catppuccin.scss"
         '';
-      };
+      })).override {
+      colorVariants = ["dark"];
+      themeVariants = ["purple"];
+      tweaks = ["catppuccin" "rimless"];
+    };
   };
 
   icons = {
