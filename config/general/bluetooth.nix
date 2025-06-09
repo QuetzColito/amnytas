@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  options.enableBluetooth = lib.mkEnableOption "enables nvidia config/drivers";
+  options.enableBluetooth = lib.mkEnableOption "enables bluetooth support";
 
   # bluptup
   config = lib.mkIf config.enableBluetooth {
