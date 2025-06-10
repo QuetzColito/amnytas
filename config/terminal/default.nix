@@ -27,6 +27,7 @@ in {
       docker
       micro
       jq
+      comma
       calc
       pandoc
       texliveSmall
