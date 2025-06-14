@@ -9,7 +9,7 @@
       # Languages
       nix.enable = true;
       rust.enable = true;
-      ts.enable = true;
+      ts.enable = false;
       python.enable = true;
       java.enable = true;
       typst = {
