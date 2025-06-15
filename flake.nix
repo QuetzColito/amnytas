@@ -4,7 +4,7 @@
   # all the git repos needed
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     ags.url = "github:Aylur/ags";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     nixos-cosmic = {
@@ -40,7 +40,7 @@
   } @ inputs: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
-    pkgs-stable = inputs.nixpkgs-stable.legacyPackages.${system};
+    pkgs-unstable = inputs.nixpkgs-unstable.legacyPackages.${system};
     theme = import ./theme.nix pkgs;
     inherit (pkgs) lib;
     hh = {
@@ -55,7 +55,7 @@
       # System Config
       value = nixpkgs.lib.nixosSystem {
         # pass these in so we can access all the flake inputs in the config
-        specialArgs = {inherit inputs self pkgs-stable hh theme;};
+        specialArgs = {inherit inputs self pkgs-unstable hh theme;};
         modules = [
           ./config
           ./hosts/${host}.nix
