@@ -77,6 +77,22 @@
         "workspace 6, class:^(ffxiv_dx11\.exe)$"
         "workspace 5, class:codium-url-handler"
 
+        # Overlays are the bane of my existence x.x
+        "tag +poe, title:(Path of Exile)"
+        "tag +poe, class:(steam_app_238960)"
+        "fullscreen, tag:poe"
+
+        "tag +apt, title:(Awakened PoE Trade)"
+        "float, tag:apt "
+        "noblur, tag:apt"
+        "nofocus, tag:apt # Disable auto-focus"
+        "noshadow, tag:apt"
+        "noborder, tag:apt"
+        "pin, tag:apt"
+        "renderunfocused, tag:apt"
+        "size 100% 100%, tag:apt"
+        "center, tag:apt"
+
         # make starrail not freeze in the background
         "renderunfocused, class:^(starrail\.exe)$"
         # "immediate, class:^(starrail\.exe)$"

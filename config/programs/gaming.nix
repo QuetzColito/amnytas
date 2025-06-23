@@ -30,6 +30,9 @@
     heroic
     xivlauncher
     vkbasalt
+    # (pkgs.writeShellScriptBin "poetrade" ''appimage-run /home/quetz/apps/Awakened-PoE-Trade.Appimage'')
+    (writeShellScriptBin "poetrade"
+      "for i in ~/apps/poetrade/*.AppImage ; do appimage-run $i; done")
     (pkgs.writeShellScriptBin "WuWa"
       ''
         WINEDLLOVERRIDES="KRSDKExternal.exe=d" wine ~/My\ Games/jadeite/jadeite.exe 'C:\Program Files\Wuthering Waves\Wuthering Waves Game\Client\Binaries\Win64\Client-Win64-Shipping.exe'
