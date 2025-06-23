@@ -13,15 +13,15 @@ _: {
       workspaces = [4 5 6];
     }
     {
-      name = "DP-5";
+      name = "HDMI-A-7";
       coords = "2560x660";
-      workspaces = [1 2 3 7 8 9];
+      workspaces = [7 8 9];
     }
-    # {
-    #   name = "DP-2";
-    #   coords = "-1080x50";
-    #   rotation = "1";
-    #   workspaces = [1 2 3];
-    # }
+    {
+      name = "DP-5";
+      coords = "-1080x50";
+      rotation = "1";
+      workspaces = [1 2 3];
+    }
   ];
 }
