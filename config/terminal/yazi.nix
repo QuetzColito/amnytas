@@ -43,7 +43,7 @@
       mask = { bg = "reset" }
     '';
     ".config/yazi/yazi.toml".text = ''
-      [manager]
+      [mgr]
       linemode = "size"
 
       [opener]
