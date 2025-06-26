@@ -2,6 +2,7 @@
   imports = [
     ../config/hjem.nix
     ../config/terminal
+    ../nvf
   ];
 
   config = {
