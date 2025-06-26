@@ -5,6 +5,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     ags.url = "github:Aylur/ags";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     nixos-cosmic = {
@@ -70,7 +71,20 @@
     };
   in {
     # apply the functions to the hostlist
-    nixosConfigurations = builtins.listToAttrs (map mkSystemConfig (import ./hosts));
+    nixosConfigurations =
+      (builtins.listToAttrs (map mkSystemConfig (import ./hosts)))
+      // {
+        nixos = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            inputs.nixos-wsl.nixosModules.default
+            {
+              system.stateVersion = "24.05";
+              wsl.enable = true;
+            }
+          ];
+        };
+      };
 
     # This will make the package available as a flake output under 'packages'
     packages.x86_64-linux.nvf =
