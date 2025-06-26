@@ -78,6 +78,7 @@
           system = "x86_64-linux";
           modules = [
             inputs.nixos-wsl.nixosModules.default
+            ./hosts/wsl.nix
             {
               wsl.enable = true;
             }
