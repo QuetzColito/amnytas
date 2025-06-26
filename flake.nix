@@ -76,6 +76,7 @@
       // {
         nixos = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
+          specialArgs = {inherit inputs self pkgs-unstable hh theme;};
           modules = [
             inputs.nixos-wsl.nixosModules.default
             ./hosts/wsl.nix
