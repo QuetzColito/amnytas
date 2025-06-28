@@ -24,7 +24,7 @@
       }
 
       decoration {
-          rounding = 0
+          rounding = 7
           blur {
               enabled = true
               size = 3
@@ -40,7 +40,8 @@
           bezier=smoothOut, 0.25, 1, 0.5, 1
           bezier=linear, 0.0, 0.0, 1.0, 1.0
 
-          animation=windows, 1, 2, smoothIn, slide
+          animation=windows, 1, 2, smoothOut, popin
+          animation=windowsMove, 1, 2, smoothIn
           # rotating border
           animation=border,1,10,default
           animation=borderangle, 1, 100, linear, loop
