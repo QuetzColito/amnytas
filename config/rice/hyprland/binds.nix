@@ -110,9 +110,9 @@
           "${mod},X,exec,stop-recording"
 
           # Screenshots
-          "${modshift},S,exec, grimblast copy area; ${fixcursor}"
-          "CTRL ${modshift},S,exec, grimblast --freeze copy area ${fixcursor}"
-          "CTRL ${mod},S,exec, grimblast --freeze copy output ${fixcursor}"
+          "${modshift},S,exec,grimblast --freeze save area - | swappy -f - -o - | wl-copy; wl-paste > ~/Pictures/screenshot.png"
+          "CTRL ${modshift},S,exec,grimblast save area - | swappy -f - -o - | wl-copy; wl-paste > ~/Pictures/screenshot.png"
+          "CTRL ${mod},S,exec,grimblast --freeze save output - | swappy -f - -o - | wl-copy; wl-paste > ~/Pictures/Screenshot.png"
 
           # Color Picker
           "${modshift},C,exec, hyprpicker | wl-copy"

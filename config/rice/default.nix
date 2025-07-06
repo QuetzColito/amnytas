@@ -41,6 +41,7 @@
     pwvucontrol
     socat
     killall
+    swappy
     # the maximize script, toggles bar and renames the workspace so a special workspace rule will take effect
     (
       writeShellScriptBin "pseudo-fullscreen" ''
