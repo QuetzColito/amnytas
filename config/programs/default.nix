@@ -60,7 +60,7 @@
 
     # Documents
     zathura
-    onlyoffice-bin
+    libreoffice
     obsidian
 
     # Other
