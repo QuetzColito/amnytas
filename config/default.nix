@@ -83,9 +83,9 @@
       pipewire = {
         enable = true;
         pulse.enable = true;
-        jack.enable = true;
-        alsa.enable = true;
-        wireplumber.enable = true;
+        # jack.enable = true;
+        # alsa.enable = true;
+        # wireplumber.enable = true;
       };
 
       # Flatpak, although i actually dont need it anymore rn
