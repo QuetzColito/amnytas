@@ -12,8 +12,8 @@
       source = ~/.config/hypr/monitors.conf
 
       general {
-          gaps_in = 0
-          gaps_out = 0
+          gaps_in = 5
+          gaps_out = 10
 
           border_size = 2
 
@@ -46,6 +46,7 @@
           animation=border,1,10,default
           animation=borderangle, 1, 100, linear, loop
           animation=fade, 1, 10, smoothOut
+          animation=layers, 1, 3, smoothOut, fade
           animation=fadeDim, 1, 10, smoothOut
           animation=workspaces,1,3,smoothOut,slidefadevert 50%
       }
