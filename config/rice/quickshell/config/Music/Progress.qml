@@ -7,6 +7,7 @@ import "root:Components"
 
 RowLayout {
     id: root
+    Layout.preferredWidth: 300
     Text {
         color: Theme.fg3
         text: `${inMinutes(Player.p.position)}`
@@ -31,5 +32,12 @@ RowLayout {
     Text {
         color: Theme.fg3
         text: `${inMinutes(Player.p?.length)}`
+    }
+
+    function inMinutes(seconds): string {
+        var secondsrounded = Math.round(seconds);
+        var minutes = Math.floor(secondsrounded / 60);
+        var seconds2 = secondsrounded % 60;
+        return `${minutes < 10 ? "0" : ""}${minutes}:${seconds2 < 10 ? "0" : ""}${seconds2}`;
     }
 }

@@ -5,8 +5,8 @@ import "root:Theme"
 Slider {
     id: control
     property string fillColor: Theme.blue
-    property string bgColor: Theme.red
-    property string handleColor: Theme.cyan
+    property string bgColor: Theme.bg3
+    property string handleColor: fillColor
     property int length: 200
     property int thickness: 20
     background: Rectangle {
@@ -30,7 +30,6 @@ Slider {
         implicitWidth: thickness
         implicitHeight: thickness
         radius: thickness / 2
-        color: control.pressed ? Theme.cyan : Theme.blue
-        // border.color: "#bdbebf"
+        color: control.pressed ? handleColor : fillColor
     }
 }

@@ -6,6 +6,7 @@ import "root:Theme"
 import "root:Components"
 import "root:Music" as Music
 import "root:Audio" as Audio
+import "root:SysTray" as SysTray
 import "root:Widgets"
 
 PanelWindow {
@@ -20,6 +21,20 @@ PanelWindow {
 
     implicitHeight: screen.height
     exclusiveZone: 30
+    Item {
+        id: closer
+        visible: leftarea.isDrawn || midarea.isDrawn || rightarea.isDrawn || systray.anyOpen
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                leftarea.disable();
+                midarea.disable();
+                rightarea.disable();
+                systray.disable();
+            }
+        }
+        anchors.fill: parent
+    }
 
     Drawer {
         id: leftarea
@@ -35,6 +50,9 @@ PanelWindow {
                 }
             }
             Workspaces {}
+            SysTray.Bar {
+                id: systray
+            }
         }
         bigItem: System {}
     }
@@ -72,12 +90,11 @@ PanelWindow {
 
     Drawer {
         id: rightarea
-        isDrawn: true
         anchors.right: parent.right
         alignment: Qt.AlignRight
         hasLeftCorners: true
         smallItem: RowLayout {
-            Music.BarIndicator {
+            Music.Bar {
                 Layout.maximumWidth: screen.width / 2 - volume.width - midarea.width / 2 - 30
                 Clickable {
                     acceptedButtons: Qt.RightButton
@@ -113,7 +130,7 @@ PanelWindow {
     }
 
     mask: Region {
-        item: rightarea
+        item: closer.visible ? closer : rightarea
         Region {
             item: midarea
         }

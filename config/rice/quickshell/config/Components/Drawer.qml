@@ -10,6 +10,7 @@ ColumnLayout {
     id: root
     property Item smallItem
     property Item bigItem
+    property bool isOpen: big.visible
     property bool isDrawn: false
     property bool isIn: !isDrawn
     property bool hasLeftCorners: false
@@ -24,34 +25,16 @@ ColumnLayout {
 
     Rectangle {
         id: big
-        Item {
-            id: close
-            implicitHeight: Theme.barheight
-            width: parent.width
-            anchors.horizontalCenter: parent.horizontalCenter
-            // Arrow {
-
-            //     anchors.centerIn: parent
-            // }
-            MouseArea {
-                anchors.fill: parent
-                acceptedButtons: Qt.RightButton | Qt.LeftButton
-                cursorShape: Qt.PointingHandCursor
-                onClicked: toggle()
-            }
-        }
 
         implicitWidth: bigItem.width + 10
-        implicitHeight: bigItem.height + 40
+        implicitHeight: bigItem.height + 10
         Layout.alignment: root.alignment
         color: Theme.bg
         bottomRightRadius: hasRightCorners && root.dx > 0 ? Math.min(10, dx / 2) : 0
         bottomLeftRadius: hasLeftCorners && root.dx > 0 ? Math.min(10, dx / 2) : 0
         visible: !isIn
         WrapperItem {
-            // anchors.centerIn: parent
             anchors.horizontalCenter: parent.horizontalCenter
-            anchors.top: close.bottom
             child: bigItem
         }
         Corner.BottomLeft {

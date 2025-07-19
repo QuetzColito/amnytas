@@ -7,11 +7,14 @@ import "root:Theme"
 import "root:Components"
 
 WrapperItem {
-    extraMargin: 10
+    leftMargin: 35
+    topMargin: -5
+    bottomMargin: 5
     RowLayout {
         Layout.fillWidth: true
         Layout.alignment: Qt.AlignHCenter
         TextButton {
+            text.font.pointSize: 20
             onClicked: Player.p.loopState = Player.p?.loopState == MprisLoopState.Track ? MprisLoopState.None : Player.p?.loopState == MprisLoopState.Playlist ? MprisLoopState.Track : MprisLoopState.Playlist
             text.text: Player.p?.loopState == MprisLoopState.Track ? " 󰑘 " : Player.p?.loopState == MprisLoopState.Playlist ? " 󰑖 " : " 󰑗 "
         }
@@ -28,6 +31,7 @@ WrapperItem {
             text.text: " 󰼧 "
         }
         TextButton {
+            text.font.pointSize: 20
             onClicked: Player.p.shuffle = true
             text.text: "  "
         }
