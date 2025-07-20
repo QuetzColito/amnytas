@@ -8,7 +8,6 @@
     ./mako.nix
     ./tofi.nix
     ./quickshell
-    ./ags
   ];
 
   files = {

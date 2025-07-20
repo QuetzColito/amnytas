@@ -68,9 +68,9 @@
           "${mod},Z,togglespecialworkspace"
           "${modshift},Z,movetoworkspace, special"
           # Open Widgets
-          "${mod},E,exec,ags request toggleDashboard"
+          "${mod},E,exec,qs ipc call $(hyprctl activeworkspace -j | jq .monitor) dashboard"
           # Toggle Bar on current monitor
-          "${modshift},E,exec,togglecurrentbar"
+          "${modshift},E,exec,qs ipc call $(hyprctl activeworkspace -j | jq .monitor) bar"
 
           # move focus with hjkl
           "${mod},H,movefocus,l"

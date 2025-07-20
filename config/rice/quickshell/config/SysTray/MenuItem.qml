@@ -34,11 +34,11 @@ WrapperMouseArea {
         }
     }
 
-    function checkbox(checkstate: Qt.CheckState): string {
+    function checkbox(checkstate: var): string {
         return checkstate == Qt.Unchecked ? "  " : "  ";
     }
 
-    function radio(checkstate: bool): string {
+    function radio(checkstate: var): string {
         return checkstate ? "  " : "  ";
     }
 }

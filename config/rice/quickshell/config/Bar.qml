@@ -1,17 +1,23 @@
 import Quickshell // for PanelWindow
 import QtQuick // for Text
 import QtQuick.Layouts
+import Quickshell.Wayland
+import Quickshell.Io
+import Quickshell.Hyprland
 import "root:Shapes"
 import "root:Theme"
 import "root:Components"
 import "root:Music" as Music
 import "root:Audio" as Audio
+import "root:Time" as Time
 import "root:SysTray" as SysTray
 import "root:Widgets"
 
 PanelWindow {
     id: barwindow
     property var modelData
+    property bool overlayOn: false
+    WlrLayershell.keyboardFocus: WlrKeyboardFocus.OnDemand
     anchors {
         top: true
         left: true
@@ -26,12 +32,7 @@ PanelWindow {
         visible: leftarea.isDrawn || midarea.isDrawn || rightarea.isDrawn || systray.anyOpen
         MouseArea {
             anchors.fill: parent
-            onClicked: {
-                leftarea.disable();
-                midarea.disable();
-                rightarea.disable();
-                systray.disable();
-            }
+            onClicked: disableAll()
         }
         anchors.fill: parent
     }
@@ -46,7 +47,7 @@ PanelWindow {
                 color: Theme.cyan
                 text: ""
                 Clickable {
-                    onClicked: leftarea.toggle()
+                    onClicked: barwindow.toggleOverlay()
                 }
             }
             Workspaces {}
@@ -69,12 +70,12 @@ PanelWindow {
         alignment: Qt.AlignHCenter
         hasRightCorners: true
         hasLeftCorners: true
-        smallItem: Time {
+        smallItem: Time.Bar {
             Clickable {
                 onClicked: midarea.toggle()
             }
         }
-        bigItem: System {}
+        bigItem: Time.Widget {}
     }
     Corner.TopLeft {
         x: midarea.xr
@@ -136,6 +137,40 @@ PanelWindow {
         }
         Region {
             item: leftarea
+        }
+    }
+
+    function disableAll(): void {
+        leftarea.disable();
+        midarea.disable();
+        rightarea.disable();
+        systray.disable();
+        if (overlayOn) {
+            Hyprland.dispatch(`togglespecialworkspace helper`);
+            overlayOn = false;
+        }
+    }
+    IpcHandler {
+        target: `"${screen.name}"`
+
+        function dashboard(): void {
+            toggleOverlay();
+        }
+
+        function bar(): void {
+            barwindow.visible = !barwindow.visible;
+        }
+    }
+
+    function toggleOverlay(): void {
+        if (overlayOn) {
+            disableAll();
+        } else {
+            Hyprland.dispatch(`togglespecialworkspace helper`);
+            leftarea.enable();
+            midarea.enable();
+            rightarea.enable();
+            overlayOn = true;
         }
     }
 }

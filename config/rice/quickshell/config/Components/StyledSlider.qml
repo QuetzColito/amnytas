@@ -9,6 +9,7 @@ Slider {
     property string handleColor: fillColor
     property int length: 200
     property int thickness: 20
+    padding: 0
     background: Rectangle {
         color: bgColor
         radius: thickness / 2

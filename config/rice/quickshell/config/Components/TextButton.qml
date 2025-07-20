@@ -8,6 +8,8 @@ WrapperMouseArea {
     property Text text: innerText
     Text {
         id: innerText
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
         font.pointSize: 30
         color: Theme.purple
     }
