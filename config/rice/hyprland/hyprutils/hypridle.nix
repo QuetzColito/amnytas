@@ -1,4 +1,5 @@
 _: {
+  services.hypridle.enable = true;
   files.".config/hypr/hypridle.conf".text = ''
     general {
       lock_cmd = hyprlock

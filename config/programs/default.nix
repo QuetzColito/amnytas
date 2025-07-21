@@ -64,7 +64,7 @@
     obsidian
 
     # Other
-    jetbrains.idea-community
+    # jetbrains.idea-community
     vscodium
     appimage-run
   ];

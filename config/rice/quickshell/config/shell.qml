@@ -3,14 +3,25 @@
 //@ pragma Env QT_QUICK_CONTROLS_STYLE=Basic
 import Quickshell // for PanelWindow
 import QtQuick // for Text
-import QtQuick.Layouts // for Text
 
-Variants {
-    model: Quickshell.screens
+ShellRoot {
 
-    delegate: Component {
-        Bar {
-            screen: modelData
+    Variants {
+        model: Quickshell.screens
+
+        delegate: Component {
+            Bar {
+                screen: modelData
+            }
+        }
+    }
+    Variants {
+        model: Quickshell.screens
+
+        delegate: Component {
+            Background {
+                screen: modelData
+            }
         }
     }
 }

@@ -67,13 +67,9 @@ Item {
             if (value < 1) {
                 running = false;
                 value = valueBu;
-                kurukuru.startDetached();
+                Quickshell.execDetached(["sh", "-c", "mpg123 $HOME/amnytas/config/rice/quickshell/config/Time/alert.mp3"]);
             }
         }
-    }
-    Process {
-        id: kurukuru
-        command: ["sh", "-c", "mpg123 $HOME/amnytas/config/rice/quickshell/config/Time/alert.mp3"]
     }
     component MaxedButton: TextButton {
         Layout.fillWidth: true

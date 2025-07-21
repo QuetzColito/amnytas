@@ -49,10 +49,10 @@
         name=$(hyprctl activeworkspace -j | jq .name | sed 's/"//g');
         if [[ $name =~ $re ]] ; then
             hyprctl dispatch renameworkspace $id pseudofullscreen;
-            togglecurrentbar;
+            togglecurrentbar
         else
             hyprctl dispatch renameworkspace $id $id;
-            togglecurrentbar;
+            togglecurrentbar
         fi
       ''
     )

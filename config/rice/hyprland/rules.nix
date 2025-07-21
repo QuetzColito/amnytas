@@ -11,10 +11,6 @@
         "xray 0, launcher"
         "ignorezero, launcher"
         "noanim, launcher"
-        "xray 0, bar"
-        # "noblur, bar"
-        "ignorezero, bar"
-        "noanim, bar"
         "blur, notifications"
         "ignorezero, notifications"
       ]
