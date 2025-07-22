@@ -9,7 +9,6 @@
     gtk-icon-theme-name = "${theme.icons.name}"
     gtk-font-name = "${theme.serif.name} 12"
     gtk-cursor-theme-name = "${theme.cursor.name}"
-    gtk-cursor-theme-size = "${theme.cursor.size}"
   '';
   gtk3conf = ''
     [Settings]
