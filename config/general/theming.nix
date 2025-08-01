@@ -35,6 +35,23 @@ in {
     monospace = [theme.monospace.name];
     emoji = [theme.emoji.name];
   };
+  fonts.fontconfig.localConf = ''
+    <?xml version='1.0'?>
+    <!DOCTYPE fontconfig SYSTEM 'fonts.dtd'>
+    <fontconfig>
+     <match target="font" >
+      <edit name="embeddedbitmap" mode="assign">
+       <bool>false</bool>
+      </edit>
+      <edit name="fontfeatures" mode="append">
+       <string>calt off</string>
+       <string>clig off</string>
+       <string>dlig off</string>
+       <string>liga off</string>
+      </edit>
+     </match>
+    </fontconfig>
+  '';
 
   packages = [
     theme.cursor.package
