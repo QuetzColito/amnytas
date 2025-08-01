@@ -18,8 +18,8 @@
     ".config/yazi/plugins/ouch.yazi".source = pkgs.fetchFromGitHub {
       owner = "ndtoan96";
       repo = "ouch.yazi";
-      tag = "v0.5.0";
-      sha256 = "p3Xc5+rv3280qwV1H6nrhlkMnK6MWAqv/6Hvf4chtHY=";
+      tag = "v0.6.0";
+      sha256 = "sha256-mtXl76a54Deg4cyrD0wr++sD/5b/kCsnJ+ngM6OokTc=";
     };
     ".config/yazi/theme.toml".text = ''
       [mode]
@@ -95,7 +95,7 @@
       ]
     '';
     ".config/yazi/keymap.toml".text = ''
-      [manager]
+      [mgr]
       prepend_keymap = [
         { on = "!", run = 'shell "$SHELL" --block', desc = "Open shell here" },
         { on = "z", run = "plugin ouch", desc = "Compress with ouch"},
