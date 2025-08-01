@@ -67,7 +67,7 @@ Item {
             if (value < 1) {
                 running = false;
                 value = valueBu;
-                Quickshell.execDetached(["sh", "-c", "mpg123 $HOME/amnytas/config/rice/quickshell/config/Time/alert.mp3"]);
+                Quickshell.execDetached(["sh", "-c", "mpg123 $HOME/amnytas/config/rice/quickshell/config/Time/kurukuru.mp3"]);
             }
         }
     }

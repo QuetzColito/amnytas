@@ -1,9 +1,9 @@
 import QtQuick
 import QtQuick.Layouts
-import QtQuick.Controls
 import Quickshell
 import Quickshell.Widgets
 import "root:Theme"
+import "root:Components"
 
 WrapperMouseArea {
     id: root
@@ -22,23 +22,30 @@ WrapperMouseArea {
         radius: 5
         color: root.containsMouse ? Theme.bg3 : "transparent"
         RowLayout {
+            TextButton {
+                implicitWidth: 15
+                visible: button != ""
+                text.text: button
+                text.font.pointSize: Theme.textsize
+            }
+
             Text {
                 color: Theme.fg3
-                text: button + modelData.text
+                text: root.modelData.text
             }
 
             IconImage {
-                source: modelData.icon
+                source: root.modelData.icon
                 visible: source != ""
             }
         }
     }
 
     function checkbox(checkstate: var): string {
-        return checkstate == Qt.Unchecked ? "  " : "  ";
+        return checkstate == Qt.Unchecked ? "" : "";
     }
 
     function radio(checkstate: var): string {
-        return checkstate ? "  " : "  ";
+        return checkstate ? "" : "";
     }
 }
