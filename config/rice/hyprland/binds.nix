@@ -34,6 +34,8 @@
           "${mod},S,exec,[workspace 5] uwsm app -- foot -D ~/amnytas nvim ~/amnytas"
           # File Manager
           "${mod},N,exec,uwsm app -- foot yazi"
+          # Alt File Manager
+          "${modshift},N,exec,uwsm app -- Thunar"
           # Gaming
           "${mod},G,exec,[workspace 9 silent] uwsm app -- steam"
           # Browser
