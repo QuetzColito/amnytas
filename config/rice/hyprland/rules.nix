@@ -29,6 +29,31 @@
         "float, title:^(Picture-in-Picture)$"
         "pin, title:^(Picture-in-Picture)$"
 
+        "float, tag:apt "
+        "noblur, tag:apt"
+        "nofocus, tag:apt # Disable auto-focus"
+        "noshadow, tag:apt"
+        "noborder, tag:apt"
+        "pin, tag:apt"
+        "renderunfocused, tag:apt"
+        "size 100% 100%, tag:apt"
+        "center, tag:apt"
+
+        "tag +bhud, title:(Blish HUD)"
+        "float, tag:bhud"
+        "center, tag:bhud"
+        "nofocus, tag:bhud"
+        "noinitialfocus, tag:bhud"
+        "noborder, tag:bhud"
+        "pin, tag:bhud"
+        "opacity 0.2 0.2, tag:bhud"
+        "workspace 6 silent, tag:bhud"
+        "forcergbx, tag:bhud"
+
+        "stayfocused, title:(Guild Wars 2)"
+        # "fullscreen, title:(Guild Wars 2)"
+        "stayfocused, title:(Guild Wars 2)"
+
         "suppressevent maximize,class:.*"
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
 
@@ -72,6 +97,9 @@
         "workspace 6, class:^(starrail\.exe)$"
         "workspace 6, class:^(ffxiv_dx11\.exe)$"
         "workspace 5, class:codium-url-handler"
+        "workspace 6, class:^(genshinimpact\.exe)$"
+        "workspace 6, class:^(moe\.launcher\.an-anime-game-launcher)$"
+        "float, class:^(moe\.launcher\.an-anime-game-launcher)$"
 
         # Overlays are the bane of my existence x.x
         "tag +poe, title:(Path of Exile)"
@@ -89,6 +117,7 @@
         "size 100% 100%, tag:apt"
         "center, tag:apt"
 
+        "scrollmouse 10, class:^(genshinimpact\.exe)$"
         # make starrail not freeze in the background
         "renderunfocused, class:^(starrail\.exe)$"
         # "immediate, class:^(starrail\.exe)$"

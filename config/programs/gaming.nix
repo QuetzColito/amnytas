@@ -10,6 +10,7 @@
   nix.settings = inputs.aagl.nixConfig; # Set up Cachix
   # Dont try to add hsr before setting up cachix, unless you want to compile it
   programs.honkers-railway-launcher.enable = !config.firstInstall;
+  programs.anime-game-launcher.enable = !config.firstInstall;
 
   programs.steam = {
     enable = true;
@@ -23,6 +24,7 @@
   packages = with pkgs; [
     wineWowPackages.full
     winetricks
+    bottles
     gamescope
     gamemode
     osu-lazer-bin
