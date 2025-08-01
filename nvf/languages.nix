@@ -10,6 +10,7 @@
       nix.enable = true;
       rust.enable = true;
       ts.enable = false;
+      go.enable = true;
       python.enable = true;
       java.enable = true;
       typst = {
