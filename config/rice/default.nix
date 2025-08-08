@@ -5,7 +5,7 @@
 }: {
   imports = [
     ./hyprland
-    ./mako.nix
+    # ./mako.nix
     ./tofi.nix
     ./quickshell
   ];

@@ -11,6 +11,7 @@ import "root:Music" as Music
 import "root:Audio" as Audio
 import "root:Time" as Time
 import "root:SysTray" as SysTray
+import "root:Notifications" as Notifications
 import "root:Widgets"
 
 PanelWindow {
@@ -96,7 +97,7 @@ PanelWindow {
         hasLeftCorners: true
         smallItem: RowLayout {
             Music.Bar {
-                Layout.maximumWidth: screen.width / 2 - volume.width - midarea.width / 2 - 30
+                Layout.maximumWidth: screen.width / 2 - volume.width - midarea.width / 2 - 30 - notif.width
                 Clickable {
                     acceptedButtons: Qt.RightButton
                     onClicked: rightarea.toggle()
@@ -104,6 +105,9 @@ PanelWindow {
             }
             Audio.Volume {
                 id: volume
+            }
+            Notifications.Bar {
+                id: notif
             }
         }
         bigItem: Music.Widget {}
