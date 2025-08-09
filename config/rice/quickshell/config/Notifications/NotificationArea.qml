@@ -13,7 +13,7 @@ PanelWindow {
         visible = false;
         visible = true;
     }
-    screen: Quickshell.screens.find(s => s.name == Hyprland.focusedMonitor.name)
+    screen: Quickshell.screens.find(s => s.name == Hyprland.focusedMonitor?.name) || null
     anchors {
         top: true
         right: true

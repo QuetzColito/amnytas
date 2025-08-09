@@ -10,7 +10,7 @@ ColumnLayout {
     StyledSlider {
         id: item
         length: 100
-        value: Player.p.volume
+        value: Player.p?.volume || 0
         orientation: Qt.Vertical
         onMoved: Player.p.volume = value
     }

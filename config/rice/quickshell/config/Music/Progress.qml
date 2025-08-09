@@ -9,14 +9,14 @@ RowLayout {
     Layout.preferredWidth: 300
     Text {
         color: Theme.fg3
-        text: `${inMinutes(Player.p.position)}`
+        text: `${root.inMinutes(Player.p?.position || 0)}`
     }
     StyledSlider {
         thickness: 10
         Layout.fillWidth: true
         from: 0
-        to: Player.p?.length
-        value: Player.p?.position
+        to: Player.p?.length || 0
+        value: Player.p?.position || 0
         onMoved: Player.p?.seek(value - Player.p?.position)
         Timer {
             // only emit the signal when the position is actually changing.
@@ -30,7 +30,7 @@ RowLayout {
     }
     Text {
         color: Theme.fg3
-        text: `${inMinutes(Player.p?.length)}`
+        text: `${root.inMinutes(Player.p?.length || 0)}`
     }
 
     function inMinutes(seconds): string {

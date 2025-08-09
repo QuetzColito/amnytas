@@ -7,7 +7,7 @@ Item {
         id: art
         anchors.centerIn: parent
         width: 225
-        source: Player.p.trackArtUrl
+        source: Player.p?.trackArtUrl || ""
         fillMode: Image.PreserveAspectFit
     }
 }

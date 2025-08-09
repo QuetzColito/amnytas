@@ -24,26 +24,26 @@ ColumnLayout {
     Rectangle {
         id: big
 
-        implicitWidth: bigItem.width + 10
-        implicitHeight: bigItem.height + 10
+        implicitWidth: root.bigItem.width + 10
+        implicitHeight: root.bigItem.height + 10
         Layout.alignment: root.alignment
         color: Theme.bg
-        bottomRightRadius: hasRightCorners && root.dx > 0 ? Math.min(10, dx / 2) : 0
-        bottomLeftRadius: hasLeftCorners && root.dx > 0 ? Math.min(10, dx / 2) : 0
-        visible: !isIn
+        bottomRightRadius: root.hasRightCorners && root.dx > 0 ? Math.min(10, root.dx / 2) : 0
+        bottomLeftRadius: root.hasLeftCorners && root.dx > 0 ? Math.min(10, root.dx / 2) : 0
+        visible: !root.isIn
         WrapperItem {
             anchors.horizontalCenter: parent.horizontalCenter
-            child: bigItem
+            child: root.bigItem
         }
         Corner.BottomLeft {
-            visible: hasRightCorners && root.dx < 0 && isDrawn
-            radius: Math.min(20, Math.abs(dx / 2))
+            visible: root.hasRightCorners && root.dx < 0 && root.isDrawn
+            radius: Math.min(20, Math.abs(root.dx / 2))
             anchors.left: big.right
             anchors.bottom: big.bottom
         }
         Corner.BottomRight {
-            visible: hasLeftCorners && root.dx < 0 && isDrawn
-            radius: Math.min(20, Math.abs(dx / 2))
+            visible: root.hasLeftCorners && root.dx < 0 && root.isDrawn
+            radius: Math.min(20, Math.abs(root.dx / 2))
             anchors.right: big.left
             anchors.bottom: big.bottom
         }
@@ -52,27 +52,27 @@ ColumnLayout {
     Rectangle {
         id: small
         Layout.alignment: root.alignment
-        implicitWidth: smallItem.width + 10
+        implicitWidth: root.smallItem.width + 10
         implicitHeight: Theme.barheight
         color: Theme.bg
 
         WrapperItem {
             anchors.centerIn: parent
-            child: smallItem
+            child: root.smallItem
         }
 
-        topRightRadius: hasRightCorners && root.dx < 0 ? Math.min(10, Math.abs(dx) / 2) : 0
-        topLeftRadius: hasLeftCorners && root.dx < 0 ? Math.min(10, Math.abs(dx) / 2) : 0
-        bottomRightRadius: hasRightCorners ? 10 : 0
-        bottomLeftRadius: hasLeftCorners ? 10 : 0
+        topRightRadius: root.hasRightCorners && root.dx < 0 ? Math.min(10, Math.abs(root.dx) / 2) : 0
+        topLeftRadius: root.hasLeftCorners && root.dx < 0 ? Math.min(10, Math.abs(root.dx) / 2) : 0
+        bottomRightRadius: root.hasRightCorners ? 10 : 0
+        bottomLeftRadius: root.hasLeftCorners ? 10 : 0
 
         Corner.TopRight {
-            visible: hasLeftCorners && isDrawn && root.dx > 0
+            visible: root.hasLeftCorners && root.isDrawn && root.dx > 0
             radius: Math.min(root.dx, 20)
             anchors.right: small.left
         }
         Corner.TopLeft {
-            visible: hasRightCorners && isDrawn && root.dx > 0
+            visible: root.hasRightCorners && root.isDrawn && root.dx > 0
             radius: Math.min(root.dx, 20)
             anchors.left: small.right
         }
@@ -83,7 +83,7 @@ ColumnLayout {
         easing.type: Easing.InOutQuad
         onStopped: () => {
             if (!root.isDrawn) {
-                isIn = true;
+                root.isIn = true;
                 root.y = 0;
             }
         }

@@ -14,7 +14,7 @@ PanelWindow {
     implicitWidth: modelData.width
 
     property url home: StandardPaths.standardLocations(StandardPaths.HomeLocation)[0]
-    property int wsid: Hyprland.monitorFor(modelData).activeWorkspace.id
+    property int wsid: Hyprland.monitorFor(modelData).activeWorkspace?.id || "1"
     property string rotation: modelData.height > modelData.width ? "v" : ""
     property url current: `${home}/amnytas/wallpaper/${wsid}${rotation}.png`
 

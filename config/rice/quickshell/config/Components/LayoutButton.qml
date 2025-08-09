@@ -13,14 +13,12 @@ Rectangle {
     Text {
         id: icon
         anchors.centerIn: parent
-        text: icontext
+        text: root.icontext
         color: Theme.blue
     }
     MouseArea {
         hoverEnabled: true
         anchors.fill: parent
-        // onClicked: grid.month = (grid.month + 1) % 12
-        onClicked: event()
         onEntered: root.color = Theme.bg2
         onExited: root.color = Theme.bg
     }

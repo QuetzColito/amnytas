@@ -11,26 +11,26 @@ Slider {
     property int thickness: 20
     padding: 0
     background: Rectangle {
-        color: bgColor
-        radius: thickness / 2
-        implicitWidth: horizontal ? length : thickness
-        implicitHeight: horizontal ? thickness : length
+        color: control.bgColor
+        radius: control.thickness / 2
+        implicitWidth: control.horizontal ? control.length : control.thickness
+        implicitHeight: control.horizontal ? control.thickness : control.length
 
         Rectangle {
-            anchors.bottom: horizontal ? undefined : parent.bottom
-            width: horizontal ? control.visualPosition * (parent.width - thickness) + thickness : parent.width
-            height: horizontal ? parent.height : (1 - control.visualPosition) * (parent.height - thickness) + thickness
-            radius: thickness / 2
-            color: fillColor
+            anchors.bottom: control.horizontal ? undefined : parent.bottom
+            width: control.horizontal ? control.visualPosition * (parent.width - control.thickness) + control.thickness : parent.width
+            height: control.horizontal ? parent.height : (1 - control.visualPosition) * (parent.height - control.thickness) + control.thickness
+            radius: control.thickness / 2
+            color: control.fillColor
         }
     }
 
     handle: Rectangle {
-        y: horizontal ? 0 : control.visualPosition * (control.availableHeight - height)
-        x: horizontal ? control.visualPosition * (control.availableWidth - width) : 0
-        implicitWidth: thickness
-        implicitHeight: thickness
-        radius: thickness / 2
-        color: control.pressed ? handleColor : fillColor
+        y: control.horizontal ? 0 : control.visualPosition * (control.availableHeight - height)
+        x: control.horizontal ? control.visualPosition * (control.availableWidth - width) : 0
+        implicitWidth: control.thickness
+        implicitHeight: control.thickness
+        radius: control.thickness / 2
+        color: control.pressed ? control.handleColor : control.fillColor
     }
 }

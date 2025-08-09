@@ -1,3 +1,4 @@
+pragma ComponentBehavior: Bound
 import QtQuick.Layouts
 import Quickshell.Hyprland
 import QtQuick
@@ -9,6 +10,7 @@ RowLayout {
     property real textsize: 11
 
     component WsIndicator: Text {
+        id: indicator
         property int wsid
         property var ws: Hyprland.workspaces.values.find(ws => ws.id == wsid)
         text: ws !== undefined ? " ◆ " : " ◇ "
@@ -18,7 +20,7 @@ RowLayout {
             anchors.fill: parent
             acceptedButtons: Qt.LeftButton | Qt.RightButton
             cursorShape: Qt.PointingHandCursor
-            onClicked: e => e.button == Qt.LeftButton ? Hyprland.dispatch(`workspace ${wsid}`) : Hyprland.dispatch(`movetoworkspace ${wsid}`)
+            onClicked: e => e.button == Qt.LeftButton ? Hyprland.dispatch(`workspace ${indicator.wsid}`) : Hyprland.dispatch(`movetoworkspace ${indicator.wsid}`)
         }
     }
 
