@@ -96,9 +96,6 @@
       gnome.gnome-keyring.enable = true;
     };
 
-    # Lower Waiting on Shutdown
-    systemd.extraConfig = "DefaultTimeoutStopSec=10s";
-
     # Important for laptop, dunno about desktop
     powerManagement.enable = true;
 
