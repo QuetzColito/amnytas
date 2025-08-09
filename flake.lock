@@ -345,6 +345,21 @@
     },
     "nixpkgs_4": {
       "locked": {
+        "lastModified": 1753489912,
+        "narHash": "sha256-uDCFHeXdRIgJpYmtcUxGEsZ+hYlLPBhR83fdU+vbC1s=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "13e8d35b7d6028b7198f8186bc0347c6abaa2701",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "ref": "nixos-25.05",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_5": {
+      "locked": {
         "lastModified": 1752687322,
         "narHash": "sha256-RKwfXA4OZROjBTQAl9WOZQFm7L8Bo93FQwSJpAiSRvo=",
         "owner": "NixOS",
@@ -384,6 +399,24 @@
         "type": "github"
       }
     },
+    "putah": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_4"
+      },
+      "locked": {
+        "lastModified": 1754698512,
+        "narHash": "sha256-FF8cmY9JIB6Q9qewxo/rJVhbHVXMa7cohhV3FXRcgos=",
+        "owner": "QuetzColito",
+        "repo": "putah",
+        "rev": "e006c839d9eb68286dd1ee1b8a89bc114fcd2a0e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "QuetzColito",
+        "repo": "putah",
+        "type": "github"
+      }
+    },
     "quickshell": {
       "inputs": {
         "nixpkgs": [
@@ -414,6 +447,7 @@
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nvf": "nvf",
+        "putah": "putah",
         "quickshell": "quickshell",
         "spicetify-nix": "spicetify-nix"
       }
@@ -486,7 +520,7 @@
     },
     "spicetify-nix": {
       "inputs": {
-        "nixpkgs": "nixpkgs_4",
+        "nixpkgs": "nixpkgs_5",
         "systems": "systems_3"
       },
       "locked": {

@@ -22,6 +22,10 @@ Item {
                 id: input
                 text: ""
                 color: Theme.blue
+                onTextChanged: {
+                    calc.tocalc = text;
+                    calc.running = true;
+                }
             }
         }
     }
@@ -45,13 +49,17 @@ Item {
             id: resultbox
             anchors.fill: parent
             color: Theme.blue
-            property string result: {
-                try {
-                    eval(input.text);
-                } catch (err) {}
-            }
             horizontalAlignment: Text.AlignRight
-            text: result
+            text: ""
+        }
+    }
+
+    Process {
+        id: calc
+        property string tocalc
+        command: ["sh", "-c", `putah "${tocalc}"`]
+        stdout: StdioCollector {
+            onStreamFinished: resultbox.text = text
         }
     }
 

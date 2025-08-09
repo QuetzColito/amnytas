@@ -8,6 +8,7 @@
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     ags.url = "github:Aylur/ags";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    putah.url = "github:QuetzColito/putah";
     nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";

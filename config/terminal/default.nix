@@ -1,6 +1,7 @@
 {
   pkgs,
   self,
+  inputs,
   ...
 }: let
   tuiPackages = with pkgs; [
@@ -33,6 +34,7 @@ in {
       texliveSmall
       typst
       oh-my-posh
+      inputs.putah.packages.${pkgs.stdenv.system}.putah
       mpg123
       zip
       unzip
