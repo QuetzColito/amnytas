@@ -1,13 +1,9 @@
 import QtQuick
 import QtQuick.Controls
-import QtQuick.Layouts
 import Quickshell
 import Quickshell.Widgets
 import Quickshell.Wayland
 import Quickshell.Hyprland
-import "root:Theme"
-import "root:Components"
-import Quickshell.Services.Notifications
 
 PanelWindow {
     id: root

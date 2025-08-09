@@ -1,11 +1,9 @@
 import QtQuick.Layouts
 import QtQuick.Shapes
-import QtQuick.Controls
 import QtQuick
-import Quickshell
 import Quickshell.Widgets
-import "root:Theme"
-import "root:Components"
+import qs.Theme
+import qs.Components
 
 WrapperMouseArea {
     id: root

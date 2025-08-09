@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Widgets
-import "root:Theme"
+import qs.Theme
 
 PopupWindow {
     id: popup

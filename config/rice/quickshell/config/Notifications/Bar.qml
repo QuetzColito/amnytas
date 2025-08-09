@@ -2,8 +2,8 @@ import QtQuick
 import Quickshell
 import Quickshell.Widgets
 import Quickshell.Wayland
-import "root:Theme"
-import "root:Components"
+import qs.Theme
+import qs.Components
 
 TextButton {
     property int yOffset: 30

@@ -1,6 +1,6 @@
 import QtQuick
 import Quickshell.Widgets
-import "root:Theme"
+import qs.Theme
 
 WrapperMouseArea {
     acceptedButtons: Qt.RightButton | Qt.LeftButton

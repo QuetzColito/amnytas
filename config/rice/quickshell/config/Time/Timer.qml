@@ -1,11 +1,9 @@
 import QtQuick.Layouts
-import QtQuick.Controls
 import QtQuick
 import Quickshell
-import Quickshell.Io
 import Quickshell.Widgets
-import "root:Theme"
-import "root:Components"
+import qs.Theme
+import qs.Components
 
 Item {
     id: root

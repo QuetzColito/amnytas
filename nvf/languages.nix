@@ -21,7 +21,7 @@
 
     lsp.lspconfig.sources.qmlls = ''
       lspconfig.qmlls.setup {
-        cmd = {"${pkgs.kdePackages.qtdeclarative}/bin/qmlls", "-E"}
+        cmd = {"${pkgs.kdePackages.qtdeclarative}/bin/qmlls"}
       }
     '';
   };

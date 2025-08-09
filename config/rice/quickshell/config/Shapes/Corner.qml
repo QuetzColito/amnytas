@@ -1,6 +1,6 @@
 import QtQuick
 import QtQuick.Shapes
-import "root:Theme"
+import qs.Theme
 
 QtObject {
     component BottomLeft: Shape {

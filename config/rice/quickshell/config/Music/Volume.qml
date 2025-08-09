@@ -1,7 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
-import "root:Theme"
-import "root:Components"
+import qs.Theme
+import qs.Components
 
 ColumnLayout {
     spacing: 10

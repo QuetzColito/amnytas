@@ -1,9 +1,8 @@
 import QtQuick
 import QtQuick.Layouts
-import Quickshell
 import Quickshell.Widgets
 import Quickshell.Services.SystemTray
-import "root:Theme"
+import qs.Theme
 
 RowLayout {
     id: items
@@ -23,7 +22,7 @@ RowLayout {
                 popup.anchor.item = icon;
                 popup.opener.menu = modelData.menu;
                 popup.visible = true;
-                // }
+            // }
             }
             Layout.fillWidth: true
             implicitHeight: 20

@@ -1,10 +1,8 @@
 import QtQuick
-import QtQuick.Controls
 import Quickshell.Services.Mpris
 import Quickshell.Widgets
 import QtQuick.Layouts
-import "root:Theme"
-import "root:Components"
+import qs.Components
 
 WrapperItem {
     leftMargin: 35

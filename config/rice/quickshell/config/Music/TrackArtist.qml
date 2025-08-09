@@ -1,6 +1,6 @@
 import QtQuick
 import QtQuick.Layouts
-import "root:Theme"
+import qs.Theme
 
 Text {
     Layout.fillWidth: true

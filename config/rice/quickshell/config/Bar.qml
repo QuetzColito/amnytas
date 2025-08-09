@@ -4,18 +4,18 @@ import QtQuick.Layouts
 import Quickshell.Wayland
 import Quickshell.Io
 import Quickshell.Hyprland
-import "root:Shapes"
-import "root:Theme"
-import "root:Components"
-import "root:Music" as Music
-import "root:Audio" as Audio
-import "root:Time" as Time
-import "root:SysTray" as SysTray
-import "root:Notifications" as Notifications
-import "root:Widgets"
+import qs.Shapes
+import qs.Theme
+import qs.Components
+import qs.Music as Music
+import qs.Audio as Audio
+import qs.Time as Time
+import qs.SysTray as SysTray
+import qs.Notifications as Notifications
+import qs.Widgets
 
 PanelWindow {
-    id: barwindow
+    id: root
     property var modelData
     property bool overlayOn: false
     WlrLayershell.keyboardFocus: WlrKeyboardFocus.OnDemand
@@ -33,7 +33,7 @@ PanelWindow {
         visible: leftarea.isDrawn || midarea.isDrawn || rightarea.isDrawn || systray.anyOpen
         MouseArea {
             anchors.fill: parent
-            onClicked: disableAll()
+            onClicked: root.disableAll()
         }
         anchors.fill: parent
     }
@@ -48,7 +48,7 @@ PanelWindow {
                 color: Theme.cyan
                 text: ""
                 Clickable {
-                    onClicked: barwindow.toggleOverlay()
+                    onClicked: root.toggleOverlay()
                 }
             }
             Workspaces {}
@@ -155,14 +155,14 @@ PanelWindow {
         }
     }
     IpcHandler {
-        target: `"${screen.name}"`
+        target: `"${root.screen.name}"`
 
         function dashboard(): void {
-            toggleOverlay();
+            root.toggleOverlay();
         }
 
         function bar(): void {
-            barwindow.visible = !barwindow.visible;
+            root.visible = !root.visible;
         }
     }
 

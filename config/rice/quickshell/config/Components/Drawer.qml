@@ -1,10 +1,8 @@
-import Quickshell
 import Quickshell.Widgets
 import QtQuick
 import QtQuick.Layouts
-import QtQuick.Shapes
-import "root:Shapes"
-import "root:Theme"
+import qs.Shapes
+import qs.Theme
 
 ColumnLayout {
     id: root

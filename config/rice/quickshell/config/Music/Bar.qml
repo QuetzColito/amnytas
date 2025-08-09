@@ -1,6 +1,6 @@
 import QtQuick
 import Quickshell.Services.Mpris
-import "../Theme"
+import qs.Theme
 
 Text {
     property string title: Player.p?.trackTitle || "Unknown Title"

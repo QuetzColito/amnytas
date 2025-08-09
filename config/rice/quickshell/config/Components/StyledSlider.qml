@@ -1,6 +1,6 @@
 import QtQuick
 import QtQuick.Controls
-import "root:Theme"
+import qs.Theme
 
 Slider {
     id: control

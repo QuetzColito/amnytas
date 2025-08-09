@@ -1,6 +1,5 @@
 import QtQuick
-import Quickshell.Services.Pipewire
-import "../Theme"
+import qs.Theme
 
 Text {
     text: `    ${Audio.volume}% `

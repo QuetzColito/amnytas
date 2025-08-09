@@ -1,9 +1,6 @@
 import QtQuick
-import Quickshell
 import QtQuick.Layouts
-import Quickshell.Widgets
-import "root:Theme"
-import "root:Components"
+import qs.Theme
 
 Rectangle {
     id: root

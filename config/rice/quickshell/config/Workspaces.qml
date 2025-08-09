@@ -1,7 +1,7 @@
 import QtQuick.Layouts
 import Quickshell.Hyprland
 import QtQuick
-import "root:Theme"
+import qs.Theme
 
 RowLayout {
     id: layout

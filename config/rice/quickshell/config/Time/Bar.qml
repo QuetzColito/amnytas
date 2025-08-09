@@ -1,8 +1,6 @@
-import QtQuick.Layouts
-import QtQuick.Controls
 import QtQuick
 import Quickshell
-import "root:Theme"
+import qs.Theme
 
 Text {
     id: root

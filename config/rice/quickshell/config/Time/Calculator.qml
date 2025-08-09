@@ -1,9 +1,8 @@
 import QtQuick.Layouts
 import QtQuick
-import Quickshell
 import Quickshell.Io
 import Quickshell.Widgets
-import "root:Theme"
+import qs.Theme
 
 Item {
     Layout.fillWidth: true

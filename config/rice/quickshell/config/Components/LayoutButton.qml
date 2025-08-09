@@ -1,6 +1,5 @@
 import QtQuick
-import Quickshell
-import "root:Theme"
+import qs.Theme
 import QtQuick.Layouts
 
 Rectangle {

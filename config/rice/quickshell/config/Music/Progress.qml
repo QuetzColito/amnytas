@@ -1,9 +1,8 @@
 import QtQuick
-import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell.Services.Mpris
-import "root:Theme"
-import "root:Components"
+import qs.Theme
+import qs.Components
 
 RowLayout {
     id: root

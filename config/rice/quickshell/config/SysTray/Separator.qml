@@ -1,6 +1,5 @@
 import QtQuick
-import Quickshell
-import "root:Theme"
+import qs.Theme
 
 Rectangle {
     color: Theme.bg3

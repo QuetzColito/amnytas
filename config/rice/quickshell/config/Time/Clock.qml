@@ -1,9 +1,8 @@
 import QtQuick.Layouts
-import QtQuick.Controls
 import QtQuick
 import Quickshell
-import "root:Theme"
-import "root:Components"
+import qs.Theme
+import qs.Components
 
 RowLayout {
     Layout.maximumWidth: 170
