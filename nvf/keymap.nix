@@ -17,6 +17,7 @@
         # One-handed Write/Quit
         "<leader>w" = ":w<CR>";
         "<leader>q" = ":q<CR>";
+        "<leader>d" = "<cmd>lua vim.diagnostic.open_float()<CR>";
       };
     visual =
       lib.mapAttrsToList (key: action: {
