@@ -41,6 +41,11 @@
 
       [which]
       mask = { bg = "reset" }
+
+      [tabs]
+      active   = { fg = "blue", bg = "reset", reversed = true }
+      inactive = { fg = "blue", bg = "reset" }
+      sep_outer = { open = "", close = "" }
     '';
     ".config/yazi/yazi.toml".text = ''
       [mgr]
@@ -108,6 +113,8 @@
         { on = "J", run = "arrow 100%", desc = "One Page Down" },
         { on = "K", run = "arrow -100%", desc = "One Page Up" },
         { on = "a", run = "toggle_all", desc = "Toggle all files" },
+        { on = "H", run = "tab_switch -1 --relative", desc = "Switch to previous tab" },
+        { on = "L", run = "tab_switch 1 --relative",  desc = "Switch to next tab" },
       ]
     '';
   };
