@@ -25,47 +25,59 @@
     };
   };
 
-  packages = with pkgs; [
-    # Browser
-    brave
+  packages = with pkgs;
+    [
+      # Browser
+      brave
+      google-chrome
 
-    # Util
-    gnome-disk-utility
-    ncdu
-    qpwgraph
-    exiftool
+      # Util
+      gnome-disk-utility
+      ncdu
+      qpwgraph
+      exiftool
 
-    # Comms
-    # pkgs-stable.rustdesk-flutter
-    rustdesk-flutter
-    discord-canary
-    thunderbird
-    vesktop
+      # Comms
+      # pkgs-stable.rustdesk-flutter
+      rustdesk-flutter
+      discord-canary
+      thunderbird
+      vesktop
 
-    # Audio
-    audacity
+      # Audio
+      audacity
 
-    # Video
-    mpv
-    obs-studio
-    vlc
+      # Video
+      mpv
+      obs-studio
+      vlc
 
-    # Image
-    imv
-    inkscape
-    conjure
-    drawio
-    komikku
-    pinta
+      # Image
+      imv
+      inkscape
+      conjure
+      drawio
+      komikku
+      pinta
 
-    # Documents
-    zathura
-    libreoffice
-    obsidian
+      # Documents
+      zathura
+      libreoffice
+      obsidian
 
-    # Other
-    # jetbrains.idea-community
-    vscodium
-    appimage-run
-  ];
+      # Other
+      # jetbrains.idea-community
+      vscodium
+      appimage-run
+    ]
+    # Some Webapps
+    ++ (let
+      webapp = name: url: (pkgs.writeShellScriptBin name ''uwsm app -- google-chrome-stable --new-window --ozone-platform=wayland --app="https://${url}"'');
+    in [
+      (webapp "crunchyroll" "crunchyroll.com")
+      (webapp "netflix" "netflix.com")
+      (webapp "mailproton" "mail.proton.me")
+      (webapp "passproton" "pass.proton.me")
+      (webapp "wanikani" "wanikani.com")
+    ]);
 }
