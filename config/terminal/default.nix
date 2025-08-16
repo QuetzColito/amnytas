@@ -16,11 +16,12 @@
   ];
 in {
   imports = [
-    ./oh-my-posh.nix
     ./zsh.nix
     ./yazi.nix
     ./console.nix
   ];
+
+  files.".config/oh-my-posh/config.toml".source = ./oh-my-posh.toml;
 
   packages = with pkgs;
     [
