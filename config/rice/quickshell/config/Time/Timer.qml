@@ -34,25 +34,22 @@ Item {
             deco: "S"
         }
         MaxedButton {
-            text.text: {
-                if (!timer.running || (value / valueBu) > .66)
-                    return " ";
-                if ((value / valueBu) > .33)
-                    return " ";
-                return " ";
+            name: {
+                (!timer.running || (value / valueBu) > .5) ? "hourglass_top" : "hourglass_bottom";
             }
+            clickable.onClicked: Quickshell.execDetached(["sh", "-c", "mpg123 $HOME/amnytas/config/rice/quickshell/config/Time/kurukuru.mp3"])
         }
         MaxedButton {
-            text.text: timer.running ? "" : ""
-            onClicked: {
+            name: timer.running ? "pause" : "play"
+            clickable.onClicked: {
                 if (!timer.running)
                     valueBu = value;
                 timer.running = !timer.running;
             }
         }
         MaxedButton {
-            text.text: "󰜉"
-            onClicked: value = valueBu
+            name: "restart"
+            clickable.onClicked: value = valueBu
         }
     }
     Timer {
@@ -69,11 +66,9 @@ Item {
             }
         }
     }
-    component MaxedButton: TextButton {
-        Layout.fillWidth: true
-        Layout.fillHeight: true
-        text.color: root.color
-        text.font.pointSize: 25
+    component MaxedButton: IconButton {
+        color: root.color
+        size: 50
     }
     component Wheel: WrapperMouseArea {
         property int magnitude
@@ -86,7 +81,7 @@ Item {
             color: root.color
             text: {
                 const v = Math.floor((value % bound) / magnitude);
-                return `${v < 10 ? "0" : ""}${v}${deco}`;
+                return `${v < 10 ? "0" : ""}${v}${deco}   `;
             }
         }
     }

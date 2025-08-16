@@ -3,15 +3,21 @@ import QtQuick
 import Quickshell.Io
 import Quickshell.Widgets
 import qs.Theme
+import qs.Components
 
 Item {
     Layout.fillWidth: true
-    Layout.preferredHeight: 40
+    Layout.preferredHeight: 50
 
+    ColoredIcon {
+        id: icon
+        padding: 4
+        color: Theme.blue
+        name: "calc"
+    }
     WrapperMouseArea {
-        anchors.right: parent.horizontalCenter
-        anchors.left: parent.left
-        anchors.verticalCenter: parent.verticalCenter
+        anchors.right: parent.right
+        anchors.left: icon.right
         cursorShape: Qt.IBeamCursor
         WrapperRectangle {
             radius: 5
@@ -31,9 +37,7 @@ Item {
 
     Text {
         id: mid
-        anchors.left: parent.horizontalCenter
-        anchors.right: parent.right
-        anchors.verticalCenter: parent.verticalCenter
+        anchors.bottom: parent.bottom
         text: " = "
         color: Theme.blue
     }
@@ -42,7 +46,7 @@ Item {
         onClicked: copy.running = true
         anchors.left: mid.right
         anchors.right: parent.right
-        anchors.verticalCenter: parent.verticalCenter
+        anchors.bottom: parent.bottom
 
         Text {
             id: resultbox
@@ -58,7 +62,7 @@ Item {
         property string tocalc
         command: ["sh", "-c", `putah "${tocalc}"`]
         stdout: StdioCollector {
-            onStreamFinished: resultbox.text = text
+            onStreamFinished: resultbox.text = text.replace(/(\r\n|\n|\r)/gm, "")
         }
     }
 

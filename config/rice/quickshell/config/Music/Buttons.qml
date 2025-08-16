@@ -11,27 +11,30 @@ WrapperItem {
     RowLayout {
         Layout.fillWidth: true
         Layout.alignment: Qt.AlignHCenter
-        TextButton {
-            text.font.pointSize: 20
-            onClicked: Player.p.loopState = Player.p?.loopState == MprisLoopState.Track ? MprisLoopState.None : Player.p?.loopState == MprisLoopState.Playlist ? MprisLoopState.Track : MprisLoopState.Playlist
-            text.text: Player.p?.loopState == MprisLoopState.Track ? " 󰑘 " : Player.p?.loopState == MprisLoopState.Playlist ? " 󰑖 " : " 󰑗 "
+        IconButton {
+            size: 50
+            clickable.onClicked: Player.p.loopState = Player.p?.loopState == MprisLoopState.Track ? MprisLoopState.None : Player.p?.loopState == MprisLoopState.Playlist ? MprisLoopState.Track : MprisLoopState.Playlist
+            name: Player.p?.loopState == MprisLoopState.Track ? "repeat_one_on" : Player.p?.loopState == MprisLoopState.Playlist ? "repeat_on" : "repeat"
         }
-        TextButton {
-            onClicked: Player.p.previous()
-            text.text: " 󰼨 "
+        IconButton {
+            size: 50
+            clickable.onClicked: Player.p.previous()
+            name: "previous"
         }
-        TextButton {
-            onClicked: Player.p.togglePlaying()
-            text.text: Player.p?.isPlaying ? "  " : "  "
+        IconButton {
+            size: 50
+            clickable.onClicked: Player.p.togglePlaying()
+            name: Player.p?.isPlaying ? "pause" : "play"
         }
-        TextButton {
-            onClicked: Player.p.next()
-            text.text: " 󰼧 "
+        IconButton {
+            size: 50
+            clickable.onClicked: Player.p.next()
+            name: "next"
         }
-        TextButton {
-            text.font.pointSize: 20
-            onClicked: Player.p.shuffle = true
-            text.text: "  "
+        IconButton {
+            size: 50
+            clickable.onClicked: Player.p.shuffle = true
+            name: Player.p?.shuffle ? "shuffle_on" : "shuffle"
         }
     }
 }

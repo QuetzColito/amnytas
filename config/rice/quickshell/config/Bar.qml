@@ -12,7 +12,7 @@ import qs.Audio as Audio
 import qs.Time as Time
 import qs.SysTray as SysTray
 import qs.Notifications as Notifications
-import qs.Widgets
+import qs.System as System
 
 PanelWindow {
     id: root
@@ -47,16 +47,17 @@ PanelWindow {
                 font.pointSize: 18
                 color: Theme.cyan
                 text: ""
-                Clickable {
-                    onClicked: root.toggleOverlay()
-                }
             }
             Workspaces {}
             SysTray.Bar {
                 id: systray
             }
+            Clickable {
+                acceptedButtons: Qt.RightButton
+                onClicked: leftarea.toggle()
+            }
         }
-        bigItem: System {}
+        bigItem: System.Tabs {}
     }
     Corner.TopLeft {
         x: leftarea.xr
@@ -126,12 +127,6 @@ PanelWindow {
     Corner.TopRight {
         anchors.top: rightarea.bottom
         anchors.right: rightarea.right
-    }
-
-    component Clickable: MouseArea {
-        anchors.fill: parent
-        acceptedButtons: Qt.RightButton | Qt.LeftButton
-        cursorShape: Qt.PointingHandCursor
     }
 
     mask: Region {

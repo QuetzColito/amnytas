@@ -1,18 +1,23 @@
 import QtQuick.Layouts
+import Quickshell.Widgets
 
-GridLayout {
-    columns: 2
+WrapperItem {
+    extraMargin: 10
 
-    Clock {
-        Layout.fillWidth: true
+    GridLayout {
+        columns: 2
+        rowSpacing: 10
+        columnSpacing: 10
+
+        Clock {
+            Layout.fillWidth: true
+        }
+        Buttons {
+            Layout.rowSpan: 3
+        }
+        Calendar {}
+        Calculator {}
+        Timer {}
+        Die {}
     }
-    Buttons {
-        Layout.rowSpan: 2
-    }
-    Calendar {}
-    Calculator {
-        Layout.columnSpan: 2
-    }
-    Timer {}
-    Die {}
 }
