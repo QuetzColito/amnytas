@@ -109,7 +109,7 @@
         { on = "e", run = "rename --empty=ext --cursor=end", desc = "Rename at End" },
         { on = "i", run = "rename --cursor=before_ext", desc = "Rename in Mid" },
         { on = "I", run = "rename --cursor=before_ext", desc = "Rename in Mid" },
-        { on = "c", run = "rename --empty=stem --cursor=before_ext", desc = "Change Name" },
+        { on = "c", run = "rename --empty=stem --cursor=start", desc = "Change Name" },
         { on = "J", run = "arrow 100%", desc = "One Page Down" },
         { on = "K", run = "arrow -100%", desc = "One Page Up" },
         { on = "a", run = "toggle_all", desc = "Toggle all files" },
