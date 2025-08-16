@@ -14,20 +14,15 @@
       transparent = true;
     };
 
-    clipboard = {
-      enable = true;
-      providers.wl-copy.enable = true;
-      registers = "unnamedplus";
-    };
     # Extra Transparency
     luaConfigPost = ''
-      vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { fg = "#9d7cd8", bg = "none"})
-      vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { fg = "#bb9af7", bg = "none"})
-      vim.api.nvim_set_hl(0, "TelescopePromptTitle", { fg = "#ff9e64", bg = "none"})
-      vim.api.nvim_set_hl(0, "TelescopePromptBorder", { fg = "#ff9e64", bg = "none"})
-      vim.api.nvim_set_hl(0, "MiniFilesTitleFocused", { fg = "#ff9e64", bg = "none"})
-      vim.api.nvim_set_hl(0, "TelescopeNormal", { fg = "#a9b1d6", bg = "none"})
-      vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = "#bb9af7", bg = "none"})
+      vim.api.nvim_set_hl(0, "FzfLuaNormal", { fg = "#c0caf5", bg = "none"})
+      vim.api.nvim_set_hl(0, "FzfLuaBorder", { fg = "#bb9af7", bg = "none"})
+      vim.api.nvim_set_hl(0, "FzfLuaTitle", { fg = "#bb9af7", bg = "none"})
+      vim.api.nvim_set_hl(0, "FzfLuaPreviewTitle", { fg = "#bb9af7", bg = "none"})
+      vim.api.nvim_set_hl(0, "FzfLuaTitleFlags", { fg = "#c0caf5", bg = "none"})
+      vim.api.nvim_set_hl(0, "FzfLuaBackdrop", { fg = "#c0caf5", bg = "none"})
+      vim.api.nvim_set_hl(0, "FzfLuaCursorLine", { fg = "#bb9af7", bg = "#2f3549"})
       vim.api.nvim_set_hl(0, "NormalFloat", { fg = "#9d7cd8", bg = "none"})
       vim.api.nvim_set_hl(0, "FloatTitle", { fg = "#9d7cd8", bg = "none"})
       vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#9d7cd8", bg = "none"})

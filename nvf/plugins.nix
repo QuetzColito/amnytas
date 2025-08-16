@@ -47,29 +47,11 @@ _: {
       };
     };
 
-    telescope = {
+    fzf-lua = {
       enable = true;
-      mappings = {
-        liveGrep = "<C-f>";
-        findFiles = "<leader>f";
-        open = "<leader>t";
-        buffers = null;
-        diagnostics = null;
-        findProjects = null;
-        gitBranches = null;
-        gitBufferCommits = null;
-        gitCommits = null;
-        gitStash = null;
-        gitStatus = null;
-        helpTags = null;
-        lspDefinitions = null;
-        lspDocumentSymbols = null;
-        lspImplementations = null;
-        lspReferences = null;
-        lspTypeDefinitions = null;
-        lspWorkspaceSymbols = null;
-        resume = null;
-        treesitter = null;
+      setupOpts = {
+        winopts.backdrop = 100;
+        fzf_colors = true;
       };
     };
   };

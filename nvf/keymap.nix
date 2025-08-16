@@ -14,6 +14,14 @@
         # Files
         "-" = "<cmd>Oil<CR>";
 
+        # FzfLua
+        "<leader>f" = ":FzfLua files<CR>";
+        "<leader>t" = ":FzfLua builtin<CR>";
+
+        # Copy/Paste to System
+        "<leader>y" = "\"+y";
+        "<leader>p" = "\"+p";
+
         # One-handed Write/Quit
         "<leader>w" = ":w<CR>";
         "<leader>q" = ":q<CR>";
