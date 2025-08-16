@@ -57,18 +57,18 @@
       ''
     )
     (
-      writeShellScriptBin "toggleterm" ''
-        exists=$(hyprctl workspaces -j | jq 'map(.name) | contains(["special:terminal"])')
-        hyprctl dispatch togglespecialworkspace terminal
+      writeShellScriptBin "toggle" ''
+        exists=$(hyprctl workspaces -j | jq "map(.name) | contains([\"special:toggle$1\"])")
+        hyprctl dispatch togglespecialworkspace toggle$1
 
         [ "$exists" = "true" ] && exit
 
         # spawn terminal
-        hyprctl dispatch exec [workspace special:terminal] foot
+        hyprctl dispatch exec "[workspace special:toggle$1] $1"
 
         # ensure focus
-        socat -U - UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock | grep -q 'openwindow>>.*,.*,foot,foot'
-        hyprctl dispatch focuswindow address:$(hyprctl clients -j | jq -r 'map(select(.workspace.name == "special:terminal"))[0].address')
+        socat -U - UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock | grep -q "openwindow>>.*,.*,$2.*"
+        hyprctl dispatch focuswindow address:$(hyprctl clients -j | jq -r "map(select(.workspace.name == \"special:toggle$1\"))[0].address")
       ''
     )
     (

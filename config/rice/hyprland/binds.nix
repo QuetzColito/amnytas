@@ -1,12 +1,7 @@
-{
-  hh,
-  theme,
-  ...
-}: {
+{hh, ...}: {
   files = let
     mod = "SUPER";
     modshift = "${mod}SHIFT";
-    fixcursor = "hyprctl setcursor ${theme.cursor.name} ${builtins.toString theme.cursor.size}";
     workspaces = builtins.concatLists (builtins.genList (
         x: let
           ws = let
@@ -27,9 +22,7 @@
           # my-tofi-run is defined in tofi.nix and adds foot if package is in tuiPackages
           "${mod},SPACE,exec,uwsm app -- $(my-tofi-run)"
           # Terminal
-          "${mod},RETURN,exec,foot"
-          # Terminal on Special Workspace
-          "${modshift},RETURN,exec,toggleterm"
+          "${mod},RETURN,exec,uwsm app -- foot"
           # Settings
           "${mod},S,exec,[workspace 5] uwsm app -- foot -D ~/amnytas nvim ~/amnytas"
           # File Manager
@@ -54,10 +47,6 @@
           # which is a problem for gaming,
           # so i only activate when i need it and have mozc as my only layout in fcitx5
 
-          # Sometimes copy between wayland and xwayland bugged out, pressing this helped
-          # (basically just re-copies your clipboard)
-          "${mod},C,exec,wl-paste | wl-copy"
-
           # Window Management
           # Quit Window (i was a mac person once :P)
           "${mod},Q,killactive"
@@ -69,6 +58,13 @@
           # Open Special Workspace
           "${mod},Z,togglespecialworkspace"
           "${modshift},Z,movetoworkspace, special"
+          # Some special special workspaces
+          "${modshift},RETURN,exec,toggle foot foot"
+          "${mod},C,exec,toggle crunchyroll chrome-"
+          "${modshift},C,exec,toggle netflix chrome-"
+          "${mod},W,exec,toggle wanikani chrome-"
+          "${mod},M,exec,toggle mailproton chrome-"
+          "${mod},P,exec,toggle passproton chrome-"
           # Open Widgets
           "${mod},E,exec,toggleDashboard"
           # Toggle Bar on current monitor
