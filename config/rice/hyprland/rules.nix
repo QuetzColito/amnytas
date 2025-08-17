@@ -51,10 +51,6 @@
         # Make Steam start less annoying
         "noinitialfocus, title:^(Steam)$"
 
-        # throw sharing indicators away
-        "workspace special silent, title:^(Firefox — Sharing Indicator)$"
-        "workspace special silent, title:^(.*is sharing (your screen|a window)\.)$"
-
         "tag +game, class:^(steam_app.*)$"
         "tag +game, class:^(gamescope)$"
         "tag +game, class:^(moe\.launcher.*)$"
@@ -85,19 +81,6 @@
         "size 100% 100%, tag:apt"
         "center, tag:apt"
 
-        "tag +bhud, title:(Blish HUD)"
-        "float, tag:bhud"
-        "center, tag:bhud"
-        "nofocus, tag:bhud"
-        "noinitialfocus, tag:bhud"
-        "noborder, tag:bhud"
-        "pin, tag:bhud"
-        "opacity 0.2 0.2, tag:bhud"
-        "workspace 6 silent, tag:bhud"
-        "forcergbx, tag:bhud"
-
-        "stayfocused, title:(Guild Wars 2)"
-
         "scrollmouse 10, class:^(genshinimpact\.exe)$"
 
         # organization
@@ -105,6 +88,11 @@
         "workspace 3, class:^(com.github.th_ch.youtube_music)$"
         "workspace 9, title:^(Steam)$"
         "workspace 6, tag:game"
+
+        # throw sharing indicators and proton systrays away
+        "workspace special trash silent, title:^(Firefox — Sharing Indicator)$"
+        "workspace special trash silent, title:^(.*is sharing (your screen|a window)\.)$"
+        "workspace special trash silent, title:^$ class:steam_app_0"
       ]
       + hh.mkList "workspace" ([
           "name:pseudofullscreen, gapsin:0, gapsout:0, rounding:false, bordersize:0"

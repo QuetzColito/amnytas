@@ -1,12 +1,8 @@
-{pkgs, ...}: {
+_: {
   isNvidia = false;
   wantGrub = true;
 
   system.stateVersion = "25.05"; # Did you read the comment?
-
-  packages = [
-    (pkgs.writeShellScriptBin "Gw2" ''bottles-cli run -b Gw2 --executable "/home/quetz/My Games/bottles/Gw2/drive_c/Program Files/Guild Wars 2/Gw2-64.exe"'')
-  ];
 
   autostartApps = true;
 
