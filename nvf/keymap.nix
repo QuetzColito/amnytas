@@ -26,6 +26,9 @@
         "<leader>w" = ":w<CR>";
         "<leader>q" = ":q<CR>";
         "<leader>d" = "<cmd>lua vim.diagnostic.open_float()<CR>";
+
+        # Format
+        "Q" = "gq";
       };
     visual =
       lib.mapAttrsToList (key: action: {
