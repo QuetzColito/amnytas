@@ -4,8 +4,6 @@ _: {
 
   system.stateVersion = "25.05"; # Did you read the comment?
 
-  autostartApps = true;
-
   monitors = [
     {
       name = "DP-4";

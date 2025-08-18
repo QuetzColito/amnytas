@@ -1,0 +1,16 @@
+[mgr]
+prepend_keymap = [
+  { on = "!", run = 'shell "$SHELL" --block', desc = "Open shell here" },
+  { on = "z", run = "plugin ouch", desc = "Compress with ouch"},
+  { on = "o", run = "create", desc = "create new file or dir/" },
+  { on = "O", run = "create", desc = "create new file or dir/" },
+  { on = "e", run = "rename --empty=ext --cursor=end", desc = "Rename at End" },
+  { on = "i", run = "rename --cursor=before_ext", desc = "Rename in Mid" },
+  { on = "I", run = "rename --cursor=before_ext", desc = "Rename in Mid" },
+  { on = "c", run = "rename --empty=stem --cursor=start", desc = "Change Name" },
+  { on = "J", run = "arrow 100%", desc = "One Page Down" },
+  { on = "K", run = "arrow -100%", desc = "One Page Up" },
+  { on = "a", run = "toggle_all", desc = "Toggle all files" },
+  { on = "H", run = "tab_switch -1 --relative", desc = "Switch to previous tab" },
+  { on = "L", run = "tab_switch 1 --relative",  desc = "Switch to next tab" },
+]

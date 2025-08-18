@@ -10,6 +10,7 @@
     ./terminal
     ./hjem.nix
     ./general
+    ./linking.nix
 
     # Pick GUI
     ./rice # Hyprland

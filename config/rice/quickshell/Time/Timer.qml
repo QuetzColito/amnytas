@@ -37,7 +37,7 @@ Item {
             name: {
                 (!timer.running || (value / valueBu) > .5) ? "hourglass_top" : "hourglass_bottom";
             }
-            clickable.onClicked: Quickshell.execDetached(["sh", "-c", "mpg123 $HOME/amnytas/config/rice/quickshell/config/Time/kurukuru.mp3"])
+            clickable.onClicked: Quickshell.execDetached(["sh", "-c", "mpg123 $HOME/amnytas/config/rice/quickshell/Time/kurukuru.mp3"])
         }
         MaxedButton {
             name: timer.running ? "pause" : "play"
@@ -62,7 +62,7 @@ Item {
             if (value < 1) {
                 running = false;
                 value = valueBu;
-                Quickshell.execDetached(["sh", "-c", "mpg123 $HOME/amnytas/config/rice/quickshell/config/Time/kurukuru.mp3"]);
+                Quickshell.execDetached(["sh", "-c", "mpg123 $HOME/amnytas/config/rice/quickshell/Time/kurukuru.mp3"]);
             }
         }
     }

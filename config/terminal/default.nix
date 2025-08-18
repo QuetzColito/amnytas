@@ -17,7 +17,7 @@
 in {
   imports = [
     ./zsh.nix
-    ./yazi.nix
+    ./yazi
     ./console.nix
   ];
 

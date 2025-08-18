@@ -1,10 +1,7 @@
-{pkgs, ...}: let
-  isDualMonitor = true;
-in {
+{pkgs, ...}: {
   isNvidia = true;
   wantGrub = true;
   enableBluetooth = true;
-  autostartApps = isDualMonitor;
 
   system.stateVersion = "23.11"; # Did you read the comment?
 
@@ -18,29 +15,25 @@ in {
 
   packages = with pkgs; [acpi];
 
-  monitors =
-    [
-      {
-        name = "eDP-1";
-        coords = "0x0";
-        workspaces =
-          if isDualMonitor
-          then [1 2 3 7 8 9]
-          else [1 2 3 4 5 6 7 8 9];
-      }
-    ]
-    ++ (
-      if isDualMonitor
-      then [
-        {
-          name = "DP-1";
-          # config = "HDMI-A-1,1920x1080@119.88Hz,-1920x0,1";
-          coords = "-1920x0";
-          workspaces = [4 5 6];
-        }
-      ]
-      else []
-    );
+  monitors = [
+    {
+      name = "eDP-1";
+      coords = "0x0";
+      workspaces = [1 2 3 4 5 6 7 8 9];
+    }
+  ];
+  # ++ (
+  #   if isDualMonitor
+  #   then [
+  #     {
+  #       name = "DP-1";
+  #       # config = "HDMI-A-1,1920x1080@119.88Hz,-1920x0,1";
+  #       coords = "-1920x0";
+  #       workspaces = [4 5 6];
+  #     }
+  #   ]
+  #   else []
+  # );
 
   services.upower.enable = true;
 }

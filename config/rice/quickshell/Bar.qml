@@ -47,14 +47,14 @@ PanelWindow {
                 font.pointSize: 18
                 color: Theme.cyan
                 text: ""
+                Clickable {
+                    acceptedButtons: Qt.RightButton
+                    onClicked: leftarea.toggle()
+                }
             }
             Workspaces {}
             SysTray.Bar {
                 id: systray
-            }
-            Clickable {
-                acceptedButtons: Qt.RightButton
-                onClicked: leftarea.toggle()
             }
         }
         bigItem: System.Tabs {}

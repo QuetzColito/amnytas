@@ -1,0 +1,24 @@
+[mode]
+normal_main = { fg = "blue", bg = "reset", bold = true }
+normal_alt  = { fg = "blue", bg = "reset" }
+
+# Select mode
+select_main = { fg = "magenta", bg = "reset", bold = true }
+select_alt  = { fg = "magenta", bg = "reset" }
+
+# Unset mode
+unset_main = { fg = "red", bg = "reset", bold = true }
+unset_alt  = { fg = "red", bg = "reset" }
+
+[status]
+overall   = {}
+sep_left  = { open = " ", close = " " }
+sep_right = { open = " ", close = " " }
+
+[which]
+mask = { bg = "reset" }
+
+[tabs]
+active   = { fg = "blue", bg = "reset", reversed = true }
+inactive = { fg = "blue", bg = "reset" }
+sep_outer = { open = "", close = "" }

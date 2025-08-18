@@ -11,5 +11,5 @@
     (pkgs.writeShellScriptBin "toggleDashboard" "qs ipc call $(hyprctl activeworkspace -j | jq .monitor) dashboard")
     (pkgs.writeShellScriptBin "togglecurrentbar" "qs ipc call $(hyprctl activeworkspace -j | jq .monitor) bar")
   ];
-  environment.variables.QS_CONFIG_PATH = "/home/${config.mainUser}/amnytas/config/rice/quickshell/config";
+  environment.variables.QS_CONFIG_PATH = "/home/${config.mainUser}/amnytas/config/rice/quickshell";
 }

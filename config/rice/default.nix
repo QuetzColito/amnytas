@@ -4,10 +4,9 @@
   ...
 }: {
   imports = [
-    ./hyprland
-    # ./mako.nix
+    ./hypr
     ./tofi.nix
-    ./quickshell
+    ./quickshell.nix
   ];
 
   files = {
