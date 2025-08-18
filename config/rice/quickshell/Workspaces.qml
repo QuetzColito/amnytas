@@ -3,19 +3,21 @@ import QtQuick.Layouts
 import Quickshell.Hyprland
 import QtQuick
 import qs.Theme
+import qs.Components
 
 RowLayout {
     id: layout
     anchors.margins: 10
     property real textsize: 11
 
-    component WsIndicator: Text {
+    component WsIndicator: IconButton {
         id: indicator
         property int wsid
         property var ws: Hyprland.workspaces.values.find(ws => ws.id == wsid)
-        text: ws !== undefined ? " ◆ " : " ◇ "
+        name: ws?.toplevels.values.length > 0 ? "diamond_full" : "diamond_empty"
         color: ws?.focused ? Theme.purple : Theme.blue
-        font.pointSize: layout.textsize
+        size: 25
+        image.sourceSize: Qt.size(width * 10, height * 10)
         MouseArea {
             anchors.fill: parent
             acceptedButtons: Qt.LeftButton | Qt.RightButton

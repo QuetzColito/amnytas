@@ -9,11 +9,14 @@ Item {
     Layout.fillWidth: true
     Layout.preferredHeight: 50
 
-    ColoredIcon {
+    WrapperItem {
         id: icon
-        padding: 4
-        color: Theme.blue
-        name: "calc"
+        rightMargin: 4
+        bottomMargin: 4
+        ColoredIcon {
+            color: Theme.blue
+            name: "calc"
+        }
     }
     WrapperMouseArea {
         anchors.right: parent.right

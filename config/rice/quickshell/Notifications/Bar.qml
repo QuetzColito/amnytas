@@ -2,14 +2,13 @@ import QtQuick
 import qs.Theme
 import qs.Components
 
-TextButton {
+IconButton {
     property int yOffset: 30
-    text.text: !Server.dnd ? "" : ""
-    text.font.pointSize: 14
-    text.color: !Server.showall ? Theme.purple : Theme.orange
-    implicitWidth: 15
+    name: !Server.dnd ? "notification" : "notification_off"
+    size: 23
+    color: !Server.showall ? Theme.purple : Theme.orange
 
-    onClicked: event => {
+    clickable.onClicked: event => {
         if (event.button === Qt.LeftButton) {
             Server.dnd = !Server.dnd;
         } else {

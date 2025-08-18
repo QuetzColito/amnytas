@@ -7,7 +7,7 @@ Item {
     id: root
     property IconImage icon: iconn
     required property string name
-    property real size: 20
+    property real size: 25
     property color color: Theme.purple
     property Image image: iconn.backer
     property real padding: 0
