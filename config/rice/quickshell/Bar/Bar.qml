@@ -7,12 +7,10 @@ import Quickshell.Hyprland
 import qs.Shapes
 import qs.Theme
 import qs.Components
-import qs.Music as Music
-import qs.Audio as Audio
-import qs.Time as Time
-import qs.SysTray as SysTray
-import qs.Notifications as Notifications
-import qs.System as System
+import qs.Bar.SysTray as SysTray
+import qs.Widgets.System as System
+import qs.Widgets.Utils as Utils
+import qs.Widgets.Music as Music
 
 PanelWindow {
     id: root
@@ -57,7 +55,7 @@ PanelWindow {
                 id: systray
             }
         }
-        bigItem: System.Tabs {}
+        bigItem: System.Widget {}
     }
     Corner.TopLeft {
         x: leftarea.xr
@@ -72,12 +70,12 @@ PanelWindow {
         alignment: Qt.AlignHCenter
         hasRightCorners: true
         hasLeftCorners: true
-        smallItem: Time.Bar {
+        smallItem: Time {
             Clickable {
                 onClicked: midarea.toggle()
             }
         }
-        bigItem: Time.Widget {}
+        bigItem: Utils.Widget {}
     }
     Corner.TopLeft {
         x: midarea.xr
@@ -97,17 +95,17 @@ PanelWindow {
         alignment: Qt.AlignRight
         hasLeftCorners: true
         smallItem: RowLayout {
-            Music.Bar {
+            Mpris {
                 Layout.maximumWidth: screen.width / 2 - volume.width - midarea.width / 2 - 30 - notif.width
                 Clickable {
                     acceptedButtons: Qt.RightButton
                     onClicked: rightarea.toggle()
                 }
             }
-            Audio.Volume {
+            Volume {
                 id: volume
             }
-            Notifications.Bar {
+            Notifications {
                 id: notif
             }
         }

@@ -3,7 +3,8 @@
 //@ pragma Env QT_QUICK_CONTROLS_STYLE=Basic
 import Quickshell // for PanelWindow
 import QtQuick // for Text
-import "Notifications" as Notifications
+import qs.Bar
+import qs.Windows
 
 ShellRoot {
 
@@ -17,7 +18,7 @@ ShellRoot {
         }
     }
 
-    Notifications.NotificationArea {}
+    NotificationArea {}
 
     Variants {
         model: Quickshell.screens

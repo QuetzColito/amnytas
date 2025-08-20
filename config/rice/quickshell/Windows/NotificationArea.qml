@@ -4,11 +4,12 @@ import Quickshell
 import Quickshell.Widgets
 import Quickshell.Wayland
 import Quickshell.Hyprland
+import qs.Services
 
 PanelWindow {
     id: root
     property var modelData: screen
-    property bool showAll: Server.showall
+    property bool showAll: NotificationService.showall
     onShowAllChanged: {
         visible = false;
         visible = true;
@@ -57,24 +58,24 @@ PanelWindow {
     WrapperItem {
         id: historyItem
         topMargin: 10
-        visible: Server.showall
+        visible: NotificationService.showall
         NotifList {
             id: historyView
-            model: Server.notifs
+            model: NotificationService.notifs
             implicitHeight: Math.min(historyView.contentHeight, 1000)
         }
     }
     WrapperItem {
         id: currentItem
         topMargin: 10
-        visible: !Server.showall
+        visible: !NotificationService.showall
         NotifList {
             id: currentView
             implicitHeight: Math.min(currentView.contentHeight, 1000)
-            model: Server.current
+            model: NotificationService.current
         }
     }
     mask: Region {
-        item: Server.showall ? historyItem : currentItem
+        item: NotificationService.showall ? historyItem : currentItem
     }
 }

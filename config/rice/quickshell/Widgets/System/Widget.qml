@@ -6,8 +6,15 @@ import qs.Components
 
 RowLayout {
     id: root
-    property string currentTab: "MonitorTab.qml"
+    implicitHeight: Math.max(tabs.height, loader.height)
+    implicitWidth: tabs.width + loader.width
+    spacing: 30
+    property string currentTab: "SoundTab.qml"
     ColumnLayout {
+        id: tabs
+        Layout.fillHeight: true
+        Layout.alignment: Qt.AlignTop
+        spacing: 30
         IconButton {
             name: "dash"
             clickable.onClicked: root.currentTab = "MonitorTab.qml"
@@ -26,6 +33,8 @@ RowLayout {
         }
     }
     Loader {
+        id: loader
+        Layout.fillHeight: true
         source: root.currentTab
     }
 }

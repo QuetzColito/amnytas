@@ -1,4 +1,5 @@
 import QtQuick
+import qs.Services
 
 Item {
     implicitWidth: 250
@@ -7,7 +8,7 @@ Item {
         id: art
         anchors.centerIn: parent
         width: 225
-        source: Player.p?.trackArtUrl || ""
+        source: MprisService.p?.trackArtUrl || ""
         fillMode: Image.PreserveAspectFit
     }
 }

@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Theme
+import qs.Services
 
 Rectangle {
     id: root
@@ -10,7 +11,7 @@ Rectangle {
     implicitWidth: 490
     implicitHeight: Math.max(img.height + 10, title.height + body.height + 10)
     onFreshChanged: if (!fresh)
-        Server.expire(modelData.id)
+        NotificationService.expire(modelData.id)
     color: Theme.bg
     border.color: Theme.cyan
     border.width: 2
@@ -70,10 +71,10 @@ Rectangle {
         cursorShape: Qt.PointingHandCursor
         onClicked: event => {
             if (event.button === Qt.LeftButton) {} else {
-                if (Server.showall)
-                    Server.yeet(modelData.id);
+                if (NotificationService.showall)
+                    NotificationService.yeet(modelData.id);
                 else
-                    Server.expire(modelData.id);
+                    NotificationService.expire(modelData.id);
             }
         }
     }

@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import qs.Theme
 import qs.Components
+import qs.Services
 
 ColumnLayout {
     spacing: 10
@@ -10,9 +11,9 @@ ColumnLayout {
     StyledSlider {
         id: item
         length: 100
-        value: Player.p?.volume || 0
+        value: MprisService.p?.volume || 0
         orientation: Qt.Vertical
-        onMoved: Player.p.volume = value
+        onMoved: MprisService.p.volume = value
     }
 
     Text {
