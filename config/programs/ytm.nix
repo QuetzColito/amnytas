@@ -50,6 +50,7 @@
          --yt-spec-commerce-filled-hover: var(--ctp-accent) !important;
          --ytmusic-scrollbar-width: 0px !important;
          --ytd-scrollbar-width: 0px !important;
+         --yt-spec-menu-background: var(--ctp-base) !important;
        }
 
       i.material-icons
