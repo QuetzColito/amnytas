@@ -9,6 +9,8 @@
     ./quickshell.nix
   ];
 
+  services.hypridle.enable = true;
+
   files = {
     # Ags colors
     ".config/stylix/colours.scss".text = builtins.concatStringsSep "\n" (builtins.attrValues (builtins.mapAttrs
@@ -17,6 +19,7 @@
         + "${name}: #${value};")
       theme.colours));
   };
+
   packages = with pkgs; [
     xorg.xrandr
     xorg.setxkbmap
@@ -24,7 +27,6 @@
     slurp
     grim
     hyprpicker
-    hyprpolkitagent
     grimblast
     # bibata-cursors
     wl-clip-persist

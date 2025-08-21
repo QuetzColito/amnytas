@@ -21,6 +21,7 @@
 
     environment.systemPackages = with pkgs; [
       libnotify
+      hyprpolkitagent
     ];
 
     programs.hyprland = {
