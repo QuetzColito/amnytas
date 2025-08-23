@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+_: {
   isNvidia = true;
   wantGrub = true;
   enableBluetooth = true;
@@ -13,27 +13,23 @@
     nvidiaBusId = "PCI:1:0:0";
   };
 
-  packages = with pkgs; [acpi];
-
   monitors = [
+    {
+      name = "HDMI-A-1";
+      coords = "-1920x0";
+      workspaces = [4 5 6];
+    }
+    {
+      name = "DP-1";
+      coords = "-1920x0";
+      workspaces = [4 5 6];
+    }
     {
       name = "eDP-1";
       coords = "0x0";
       workspaces = [1 2 3 4 5 6 7 8 9];
     }
   ];
-  # ++ (
-  #   if isDualMonitor
-  #   then [
-  #     {
-  #       name = "DP-1";
-  #       # config = "HDMI-A-1,1920x1080@119.88Hz,-1920x0,1";
-  #       coords = "-1920x0";
-  #       workspaces = [4 5 6];
-  #     }
-  #   ]
-  #   else []
-  # );
 
   services.upower.enable = true;
 }
