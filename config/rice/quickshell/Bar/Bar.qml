@@ -7,6 +7,7 @@ import Quickshell.Hyprland
 import qs.Shapes
 import qs.Theme
 import qs.Components
+import qs.Services
 import qs.Bar.SysTray as SysTray
 import qs.Widgets.System as System
 import qs.Widgets.Utils as Utils
@@ -46,11 +47,16 @@ PanelWindow {
                 color: Theme.cyan
                 text: ""
                 Clickable {
+                    acceptedButtons: Qt.RightButton | Qt.LeftButton
+                    onClicked: leftarea.toggle()
+                }
+            }
+            Workspaces {
+                Clickable {
                     acceptedButtons: Qt.RightButton
                     onClicked: leftarea.toggle()
                 }
             }
-            Workspaces {}
             SysTray.Bar {
                 id: systray
             }
@@ -96,7 +102,7 @@ PanelWindow {
         hasLeftCorners: true
         smallItem: RowLayout {
             Mpris {
-                Layout.maximumWidth: screen.width / 2 - volume.width - midarea.width / 2 - 30 - notif.width
+                Layout.maximumWidth: screen.width / 2 - volume.width - midarea.width / 2 - 30 - notif.width - (battery.visible ? battery.width : 0)
                 Clickable {
                     acceptedButtons: Qt.RightButton
                     onClicked: rightarea.toggle()
@@ -104,6 +110,12 @@ PanelWindow {
             }
             Volume {
                 id: volume
+            }
+            BatteryIcon {
+                id: battery
+                visible: PowerService.hasBattery
+                battery: PowerService.charge
+                charging: PowerService.charging
             }
             Notifications {
                 id: notif

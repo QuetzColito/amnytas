@@ -57,13 +57,12 @@
 
     networking.hostName = config.hostName;
     networking.networkmanager.enable = true;
-    programs.nm-applet.enable = true;
 
     users.users.${config.mainUser} = {
       isNormalUser = true;
       shell = pkgs.zsh;
       description = config.mainUser;
-      extraGroups = ["networkmanager" "wheel"];
+      extraGroups = ["networkmanager" "wheel" "ydotool"];
       packages = [];
     };
 
@@ -84,8 +83,8 @@
       pipewire = {
         enable = true;
         pulse.enable = true;
-        # jack.enable = true;
-        # alsa.enable = true;
+        jack.enable = false;
+        alsa.enable = false;
         # wireplumber.enable = true;
       };
 

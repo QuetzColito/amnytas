@@ -21,6 +21,8 @@
     extraCompatPackages = [pkgs.proton-ge-bin];
   };
 
+  programs.ydotool.enable = true;
+
   packages = with pkgs; [
     wineWowPackages.full
     winetricks

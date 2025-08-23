@@ -20,9 +20,9 @@ RowLayout {
         image.sourceSize: Qt.size(width * 10, height * 10)
         MouseArea {
             anchors.fill: parent
-            acceptedButtons: Qt.LeftButton | Qt.RightButton
+            acceptedButtons: Qt.LeftButton
             cursorShape: Qt.PointingHandCursor
-            onClicked: e => e.button == Qt.LeftButton ? Hyprland.dispatch(`workspace ${indicator.wsid}`) : Hyprland.dispatch(`movetoworkspace ${indicator.wsid}`)
+            onClicked: e => Hyprland.dispatch(`workspace ${indicator.wsid}`)
         }
     }
 

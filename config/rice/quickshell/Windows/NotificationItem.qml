@@ -1,4 +1,5 @@
 import QtQuick
+import Quickshell
 import QtQuick.Layouts
 import qs.Theme
 import qs.Services
@@ -26,7 +27,7 @@ Rectangle {
         implicitHeight: modelData.image !== "" ? 80 : 1
         anchors.verticalCenter: parent.verticalCenter
         Image {
-            source: modelData.image
+            source: Quickshell.iconPath(modelData.image, true)
             anchors.centerIn: parent
             width: 64
             height: 64
