@@ -5,7 +5,6 @@
   ...
 }: {
   imports = [
-    ./hyprlock.nix
     ./generated.nix
   ];
 

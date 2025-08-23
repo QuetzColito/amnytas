@@ -27,7 +27,7 @@ Rectangle {
         implicitHeight: modelData.image !== "" ? 80 : 1
         anchors.verticalCenter: parent.verticalCenter
         Image {
-            source: Quickshell.iconPath(modelData.image, true)
+            source: modelData.image || Quickshell.iconPath(modelData.image, true)
             anchors.centerIn: parent
             width: 64
             height: 64

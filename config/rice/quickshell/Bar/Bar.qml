@@ -18,6 +18,7 @@ PanelWindow {
     property var modelData
     property bool overlayOn: false
     WlrLayershell.keyboardFocus: WlrKeyboardFocus.OnDemand
+    WlrLayershell.namespace: "qs-bar"
     anchors {
         top: true
         left: true

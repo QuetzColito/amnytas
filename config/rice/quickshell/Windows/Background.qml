@@ -9,6 +9,7 @@ PanelWindow {
     property var modelData
 
     WlrLayershell.layer: WlrLayer.Background
+    WlrLayershell.namespace: "qs-background"
     exclusionMode: ExclusionMode.Ignore
     implicitHeight: modelData.height
     implicitWidth: modelData.width

@@ -26,6 +26,7 @@ PanelWindow {
     implicitHeight: screen.height
     implicitWidth: 500
     WlrLayershell.layer: WlrLayer.Overlay
+    WlrLayershell.namespace: "qs-notif"
     color: "transparent"
     component NotifList: ListView {
         implicitWidth: 1000

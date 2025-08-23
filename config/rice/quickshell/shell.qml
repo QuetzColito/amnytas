@@ -20,6 +20,8 @@ ShellRoot {
 
     NotificationArea {}
 
+    LockScreen {}
+
     Variants {
         model: Quickshell.screens
 

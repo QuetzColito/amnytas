@@ -26,7 +26,8 @@ Singleton {
             const notif = {
                 summary: n.summary || "",
                 body: n.body || "",
-                image: n.image || n.appIcon || "",
+                image: n.image || "",
+                icon: n.appIcon || "",
                 expiresAt: !n.lastGeneration ? clock.date.getTime() + timeout : 0,
                 trans: n.transient,
                 id: root.idCounter,

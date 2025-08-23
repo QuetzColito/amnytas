@@ -26,7 +26,7 @@ ColumnLayout {
     SysButton {
         color: Theme.yellow
         name: "lock"
-        clickable.onClicked: Quickshell.execDetached(["hyprlock", "--immediate"])
+        clickable.onClicked: Quickshell.execDetached(["qs", "ipc", "call", "lock", "lock"])
     }
     component SysButton: IconButton {
         size: 50
