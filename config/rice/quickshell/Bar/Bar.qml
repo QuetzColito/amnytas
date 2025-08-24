@@ -52,7 +52,13 @@ PanelWindow {
                     onClicked: leftarea.toggle()
                 }
             }
-            Workspaces {
+            Item {
+                implicitHeight: ws.height
+                implicitWidth: ws.width
+
+                Workspaces {
+                    id: ws
+                }
                 Clickable {
                     acceptedButtons: Qt.RightButton
                     onClicked: leftarea.toggle()
