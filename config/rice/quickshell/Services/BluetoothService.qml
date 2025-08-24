@@ -10,8 +10,8 @@ Singleton {
     property BluetoothAdapter defaultAdapter: Bluetooth.defaultAdapter
     property var devices: defaultAdapter?.devices
     property bool isPresent: defaultAdapter || false
-    property bool enabled: defaultAdapter?.enabled
-    property bool discovering: defaultAdapter?.discovering
+    property bool enabled: defaultAdapter?.enabled || false
+    property bool discovering: defaultAdapter?.discovering || false
 
     function scan(active: bool): void {
         defaultAdapter.discovering = active;

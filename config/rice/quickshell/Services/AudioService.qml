@@ -15,13 +15,11 @@ Singleton {
     function insertDevice(nodes: var, node: PwNode, preferred: PwNode, index: int): int {
         if (node == preferred)
             nodes.unshift(node);
+        else if (!node.audio)
+            nodes.push(node);
         else {
-            if (!node.audio)
-                nodes.push(node);
-            else {
-                nodes.splice(index, 0, node);
-                index++;
-            }
+            nodes.splice(index, 0, node);
+            index++;
         }
         return index;
     }
@@ -32,12 +30,10 @@ Singleton {
                 acc.applications.push(node);
             else
                 acc.recorders.push(node);
-        } else {
-            if (node.isSink)
-                acc.AudioSinkIndex = insertDevice(acc.outputs, node, preferredSink, acc.AudioSinkIndex);
-            else
-                acc.AudioSourceIndex = insertDevice(acc.inputs, node, preferredSource, acc.AudioSourceIndex);
-        }
+        } else if (node.isSink)
+            acc.AudioSinkIndex = insertDevice(acc.outputs, node, preferredSink, acc.AudioSinkIndex);
+        else
+            acc.AudioSourceIndex = insertDevice(acc.inputs, node, preferredSource, acc.AudioSourceIndex);
         return acc;
     }, {
         applications: [],
