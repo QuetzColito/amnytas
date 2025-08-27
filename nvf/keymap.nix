@@ -43,6 +43,9 @@
         "<TAB>" = ">gv";
         "<S-TAB>" = "<gv";
 
+        "<leader>y" = "\"+y";
+        "<leader>p" = "\"+p";
+
         # move selected line / block of text in visual mode
         "K" = ":m '<-2<CR>gv=gv";
         "J" = ":m '>+1<CR>gv=gv";
