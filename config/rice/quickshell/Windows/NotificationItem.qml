@@ -1,7 +1,11 @@
+pragma ComponentBehavior: Bound
 import QtQuick
+import Quickshell.Services.Notifications
 import Quickshell
+import Quickshell.Hyprland
 import QtQuick.Layouts
 import qs.Theme
+import qs.Components
 import qs.Services
 
 Rectangle {
@@ -10,7 +14,7 @@ Rectangle {
     required property var modelData
     property bool fresh: modelData.expiresAt > clock.date.getTime()
     implicitWidth: 490
-    implicitHeight: Math.max(img.height + 10, title.height + body.height + 10)
+    implicitHeight: Math.max(img.height + 10, contentLayout.height + 10)
     onFreshChanged: if (!fresh)
         NotificationService.expire(modelData.id)
     color: Theme.bg
@@ -35,6 +39,7 @@ Rectangle {
         }
     }
     ColumnLayout {
+        id: contentLayout
         y: 5
         anchors.left: img.right
         implicitWidth: 485 - img.width
@@ -71,7 +76,14 @@ Rectangle {
         acceptedButtons: Qt.RightButton | Qt.LeftButton
         cursorShape: Qt.PointingHandCursor
         onClicked: event => {
-            if (event.button === Qt.LeftButton) {} else {
+            if (event.button === Qt.LeftButton) {
+                const actions = root.modelData.notif.actions;
+                Hyprland.dispatch(`focuswindow 'class:^.*(${root.modelData.notif.appName}).*$'`);
+                if (actions.length === 1) {
+                    actions[0].invoke();
+                    NotificationService.expire(modelData.id);
+                }
+            } else {
                 if (NotificationService.showall)
                     NotificationService.yeet(modelData.id);
                 else
