@@ -12,29 +12,29 @@ Item {
     implicitHeight: scroll.height + tabs.height
     implicitWidth: Math.max(scroll.width, tabs.width)
 
-    property var model: AudioService.applications
+    property var model: AudioService.sinks
 
     WrapperItem {
         id: tabs
         topMargin: 10
         bottomMargin: 10
         rightMargin: 15
-        width: scroll.width
         RowLayout {
+
+            IconToggleButton {
+                id: sinkTab
+                name: "output"
+                active: true
+                text.text: "Outputs"
+                activeColor: Theme.blue
+                clickable.onClicked: root.setTab(sinkTab, AudioService.sinks)
+            }
             IconToggleButton {
                 id: appTab
-                active: true
                 name: "music_note"
                 text.text: "Apps"
                 activeColor: Theme.blue
                 clickable.onClicked: root.setTab(appTab, AudioService.applications)
-            }
-            IconToggleButton {
-                id: recorderTab
-                name: "mic"
-                text.text: "Recorders"
-                activeColor: Theme.blue
-                clickable.onClicked: root.setTab(recorderTab, AudioService.recorders)
             }
             IconToggleButton {
                 id: inputTab
@@ -44,11 +44,11 @@ Item {
                 clickable.onClicked: root.setTab(inputTab, AudioService.inputs)
             }
             IconToggleButton {
-                id: sinkTab
-                name: "output"
-                text.text: "Outputs"
+                id: recorderTab
+                name: "mic"
+                text.text: "Recorders"
                 activeColor: Theme.blue
-                clickable.onClicked: root.setTab(sinkTab, AudioService.sinks)
+                clickable.onClicked: root.setTab(recorderTab, AudioService.recorders)
             }
         }
     }
