@@ -41,6 +41,7 @@ ColumnLayout {
     Text {
         color: Theme.purple
         font.pointSize: 15
+        visible: NetworkService.hasWifi
         text: "Available Networks:"
     }
 
