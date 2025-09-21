@@ -9,6 +9,7 @@ import qs.Services
 
 ColumnLayout {
     id: root
+    width: 300
     Behavior on implicitHeight {
         NumberAnimation {
             easing.type: Easing.InOutQuad
@@ -17,6 +18,7 @@ ColumnLayout {
     }
 
     InfoRow {
+        id: networkingRow
         name: "Networking"
         valueAsIcon: true
         clickable.onClicked: NetworkService.toggleNetworking()
