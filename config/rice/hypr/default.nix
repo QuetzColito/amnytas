@@ -6,6 +6,7 @@
 }: {
   imports = [
     ./generated.nix
+    ./plugins.nix
   ];
 
   config = lib.mkIf (config.wm == "Hyprland") {
