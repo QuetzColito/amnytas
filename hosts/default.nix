@@ -12,4 +12,8 @@
     host = "zojja";
     user = "melon";
   }
+  {
+    host = "sherma";
+    user = "melon";
+  }
 ]
