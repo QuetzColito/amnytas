@@ -84,7 +84,7 @@
         enable = true;
         pulse.enable = true;
         jack.enable = false;
-        alsa.enable = false;
+        alsa.enable = true; # required for osu xD
         # wireplumber.enable = true;
       };
 
