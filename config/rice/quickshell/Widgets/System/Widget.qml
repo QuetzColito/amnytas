@@ -10,7 +10,7 @@ RowLayout {
     implicitHeight: Math.max(tabs.height, loader.height) + 15
     implicitWidth: tabs.width + loader.width
     // spacing: 30
-    property string currentTab: "NetworkTab.qml"
+    property string currentTab: "SoundTab.qml"
     WrapperItem {
         extraMargin: 5
         topMargin: 10

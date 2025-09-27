@@ -5,6 +5,7 @@
 import Quickshell // for PanelWindow
 import QtQuick // for Text
 import qs.Bar
+import qs.Dashboard
 import qs.Windows
 
 ShellRoot {
@@ -22,6 +23,8 @@ ShellRoot {
     NotificationArea {}
 
     LockScreen {}
+
+    Dashboard {}
 
     Variants {
         model: Quickshell.screens

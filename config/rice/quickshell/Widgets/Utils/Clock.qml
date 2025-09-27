@@ -4,27 +4,35 @@ import Quickshell
 import qs.Theme
 import qs.Components
 
-RowLayout {
-    Layout.maximumWidth: 170
-    Layout.alignment: Qt.AlignHCenter
-    uniformCellSizes: true
+Item {
+    anchors.fill: parent
     CenteredText {
-        Layout.fillWidth: true
+        id: left
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.horizontalCenterOffset: -80
         text: clock.date.toLocaleString(Qt.locale("de_DE"), "hh")
         color: Theme.red
-        font.pointSize: 30
+        font.pointSize: 40
     }
     CenteredText {
+        id: mid
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
         Layout.fillWidth: true
         text: clock.date.toLocaleString(Qt.locale("de_DE"), "mm")
         color: Theme.blue
-        font.pointSize: 30
+        font.pointSize: 40
     }
     CenteredText {
+        id: right
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.horizontalCenterOffset: 80
         Layout.fillWidth: true
         text: clock.date.toLocaleString(Qt.locale("de_DE"), "ss")
         color: Theme.green
-        font.pointSize: 30
+        font.pointSize: 40
     }
 
     SystemClock {

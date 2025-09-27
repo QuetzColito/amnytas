@@ -12,14 +12,14 @@ WrapperMouseArea {
     onWheel: e => max = Math.max(1, e.angleDelta.y > 0 ? max + 1 : max - 1)
     onClicked: randomize.start()
     Rectangle {
-        implicitWidth: 100
-        implicitHeight: 100
+        implicitWidth: 80
+        implicitHeight: 80
         radius: 10
         color: Theme.blue
         GridLayout {
             anchors.centerIn: parent
-            height: 90
-            width: 90
+            height: 70
+            width: 70
             columns: 3
             visible: root.max < 9
             uniformCellHeights: true
@@ -78,18 +78,18 @@ WrapperMouseArea {
                     strokeWidth: 0
                     fillColor: Theme.bg
                     startX: 10
-                    startY: 85
+                    startY: 65
                     PathLine {
-                        x: 85
+                        x: 65
                         y: 10
                     }
                     PathLine {
-                        x: 90
+                        x: 70
                         y: 15
                     }
                     PathLine {
                         x: 15
-                        y: 90
+                        y: 70
                     }
                 }
             }

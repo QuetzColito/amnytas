@@ -2,6 +2,7 @@ import Quickshell // for PanelWindow
 import QtQuick // for Text
 import QtQuick.Layouts
 import Quickshell.Wayland
+import Quickshell.Widgets
 import Quickshell.Io
 import Quickshell.Hyprland
 import qs.Shapes
@@ -30,7 +31,7 @@ PanelWindow {
     exclusiveZone: 30
     Item {
         id: closer
-        visible: leftarea.isDrawn || midarea.isDrawn || rightarea.isDrawn || systray.anyOpen
+        visible: systray.anyOpen
         MouseArea {
             anchors.fill: parent
             onClicked: root.disableAll()
@@ -38,18 +39,23 @@ PanelWindow {
         anchors.fill: parent
     }
 
-    Drawer {
+    Rectangle {
         id: leftarea
-        hasRightCorners: true
-        alignment: Qt.AlignLeft
-        smallItem: RowLayout {
+        bottomRightRadius: 10
+        color: Theme.bg
+        implicitWidth: leftLayout.width + 15
+        implicitHeight: Theme.barheight
+
+        RowLayout {
+            id: leftLayout
+            anchors.centerIn: parent
             Text {
                 font.pointSize: 18
                 color: Theme.cyan
                 text: ""
                 Clickable {
                     acceptedButtons: Qt.RightButton | Qt.LeftButton
-                    onClicked: leftarea.toggle()
+                    onClicked: root.toggleOverlay()
                 }
             }
             Item {
@@ -61,58 +67,60 @@ PanelWindow {
                 }
                 Clickable {
                     acceptedButtons: Qt.RightButton
-                    onClicked: leftarea.toggle()
+                    onClicked: root.toggleOverlay()
                 }
             }
             SysTray.Bar {
                 id: systray
             }
         }
-        bigItem: System.Widget {}
     }
     Corner.TopLeft {
-        x: leftarea.xr
+        x: leftarea.width
     }
     Corner.TopRight {
-        x: midarea.xl - 20
+        x: midarea.x - 20
     }
 
-    Drawer {
+    Rectangle {
         id: midarea
+        bottomRightRadius: 10
+        bottomLeftRadius: 10
         anchors.horizontalCenter: parent.horizontalCenter
-        alignment: Qt.AlignHCenter
-        hasRightCorners: true
-        hasLeftCorners: true
-        smallItem: Time {
+        implicitWidth: midLayout.width + 15
+        implicitHeight: Theme.barheight
+        color: Theme.bg
+
+        Time {
+            id: midLayout
+            anchors.centerIn: parent
             Clickable {
-                onClicked: midarea.toggle()
+                onClicked: root.toggleOverlay()
             }
         }
-        bigItem: Utils.Widget {}
     }
     Corner.TopLeft {
-        x: midarea.xr
-        // visible: rightarea.xl - midarea.xr > 40
-        radius: Math.min(20, (rightarea.xl - midarea.xr) / 2)
-        visible: radius > 0
+        anchors.left: midarea.right
     }
     Corner.TopRight {
-        x: rightarea.xl - radius
-        radius: Math.min(20, (rightarea.xl - midarea.xr) / 2)
-        visible: radius > 0
+        anchors.right: rightarea.left
     }
 
-    Drawer {
+    Rectangle {
         id: rightarea
         anchors.right: parent.right
-        alignment: Qt.AlignRight
-        hasLeftCorners: true
-        smallItem: RowLayout {
+        bottomLeftRadius: 10
+        implicitWidth: rightLayout.width + 10
+        implicitHeight: Theme.barheight
+        color: Theme.bg
+        RowLayout {
+            id: rightLayout
+            anchors.centerIn: parent
             Mpris {
-                Layout.maximumWidth: screen.width / 2 - volume.width - midarea.width / 2 - 30 - notif.width - (battery.visible ? battery.width : 0)
+                Layout.maximumWidth: screen.width / 2 - volume.width - midarea.width / 2 - 55 - notif.width - (battery.visible ? battery.width : 0)
                 Clickable {
                     acceptedButtons: Qt.RightButton
-                    onClicked: rightarea.toggle()
+                    onClicked: root.toggleOverlay()
                 }
             }
             Volume {
@@ -128,15 +136,14 @@ PanelWindow {
                 id: notif
             }
         }
-        bigItem: Music.Widget {}
     }
 
     Corner.BottomLeft {
-        y: screen.height - 20
+        y: root.screen.height - 20
     }
     Corner.BottomRight {
-        y: screen.height - 20
-        x: screen.width - 20
+        y: root.screen.height - 20
+        x: root.screen.width - 20
     }
     Corner.TopLeft {
         anchors.top: leftarea.bottom
@@ -156,37 +163,19 @@ PanelWindow {
         }
     }
 
-    function disableAll(): void {
-        leftarea.disable();
-        midarea.disable();
-        rightarea.disable();
-        systray.disable();
-        if (overlayOn) {
-            Hyprland.dispatch(`togglespecialworkspace helper`);
-            overlayOn = false;
-        }
-    }
     IpcHandler {
         target: `"${root.screen.name}"`
-
-        function dashboard(): void {
-            root.toggleOverlay();
-        }
 
         function bar(): void {
             root.visible = !root.visible;
         }
     }
 
+    function disableAll(): void {
+        systray.disable();
+    }
+
     function toggleOverlay(): void {
-        if (overlayOn) {
-            disableAll();
-        } else {
-            Hyprland.dispatch(`togglespecialworkspace helper`);
-            leftarea.enable();
-            midarea.enable();
-            rightarea.enable();
-            overlayOn = true;
-        }
+        Quickshell.execDetached(["sh", "-c", "qs ipc call dashboard toggle"]);
     }
 }
