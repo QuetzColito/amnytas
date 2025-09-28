@@ -14,29 +14,22 @@ import qs.Widgets.System as System
 import qs.Widgets.Utils as Utils
 import qs.Widgets.Music as Music
 
-PanelWindow {
+Item {
     id: root
-    property var modelData
-    property bool overlayOn: false
-    WlrLayershell.keyboardFocus: WlrKeyboardFocus.OnDemand
-    WlrLayershell.namespace: "qs-bar"
-    anchors {
-        top: true
-        left: true
-        right: true
-    }
-    color: "transparent"
-
-    implicitHeight: screen.height
-    exclusiveZone: 30
-    Item {
-        id: closer
-        visible: systray.anyOpen
-        MouseArea {
-            anchors.fill: parent
-            onClicked: root.disableAll()
+    anchors.left: parent.left
+    anchors.right: parent.right
+    implicitHeight: 30
+    required property var toggleOverlay
+    required property Item closer
+    property SysTray.Bar systray: systray
+    property Region mask: Region {
+        item: rightarea
+        Region {
+            item: midarea
         }
-        anchors.fill: parent
+        Region {
+            item: leftarea
+        }
     }
 
     Rectangle {
@@ -117,7 +110,7 @@ PanelWindow {
             id: rightLayout
             anchors.centerIn: parent
             Mpris {
-                Layout.maximumWidth: screen.width / 2 - volume.width - midarea.width / 2 - 55 - notif.width - (battery.visible ? battery.width : 0)
+                Layout.maximumWidth: root.width / 2 - volume.width - midarea.width / 2 - 55 - notif.width - (battery.visible ? battery.width : 0)
                 Clickable {
                     acceptedButtons: Qt.RightButton
                     onClicked: root.toggleOverlay()
@@ -136,46 +129,5 @@ PanelWindow {
                 id: notif
             }
         }
-    }
-
-    Corner.BottomLeft {
-        y: root.screen.height - 20
-    }
-    Corner.BottomRight {
-        y: root.screen.height - 20
-        x: root.screen.width - 20
-    }
-    Corner.TopLeft {
-        anchors.top: leftarea.bottom
-    }
-    Corner.TopRight {
-        anchors.top: rightarea.bottom
-        anchors.right: rightarea.right
-    }
-
-    mask: Region {
-        item: closer.visible ? closer : rightarea
-        Region {
-            item: midarea
-        }
-        Region {
-            item: leftarea
-        }
-    }
-
-    IpcHandler {
-        target: `"${root.screen.name}"`
-
-        function bar(): void {
-            root.visible = !root.visible;
-        }
-    }
-
-    function disableAll(): void {
-        systray.disable();
-    }
-
-    function toggleOverlay(): void {
-        Quickshell.execDetached(["sh", "-c", "qs ipc call dashboard toggle"]);
     }
 }

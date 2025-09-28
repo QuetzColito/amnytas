@@ -14,6 +14,10 @@ Text {
     color: MprisService.p?.isPlaying ? Theme.purple : Theme.orange
     font.pointSize: 11
     MouseArea {
+        onWheel: e => {
+            let vol = MprisService.p?.volume;
+            MprisService.p.volume = e.angleDelta.y > 0 ? vol + 0.05 : vol - 0.05;
+        }
         anchors.fill: parent
         acceptedButtons: Qt.LeftButton | Qt.RightButton
         cursorShape: Qt.PointingHandCursor

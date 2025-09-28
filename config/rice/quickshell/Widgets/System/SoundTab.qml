@@ -20,7 +20,6 @@ Item {
         bottomMargin: 10
         rightMargin: 15
         RowLayout {
-
             IconToggleButton {
                 id: sinkTab
                 name: "output"
@@ -64,7 +63,7 @@ Item {
 
     ScrollView {
         id: scroll
-        implicitHeight: Math.min(content.height, 500)
+        implicitHeight: Math.min(content.height, 370)
         implicitWidth: content.width + 15
         Behavior on implicitHeight {
             NumberAnimation {

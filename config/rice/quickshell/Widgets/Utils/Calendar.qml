@@ -1,3 +1,4 @@
+pragma ComponentBehavior: Bound
 import QtQuick.Layouts
 import QtQuick.Controls
 import QtQuick
@@ -6,9 +7,13 @@ import Quickshell.Widgets
 import qs.Theme
 import qs.Components
 
-WrapperMouseArea {
-    onWheel: e => e.angleDelta.y > 0 ? decreaseMonth() : increaseMonth()
+Item {
+    id: wrapper
+    implicitWidth: root.width
+    implicitHeight: root.height
+
     GridLayout {
+        id: root
         columns: 2
 
         CenteredText {
@@ -74,17 +79,35 @@ WrapperMouseArea {
             id: clock
             precision: SystemClock.Minutes
         }
+        function increaseMonth(): void {
+            grid.month = (grid.month + 1) % 12;
+            if (grid.month === 0)
+                grid.year++;
+        }
+
+        function decreaseMonth(): void {
+            if (grid.month === 0)
+                grid.year--;
+            grid.month = (grid.month + 11) % 12;
+        }
     }
 
-    function increaseMonth(): void {
-        grid.month = (grid.month + 1) % 12;
-        if (grid.month === 0)
-            grid.year++;
-    }
-
-    function decreaseMonth(): void {
-        if (grid.month === 0)
-            grid.year--;
-        grid.month = (grid.month + 11) % 12;
+    Clickable {
+        property int dragStartY: 0
+        property int dragStartX: 0
+        cursorShape: Qt.ArrowCursor
+        onWheel: e => e.angleDelta.y > 0 ? root.decreaseMonth() : root.increaseMonth()
+        onPressed: e => {
+            dragStartY = e.y;
+            dragStartX = e.x;
+        }
+        onReleased: e => {
+            let xdiff = Math.abs(dragStartX - e.x);
+            let ydiff = Math.abs(dragStartY - e.y);
+            if (ydiff > xdiff)
+                dragStartY >= e.y ? root.increaseMonth() : root.decreaseMonth();
+            else
+                dragStartX >= e.x ? root.decreaseMonth() : root.increaseMonth();
+        }
     }
 }

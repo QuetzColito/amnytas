@@ -4,27 +4,11 @@
 //@ pragma IconTheme TokyoNight-SE
 import Quickshell // for PanelWindow
 import QtQuick // for Text
-import qs.Bar
+import qs.Bar as Bar
 import qs.Dashboard
 import qs.Windows
 
 ShellRoot {
-
-    Variants {
-        model: Quickshell.screens
-
-        delegate: Component {
-            Bar {
-                screen: modelData
-            }
-        }
-    }
-
-    NotificationArea {}
-
-    LockScreen {}
-
-    Dashboard {}
 
     Variants {
         model: Quickshell.screens
@@ -35,4 +19,22 @@ ShellRoot {
             }
         }
     }
+
+    Variants {
+        model: Quickshell.screens
+
+        delegate: Component {
+            Bar.Window {
+                screen: modelData
+            }
+        }
+    }
+
+    Dashboard {}
+
+    NotificationArea {}
+
+    LockScreen {}
+
+    Keyboard {}
 }

@@ -1,3 +1,4 @@
+pragma ComponentBehavior: Bound
 import QtQuick.Layouts
 import QtQuick.Shapes
 import QtQuick
@@ -9,13 +10,30 @@ WrapperMouseArea {
     id: root
     property int value: 6
     property int max: 6
+    property int dragStartY: 0
+    property int dragStartX: 0
     onWheel: e => max = Math.max(1, e.angleDelta.y > 0 ? max + 1 : max - 1)
-    onClicked: randomize.start()
+    onPressed: e => {
+        console.log("released " + e.y);
+        dragStartY = e.y;
+        dragStartX = e.x;
+    }
+    onReleased: e => {
+        console.log("released " + e.y);
+        let xdiff = Math.abs(dragStartX - e.x);
+        let ydiff = Math.abs(dragStartY - e.y);
+        if (ydiff > 40 && ydiff > xdiff)
+            max = dragStartY >= e.y ? max + 1 : max - 1;
+        else if (xdiff > 40)
+            max = dragStartX >= e.x ? max - 1 : max + 1;
+        else
+            randomize.start();
+    }
     Rectangle {
         implicitWidth: 80
         implicitHeight: 80
         radius: 10
-        color: Theme.blue
+        color: "transparent"
         GridLayout {
             anchors.centerIn: parent
             height: 70
@@ -25,7 +43,7 @@ WrapperMouseArea {
             uniformCellHeights: true
             uniformCellWidths: true
             Rectangle {
-                color: [4, 5, 6, 7, 8].includes(root.value) ? Theme.bg : Theme.blue
+                color: [4, 5, 6, 7, 8].includes(root.value) ? Theme.blue : "transparent"
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 radius: 20
@@ -33,7 +51,7 @@ WrapperMouseArea {
 
             CenteredText {
                 text: root.max
-                color: Theme.bg
+                color: Theme.blue
                 font.pointSize: 20
                 Layout.fillWidth: true
                 Layout.fillHeight: true
@@ -43,7 +61,7 @@ WrapperMouseArea {
                 model: [[2, 3, 4, 5, 6, 7, 8], [6, 7, 8], [1, 3, 5, 7, 8], [6, 7, 8], [2, 3, 4, 5, 6, 7, 8], [8], [4, 5, 6, 7, 8]]
                 Rectangle {
                     required property var modelData
-                    color: modelData.includes(root.value) ? Theme.bg : Theme.blue
+                    color: modelData.includes(root.value) ? Theme.blue : "transparent"
                     Layout.fillWidth: true
                     Layout.fillHeight: true
                     radius: 20
@@ -53,14 +71,15 @@ WrapperMouseArea {
 
         Item {
             anchors.fill: parent
-            visible: max > 8
+            visible: root.max > 8
             CenteredText {
                 anchors.bottom: parent.verticalCenter
                 anchors.top: parent.top
                 anchors.right: parent.horizontalCenter
                 anchors.left: parent.left
                 font.pointSize: 30
-                text: value
+                color: Theme.blue
+                text: root.value
             }
 
             CenteredText {
@@ -69,14 +88,15 @@ WrapperMouseArea {
                 anchors.bottom: parent.bottom
                 anchors.left: parent.horizontalCenter
                 anchors.right: parent.right
-                text: max
+                text: root.max
+                color: Theme.blue
             }
 
             Shape {
                 anchors.fill: parent
                 ShapePath {
                     strokeWidth: 0
-                    fillColor: Theme.bg
+                    fillColor: Theme.blue
                     startX: 10
                     startY: 65
                     PathLine {
@@ -98,37 +118,37 @@ WrapperMouseArea {
         SequentialAnimation {
             id: randomize
             ScriptAction {
-                script: value = Math.ceil(Math.random() * max)
+                script: root.value = Math.ceil(Math.random() * root.max)
             }
             PauseAnimation {
                 duration: 20
             }
             ScriptAction {
-                script: value = Math.ceil(Math.random() * max)
+                script: root.value = Math.ceil(Math.random() * root.max)
             }
             PauseAnimation {
                 duration: 40
             }
             ScriptAction {
-                script: value = Math.ceil(Math.random() * max)
+                script: root.value = Math.ceil(Math.random() * root.max)
             }
             PauseAnimation {
                 duration: 70
             }
             ScriptAction {
-                script: value = Math.ceil(Math.random() * max)
+                script: root.value = Math.ceil(Math.random() * root.max)
             }
             PauseAnimation {
                 duration: 100
             }
             ScriptAction {
-                script: value = Math.ceil(Math.random() * max)
+                script: root.value = Math.ceil(Math.random() * root.max)
             }
             PauseAnimation {
                 duration: 150
             }
             ScriptAction {
-                script: value = Math.ceil(Math.random() * max)
+                script: root.value = Math.ceil(Math.random() * root.max)
             }
         }
     }

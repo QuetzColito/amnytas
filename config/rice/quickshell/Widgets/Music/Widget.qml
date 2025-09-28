@@ -3,16 +3,28 @@ import Quickshell.Widgets
 import QtQuick.Layouts
 import qs.Components
 
-WrapperItem {
-    topMargin: 15
-    rightMargin: 20
-    leftMargin: 15
-    bottomMargin: 5
+ColumnLayout {
+    implicitHeight: parent.height - 30
+    implicitWidth: parent.width - 30
+    anchors.centerIn: parent
+    spacing: (340 - meta.height - art.height) / 3
     ColumnLayout {
-        TrackTitle {}
-        TrackArtist {}
+        id: meta
+        spacing: 10
+        TrackTitle {
+            id: title
+            maximumLineCount: 3
+        }
+        TrackArtist {
+            maximumLineCount: 4 - title.lineCount
+        }
+    }
+
+    WrapperItem {
+        leftMargin: -3
         RowLayout {
-            spacing: 30
+            id: artLayout
+            spacing: 28
             AlbumArt {
                 id: art
             }
@@ -20,8 +32,9 @@ WrapperItem {
                 slider.length: art.implicitHeight - 60
             }
         }
-        Buttons {}
-
-        Progress {}
     }
+
+    Buttons {}
+
+    Progress {}
 }

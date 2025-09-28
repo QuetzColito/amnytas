@@ -1,55 +1,52 @@
+pragma ComponentBehavior: Bound
 import QtQuick.Layouts
+import QtQuick.Controls
 import QtQuick
 import Quickshell
 import Quickshell.Widgets
 import qs.Theme
 import qs.Components
 
-Item {
+GridLayout {
     id: root
-    implicitWidth: 200
-    implicitHeight: 100
     property int value: 0
     property int valueBu: 0
     property string color: timer.running ? Theme.purple : Theme.orange
-
-    GridLayout {
-        anchors.fill: parent
-        uniformCellHeights: true
-        uniformCellWidths: true
-        columns: 3
-        Wheel {
-            magnitude: 3600
-            bound: 86400
-            deco: "H"
+    columns: 4
+    Wheel {
+        id: hours
+        currentIndex: Math.floor(root.value / 3600)
+        onCurrentIndexChanged: {
+            root.value = currentIndex * 3600 + root.value % 3600;
         }
-        Wheel {
-            magnitude: 60
-            bound: 3600
-            deco: "M"
+    }
+    Wheel {
+        id: minutes
+        currentIndex: Math.floor((root.value % 3600) / 60)
+        onCurrentIndexChanged: {
+            root.value = Math.floor(root.value / 3600) * 3600 + currentIndex * 60 + root.value % 60;
         }
-        Wheel {
-            magnitude: 1
-            bound: 60
-            deco: "S"
+    }
+    Wheel {
+        id: seconds
+        currentIndex: root.value % 60
+        onCurrentIndexChanged: {
+            root.value = Math.floor(root.value / 60) * 60 + currentIndex;
         }
-        MaxedButton {
-            name: {
-                (!timer.running || (value / valueBu) > .5) ? "hourglass_top" : "hourglass_bottom";
-            }
-            clickable.onClicked: Quickshell.execDetached(["sh", "-c", "mpg123 $HOME/amnytas/config/rice/quickshell/Widgets/Utils/kurukuru.mp3"])
+    }
+    TimerButton {
+        name: timer.running ? "pause" : "play"
+        clickable.onClicked: {
+            if (!timer.running)
+                root.valueBu = root.value;
+            timer.running = !timer.running;
         }
-        MaxedButton {
-            name: timer.running ? "pause" : "play"
-            clickable.onClicked: {
-                if (!timer.running)
-                    valueBu = value;
-                timer.running = !timer.running;
-            }
-        }
-        MaxedButton {
-            name: "restart"
-            clickable.onClicked: value = valueBu
+    }
+    TimerButton {
+        name: "restart"
+        clickable.onClicked: {
+            root.valueBu = 0;
+            root.value = 0;
         }
     }
     Timer {
@@ -58,31 +55,35 @@ Item {
         running: false
         repeat: true
         onTriggered: {
-            value--;
-            if (value < 1) {
+            root.value--;
+            if (root.value < 1) {
                 running = false;
-                value = valueBu;
+                root.value = root.valueBu;
                 Quickshell.execDetached(["sh", "-c", "mpg123 $HOME/amnytas/config/rice/quickshell/Widgets/Utils/kurukuru.mp3"]);
             }
         }
     }
-    component MaxedButton: IconButton {
+    component TimerButton: IconButton {
         color: root.color
         size: 50
     }
-    component Wheel: WrapperMouseArea {
-        property int magnitude
-        property int bound
-        property string deco
-        Layout.fillWidth: true
-        Layout.fillHeight: true
-        onWheel: e => value = Math.max(0, e.angleDelta.y > 0 ? value + magnitude : value - magnitude)
-        CenteredText {
-            color: root.color
-            text: {
-                const v = Math.floor((value % bound) / magnitude);
-                return `${v < 10 ? "0" : ""}${v}${deco}   `;
-            }
+    component Wheel: Tumbler {
+        id: tumbler
+
+        visibleItemCount: 5
+        model: 60
+        Layout.rowSpan: 2
+        contentItem.implicitHeight: 130
+        contentItem.implicitWidth: 25
+        delegate: Text {
+            required property int modelData
+            color: modelData == tumbler.currentIndex ? root.color : Theme.fg3
+            text: modelData
+            font.pointSize: 15
+            horizontalAlignment: Text.AlignHCenter
+        }
+        Clickable {
+            onWheel: e => tumbler.positionViewAtIndex(tumbler.currentIndex + (e.angleDelta.y > 0 ? -1 : 1), Tumbler.Center)
         }
     }
 }

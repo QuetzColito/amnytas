@@ -10,7 +10,6 @@ PanelWindow {
     id: root
     property var modelData: screen
     property bool showAll: NotificationService.showall
-    exclusionMode: ExclusionMode.Ignore
     onShowAllChanged: {
         visible = false;
         visible = true;

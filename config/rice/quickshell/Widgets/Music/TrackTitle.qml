@@ -8,4 +8,5 @@ Text {
     wrapMode: Text.WordWrap
     color: Theme.purple
     text: MprisService.p?.trackTitle || "Unknown Title"
+    elide: Qt.ElideRight
 }

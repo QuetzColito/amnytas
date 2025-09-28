@@ -10,4 +10,5 @@ Text {
     color: Theme.fg3
     text: MprisService.p?.trackArtist || "Unknown Artist"
     horizontalAlignment: Text.AlignRight
+    elide: Qt.ElideRight
 }
