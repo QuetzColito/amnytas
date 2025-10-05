@@ -14,11 +14,11 @@ _: {
   };
 
   monitors = [
-    {
-      name = "HDMI-A-1";
-      coords = "-1920x0";
-      workspaces = [4 5 6];
-    }
+    # {
+    #   name = "HDMI-A-1";
+    #   coords = "-1920x0";
+    #   workspaces = [4 5 6];
+    # }
     {
       name = "DP-1";
       coords = "-1920x0";
@@ -27,7 +27,8 @@ _: {
     {
       name = "eDP-1";
       coords = "0x0";
-      workspaces = [1 2 3 4 5 6 7 8 9];
+      # workspaces = [1 2 3 4 5 6 7 8 9];
+      workspaces = [1 2 3 7 8 9];
     }
   ];
 
