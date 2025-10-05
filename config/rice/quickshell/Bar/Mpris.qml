@@ -13,6 +13,7 @@ Text {
     text: `${shuffleIndicator} ${loopIndicator} ${title} - ${artist}`
     color: MprisService.p?.isPlaying ? Theme.purple : Theme.orange
     font.pointSize: 11
+    visible: MprisService.p?.trackTitle || false
     MouseArea {
         onWheel: e => {
             let vol = MprisService.p?.volume;
