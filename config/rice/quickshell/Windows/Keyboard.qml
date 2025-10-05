@@ -106,6 +106,12 @@ PanelWindow {
         function toggle(): void {
             root.visible = !root.visible;
         }
+        function enable(): void {
+            root.visible = true;
+        }
+        function disable(): void {
+            root.visible = false;
+        }
     }
 
     function sendKey(code: string): void {

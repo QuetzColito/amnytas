@@ -9,7 +9,6 @@ import qs.Services
 
 ColumnLayout {
     id: root
-    width: 300
     Behavior on implicitHeight {
         NumberAnimation {
             easing.type: Easing.InOutQuad
@@ -21,6 +20,7 @@ ColumnLayout {
         id: networkingRow
         name: "Networking"
         valueAsIcon: true
+        implicitWidth: 380
         clickable.onClicked: NetworkService.toggleNetworking()
         value: NetworkService.networking ? "check_circle" : "circle"
         valueColor: NetworkService.networking ? Theme.green : Theme.red
@@ -95,14 +95,17 @@ ColumnLayout {
             anchors.right: parent.right
             anchors.verticalCenter: passwordField.verticalCenter
             name: "send"
-            clickable.onClicked: NetworkService.connectNew(passwordItem.ssid, passwordItem.password)
+            clickable.onClicked: {
+                NetworkService.connectNew(passwordItem.ssid, passwordItem.password);
+                passwordItem.visible = false;
+            }
         }
     }
 
     ScrollView {
         id: scroll
         implicitHeight: Math.min(content.height, 300)
-        implicitWidth: content.width + 15
+        implicitWidth: 380
         Behavior on implicitHeight {
             NumberAnimation {
                 easing.type: Easing.InOutQuad

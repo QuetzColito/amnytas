@@ -85,5 +85,15 @@
     (writeShellScriptBin
       "my-tofi-run"
       "filter-tofi $(tofi-run --ascii-input true)")
+    (writeShellScriptBin "rotate" ''
+      activemon=$(hyprctl activeworkspace -j | jq -r '.monitor')
+      activetransform=$((($(hyprctl monitors -j | jq ".[] | select(.name==\"$activemon\").transform") + 1) % 4))
+      hyprctl keyword monitor "$activemon,preferred,auto,1,transform,$activetransform"
+    '')
+    (writeShellScriptBin "rotate-counter" ''
+      activemon=$(hyprctl activeworkspace -j | jq -r '.monitor')
+      activetransform=$((($(hyprctl monitors -j | jq ".[] | select(.name==\"$activemon\").transform") - 1) % 4))
+      hyprctl keyword monitor "$activemon,preferred,auto,1,transform,$activetransform"
+    '')
   ];
 }
