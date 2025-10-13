@@ -22,9 +22,16 @@ Scope {
             id: surface
 
             property url home: StandardPaths.standardLocations(StandardPaths.HomeLocation)[0]
-            property int wsid: Hyprland.monitorFor(screen).activeWorkspace?.id || "1"
+            property int wsid: -1
+            property int wsid2: Hyprland.monitorFor(screen)?.activeWorkspace?.id || -1
             property string rotation: screen?.height > screen?.width ? "v" : ""
             property url current: `${home}/amnytas/wallpaper/${wsid}${rotation}.png`
+
+            // Only update it once
+            onWsid2Changed: {
+                if (wsid < 0)
+                    wsid = wsid2;
+            }
 
             color: "transparent"
 
