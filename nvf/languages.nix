@@ -9,7 +9,7 @@
       # Languages
       nix.enable = true;
       rust.enable = true;
-      ts.enable = false;
+      ts.enable = true;
       go.enable = true;
       python.enable = true;
       java.enable = true;
