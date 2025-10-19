@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     ./foot.nix
     ./ytm.nix
@@ -28,8 +32,8 @@
   packages = with pkgs;
     [
       # Browser
-      brave
       google-chrome
+      (writeShellScriptBin "helium" "appimage-run ${inputs.helium}")
 
       # Util
       gnome-disk-utility

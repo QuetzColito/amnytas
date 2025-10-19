@@ -147,6 +147,18 @@
         "type": "github"
       }
     },
+    "helium": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-yzVWGTKKsz6Pn5Pyo7+iOsx8EfCyQqVQAFWF+M0Et4E=",
+        "type": "file",
+        "url": "https://github.com/imputnet/helium-linux/releases/download/0.5.7.1/helium-0.5.7.1-x86_64.AppImage"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/imputnet/helium-linux/releases/download/0.5.7.1/helium-0.5.7.1-x86_64.AppImage"
+      }
+    },
     "hjem": {
       "inputs": {
         "nixpkgs": [
@@ -419,6 +431,7 @@
       "inputs": {
         "aagl": "aagl",
         "ags": "ags",
+        "helium": "helium",
         "hjem": "hjem",
         "nixos-cosmic": "nixos-cosmic",
         "nixos-wsl": "nixos-wsl",
