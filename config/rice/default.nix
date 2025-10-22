@@ -87,13 +87,17 @@
       "filter-tofi $(tofi-run --ascii-input true)")
     (writeShellScriptBin "rotate" ''
       activemon=$(hyprctl activeworkspace -j | jq -r '.monitor')
-      activetransform=$((($(hyprctl monitors -j | jq ".[] | select(.name==\"$activemon\").transform") + 1) % 4))
+      activetransform=$((($(hyprctl monitors -j | jq ".[] | select(.name==\"$activemon\").transform") $1 1) % 4))
       hyprctl keyword monitor "$activemon,preferred,auto,1,transform,$activetransform"
     '')
-    (writeShellScriptBin "rotate-counter" ''
-      activemon=$(hyprctl activeworkspace -j | jq -r '.monitor')
-      activetransform=$((($(hyprctl monitors -j | jq ".[] | select(.name==\"$activemon\").transform") - 1) % 4))
-      hyprctl keyword monitor "$activemon,preferred,auto,1,transform,$activetransform"
+    (writeShellScriptBin "workspace-direction" ''
+      sorted=$(hyprctl monitors -j | jq "sort_by(.x) | map(.name)")
+      len=$(echo $sorted | jq length)
+      activeIndex=$(echo $sorted | jq "index($(hyprctl activeworkspace -j | jq .monitor))")
+      next=$((($activeIndex $1 1) % $len))
+      nextName=$(echo $sorted | jq ".[$next]")
+
+      hyprctl dispatch workspace $(hyprctl monitors -j | jq "map(select(.name == $nextName)) | .[0] | .activeWorkspace.id")
     '')
   ];
 }
