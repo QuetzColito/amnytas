@@ -47,6 +47,9 @@ in {
       tealdeer
       gnumake
       (writeShellScriptBin
+        "restart-gozy"
+        ''ssh quetz@quetz.dev -f "pkill -f gozy"; ssh quetz@quetz.dev "nohup nix run 'github:QuetzColito/gozy' > gozy.log 2>&1 &"'')
+      (writeShellScriptBin
         "lang"
         ''nix flake init --template "https://flakehub.com/f/the-nix-way/dev-templates/*#$@"'')
       (writeShellScriptBin "try" "nix run nixpkgs#$@")
