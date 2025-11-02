@@ -1,9 +1,18 @@
-_: {
+{pkgs, ...}: {
   isNvidia = false;
   wantGrub = true;
   enableBluetooth = true;
 
   system.stateVersion = "25.05"; # Did you read the comment?
+
+  packages = with pkgs; [
+    (
+      writeShellScriptBin "focus" ''
+        hyprctl keyword monitor HDMI-A-7,disable
+        hyprctl keyword monitor DP-5,disable
+      ''
+    )
+  ];
 
   monitors = [
     {

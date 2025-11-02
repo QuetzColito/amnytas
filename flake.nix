@@ -34,6 +34,11 @@
       flake = false;
     };
 
+    poetrade = {
+      url = "https://github.com/SnosMe/awakened-poe-trade/releases/download/v3.27.101/Awakened-PoE-Trade-3.27.101.AppImage";
+      flake = false;
+    };
+
     quickshell = {
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";

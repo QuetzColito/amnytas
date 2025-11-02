@@ -389,6 +389,18 @@
         "type": "github"
       }
     },
+    "poetrade": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-FMc8zSoCU20ycfD6koPV7TNuiWMgBb+TSvn9egqQpZc=",
+        "type": "file",
+        "url": "https://github.com/SnosMe/awakened-poe-trade/releases/download/v3.27.101/Awakened-PoE-Trade-3.27.101.AppImage"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/SnosMe/awakened-poe-trade/releases/download/v3.27.101/Awakened-PoE-Trade-3.27.101.AppImage"
+      }
+    },
     "putah": {
       "inputs": {
         "nixpkgs": "nixpkgs_5"
@@ -438,6 +450,7 @@
         "nixpkgs": "nixpkgs_4",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nvf": "nvf",
+        "poetrade": "poetrade",
         "putah": "putah",
         "quickshell": "quickshell",
         "spicetify-nix": "spicetify-nix"

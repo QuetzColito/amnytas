@@ -23,11 +23,12 @@
 
   programs.ydotool.enable = true;
 
+  programs.gamescope.enable = true;
+
   packages = with pkgs; [
     wineWowPackages.full
     winetricks
     bottles
-    gamescope
     gamemode
     osu-lazer-bin
     prismlauncher
@@ -35,11 +36,6 @@
     xivlauncher
     vkbasalt
     # (pkgs.writeShellScriptBin "poetrade" ''appimage-run /home/quetz/apps/Awakened-PoE-Trade.Appimage'')
-    (writeShellScriptBin "poetrade"
-      "for i in ~/apps/poetrade/*.AppImage ; do appimage-run $i; done")
-    (pkgs.writeShellScriptBin "WuWa"
-      ''
-        WINEDLLOVERRIDES="KRSDKExternal.exe=d" wine ~/My\ Games/jadeite/jadeite.exe 'C:\Program Files\Wuthering Waves\Wuthering Waves Game\Client\Binaries\Win64\Client-Win64-Shipping.exe'
-      '')
+    (writeShellScriptBin "poetrade" "XDG_SESSION_TYPE='x11' appimage-run ${inputs.poetrade}")
   ];
 }
