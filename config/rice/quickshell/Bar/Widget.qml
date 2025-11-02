@@ -30,6 +30,9 @@ Item {
         Region {
             item: leftarea
         }
+        Region {
+            item: root.closer.visible ? root.closer : midarea
+        }
     }
 
     Rectangle {
