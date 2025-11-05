@@ -19,39 +19,48 @@
     @import url("/etc/profiles/per-user/${config.mainUser}/share/themes/${theme.gtk.name}/gtk-4.0/gtk.css");
   '';
 in {
-  # fonts, dont remove the cjk one or kana will look ugly
-  fonts.packages = with pkgs;
-    [
-      noto-fonts-cjk-sans
-      material-icons
-      material-design-icons
-      roboto
-    ]
-    ++ theme.fonts;
+  fonts = {
+    # fonts, dont remove the cjk one or kana will look ugly
+    packages = with pkgs;
+      [
+        noto-fonts-cjk-sans
+        material-icons
+        material-design-icons
+        roboto
+      ]
+      ++ theme.fonts;
 
-  fonts.fontconfig.defaultFonts = {
-    serif = [theme.serif.name];
-    sansSerif = [theme.sansSerif.name];
-    monospace = [theme.monospace.name];
-    emoji = [theme.emoji.name];
+    fontconfig.defaultFonts = {
+      serif = [theme.serif.name];
+      sansSerif = [theme.sansSerif.name];
+      monospace = [theme.monospace.name];
+      emoji = [theme.emoji.name];
+    };
+
+    # flatpak fix, run
+    # 'mkdir $HOME/.local/share/fonts && cp -L /run/current-system/sw/share/X11/fonts/* $HOME/.local/share/fonts/'
+    # every time you change fonts and want flatpak to pick up the changes, see https://wiki.nixos.org/wiki/Fonts#Flatpak_applications_can't_find_system_fonts
+    fontDir.enable = true;
+
+    # trying to disable ligatures
+    fontconfig.localConf = ''
+      <?xml version='1.0'?>
+      <!DOCTYPE fontconfig SYSTEM 'fonts.dtd'>
+      <fontconfig>
+       <match target="font" >
+        <edit name="embeddedbitmap" mode="assign">
+         <bool>false</bool>
+        </edit>
+        <edit name="fontfeatures" mode="append">
+         <string>calt off</string>
+         <string>clig off</string>
+         <string>dlig off</string>
+         <string>liga off</string>
+        </edit>
+       </match>
+      </fontconfig>
+    '';
   };
-  fonts.fontconfig.localConf = ''
-    <?xml version='1.0'?>
-    <!DOCTYPE fontconfig SYSTEM 'fonts.dtd'>
-    <fontconfig>
-     <match target="font" >
-      <edit name="embeddedbitmap" mode="assign">
-       <bool>false</bool>
-      </edit>
-      <edit name="fontfeatures" mode="append">
-       <string>calt off</string>
-       <string>clig off</string>
-       <string>dlig off</string>
-       <string>liga off</string>
-      </edit>
-     </match>
-    </fontconfig>
-  '';
 
   packages = [
     theme.cursor.package

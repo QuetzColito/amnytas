@@ -7,7 +7,6 @@
   tuiPackages = with pkgs; [
     yazi
     btop
-    nvtopPackages.full
     cmatrix
     lazydocker
     sl

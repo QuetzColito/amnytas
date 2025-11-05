@@ -47,7 +47,7 @@
     ".config/uwsm/env".text = builtins.concatStringsSep "\nexport " ([
         ""
         "CLUTTER_BACKEND=wayland"
-        "SDL_VIDEODRIVER=wayland"
+        # "SDL_VIDEODRIVER=wayland"
         "QT_QPA_PLATFORM=wayland;xcb"
         "QT_QPA_PLATFORMTHEME=qt6ct"
         "GDK_BACKEND=wayland,x11,*"
