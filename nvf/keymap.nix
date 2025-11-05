@@ -17,6 +17,7 @@
         # FzfLua
         "<leader>f" = ":FzfLua files<CR>";
         "<leader>t" = ":FzfLua builtin<CR>";
+        "<C-F>" = ":FzfLua grep<CR>";
 
         # Copy/Paste to System
         "<leader>y" = "\"+y";
