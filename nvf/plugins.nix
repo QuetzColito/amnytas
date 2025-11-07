@@ -52,6 +52,7 @@ _: {
       setupOpts = {
         winopts.backdrop = 100;
         fzf_colors = true;
+        defaults.hidden = false;
       };
     };
   };
