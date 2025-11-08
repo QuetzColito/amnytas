@@ -9,6 +9,7 @@ WrapperMouseArea {
     id: root
     property QsMenuHandle modelData: parent.modelData
     property string button: modelData.buttonType == QsMenuButtonType.None ? "" : modelData.buttonType == QsMenuButtonType.CheckBox ? checkbox(modelData.checkState) : radio(modelData.checkState)
+    cursorShape: Qt.PointingHandCursor
     onClicked: {
         if (modelData.hasChildren) {
             modelData.display(parent.window, parent.width + 20, 0);
