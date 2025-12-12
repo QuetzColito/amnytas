@@ -85,6 +85,9 @@
     (writeShellScriptBin
       "my-tofi-run"
       "filter-tofi $(tofi-run --ascii-input true)")
+    (writeShellScriptBin
+      "quetzclicker"
+      "while true; do ydotool click 0xC0; done")
     (writeShellScriptBin "rotate" ''
       activemon=$(hyprctl activeworkspace -j | jq -r '.monitor')
       activetransform=$((($(hyprctl monitors -j | jq ".[] | select(.name==\"$activemon\").transform") $1 1) % 4))
