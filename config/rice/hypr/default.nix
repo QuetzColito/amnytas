@@ -26,7 +26,6 @@
 
     programs.hyprland = {
       enable = true;
-      withUWSM = true;
     };
 
     services = {
@@ -34,9 +33,13 @@
       getty.autologinOnce = true;
     };
 
+    packages = [
+      pkgs.uwsm
+    ];
+
     environment.loginShellInit = ''
       if uwsm check may-start; then
-          exec uwsm start hyprland-uwsm.desktop
+          Hyprland
       fi
     '';
   };

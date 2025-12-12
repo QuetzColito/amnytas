@@ -42,22 +42,28 @@
               map (ws: "${builtins.toString ws}, monitor:${name}") workspaces
           )
           config.monitors
-        )));
+        )))
+      + ''
 
-    ".config/uwsm/env".text = builtins.concatStringsSep "\nexport " ([
-        ""
-        "CLUTTER_BACKEND=wayland"
-        # "SDL_VIDEODRIVER=wayland"
-        "QT_QPA_PLATFORM=wayland;xcb"
-        "QT_QPA_PLATFORMTHEME=qt6ct"
-        "GDK_BACKEND=wayland,x11,*"
-        "XCURSOR_THEME=${theme.cursor.name}"
-        "XCURSOR_SIZE=${theme.cursor.size}"
-        "GTK_THEME=${theme.gtk.name}"
-      ]
-      ++ (
+        env = XDG_CURRENT_DESKTOP,Hyprland
+        env = XDG_SESSION_TYPE,wayland
+        env = XDG_SESSION_DESKTOP,Hyprland
+        env = CLUTTER_BACKEND,wayland
+        # env = SDL_VIDEODRIVER,wayland
+        env = GDK_BACKEND,wayland,x11,*
+        env = QT_QPA_PLATFORM,wayland;xcb
+        env = QT_QPA_PLATFORMTHEME,qt6ct
+        env = QT_WAYLAND_DISABLE_WINDOWDECORATION,1
+        env = XCURSOR_THEME,${theme.cursor.name}
+        env = XCURSOR_SIZE,${theme.cursor.size}
+        env = GTK_THEME,${theme.gtk.name}
+        env = XKB_DEFAULT_LAYOUT,${config.services.xserver.xkb.layout}
+        env = XKB_DEFAULT_VARIANT,${config.services.xserver.xkb.variant}
+        env = XKB_DEFAULT_OPTIONS,${config.services.xserver.xkb.options}
+      ''
+      + (
         if config.isNvidia
-        then [
+        then ''
           "LIBVA_DRIVER_NAME=nvidia"
           "GBM_BACKEND=nvidia-drm"
           "__GLX_VENDOR_LIBRARY_NAME=nvidia"
@@ -65,9 +71,9 @@
           "__GL_VRR_ALLOWED=0"
           "ELECTRON_OZONE_PLATFORM_HINT=auto"
           "NIXOS_OZONE_WL=1"
-        ]
-        else []
-      ));
+        ''
+        else ''''
+      );
 
     ".config/hypr/monitors.conf".text =
       hh.mkList "monitor"
