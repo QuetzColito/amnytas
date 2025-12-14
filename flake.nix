@@ -9,6 +9,8 @@
     ags.url = "github:Aylur/ags";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     putah.url = "github:QuetzColito/putah";
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
+
     nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";

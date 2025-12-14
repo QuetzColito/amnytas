@@ -6,6 +6,7 @@
   ...
 }: {
   imports = [
+    inputs.determinate.nixosModules.default
     ./programs
     ./terminal
     ./hjem.nix
