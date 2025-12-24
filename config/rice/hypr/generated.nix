@@ -64,13 +64,13 @@
       + (
         if config.isNvidia
         then ''
-          "LIBVA_DRIVER_NAME=nvidia"
-          "GBM_BACKEND=nvidia-drm"
-          "__GLX_VENDOR_LIBRARY_NAME=nvidia"
-          "__GL_GSYNC_ALLOWED=0"
-          "__GL_VRR_ALLOWED=0"
-          "ELECTRON_OZONE_PLATFORM_HINT=auto"
-          "NIXOS_OZONE_WL=1"
+          env = LIBVA_DRIVER_NAME,nvidia
+          env = GBM_BACKEND,nvidia-drm
+          env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+          env = __GL_GSYNC_ALLOWED,0
+          env = __GL_VRR_ALLOWED,0
+          env = ELECTRON_OZONE_PLATFORM_HINT,auto
+          env = NIXOS_OZONE_WL,1
         ''
         else ''''
       );
