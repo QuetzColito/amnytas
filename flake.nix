@@ -11,6 +11,8 @@
     putah.url = "github:QuetzColito/putah";
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
 
+    hardware.url = "github:NixOS/nixos-hardware/master";
+
     nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";

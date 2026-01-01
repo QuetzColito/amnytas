@@ -1,6 +1,14 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   wantGrub = true;
   enableBluetooth = true;
+
+  imports = [
+    inputs.hardware.nixosModules.framework-12-13th-gen-intel
+  ];
 
   system.stateVersion = "25.11"; # Did you read the comment?
   virtualisation.waydroid.enable = true;

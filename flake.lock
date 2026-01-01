@@ -268,6 +268,22 @@
         "url": "https://flakehub.com/f/cachix/git-hooks.nix/0.1.941"
       }
     },
+    "hardware": {
+      "locked": {
+        "lastModified": 1767185284,
+        "narHash": "sha256-ljDBUDpD1Cg5n3mJI81Hz5qeZAwCGxon4kQW3Ho3+6Q=",
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
+        "rev": "40b1a28dce561bea34858287fbb23052c3ee63fe",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "master",
+        "repo": "nixos-hardware",
+        "type": "github"
+      }
+    },
     "helium": {
       "flake": false,
       "locked": {
@@ -647,6 +663,7 @@
         "aagl": "aagl",
         "ags": "ags",
         "determinate": "determinate",
+        "hardware": "hardware",
         "helium": "helium",
         "hjem": "hjem",
         "nixos-cosmic": "nixos-cosmic",
