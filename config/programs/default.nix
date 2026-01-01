@@ -15,7 +15,7 @@
     xfconf.enable = true; # Also for Thunar
     thunar = {
       enable = true;
-      plugins = with pkgs.xfce; [
+      plugins = with pkgs; [
         thunar-archive-plugin
         thunar-media-tags-plugin
         thunar-volman
@@ -43,7 +43,6 @@
 
       # Comms
       # pkgs-stable.rustdesk-flutter
-      rustdesk-flutter
       discord-canary
       thunderbird
       vesktop

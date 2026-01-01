@@ -4,7 +4,7 @@
   ...
 }: {
   packages = with pkgs; [
-    youtube-music
+    pear-desktop
   ];
   files.".config/stylix/ytm.css".text =
     builtins.concatStringsSep "\n"
