@@ -128,9 +128,12 @@ PanelWindow {
         layoutDirection: Qt.RightToLeft
 
         DashboardItemWrapping {
+            visible: music.visible
             Layout.rowSpan: 5
             Layout.columnSpan: 4
-            Music.Widget {}
+            Music.Widget {
+              id: music
+            }
         }
 
         DashboardItemWrapping {
