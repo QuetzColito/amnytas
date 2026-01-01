@@ -12,17 +12,12 @@
       ts.enable = true;
       go.enable = true;
       python.enable = true;
+      qml.enable = true;
       java.enable = true;
       typst = {
         enable = true;
         format.enable = false;
       };
     };
-
-    lsp.lspconfig.sources.qmlls = ''
-      lspconfig.qmlls.setup {
-        cmd = {"${pkgs.kdePackages.qtdeclarative}/bin/qmlls"}
-      }
-    '';
   };
 }
