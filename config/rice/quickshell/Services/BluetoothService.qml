@@ -18,6 +18,10 @@ Singleton {
         cancelSearch.running = active;
     }
 
+    function togglePairable(): void {
+        defaultAdapter.pairable = !defaultAdapter.pairable;
+    }
+
     Timer {
         id: cancelSearch
         running: false

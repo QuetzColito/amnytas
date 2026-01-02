@@ -15,6 +15,8 @@ Item {
 
     property var model: BluetoothService.devices
 
+    Component.onCompleted: BluetoothService.defaultAdapter.pairable = true
+
     WrapperItem {
         id: buttons
         topMargin: 10
@@ -28,12 +30,21 @@ Item {
                 text.text: BluetoothService.enabled ? "Enabled" : "Disabled"
                 clickable.onClicked: BluetoothService.defaultAdapter.enabled = !BluetoothService.defaultAdapter.enabled
             }
+
             IconToggleButton {
                 id: scan
                 name: "bluetooth_searching"
                 active: BluetoothService.discovering
                 clickable.onClicked: BluetoothService.scan(!BluetoothService.discovering)
                 text.text: BluetoothService.discovering ? "Scanning" : "Scan"
+            }
+
+            IconToggleButton {
+                id: pairable
+                name: "bluetooth_searching"
+                active: BluetoothService.defaultAdapter.pairable
+                clickable.onClicked: BluetoothService.togglePairable()
+                text.text: pairable.active ? "Pairable" : "Unpairable"
             }
         }
     }
