@@ -13,6 +13,13 @@
 
     hardware.url = "github:NixOS/nixos-hardware/master";
 
+    hyprland.url = "github:hyprwm/Hyprland";
+
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+
     nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -45,7 +52,7 @@
     };
 
     quickshell = {
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+      url = "git+https://git.outfoxxed.me/quickshell/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
