@@ -1,48 +1,5 @@
-{
-  pkgs,
-  theme,
-  ...
-}: {
-  imports = [
-    ./hypr
-    ./tofi.nix
-    ./quickshell.nix
-    ./scripts.nix
-  ];
-
-  services.hypridle.enable = true;
-
-  files = {
-    # Ags colors
-    ".config/stylix/colours.scss".text = builtins.concatStringsSep "\n" (builtins.attrValues (builtins.mapAttrs
-      (name: value:
-        "$"
-        + "${name}: #${value};")
-      theme.colours));
-  };
-
+{pkgs, ...}: {
   packages = with pkgs; [
-    xorg.xrandr
-    xorg.setxkbmap
-    brightnessctl
-    slurp
-    grim
-    hyprpicker
-    grimblast
-    # bibata-cursors
-    wl-clip-persist
-    wl-clipboard
-    xclip
-    # pngquant
-    # cliphist
-    clipnotify
-    playerctl
-    pamixer
-    pavucontrol
-    pwvucontrol
-    socat
-    killall
-    swappy
     # the maximize script, toggles bar and renames the workspace so a special workspace rule will take effect
     (
       writeShellScriptBin "pseudo-fullscreen" ''
@@ -89,10 +46,11 @@
     (writeShellScriptBin
       "quetzclicker"
       "while true; do ydotool click 0xC0; done")
-    (writeShellScriptBin "rotate" ''
+    (writeShellScriptBin "flip" ''
       activemon=$(hyprctl activeworkspace -j | jq -r '.monitor')
-      activetransform=$((($(hyprctl monitors -j | jq ".[] | select(.name==\"$activemon\").transform") $1 1) % 4))
-      hyprctl keyword monitor "$activemon,preferred,auto,1,transform,$activetransform"
+      transform=$((($(hyprctl monitors -j | jq ".[] | select(.name==\"$activemon\").transform") + 2) % 4))
+      hyprctl keyword monitor "$activemon,preferred,auto,1,transform,$transform"
+      hyprctl keyword input:touchdevice:transform "$transform"
     '')
     (writeShellScriptBin "workspace-direction" ''
       sorted=$(hyprctl monitors -j | jq "sort_by(.x) | map(.name)")
