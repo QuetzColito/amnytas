@@ -2,6 +2,7 @@
   pkgs,
   self,
   inputs,
+  config,
   ...
 }: let
   tuiPackages = with pkgs; [
@@ -21,6 +22,7 @@ in {
   ];
 
   files.".config/oh-my-posh/config.toml".source = ./oh-my-posh.toml;
+  system.activationScripts.clearohmyposhcache.text = "rm -rf /home/${config.mainUser}/.cache/oh-my-posh";
 
   packages = with pkgs;
     [
