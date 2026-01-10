@@ -5,7 +5,7 @@
   ...
 }: {
   environment.systemPackages = [
-    inputs.quickshell.packages.${pkgs.system}.default
+    inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
     pkgs.kdePackages.qt5compat
     (pkgs.writeShellScriptBin "qs-reload" "qs kill; qs")
     (pkgs.writeShellScriptBin "toggleDashboard" "qs ipc call $(hyprctl activeworkspace -j | jq .monitor) dashboard")
