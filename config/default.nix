@@ -59,6 +59,9 @@
     networking.hostName = config.hostName;
     networking.networkmanager.enable = true;
 
+    # set default timeout to 20s
+    systemd.settings.Manager.DefaultTimeoutStopSec = "20s";
+
     users.users.${config.mainUser} = {
       isNormalUser = true;
       shell = pkgs.zsh;
