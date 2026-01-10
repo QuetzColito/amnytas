@@ -42,6 +42,16 @@
       ];
     };
 
+    hardware.graphics = let
+      hyprland-nixpkgs = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+    in {
+      enable = true;
+      package = hyprland-nixpkgs.mesa;
+      # if you also want 32-bit support (e.g for Steam)
+      enable32Bit = true;
+      package32 = hyprland-nixpkgs.pkgsi686Linux.mesa;
+    };
+
     services = {
       getty.autologinUser = config.mainUser;
       getty.autologinOnce = true;
