@@ -12,6 +12,7 @@ import qs.Widgets.Utils
 import qs.Components
 import qs.Widgets.System as System
 import qs.Widgets.Music as Music
+import qs.Services
 
 PanelWindow {
     id: root
@@ -128,12 +129,10 @@ PanelWindow {
         layoutDirection: Qt.RightToLeft
 
         DashboardItemWrapping {
-            visible: music.visible
+            visible: MprisService.p?.trackTitle || false
             Layout.rowSpan: 5
             Layout.columnSpan: 4
-            Music.Widget {
-              id: music
-            }
+            Music.Widget {}
         }
 
         DashboardItemWrapping {
