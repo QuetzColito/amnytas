@@ -72,6 +72,7 @@
       # jetbrains.idea-community
       vscodium
       appimage-run
+      protonvpn-gui
     ]
     # Some Webapps
     ++ (let
