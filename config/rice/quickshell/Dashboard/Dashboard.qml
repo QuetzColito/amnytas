@@ -196,7 +196,15 @@ PanelWindow {
         id: ipc
         target: "dashboard"
         function toggle(): void {
-            root.visible = !root.visible;
+            const screen = Quickshell.screens.find(s => s.name == Hyprland.focusedMonitor?.name);
+            if (!root.visible) {
+                root.screen = screen;
+                root.visible = true;
+            } else if (screen != root.screen) {
+                root.screen = screen;
+            } else {
+                root.visible = false;
+            }
         }
     }
 }
