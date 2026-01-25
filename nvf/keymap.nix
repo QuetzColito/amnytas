@@ -50,6 +50,9 @@
         # move selected line / block of text in visual mode
         "K" = ":m '<-2<CR>gv=gv";
         "J" = ":m '>+1<CR>gv=gv";
+
+        # Format
+        "Q" = "gq";
       };
   in
     normal
