@@ -48,6 +48,7 @@
       tmp.cleanOnBoot = true;
       kernelModules = ["v4l2loopback"];
       supportedFilesystems = ["ntfs"];
+      kernelPackages = pkgs.linuxKernel.packages.linux_6_18;
       extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
       extraModprobeConfig = ''
         options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
@@ -83,15 +84,6 @@
     };
 
     services = {
-      # Sound
-      pipewire = {
-        enable = true;
-        pulse.enable = true;
-        jack.enable = false;
-        alsa.enable = true; # required for osu xD
-        # wireplumber.enable = true;
-      };
-
       # Flatpak, although i actually dont need it anymore rn
       # Disabled because it made me rebuild a broken xwayland version???????
       flatpak.enable = true;

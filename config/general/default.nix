@@ -6,5 +6,6 @@
     ./nvidia.nix
     ./theming.nix
     ./grub
+    ./sound.nix
   ];
 }
