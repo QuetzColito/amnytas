@@ -1,8 +1,10 @@
 import Quickshell // for PanelWindow
+import Quickshell.Io
 import QtQuick // for Text
 import Quickshell.Wayland
 import Quickshell.Hyprland
 import Qt.labs.platform
+import qs.Theme
 
 PanelWindow {
     id: root
@@ -39,5 +41,40 @@ PanelWindow {
         source: root.current
         fillMode: Image.PreserveAspectCrop
         visible: main.status !== Image.Error
+    }
+
+    Process {
+        id: toggleNetworking
+        running: true
+        command: ["sh", "-c", `hyprctl splash`]
+        stdout: StdioCollector {
+            onStreamFinished: {
+                splash.text = text.trim();
+            }
+        }
+    }
+
+    Item {
+        height: splashBG.height
+        Rectangle {
+            id: splashBG
+            width: splash.width + 12
+            radius: 10
+            height: splash.height
+            color: Theme.bg3
+
+            Text {
+                id: splash
+                color: Theme.fg3
+                anchors.centerIn: parent
+            }
+            anchors.centerIn: parent
+        }
+
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.bottomMargin: 15
     }
 }
