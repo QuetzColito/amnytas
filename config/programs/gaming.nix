@@ -5,6 +5,13 @@
   pkgs,
   ...
 }: {
+  # ntsync
+  boot.kernelModules = ["ntsync"];
+  environment.variables.PROTON_USE_NTSYNC = "1";
+  services.udev.extraRules = ''
+    KERNEL=="ntsync", MODE="0644"
+  '';
+
   # HSR on Linux :>
   imports = [inputs.aagl.nixosModules.default];
   nix.settings = inputs.aagl.nixConfig; # Set up Cachix
@@ -37,5 +44,6 @@
     vkbasalt
     # (pkgs.writeShellScriptBin "poetrade" ''appimage-run /home/quetz/apps/Awakened-PoE-Trade.Appimage'')
     (writeShellScriptBin "poetrade" "XDG_SESSION_TYPE='x11' appimage-run ${inputs.poetrade}")
+    (writeShellScriptBin "arknights" "waydroid app launch com.YoStarEN.Arknights")
   ];
 }
