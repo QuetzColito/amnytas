@@ -71,6 +71,11 @@ in {
 
   xdg.icons.fallbackCursorThemes = [theme.cursor.name];
 
+  files.".local/share/icons/default".source = "${theme.cursor.package}/share/icons/${theme.cursor.name}";
+  files.".icons/default".source = "${theme.cursor.package}/share/icons/${theme.cursor.name}";
+  files.".local/share/icons/${theme.cursor.name}".source = "${theme.cursor.package}/share/icons/${theme.cursor.name}";
+  files.".icons/${theme.cursor.name}".source = "${theme.cursor.package}/share/icons/${theme.cursor.name}";
+
   # Stealing from catppuccin makes theming easier
   environment.systemPackages = with pkgs; [darkly-qt5 darkly];
   qt = {
