@@ -10,15 +10,10 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     putah.url = "github:QuetzColito/putah";
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
+    muve.url = "github:notarin/muve";
+    muve.inputs.nixpkgs.follows = "nixpkgs";
 
     hardware.url = "github:NixOS/nixos-hardware/master";
-
-    hyprland.url = "github:hyprwm/Hyprland";
-
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
 
     nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
@@ -32,7 +27,7 @@
     };
 
     nvf = {
-      url = "github:notashelf/nvf/v0.8";
+      url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

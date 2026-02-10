@@ -2,12 +2,10 @@
   config,
   pkgs,
   lib,
-  inputs,
   ...
 }: {
   imports = [
     ./generated.nix
-    inputs.hyprland.nixosModules.default
   ];
 
   config = lib.mkIf (config.wm == "Hyprland") {
@@ -33,23 +31,12 @@
 
     programs.hyprland = {
       enable = true;
-      # set the flake package
-      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-      # make sure to also set the portal package, so that they are in sync
-      portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-
-      plugins = with inputs.hyprland-plugins.${pkgs.stdenv.hostPlatform.system}; [
-      ];
     };
 
-    hardware.graphics = let
-      hyprland-nixpkgs = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-    in {
+    hardware.graphics = {
       enable = true;
-      package = hyprland-nixpkgs.mesa;
       # if you also want 32-bit support (e.g for Steam)
       enable32Bit = true;
-      package32 = hyprland-nixpkgs.pkgsi686Linux.mesa;
     };
 
     services = {

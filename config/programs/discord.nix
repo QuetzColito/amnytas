@@ -1,11 +1,23 @@
 {
   theme,
   pkgs,
+  inputs,
+  config,
   ...
 }: {
-  packages = [pkgs.vesktop];
+  packages = with pkgs; [
+    vesktop
+    inputs.muve.packages.${stdenv.system}.MuVe
+  ];
+  system.activationScripts.discord-skip-update.text = ''
+    if [ ! -f /home/${config.mainUser}/.config/discord/settings.json ]
+    then
+      echo '{"SKIP_HOST_UPDATE": true}' > /home/${config.mainUser}/.config/discord/settings.json
+    fi
+  '';
   files = {
-    ".config/vesktop/themes/amnytas.theme.css".text = ''
+    ".config/vesktop/themes/amnytas.theme.css".text = config.files.".config/Vencord/themes/amnytas.theme.css".text;
+    ".config/Vencord/themes/amnytas.theme.css".text = ''
       /**
        * @name midnight (base16)
        * @description a dark, customizable discord theme. based on tokyo night theme (https://github.com/tokyo-night/tokyo-night-vscode-theme).

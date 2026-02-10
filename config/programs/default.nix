@@ -29,6 +29,8 @@
     };
   };
 
+  programs.noisetorch.enable = true;
+
   packages = with pkgs;
     [
       # Browser
@@ -43,7 +45,9 @@
 
       # Comms
       # pkgs-stable.rustdesk-flutter
-      discord-canary
+      # discord-canary
+      # (discord.override {withVencord = true;})
+      inputs.muve.packages.${stdenv.system}.MuVe
       thunderbird
       vesktop
 
