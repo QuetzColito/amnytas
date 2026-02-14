@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }: {
   programs.direnv = {
@@ -10,6 +11,10 @@
   };
 
   environment.variables = {
+    NIXPKGS_ALLOW_UNFREE =
+      if config.nixpkgs.config.allowUnfree
+      then "1"
+      else "";
     EDITOR = "nvim";
     VISUAL = "nvim";
     SHELL = "zsh";
