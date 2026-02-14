@@ -3,17 +3,27 @@
   environment.systemPackages = with pkgs; [
     qemu
     quickemu
+    distrobox
   ];
 
-  # Docker
-  virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
-  };
+  virtualisation = {
+    # Docker
+    docker.rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
 
-  virtualisation.waydroid = {
-    enable = true;
-    # necessary because kernel >= 6.17
-    package = pkgs.waydroid-nftables;
+    # Waydroid
+    waydroid = {
+      enable = true;
+      # necessary because kernel >= 6.17
+      package = pkgs.waydroid-nftables;
+    };
+
+    # Distrobox
+    podman = {
+      enable = true;
+      dockerCompat = true;
+    };
   };
 }
