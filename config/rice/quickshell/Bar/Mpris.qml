@@ -15,10 +15,7 @@ Text {
     font.pointSize: 11
     visible: MprisService.p?.trackTitle || false
     MouseArea {
-        onWheel: e => {
-            let vol = MprisService.p?.volume;
-            MprisService.p.volume = e.angleDelta.y > 0 ? vol + 0.05 : vol - 0.05;
-        }
+        onWheel: e => MprisService.p.volume = MprisService.p?.volume + (e.angleDelta.y > 0 ? +.05 : -.05)
         anchors.fill: parent
         acceptedButtons: Qt.LeftButton | Qt.RightButton
         cursorShape: Qt.PointingHandCursor
