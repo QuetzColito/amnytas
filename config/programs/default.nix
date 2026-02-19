@@ -41,15 +41,9 @@
       gnome-disk-utility
       ncdu
       qpwgraph
-      exiftool
 
       # Comms
-      # pkgs-stable.rustdesk-flutter
-      # discord-canary
-      # (discord.override {withVencord = true;})
-      inputs.muve.packages.${stdenv.system}.MuVe
       thunderbird
-      vesktop
 
       # Audio
       audacity

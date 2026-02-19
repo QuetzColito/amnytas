@@ -33,15 +33,11 @@
   programs.gamescope.enable = true;
 
   packages = with pkgs; [
-    wineWowPackages.full
-    winetricks
     bottles
     gamemode
     osu-lazer-bin
     prismlauncher
     heroic
-    xivlauncher
-    vkbasalt
     # (pkgs.writeShellScriptBin "poetrade" ''appimage-run /home/quetz/apps/Awakened-PoE-Trade.Appimage'')
     (writeShellScriptBin "poetrade" "XDG_SESSION_TYPE='x11' appimage-run ${inputs.poetrade}")
     (writeShellScriptBin "arknights" "waydroid app launch com.YoStarEN.Arknights")

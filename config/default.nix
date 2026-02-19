@@ -12,11 +12,7 @@
     ./hjem.nix
     ./general
     ./linking.nix
-
-    # Pick GUI
     ./rice # Hyprland
-    ./DEs/kde.nix # Kde
-    ./DEs/cosmic.nix # Cosmic
   ];
 
   options = {

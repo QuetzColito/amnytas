@@ -12,6 +12,7 @@
   system.activationScripts.discord-skip-update.text = ''
     if [ ! -f /home/${config.mainUser}/.config/discord/settings.json ]
     then
+      mkdir -p /home/${config.mainUser}/.config/discord
       echo '{"SKIP_HOST_UPDATE": true}' > /home/${config.mainUser}/.config/discord/settings.json
     fi
   '';

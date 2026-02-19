@@ -6,50 +6,38 @@
     nixpkgs-other.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
-    ags.url = "github:Aylur/ags";
-    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
-    putah.url = "github:QuetzColito/putah";
+
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
+
+    quickshell.url = "git+https://git.outfoxxed.me/quickshell/quickshell";
+    quickshell.inputs.nixpkgs.follows = "nixpkgs";
+
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
+
+    putah.url = "github:QuetzColito/putah";
+    putah.inputs.nixpkgs.follows = "nixpkgs";
+
     muve.url = "github:notarin/muve";
     muve.inputs.nixpkgs.follows = "nixpkgs";
 
     hardware.url = "github:NixOS/nixos-hardware/master";
 
-    nixos-cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    aagl.url = "github:ezKEa/aagl-gtk-on-nix";
+    # url = "github:ezKEa/aagl-gtk-on-nix/release-25.11";
+    aagl.inputs.nixpkgs.follows = "nixpkgs";
 
-    aagl = {
-      url = "github:ezKEa/aagl-gtk-on-nix";
-      # url = "github:ezKEa/aagl-gtk-on-nix/release-25.11";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nvf.url = "github:notashelf/nvf";
+    nvf.inputs.nixpkgs.follows = "nixpkgs";
 
-    nvf = {
-      url = "github:notashelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    hjem.url = "github:feel-co/hjem";
+    hjem.inputs.nixpkgs.follows = "nixpkgs";
 
-    hjem = {
-      url = "github:feel-co/hjem";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    helium.url = "https://github.com/imputnet/helium-linux/releases/download/0.5.7.1/helium-0.5.7.1-x86_64.AppImage";
+    helium.flake = false;
 
-    helium = {
-      url = "https://github.com/imputnet/helium-linux/releases/download/0.5.7.1/helium-0.5.7.1-x86_64.AppImage";
-      flake = false;
-    };
-
-    poetrade = {
-      url = "https://github.com/SnosMe/awakened-poe-trade/releases/download/v3.27.101/Awakened-PoE-Trade-3.27.101.AppImage";
-      flake = false;
-    };
-
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/quickshell/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    poetrade.url = "https://github.com/SnosMe/awakened-poe-trade/releases/download/v3.27.101/Awakened-PoE-Trade-3.27.101.AppImage";
+    poetrade.flake = false;
   };
 
   outputs = {

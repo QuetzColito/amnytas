@@ -22,23 +22,13 @@
   };
 
   packages = with pkgs; [
-    xorg.xrandr
-    xorg.setxkbmap
     brightnessctl
     slurp
     grim
     hyprpicker
     grimblast
-    # bibata-cursors
-    wl-clip-persist
     wl-clipboard
-    xclip
-    # pngquant
-    # cliphist
-    clipnotify
     playerctl
-    pamixer
-    pavucontrol
     pwvucontrol
     socat
     killall

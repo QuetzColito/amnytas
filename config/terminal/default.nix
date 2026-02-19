@@ -30,7 +30,6 @@ in {
       docker
       micro
       jq
-      comma
       calc
       pandoc
       texliveSmall
@@ -46,7 +45,6 @@ in {
       fd
       lazygit
       tealdeer
-      gnumake
       (writeShellScriptBin
         "restart-gozy"
         ''ssh quetz@quetz.dev -f "pkill -f gozy"; ssh quetz@quetz.dev "nohup nix run 'github:QuetzColito/gozy' > gozy.log 2>&1 &"'')
