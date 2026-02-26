@@ -8,6 +8,7 @@
     ./tofi.nix
     ./quickshell.nix
     ./scripts.nix
+    ./scripts
   ];
 
   services.hypridle.enable = true;
