@@ -48,7 +48,7 @@
       "while true; do ydotool click 0xC0; done")
     (writeShellScriptBin
       "gw2-discomarker"
-      "ydotool key 42:0 125:0 56:1 2:1 2:0 3:1 3:0 4:1 4:0 5:1 5:0 6:1 6:0 7:1 7:0 8:1 8:0 8:1 9:0 56:0")
+      "ydotool key 125:0 56:1 2:1 2:0 3:1 3:0 4:1 4:0 5:1 5:0 6:1 6:0 7:1 7:0 8:1 8:0 9:1 9:0 56:0")
     (writeShellScriptBin "flip" ''
       activemon=$(hyprctl activeworkspace -j | jq -r '.monitor')
       transform=$((($(hyprctl monitors -j | jq ".[] | select(.name==\"$activemon\").transform") + 2) % 4))
