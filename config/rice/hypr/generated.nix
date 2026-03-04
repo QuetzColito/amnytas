@@ -8,8 +8,8 @@
     ".config/hypr/generated.conf".text =
       ''
         general {
-          col.active_border = rgb(${theme.base0C}) rgb(${theme.base0E}) 45deg
-          col.inactive_border = rgb(${theme.base02})
+          col.active_border = rgb(${theme.base00}) rgb(${theme.base07}) 45deg
+          col.inactive_border = rgb(${theme.base04})
         }
         input {
           kb_layout = ${config.services.xserver.xkb.layout}

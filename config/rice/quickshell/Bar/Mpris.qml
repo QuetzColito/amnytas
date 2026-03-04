@@ -11,8 +11,9 @@ Text {
     elide: Qt.ElideRight
 
     text: `${shuffleIndicator} ${loopIndicator} ${title} - ${artist}`
-    color: MprisService.p?.isPlaying ? Theme.purple : Theme.orange
-    font.pointSize: 11
+    color: MprisService.p?.isPlaying ? Theme.blue : Theme.fg4
+    font.pointSize: Theme.textsize
+    font.family: Theme.fontFamily
     visible: MprisService.p?.trackTitle || false
     MouseArea {
         onWheel: e => MprisService.p.volume = MprisService.p?.volume + (e.angleDelta.y > 0 ? +.05 : -.05)

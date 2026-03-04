@@ -36,20 +36,20 @@ PanelWindow {
         toggleOverlay: root.toggleOverlay
     }
 
-    Corner.BottomLeft {
-        y: root.screen.height - 20
-    }
-    Corner.BottomRight {
-        y: root.screen.height - 20
-        x: root.screen.width - 20
-    }
-    Corner.TopLeft {
-        y: 30
-    }
-    Corner.TopRight {
-        y: 30
-        anchors.right: parent.right
-    }
+    // Corner.BottomLeft {
+    //     y: root.screen.height - 20
+    // }
+    // Corner.BottomRight {
+    //     y: root.screen.height - 20
+    //     x: root.screen.width - 20
+    // }
+    // Corner.TopLeft {
+    //     y: 30
+    // }
+    // Corner.TopRight {
+    //     y: 30
+    //     anchors.right: parent.right
+    // }
 
     mask: bar.mask
     IpcHandler {

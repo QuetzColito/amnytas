@@ -21,5 +21,6 @@ Singleton {
     readonly property string brown: `#${Colors.base0F}`
 
     readonly property int barheight: 30
-    readonly property int textsize: 11
+    readonly property int textsize: 15
+    readonly property string fontFamily: "Terminess Nerd Font"
 }

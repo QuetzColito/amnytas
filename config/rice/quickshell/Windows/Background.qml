@@ -56,12 +56,10 @@ PanelWindow {
 
     Item {
         height: splashBG.height
-        Rectangle {
+        Item {
             id: splashBG
-            width: splash.width + 12
-            radius: 10
+            width: splash.width
             height: splash.height
-            color: Theme.bg3
 
             Text {
                 id: splash
@@ -76,5 +74,13 @@ PanelWindow {
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottomMargin: 15
+    }
+
+    IpcHandler {
+        target: `bg"${root.screen.name}"`
+
+        function set(path: string): void {
+            main.source = path;
+        }
     }
 }

@@ -116,10 +116,10 @@
           --bg-1: #${theme.base02}; /* dark buttons when clicked */
           --bg-2: #${theme.base00}; /* dark buttons */
           --bg-3: #${theme.base00}; /* spacing, secondary elements */
-          --bg-4: #${theme.base01}; /* main background color */
-          --hover: #${theme.base04}20; /* channels and buttons when hovered */
-          --active: #${theme.base04}40; /* channels and buttons when clicked or selected */
-          --active-2: #${theme.base04}30; /* extra state for transparent buttons */
+          --bg-4: #${theme.base00}; /* main background color */
+          --hover: #${theme.base03}20; /* channels and buttons when hovered */
+          --active: #${theme.base03}40; /* channels and buttons when clicked or selected */
+          --active-2: #${theme.base03}30; /* extra state for transparent buttons */
           --message-hover: #${theme.base00}A0; /* messages when hovered */
 
           /* accent colors */

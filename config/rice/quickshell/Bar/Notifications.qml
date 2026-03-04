@@ -7,7 +7,7 @@ IconButton {
     property int yOffset: 30
     name: !NotificationService.dnd ? "notification" : "notification_off"
     size: 23
-    color: !NotificationService.showall ? Theme.purple : Theme.orange
+    color: !NotificationService.showall ? Theme.blue : Theme.fg
 
     clickable.onClicked: event => {
         if (event.button === Qt.LeftButton) {

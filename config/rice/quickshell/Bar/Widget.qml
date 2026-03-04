@@ -14,11 +14,12 @@ import qs.Widgets.System as System
 import qs.Widgets.Utils as Utils
 import qs.Widgets.Music as Music
 
-Item {
+Rectangle {
     id: root
     anchors.left: parent.left
     anchors.right: parent.right
     implicitHeight: 30
+    color: Theme.bg
     required property var toggleOverlay
     required property Item closer
     property SysTray.Bar systray: systray
@@ -37,17 +38,18 @@ Item {
 
     Rectangle {
         id: leftarea
-        bottomRightRadius: 10
-        color: Theme.bg
+        // bottomRightRadius: 10
+        // color: Theme.bg
+        color: "transparent"
         implicitWidth: leftLayout.width + 15
         implicitHeight: Theme.barheight
 
         RowLayout {
             id: leftLayout
             anchors.centerIn: parent
-            Text {
+            ThemedText {
                 font.pointSize: 18
-                color: Theme.cyan
+                color: Theme.blue
                 text: ""
                 Clickable {
                     acceptedButtons: Qt.RightButton | Qt.LeftButton
@@ -71,21 +73,22 @@ Item {
             }
         }
     }
-    Corner.TopLeft {
-        x: leftarea.width
-    }
-    Corner.TopRight {
-        x: midarea.x - 20
-    }
+    // Corner.TopLeft {
+    //     x: leftarea.width
+    // }
+    // Corner.TopRight {
+    //     x: midarea.x - 20
+    // }
 
     Rectangle {
         id: midarea
-        bottomRightRadius: 10
-        bottomLeftRadius: 10
+        // bottomRightRadius: 10
+        // bottomLeftRadius: 10
         anchors.horizontalCenter: parent.horizontalCenter
         implicitWidth: midLayout.width + 15
         implicitHeight: Theme.barheight
-        color: Theme.bg
+        // color: Theme.bg
+        color: "transparent"
 
         Time {
             id: midLayout
@@ -95,20 +98,20 @@ Item {
             }
         }
     }
-    Corner.TopLeft {
-        anchors.left: midarea.right
-    }
-    Corner.TopRight {
-        anchors.right: rightarea.left
-    }
+    // Corner.TopLeft {
+    //     anchors.left: midarea.right
+    // }
+    // Corner.TopRight {
+    //     anchors.right: rightarea.left
+    // }
 
     Rectangle {
         id: rightarea
         anchors.right: parent.right
-        bottomLeftRadius: 10
+        // bottomLeftRadius: 10
         implicitWidth: rightLayout.width + 10
         implicitHeight: Theme.barheight
-        color: Theme.bg
+        color: "transparent"
         RowLayout {
             id: rightLayout
             anchors.centerIn: parent

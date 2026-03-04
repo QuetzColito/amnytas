@@ -1,12 +1,12 @@
 import QtQuick
 import Quickshell
 import qs.Theme
+import qs.Components
 
-Text {
+ThemedText {
     id: root
-    text: clock.date.toLocaleString(Qt.locale("de_DE"), "ddd   dd MMM   hh:mm")
-    color: Theme.orange
-    font.pointSize: Theme.textsize
+    text: clock.date.toLocaleString(Qt.locale("de_DE"), "ddd   dd MMM  hh:mm")
+    color: Theme.blue
     elide: Text.ElideRight
     SystemClock {
         id: clock

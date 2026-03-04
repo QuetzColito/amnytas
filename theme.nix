@@ -1,20 +1,20 @@
 pkgs: rec {
-  base00 = "16161E"; # ----
-  base01 = "1A1B26"; # ---
-  base02 = "2F3549"; # --
-  base03 = "444B6A"; # -
-  base04 = "787C99"; # +
-  base05 = "A9B1D6"; # ++
-  base06 = "CBCCD1"; # +++
-  base07 = "D5D6DB"; # ++++
-  base08 = "F7768E"; # Red
-  base09 = "FF9E64"; # Orange
-  base0A = "E0AF68"; # Yellow
-  base0B = "9ECE6A"; # Green
-  base0C = "7DCFFF"; # Cyan
-  base0D = "7AA2F7"; # Blue
-  base0E = "BB9AF7"; # Purple
-  base0F = "D18616"; # Brown
+  base00 = "101010"; # ----
+  base01 = "2E3440"; # ---
+  base02 = "3B4252"; # --
+  base03 = "434C5E"; # -
+  base04 = "4C566A"; # +
+  base05 = "D8DEE9"; # ++
+  base06 = "E5E9F0"; # +++
+  base07 = "ECEFF4"; # ++++
+  base08 = "BF616A"; # Red
+  base09 = "D08770"; # Orange
+  base0A = "EBCB8B"; # Yellow
+  base0B = "A3BE8C"; # Green
+  base0C = "88C0D0"; # Cyan
+  base0D = "5E81AC"; # Blue
+  base0E = "B48EAD"; # Purple
+  base0F = "8FBCBB"; # Brown
 
   serif = {
     package = pkgs.inter;
@@ -27,8 +27,8 @@ pkgs: rec {
   };
 
   monospace = {
-    package = pkgs.nerd-fonts.geist-mono;
-    name = "GeistMono Nerd Font Mono";
+    package = pkgs.nerd-fonts.terminess-ttf;
+    name = "Terminess Nerd Font";
   };
 
   emoji = {

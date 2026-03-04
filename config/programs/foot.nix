@@ -5,7 +5,7 @@
 }: {
   packages = [pkgs.foot];
   files.".config/foot/foot.ini".text = ''
-    font=monospace:size=12
+    font=monospace:size=14
 
     [mouse]
     hide-when-typing=yes

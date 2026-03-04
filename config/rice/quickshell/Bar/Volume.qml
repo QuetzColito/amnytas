@@ -1,11 +1,11 @@
 import QtQuick
 import qs.Theme
 import qs.Services
+import qs.Components
 
-Text {
-    text: `    ${AudioService.volume}% `
-    color: AudioService.muted ? Theme.red : Theme.blue
-    font.pointSize: 11
+ThemedText {
+    text: `   ${AudioService.volume}% `
+    color: AudioService.muted ? Theme.fg4 : Theme.blue
     MouseArea {
         anchors.fill: parent
         acceptedButtons: Qt.LeftButton | Qt.RightButton

@@ -9,8 +9,8 @@
   config.vim = {
     theme = {
       enable = true;
-      name = "tokyonight";
-      style = "night";
+      name = "nord";
+      # style = "night";
       transparent = true;
     };
 

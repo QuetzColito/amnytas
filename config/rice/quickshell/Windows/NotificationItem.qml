@@ -18,9 +18,8 @@ Rectangle {
     onFreshChanged: if (!fresh)
         NotificationService.expire(modelData.id)
     color: Theme.bg
-    border.color: Theme.cyan
+    border.color: Theme.blue
     border.width: 2
-    radius: 7
 
     Layout.maximumHeight: modelData.body || modelData.image ? 200 : title.height + 10
     anchors.margins: 30
@@ -50,7 +49,7 @@ Rectangle {
             text: modelData.summary
             font.bold: true
             font.pointSize: 15
-            color: Theme.fg
+            color: Theme.blue
             wrapMode: Text.Wrap
             elide: Text.ElideRight
         }
@@ -66,7 +65,7 @@ Rectangle {
                 "dlig": 0,
                 "hlig": 0
             }
-            color: Theme.fg
+            color: Theme.cyan
             wrapMode: Text.Wrap
             elide: Text.ElideRight
         }

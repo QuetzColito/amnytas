@@ -14,6 +14,9 @@ viewpdf = [
 term = [
     { run = 'hyprctl dispatch exec -- foot -D "$1"', desc = "Terminal", for = "unix" },
 ]
+setwall = [
+    { run = 'setWall $1', desc = "Set Image as Wallpaper", for = "unix" },
+]
 [open]
 rules = [
   # Folder
@@ -21,7 +24,7 @@ rules = [
   # Text
   { mime = "text/*", use = [ "edit", "reveal" ] },
   # Image
-  { mime = "image/*", use = [ "view", "open", "reveal" ] },
+  { mime = "image/*", use = [ "view", "setwall", "open", "reveal" ] },
   # Video
   { mime = "video/*", use = [ "play", "reveal" ] },
   # Audio
