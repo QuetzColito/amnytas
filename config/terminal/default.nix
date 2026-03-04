@@ -31,6 +31,7 @@ in {
       micro
       jq
       calc
+      go
       pandoc
       texliveSmall
       typst
