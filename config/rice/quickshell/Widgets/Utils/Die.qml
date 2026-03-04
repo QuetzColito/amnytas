@@ -42,11 +42,8 @@ WrapperMouseArea {
             visible: root.max < 9
             uniformCellHeights: true
             uniformCellWidths: true
-            Rectangle {
-                color: [4, 5, 6, 7, 8].includes(root.value) ? Theme.blue : "transparent"
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-                radius: 20
+            DieDot {
+                modelData: [4, 5, 6, 7, 8]
             }
 
             CenteredText {
@@ -59,13 +56,7 @@ WrapperMouseArea {
 
             Repeater {
                 model: [[2, 3, 4, 5, 6, 7, 8], [6, 7, 8], [1, 3, 5, 7, 8], [6, 7, 8], [2, 3, 4, 5, 6, 7, 8], [8], [4, 5, 6, 7, 8]]
-                Rectangle {
-                    required property var modelData
-                    color: modelData.includes(root.value) ? Theme.blue : "transparent"
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    radius: 20
-                }
+                DieDot {}
             }
         }
 
@@ -151,5 +142,13 @@ WrapperMouseArea {
                 script: root.value = Math.ceil(Math.random() * root.max)
             }
         }
+    }
+    component DieDot: Rectangle {
+        required property var modelData
+        color: modelData.includes(root.value) ? Theme.blue : "transparent"
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+        Layout.margins: 3
+        rotation: 45
     }
 }

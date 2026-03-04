@@ -40,7 +40,7 @@ Item {
             Layout.fillWidth: true
             delegate: CenteredText {
                 text: shortName
-                color: Theme.purple
+                color: Theme.cyan
 
                 required property string shortName
             }
@@ -54,7 +54,7 @@ Item {
             Layout.fillHeight: true
             delegate: CenteredText {
                 text: weekNumber
-                color: Theme.purple
+                color: Theme.cyan
 
                 required property int weekNumber
             }
@@ -69,7 +69,7 @@ Item {
             Layout.fillWidth: true
             Layout.fillHeight: true
             delegate: CenteredText {
-                color: model.today ? Theme.orange : model.month === grid.month ? Theme.blue : Theme.fg3
+                color: model.today ? Theme.purple : model.month === grid.month ? Theme.blue : Theme.fg4
                 text: model.day
 
                 required property var model

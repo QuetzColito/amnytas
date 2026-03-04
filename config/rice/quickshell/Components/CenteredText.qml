@@ -1,6 +1,6 @@
 import QtQuick
 
-Text {
+ThemedText {
     horizontalAlignment: Text.AlignHCenter
     verticalAlignment: Text.AlignVCenter
 }

@@ -19,7 +19,6 @@ Item {
         anchors.topMargin: 10
         implicitHeight: 30
         implicitWidth: 235
-        radius: 5
         color: Theme.bg3
 
         Clickable {
@@ -104,7 +103,7 @@ Item {
         }
         SymbolButton {
             symbol: "+"
-            textColor: Theme.green
+            textColor: Theme.cyan
         }
 
         SymbolButton {
@@ -118,7 +117,7 @@ Item {
         }
         SymbolButton {
             symbol: "-"
-            textColor: Theme.green
+            textColor: Theme.cyan
         }
         SymbolButton {
             symbol: "7"
@@ -131,7 +130,7 @@ Item {
         }
         SymbolButton {
             symbol: "*"
-            textColor: Theme.green
+            textColor: Theme.cyan
         }
         SymbolButton {
             text: "%"
@@ -146,7 +145,7 @@ Item {
         }
         SymbolButton {
             symbol: "/"
-            textColor: Theme.green
+            textColor: Theme.cyan
         }
     }
 
@@ -162,9 +161,11 @@ Item {
         readonly property Clickable clickable: innerclick
         width: 55
         height: 40
-        color: Theme.bg2
-        radius: 10
-        Text {
+        color: "transparent"
+        border.width: 2
+        border.color: Theme.fg4
+
+        ThemedText {
             font.pointSize: 25
             color: parent.textColor
             anchors.centerIn: parent

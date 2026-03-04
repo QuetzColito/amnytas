@@ -74,7 +74,6 @@ Item {
         anchors.top: tabs.bottom
         ScrollBar.vertical.contentItem: Rectangle {
             implicitWidth: 6
-            radius: 7
             color: Theme.bg3
         }
         ColumnLayout {
@@ -95,8 +94,7 @@ Item {
                     height: grid.height + 20
                     width: grid.width + 15
                     border.width: 2
-                    border.color: Theme.purple
-                    radius: 7
+                    border.color: Theme.blue
                     color: "transparent"
                     GridLayout {
                         id: grid
@@ -104,13 +102,13 @@ Item {
                         width: 350
                         anchors.centerIn: parent
                         columns: 2
-                        Text {
+                        ThemedText {
                             id: name
                             Layout.maximumWidth: 300
                             Layout.fillWidth: true
 
                             elide: Qt.ElideRight
-                            color: Theme.fg
+                            color: Theme.cyan
                             text: entry.displayName
                         }
                         IconToggleButton {
@@ -119,7 +117,7 @@ Item {
                             active: modelData == AudioService.preferredSink || modelData == AudioService.preferredSource
                             clickable.onClicked: modelData.isSink ? AudioService.setPreferredSink(modelData) : AudioService.setPreferredSource(modelData)
                             border.width: 0
-                            activeColor: Theme.purple
+                            activeColor: Theme.blue
                             name: "star"
                         }
                         StyledSlider {
@@ -127,7 +125,7 @@ Item {
                             Layout.fillWidth: true
                             value: entry.modelData.audio?.volume || 0
                             visible: entry.modelData.audio
-                            fillColor: Theme.purple
+                            fillColor: Theme.blue
                             onMoved: entry.modelData.audio.volume = value
                         }
                         IconToggleButton {
@@ -136,7 +134,7 @@ Item {
                             active: entry.modelData.audio?.muted || false
                             clickable.onClicked: modelData.audio.muted = !modelData.audio?.muted
                             border.width: 0
-                            activeColor: Theme.purple
+                            activeColor: Theme.blue
                             name: "volume_off"
                             altName: "volume"
                         }

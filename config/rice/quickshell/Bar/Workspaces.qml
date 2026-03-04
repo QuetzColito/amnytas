@@ -15,7 +15,7 @@ RowLayout {
         property int wsid
         property var ws: Hyprland.workspaces.values.find(ws => ws.id == wsid)
         name: ws?.toplevels.values.length > 0 ? "diamond_full" : "diamond_empty"
-        color: ws?.focused ? Theme.green : Theme.blue
+        color: ws?.focused ? Theme.purple : Theme.blue
         size: 25
         image.sourceSize: Qt.size(width * 10, height * 10)
         MouseArea {
@@ -28,7 +28,7 @@ RowLayout {
 
     component Separator: Text {
         text: "|"
-        color: Theme.fg2
+        color: Theme.fg
         font.pointSize: layout.textsize
     }
 

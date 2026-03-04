@@ -1,15 +1,13 @@
 import QtQuick
 import QtQuick.Layouts
 import Quickshell.Services.Mpris
-import qs.Theme
 import qs.Components
 import qs.Services
 
 RowLayout {
     id: root
     Layout.preferredWidth: 300
-    Text {
-        color: Theme.fg3
+    ThemedText {
         text: `${root.inMinutes(MprisService.p?.position || 0)}`
     }
     StyledSlider {
@@ -29,8 +27,7 @@ RowLayout {
             onTriggered: MprisService.p?.positionChanged()
         }
     }
-    Text {
-        color: Theme.fg3
+    ThemedText {
         text: `${root.inMinutes(MprisService.p?.length || 0)}`
     }
 

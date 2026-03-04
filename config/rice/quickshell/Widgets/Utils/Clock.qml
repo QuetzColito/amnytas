@@ -12,8 +12,8 @@ Item {
         anchors.verticalCenter: parent.verticalCenter
         anchors.horizontalCenterOffset: -80
         text: clock.date.toLocaleString(Qt.locale("de_DE"), "hh")
-        color: Theme.red
-        font.pointSize: 40
+        color: Theme.cyan
+        font.pointSize: 50
     }
     CenteredText {
         id: mid
@@ -22,7 +22,7 @@ Item {
         Layout.fillWidth: true
         text: clock.date.toLocaleString(Qt.locale("de_DE"), "mm")
         color: Theme.blue
-        font.pointSize: 40
+        font.pointSize: 50
     }
     CenteredText {
         id: right
@@ -31,8 +31,8 @@ Item {
         anchors.horizontalCenterOffset: 80
         Layout.fillWidth: true
         text: clock.date.toLocaleString(Qt.locale("de_DE"), "ss")
-        color: Theme.green
-        font.pointSize: 40
+        color: Theme.bg4
+        font.pointSize: 50
     }
 
     SystemClock {

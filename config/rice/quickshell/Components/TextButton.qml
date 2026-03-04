@@ -11,6 +11,6 @@ WrapperMouseArea {
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         font.pointSize: 30
-        color: Theme.purple
+        color: Theme.blue
     }
 }

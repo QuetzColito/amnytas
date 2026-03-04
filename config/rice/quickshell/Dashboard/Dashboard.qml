@@ -88,7 +88,7 @@ PanelWindow {
             IconButton {
                 anchors.centerIn: parent
                 size: 50
-                color: Theme.red
+                color: Theme.purple
                 name: "power"
                 clickable.onClicked: Quickshell.execDetached(["systemctl", "poweroff"])
             }
@@ -97,7 +97,7 @@ PanelWindow {
             IconButton {
                 anchors.centerIn: parent
                 size: 50
-                color: Theme.orange
+                color: Theme.blue
                 name: "restart"
                 clickable.onClicked: Quickshell.execDetached(["systemctl", "reboot"])
             }
@@ -106,7 +106,7 @@ PanelWindow {
             IconButton {
                 anchors.centerIn: parent
                 size: 50
-                color: Theme.green
+                color: Theme.blue
                 name: "logout"
                 clickable.onClicked: Quickshell.execDetached(["sh", "-c", "loginctl terminate-user $USER"])
             }
@@ -115,7 +115,7 @@ PanelWindow {
             IconButton {
                 anchors.centerIn: parent
                 size: 50
-                color: Theme.yellow
+                color: Theme.cyan
                 name: "lock"
                 clickable.onClicked: Quickshell.execDetached(["qs", "ipc", "call", "lock", "lock"])
             }
@@ -165,8 +165,8 @@ PanelWindow {
         anchors.topMargin: 12 + 30
         columns: 10
         rows: 11
-        rowSpacing: 10
-        columnSpacing: 10
+        rowSpacing: 5
+        columnSpacing: 5
     }
 
     component DashboardItemWrapping: Rectangle {
@@ -179,7 +179,8 @@ PanelWindow {
         Layout.maximumWidth: 80 * Layout.columnSpan + 10 * (Layout.columnSpan - 1)
         Layout.fillWidth: true
         Layout.fillHeight: true
-        radius: 7
+        border.width: 2
+        border.color: Theme.blue
         Clickable {
             cursorShape: Qt.ArrowCursor
         }

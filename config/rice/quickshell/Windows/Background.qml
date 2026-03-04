@@ -73,7 +73,7 @@ PanelWindow {
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         anchors.right: parent.right
-        anchors.bottomMargin: 15
+        anchors.bottomMargin: 10
     }
 
     IpcHandler {

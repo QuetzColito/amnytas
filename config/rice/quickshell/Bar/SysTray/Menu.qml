@@ -22,8 +22,9 @@ PopupWindow {
         extraMargin: 10
         leftMargin: 5
         rightMargin: 5
-        radius: 15
-        color: `#${Colors.base01}`
+        color: Theme.bg
+        border.width: 2
+        border.color: Theme.blue
         ColumnLayout {
             Repeater {
                 model: menuoo.children

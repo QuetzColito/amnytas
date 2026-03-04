@@ -8,7 +8,7 @@ Item {
     property IconImage icon: iconn
     required property string name
     property real size: 25
-    property color color: Theme.purple
+    property color color: Theme.blue
     property Image image: iconn.backer
     property real padding: 0
     implicitWidth: size + 2 * padding

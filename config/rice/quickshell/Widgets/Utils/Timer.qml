@@ -11,7 +11,7 @@ GridLayout {
     id: root
     property int value: 0
     property int valueBu: 0
-    property string color: timer.running ? Theme.purple : Theme.orange
+    property string color: timer.running ? Theme.cyan : Theme.blue
     columns: 4
     Wheel {
         id: hours
@@ -75,11 +75,11 @@ GridLayout {
         Layout.rowSpan: 2
         contentItem.implicitHeight: 130
         contentItem.implicitWidth: 25
-        delegate: Text {
+        delegate: ThemedText {
             required property int modelData
-            color: modelData == tumbler.currentIndex ? root.color : Theme.fg3
+            color: modelData == tumbler.currentIndex ? root.color : Theme.fg4
             text: modelData
-            font.pointSize: 15
+            font.pointSize: 18
             horizontalAlignment: Text.AlignHCenter
         }
         Clickable {

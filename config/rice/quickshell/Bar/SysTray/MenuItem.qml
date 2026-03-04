@@ -20,8 +20,7 @@ WrapperMouseArea {
     hoverEnabled: true
     WrapperRectangle {
         extraMargin: 5
-        radius: 5
-        color: root.containsMouse ? Theme.bg3 : "transparent"
+        color: root.containsMouse ? Theme.blue : "transparent"
         RowLayout {
             TextButton {
                 implicitWidth: 15
@@ -30,8 +29,8 @@ WrapperMouseArea {
                 text.font.pointSize: Theme.textsize
             }
 
-            Text {
-                color: Theme.fg3
+            ThemedText {
+                color: root.containsMouse ? `#${Colors.base00}` : Theme.cyan
                 text: root.modelData.text
             }
 

@@ -1,8 +1,8 @@
 pkgs: rec {
   base00 = "101010"; # ----
-  base01 = "2E3440"; # ---
-  base02 = "3B4252"; # --
-  base03 = "434C5E"; # -
+  base01 = "101010"; # ---
+  base02 = "101010"; # --
+  base03 = "101010"; # -
   base04 = "4C566A"; # +
   base05 = "D8DEE9"; # ++
   base06 = "E5E9F0"; # +++
@@ -64,7 +64,7 @@ pkgs: rec {
 
   gtk = {
     # Colloid Catppuccin overwritten with base16
-    name = "Colloid-Purple-Dark-Catppuccin";
+    name = "Colloid-Dark-Catppuccin";
     package = (pkgs.colloid-gtk-theme.overrideAttrs
       (finalAttrs: previousAttrs: {
         # tried to refactor this to make it less chonky and just failed xD
@@ -117,7 +117,7 @@ pkgs: rec {
         '';
       })).override {
       colorVariants = ["dark"];
-      themeVariants = ["purple"];
+      themeVariants = ["default"];
       tweaks = ["catppuccin" "rimless"];
     };
   };
