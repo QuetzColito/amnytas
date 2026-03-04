@@ -6,7 +6,6 @@
   ...
 }: {
   imports = [
-    inputs.determinate.nixosModules.default
     ./programs
     ./terminal
     ./hjem.nix
@@ -80,8 +79,6 @@
     };
 
     services = {
-      # Flatpak, although i actually dont need it anymore rn
-      # Disabled because it made me rebuild a broken xwayland version???????
       flatpak.enable = true;
 
       # Secrets Manager
