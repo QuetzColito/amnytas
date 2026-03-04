@@ -1,5 +1,5 @@
 {inputs, ...}: {
-  wantGrub = true;
+  wantLimine = true;
   enableBluetooth = true;
 
   imports = [

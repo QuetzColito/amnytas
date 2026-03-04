@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   isNvidia = false;
-  wantGrub = true;
+  wantLimine = true;
   enableBluetooth = true;
 
   system.stateVersion = "25.05"; # Did you read the comment?
