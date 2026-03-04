@@ -5,7 +5,10 @@
 
   system.stateVersion = "25.05"; # Did you read the comment?
 
+  hardware.i2c.enable = true;
+
   packages = with pkgs; [
+    ddcutil
     (
       writeShellScriptBin "focus" ''
         hyprctl keyword monitor HDMI-A-7,disable
