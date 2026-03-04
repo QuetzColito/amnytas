@@ -105,12 +105,12 @@
           --colors: on; /* turn off to use discord default colors */
 
           /* text colors */
-          --text-0: #${theme.base03}; /* text on colored elements */
+          --text-0: #${theme.base04}; /* text on colored elements */
           --text-1: #${theme.base05}; /* other normally white text */
           --text-2: #${theme.base06}; /* headings and important text */
           --text-3: #${theme.base05}; /* normal text */
           --text-4: #${theme.base04}; /* icon buttons and channels */
-          --text-5: #${theme.base03}; /* muted channels/chats and timestamps */
+          --text-5: #${theme.base04}; /* muted channels/chats and timestamps */
 
           /* background and dark colors */
           --bg-1: #${theme.base02}; /* dark buttons when clicked */
