@@ -17,6 +17,12 @@
     )
   ];
 
+  boot.loader.limine.extraEntries = ''
+    /Windows
+        protocol: efi
+        path: uuid(e78adb91-b491-4dca-801f-c8ee2bd436e7):/EFI/Microsoft/Boot/bootmgfw.efi
+  '';
+
   monitors = [
     {
       name = "DP-4";
