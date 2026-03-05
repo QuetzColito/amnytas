@@ -26,7 +26,6 @@
             foreground = theme.base04;
             background = "40${theme.base00}";
             margin = 0;
-            marginGradient = 0; # TODO: figure out the difference
           };
           interface.branding = "A Cozy Operating System";
           backdrop = theme.base00;
