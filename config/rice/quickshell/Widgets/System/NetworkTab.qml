@@ -23,7 +23,7 @@ ColumnLayout {
         implicitWidth: 380
         clickable.onClicked: NetworkService.toggleNetworking()
         value: NetworkService.networking ? "check_circle" : "circle"
-        valueColor: NetworkService.networking ? Theme.green : Theme.red
+        valueColor: NetworkService.networking ? Theme.cyan : Theme.red
     }
 
     InfoRow {
@@ -37,10 +37,10 @@ ColumnLayout {
         visible: NetworkService.hasWifi
         clickable.onClicked: NetworkService.toggleWifi()
         value: NetworkService.wifiEnabled ? "check_circle" : "circle"
-        valueColor: NetworkService.wifiEnabled ? Theme.green : Theme.red
+        valueColor: NetworkService.wifiEnabled ? Theme.cyan : Theme.red
     }
 
-    Text {
+    ThemedText {
         color: Theme.purple
         font.pointSize: 15
         visible: NetworkService.hasWifi
@@ -63,7 +63,7 @@ ColumnLayout {
         visible: false
         implicitHeight: passwordtext.height + passwordField.height + 5
 
-        Text {
+        ThemedText {
             id: passwordtext
             color: Theme.red
             wrapMode: Text.WordWrap
@@ -139,21 +139,21 @@ ColumnLayout {
                         implicitWidth: activeIcon.width + ssid.width + strengthIcon.width + 30
                         ColoredIcon {
                             id: activeIcon
-                            color: Theme.orange
+                            color: Theme.purple
                             name: "star"
                             size: 18
                             visible: network.modelData.use
                         }
-                        Text {
+                        ThemedText {
                             id: ssid
-                            color: network.modelData.use ? Theme.orange : Theme.fg
+                            color: network.modelData.use ? Theme.purple : Theme.blue
                             Layout.fillWidth: true
                             text: network.modelData.ssid
                         }
                         ColoredIcon {
                             id: strengthIcon
                             property int strength: network.modelData.strength
-                            color: strength > 66 ? Theme.green : strength > 33 ? Theme.yellow : Theme.red
+                            color: strength > 66 ? Theme.cyan : strength > 33 ? Theme.blue : Theme.purple
                             name: strength > 66 ? "wifi" : strength > 33 ? "wifi_2_bar" : "wifi_1_bar"
                             Layout.alignment: Qt.AlignRight
                         }

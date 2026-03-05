@@ -25,6 +25,8 @@
             palette = "${theme.base00};${theme.base08};${theme.base0B};${theme.base0A};${theme.base0D};${theme.base0E};${theme.base0C};${theme.base04}";
             foreground = theme.base04;
             background = "40${theme.base00}";
+            margin = 0;
+            marginGradient = 0; # TODO: figure out the difference
           };
           interface.branding = "A Cozy Operating System";
           backdrop = theme.base00;

@@ -31,6 +31,8 @@ Item {
             width: 225
             text: ""
             color: Theme.blue
+            font.family: Theme.fontFamily
+            font.pointSize: 18
             horizontalAlignment: Text.AlignRight
             onTextChanged: {
                 calc.tocalc = text;
@@ -49,7 +51,7 @@ Item {
         color: Theme.blue
     }
 
-    Text {
+    ThemedText {
         id: resultbox
         anchors.right: parent.right
         anchors.left: parent.left
@@ -58,7 +60,7 @@ Item {
         color: Theme.blue
         horizontalAlignment: Text.AlignRight
         text: "0"
-        font.pointSize: 15
+        font.pointSize: 18
         Clickable {
             onClicked: Quickshell.execDetached(["sh", "-c", "wl-copy " + resultbox.text])
         }
@@ -84,12 +86,12 @@ Item {
         CalcButton {
             text: "C"
             clickable.onClicked: input.text = input.text.substring(0, input.text.length - 1)
-            textColor: Theme.red
+            textColor: Theme.purple
         }
         CalcButton {
             text: "AC"
             clickable.onClicked: input.text = ""
-            textColor: Theme.red
+            textColor: Theme.purple
         }
 
         SymbolButton {
@@ -134,14 +136,14 @@ Item {
         }
         SymbolButton {
             text: "%"
-            textColor: Theme.purple
+            textColor: Theme.cyan
         }
         SymbolButton {
             symbol: "0"
         }
         SymbolButton {
             symbol: "."
-            textColor: Theme.purple
+            textColor: Theme.cyan
         }
         SymbolButton {
             symbol: "/"
@@ -157,7 +159,7 @@ Item {
     }
     component CalcButton: Rectangle {
         property string text
-        property string textColor: Theme.purple
+        property string textColor: Theme.cyan
         readonly property Clickable clickable: innerclick
         width: 55
         height: 40

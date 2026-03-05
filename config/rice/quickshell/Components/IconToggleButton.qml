@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell.Widgets
 import qs.Theme
+import qs.Components
 
 Rectangle {
     id: root
@@ -18,7 +19,6 @@ Rectangle {
     implicitWidth: itemm.width + 2 * margin
     border.width: 2
     border.color: activeColor
-    radius: 7
 
     color: active ? activeColor : "transparent"
     Behavior on color {
@@ -39,7 +39,7 @@ Rectangle {
                 ColorAnim {}
             }
         }
-        Text {
+        ThemedText {
             id: textt
             anchors.left: iconn.right
             anchors.verticalCenter: iconn.verticalCenter

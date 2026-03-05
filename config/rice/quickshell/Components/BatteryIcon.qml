@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell.Widgets
 import qs.Theme
+import qs.Components
 
 Item {
     id: root
@@ -14,15 +15,15 @@ Item {
         id: icon
         name: `battery_${charging ? "c_" : ""}${Math.floor(battery * 7)}`
 
-        color: battery > .3 ? Theme.green : Theme.red
+        color: battery > .3 ? Theme.cyan : Theme.red
     }
 
-    Text {
+    ThemedText {
         id: text
         anchors.left: icon.right
         anchors.verticalCenter: icon.verticalCenter
         text: Math.round(battery * 100) + "%"
 
-        color: battery > .3 ? Theme.green : Theme.red
+        color: battery > .3 ? Theme.cyan : Theme.red
     }
 }

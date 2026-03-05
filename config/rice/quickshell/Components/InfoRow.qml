@@ -8,20 +8,20 @@ Item {
     property string nameColor: Theme.blue
     required property string value
     property bool valueAsIcon: false
-    property string valueColor: Theme.fg
+    property string valueColor: Theme.cyan
     property Clickable clickable: valueicon.clickable
     // implicitWidth: Math.max(300, nametext.width + valueAsIcon ? valueicon.width : valuetext.width)
     implicitHeight: Math.max(nametext.height, valueAsIcon ? valueicon.height : valuetext.height)
     Layout.fillWidth: true
 
-    Text {
+    ThemedText {
         id: nametext
         anchors.verticalCenter: parent.verticalCenter
         color: root.nameColor
         text: root.name + ":"
     }
 
-    Text {
+    ThemedText {
         id: valuetext
         color: root.valueColor
         text: root.value

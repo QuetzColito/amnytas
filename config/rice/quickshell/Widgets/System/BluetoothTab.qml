@@ -85,7 +85,6 @@ Item {
                     width: grid.width + 15
                     border.width: 2
                     border.color: Theme.blue
-                    radius: 7
                     color: "transparent"
                     Clickable {
                         onClicked: device.modelData.connected = !device.modelData.connected
@@ -96,12 +95,11 @@ Item {
                         width: 375
                         anchors.centerIn: parent
                         RowLayout {
-                            Text {
+                            ThemedText {
                                 id: name
                                 Layout.maximumWidth: 325
 
                                 elide: Qt.ElideRight
-                                color: Theme.fg
                                 text: device.displayName
                             }
                             BatteryIcon {

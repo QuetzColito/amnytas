@@ -6,7 +6,7 @@ WrapperMouseArea {
     acceptedButtons: Qt.RightButton | Qt.LeftButton
     cursorShape: Qt.PointingHandCursor
     property Text text: innerText
-    Text {
+    ThemedText {
         id: innerText
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
