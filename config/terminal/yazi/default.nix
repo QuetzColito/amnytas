@@ -24,7 +24,7 @@
   files.".config/yazi/plugins/ouch.yazi".source = pkgs.fetchFromGitHub {
     owner = "ndtoan96";
     repo = "ouch.yazi";
-    tag = "v0.6.0";
-    sha256 = "sha256-mtXl76a54Deg4cyrD0wr++sD/5b/kCsnJ+ngM6OokTc=";
+    tag = "v0.7.0";
+    sha256 = "sha256-1kNqEXPjuXMtYDgRdQNqc8Y0waWHj+I2XXmvk9Sz0g0=";
   };
 }
