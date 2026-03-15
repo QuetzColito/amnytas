@@ -43,7 +43,7 @@ GridLayout {
         }
     }
     TimerButton {
-        name: "restart"
+        name: "arrow-counter-clockwise"
         clickable.onClicked: {
             root.valueBu = 0;
             root.value = 0;

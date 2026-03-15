@@ -34,7 +34,7 @@ Item {
         id: valueicon
         color: root.valueColor
         visible: root.valueAsIcon
-        name: root.valueAsIcon ? root.value : "account"
+        name: root.valueAsIcon ? root.value : ""
         anchors.verticalCenter: parent.verticalCenter
         anchors.right: parent.right
     }

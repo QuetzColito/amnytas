@@ -55,6 +55,7 @@ PanelWindow {
     }
 
     DashboardGrid {
+        // Both Grids can support 10x10
         id: left
         anchors.left: parent.left
         anchors.top: parent.top
@@ -62,9 +63,9 @@ PanelWindow {
         DashboardItemWrapping {
             Layout.rowSpan: 5
             Layout.columnSpan: 5
-            System.Widget {
+            System.HyprInfo {
                 anchors.left: parent.left
-                anchors.leftMargin: 5
+                anchors.leftMargin: 3
             }
         }
 
@@ -98,7 +99,7 @@ PanelWindow {
                 anchors.centerIn: parent
                 size: 50
                 color: Theme.blue
-                name: "restart"
+                name: "arrow-counter-clockwise"
                 clickable.onClicked: Quickshell.execDetached(["systemctl", "reboot"])
             }
         }
@@ -107,7 +108,7 @@ PanelWindow {
                 anchors.centerIn: parent
                 size: 50
                 color: Theme.blue
-                name: "logout"
+                name: "sign-out"
                 clickable.onClicked: Quickshell.execDetached(["sh", "-c", "loginctl terminate-user $USER"])
             }
         }
@@ -120,6 +121,20 @@ PanelWindow {
                 clickable.onClicked: Quickshell.execDetached(["qs", "ipc", "call", "lock", "lock"])
             }
         }
+        Padding {
+            model: 7
+        }
+        DashboardItemWrapping {
+            Layout.rowSpan: 5
+            Layout.columnSpan: 5
+            System.NetworkTab {
+                anchors.left: parent.left
+                anchors.leftMargin: 3
+            }
+        }
+        // Padding {
+        //     model: 25
+        // }
     }
 
     DashboardGrid {
@@ -129,12 +144,13 @@ PanelWindow {
         layoutDirection: Qt.RightToLeft
 
         DashboardItemWrapping {
-            visible: MprisService.p?.trackTitle || false
             Layout.rowSpan: 5
-            Layout.columnSpan: 4
-            Music.Widget {}
+            Layout.columnSpan: 5
+            System.SoundTab {
+                anchors.left: parent.left
+                anchors.leftMargin: 3
+            }
         }
-
         DashboardItemWrapping {
             Layout.rowSpan: 4
             Layout.columnSpan: 3
@@ -157,6 +173,19 @@ PanelWindow {
                 anchors.centerIn: parent
             }
         }
+        Padding {
+            model: 5
+        }
+
+        DashboardItemWrapping {
+            visible: MprisService.p?.trackTitle || false
+            Layout.rowSpan: 5
+            Layout.columnSpan: 4
+            Music.Widget {}
+        }
+        // Padding {
+        //     model: 63
+        // }
     }
 
     component DashboardGrid: GridLayout {
@@ -171,12 +200,12 @@ PanelWindow {
 
     component DashboardItemWrapping: Rectangle {
         color: Theme.bg
-        Layout.preferredHeight: 80 * Layout.rowSpan + 10 * (Layout.rowSpan - 1)
-        Layout.preferredWidth: 80 * Layout.columnSpan + 10 * (Layout.columnSpan - 1)
-        Layout.minimumHeight: 80 * Layout.rowSpan + 10 * (Layout.rowSpan - 1)
-        Layout.minimumWidth: 80 * Layout.columnSpan + 10 * (Layout.columnSpan - 1)
-        Layout.maximumHeight: 80 * Layout.rowSpan + 10 * (Layout.rowSpan - 1)
-        Layout.maximumWidth: 80 * Layout.columnSpan + 10 * (Layout.columnSpan - 1)
+        Layout.preferredHeight: 80 * Layout.rowSpan + 5 * (Layout.rowSpan - 1)
+        Layout.preferredWidth: 80 * Layout.columnSpan + 5 * (Layout.columnSpan - 1)
+        Layout.minimumHeight: 80 * Layout.rowSpan + 5 * (Layout.rowSpan - 1)
+        Layout.maximumWidth: 80 * Layout.columnSpan + 5 * (Layout.columnSpan - 1)
+        Layout.maximumHeight: 80 * Layout.rowSpan + 5 * (Layout.rowSpan - 1)
+        Layout.minimumWidth: 80 * Layout.columnSpan + 5 * (Layout.columnSpan - 1)
         Layout.fillWidth: true
         Layout.fillHeight: true
         border.width: 2

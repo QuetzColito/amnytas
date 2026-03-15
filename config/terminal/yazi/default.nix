@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}: {
   packages = with pkgs; [
     foot
     imv
@@ -14,6 +19,8 @@
         foot --override=app-id=floatfoot --override=initial-window-size-chars=70x5 mpv --no-audio-display "$1"
       '')
   ];
+  environment.shellAliases.yazi = ''${lib.getExe pkgs.yazi} --cwd-file="/home/${config.mainUser}/.cache/amnytas-yazi-location"; cd "$(cat /home/${config.mainUser}/.cache/amnytas-yazi-location)"'';
+  environment.shellAliases.yazi-vanilla = ''${lib.getExe pkgs.yazi}'';
 
   links = [
     ["amnytas/config/terminal/yazi/keymap.toml" ".config/yazi/keymap.toml"]

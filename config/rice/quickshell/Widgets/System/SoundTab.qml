@@ -18,11 +18,11 @@ Item {
         id: tabs
         topMargin: 10
         bottomMargin: 10
-        rightMargin: 15
+        leftMargin: 5
         RowLayout {
             IconToggleButton {
                 id: sinkTab
-                name: "output"
+                name: "sign-out"
                 active: true
                 text.text: "Outputs"
                 activeColor: Theme.blue
@@ -30,31 +30,23 @@ Item {
             }
             IconToggleButton {
                 id: appTab
-                name: "music_note"
+                name: "music-notes"
                 text.text: "Apps"
                 activeColor: Theme.blue
                 clickable.onClicked: root.setTab(appTab, AudioService.applications)
             }
             IconToggleButton {
                 id: inputTab
-                name: "input"
+                name: "sign-in"
                 text.text: "Inputs"
                 activeColor: Theme.blue
                 clickable.onClicked: root.setTab(inputTab, AudioService.inputs)
-            }
-            IconToggleButton {
-                id: recorderTab
-                name: "mic"
-                text.text: "Recorders"
-                activeColor: Theme.blue
-                clickable.onClicked: root.setTab(recorderTab, AudioService.recorders)
             }
         }
     }
 
     function setTab(tab: IconToggleButton, nodes: list<PwNode>): void {
         appTab.active = false;
-        recorderTab.active = false;
         sinkTab.active = false;
         inputTab.active = false;
         tab.active = true;
@@ -65,6 +57,7 @@ Item {
         id: scroll
         implicitHeight: Math.min(content.height, 370)
         implicitWidth: content.width + 15
+        anchors.leftMargin: 5
         Behavior on implicitHeight {
             NumberAnimation {
                 easing.type: Easing.InOutQuad
@@ -72,6 +65,7 @@ Item {
             }
         }
         anchors.top: tabs.bottom
+        anchors.left: parent.left
         ScrollBar.vertical.contentItem: Rectangle {
             implicitWidth: 6
             color: Theme.bg3
@@ -99,7 +93,7 @@ Item {
                     GridLayout {
                         id: grid
                         height: entry.modelData.audio ? 70 : 35
-                        width: 350
+                        width: 375
                         anchors.centerIn: parent
                         columns: 2
                         ThemedText {
@@ -135,8 +129,8 @@ Item {
                             clickable.onClicked: modelData.audio.muted = !modelData.audio?.muted
                             border.width: 0
                             activeColor: Theme.blue
-                            name: "volume_off"
-                            altName: "volume"
+                            name: "speaker-slash"
+                            altName: "speaker-2"
                         }
                     }
                 }

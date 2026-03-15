@@ -7,7 +7,7 @@ ColumnLayout {
     implicitHeight: parent.height - 30
     implicitWidth: parent.width - 30
     anchors.centerIn: parent
-    spacing: (340 - meta.height - art.height) / 3
+    spacing: (320 - meta.height - art.height) / 3
     ColumnLayout {
         id: meta
         spacing: 10

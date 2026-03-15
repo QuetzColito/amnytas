@@ -143,12 +143,10 @@ WrapperMouseArea {
             }
         }
     }
-    component DieDot: Rectangle {
+    component DieDot: ColoredIcon {
         required property var modelData
-        color: modelData.includes(root.value) ? Theme.blue : "transparent"
-        Layout.fillWidth: true
-        Layout.fillHeight: true
-        Layout.margins: 3
-        rotation: 45
+        color: Theme.blue
+        name: modelData.includes(root.value) ? "diamond-full" : ""
+        size: 19
     }
 }

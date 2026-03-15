@@ -18,10 +18,12 @@ Item {
         anchors.centerIn: parent
         implicitSize: root.size
         source: `root:Icons/${root.name}.svg`
+        visible: root.name
     }
     ColorOverlay {
         anchors.fill: iconn
         source: iconn
         color: root.color
+        visible: root.name
     }
 }

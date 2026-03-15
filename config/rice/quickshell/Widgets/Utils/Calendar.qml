@@ -3,7 +3,6 @@ import QtQuick.Layouts
 import QtQuick.Controls
 import QtQuick
 import Quickshell
-import Quickshell.Widgets
 import qs.Theme
 import qs.Components
 
@@ -23,11 +22,11 @@ Item {
             color: Theme.blue
         }
 
-        TextButton {
-            text.text: " "
+        IconButton {
+            name: "arrow-counter-clockwise"
+            size: 23
             Layout.fillWidth: true
-            text.font.pointSize: 15
-            onClicked: {
+            clickable.onClicked: {
                 grid.month = clock.date.getMonth();
                 grid.year = clock.date.getFullYear();
             }

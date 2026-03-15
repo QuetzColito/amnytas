@@ -1,5 +1,8 @@
 {pkgs, ...}: {
   packages = with pkgs; [
+    (writeShellScriptBin "hyprsocket" "socat -U - UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock")
+    (writeShellScriptBin "hypreload" "hyprctl reload")
+    (writeShellScriptBin "fix-workspaces" ''hyprctl workspacerules -j | jq -r 'map(select(.monitor)) | map(.workspaceString + " " + .monitor) | .[]' | xargs -n 2 hyprctl dispatch moveworkspacetomonitor'')
     # the maximize script, toggles bar and renames the workspace so a special workspace rule will take effect
     (
       writeShellScriptBin "pseudo-fullscreen" ''
@@ -40,9 +43,6 @@
     )
 
     tofi
-    (writeShellScriptBin
-      "my-tofi-run"
-      "filter-tofi $(tofi-run --ascii-input true)")
     (writeShellScriptBin
       "quetzclicker"
       "while true; do ydotool click 0xC0; done")

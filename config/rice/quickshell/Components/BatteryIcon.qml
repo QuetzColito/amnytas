@@ -13,7 +13,7 @@ Item {
 
     ColoredIcon {
         id: icon
-        name: `battery_${charging ? "c_" : ""}${Math.floor(battery * 7)}`
+        name: `battery-${charging ? "c" : Math.floor(battery * 7)}`
 
         color: battery > .3 ? Theme.cyan : Theme.red
     }

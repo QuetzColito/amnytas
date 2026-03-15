@@ -5,7 +5,7 @@ import qs.Services
 
 IconButton {
     property int yOffset: 30
-    name: !NotificationService.dnd ? "notification" : "notification_off"
+    name: !NotificationService.dnd ? "bell" : "bell-slash"
     size: 23
     color: !NotificationService.showall ? Theme.blue : Theme.fg
 

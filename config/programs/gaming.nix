@@ -40,6 +40,8 @@
     heroic
     # (pkgs.writeShellScriptBin "poetrade" ''appimage-run /home/quetz/apps/Awakened-PoE-Trade.Appimage'')
     (writeShellScriptBin "poetrade" "XDG_SESSION_TYPE='x11' appimage-run ${inputs.poetrade}")
+    (writeShellScriptBin "pob1" "community.pathofbuilding.PathOfBuilding poe1")
+    (writeShellScriptBin "pob2" "community.pathofbuilding.PathOfBuilding poe2")
     (writeShellScriptBin "arknights" "waydroid app launch com.YoStarEN.Arknights")
   ];
 }

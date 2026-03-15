@@ -4,35 +4,43 @@ import Quickshell.Widgets
 import QtQuick.Layouts
 import qs.Components
 import qs.Services
+import qs.Theme
 
 RowLayout {
     Layout.fillWidth: true
     Layout.alignment: Qt.AlignHCenter
-    implicitWidth: 310
+    implicitWidth: 300
     spacing: 15
-    IconButton {
-        size: 50
+    IconToggleButton {
+        icon.size: 35
+        activeColor: Theme.blue
+        // inactiveColor: "transparent"
         clickable.onClicked: MprisService.p.loopState = MprisService.p?.loopState == MprisLoopState.Track ? MprisLoopState.None : MprisService.p?.loopState == MprisLoopState.Playlist ? MprisLoopState.Track : MprisLoopState.Playlist
-        name: MprisService.p?.loopState == MprisLoopState.Track ? "repeat_one_on" : MprisService.p?.loopState == MprisLoopState.Playlist ? "repeat_on" : "repeat"
+        active: MprisService.p?.loopState == MprisLoopState.Track || MprisService.p?.loopState == MprisLoopState.Playlist
+        name: MprisService.p?.loopState == MprisLoopState.Track ? "repeat-once" : "repeat"
+        border.width: 0
     }
     IconButton {
-        size: 50
+        size: 35
         clickable.onClicked: MprisService.p.previous()
-        name: "previous"
+        name: "back"
     }
     IconButton {
-        size: 50
+        size: 35
         clickable.onClicked: MprisService.p.togglePlaying()
         name: MprisService.p?.isPlaying ? "pause" : "play"
     }
     IconButton {
-        size: 50
+        size: 35
         clickable.onClicked: MprisService.p.next()
-        name: "next"
+        name: "forward"
     }
-    IconButton {
-        size: 50
+    IconToggleButton {
+        icon.size: 35
+        activeColor: Theme.blue
         clickable.onClicked: MprisService.p.shuffle = true
-        name: MprisService.p?.shuffle ? "shuffle_on" : "shuffle"
+        active: MprisService.p?.shuffle
+        name: "shuffle"
+        border.width: 0
     }
 }

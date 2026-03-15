@@ -56,7 +56,7 @@ Item {
         anchors.right: parent.right
         anchors.left: parent.left
         anchors.top: separator.bottom
-        anchors.margins: 5
+        anchors.margins: 10
         color: Theme.blue
         horizontalAlignment: Text.AlignRight
         text: "0"
@@ -72,7 +72,7 @@ Item {
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         anchors.right: parent.right
-        anchors.margins: 15
+        anchors.margins: 5
         columns: 4
 
         CalcButton {

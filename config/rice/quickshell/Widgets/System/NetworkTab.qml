@@ -22,7 +22,7 @@ ColumnLayout {
         valueAsIcon: true
         implicitWidth: 380
         clickable.onClicked: NetworkService.toggleNetworking()
-        value: NetworkService.networking ? "check_circle" : "circle"
+        value: NetworkService.networking ? "check-square" : "check-empty"
         valueColor: NetworkService.networking ? Theme.cyan : Theme.red
     }
 
@@ -36,7 +36,7 @@ ColumnLayout {
         valueAsIcon: true
         visible: NetworkService.hasWifi
         clickable.onClicked: NetworkService.toggleWifi()
-        value: NetworkService.wifiEnabled ? "check_circle" : "circle"
+        value: NetworkService.wifiEnabled ? "check-square" : "check-empty"
         valueColor: NetworkService.wifiEnabled ? Theme.cyan : Theme.red
     }
 
@@ -154,7 +154,7 @@ ColumnLayout {
                             id: strengthIcon
                             property int strength: network.modelData.strength
                             color: strength > 66 ? Theme.cyan : strength > 33 ? Theme.blue : Theme.purple
-                            name: strength > 66 ? "wifi" : strength > 33 ? "wifi_2_bar" : "wifi_1_bar"
+                            name: strength > 75 ? "wifi-3" : strength > 50 ? "wifi-2" : strength > 25 ? "wifi-1" : "wifi-0"
                             Layout.alignment: Qt.AlignRight
                         }
                     }

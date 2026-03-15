@@ -36,104 +36,71 @@ Rectangle {
         }
     }
 
-    Rectangle {
+    RowLayout {
         id: leftarea
-        // bottomRightRadius: 10
-        // color: Theme.bg
-        color: "transparent"
-        implicitWidth: leftLayout.width + 15
-        implicitHeight: Theme.barheight
-
-        RowLayout {
-            id: leftLayout
-            anchors.centerIn: parent
-            ThemedText {
-                font.pointSize: 18
-                color: Theme.blue
-                text: ""
-                Clickable {
-                    acceptedButtons: Qt.RightButton | Qt.LeftButton
-                    onClicked: root.toggleOverlay()
-                }
-            }
-            Item {
-                implicitHeight: ws.height
-                implicitWidth: ws.width
-
-                Workspaces {
-                    id: ws
-                }
-                Clickable {
-                    acceptedButtons: Qt.RightButton
-                    onClicked: root.toggleOverlay()
-                }
-            }
-            SysTray.Bar {
-                id: systray
-            }
-        }
-    }
-    // Corner.TopLeft {
-    //     x: leftarea.width
-    // }
-    // Corner.TopRight {
-    //     x: midarea.x - 20
-    // }
-
-    Rectangle {
-        id: midarea
-        // bottomRightRadius: 10
-        // bottomLeftRadius: 10
-        anchors.horizontalCenter: parent.horizontalCenter
-        implicitWidth: midLayout.width + 15
-        implicitHeight: Theme.barheight
-        // color: Theme.bg
-        color: "transparent"
-
-        Time {
-            id: midLayout
-            anchors.centerIn: parent
+        anchors.verticalCenter: parent.verticalCenter
+        ColoredIcon {
+            color: Theme.blue
+            size: 18
+            name: "nixos"
             Clickable {
+                acceptedButtons: Qt.RightButton | Qt.LeftButton
                 onClicked: root.toggleOverlay()
             }
         }
-    }
-    // Corner.TopLeft {
-    //     anchors.left: midarea.right
-    // }
-    // Corner.TopRight {
-    //     anchors.right: rightarea.left
-    // }
+        Item {
+            implicitHeight: ws.height
+            implicitWidth: ws.width
 
-    Rectangle {
+            Workspaces {
+                id: ws
+            }
+            Clickable {
+                acceptedButtons: Qt.RightButton
+                onClicked: root.toggleOverlay()
+            }
+        }
+        SysTray.Bar {
+            id: systray
+        }
+    }
+
+    MouseArea {
+        id: midarea
+        anchors.centerIn: parent
+        onClicked: root.toggleOverlay()
+        acceptedButtons: Qt.RightButton | Qt.LeftButton
+        cursorShape: Qt.PointingHandCursor
+        implicitWidth: time.implicitWidth
+        implicitHeight: time.implicitHeight
+        Time {
+            id: time
+            anchors.fill: parent
+        }
+    }
+
+    RowLayout {
         id: rightarea
         anchors.right: parent.right
-        // bottomLeftRadius: 10
-        implicitWidth: rightLayout.width + 10
-        implicitHeight: Theme.barheight
-        color: "transparent"
-        RowLayout {
-            id: rightLayout
-            anchors.centerIn: parent
-            Mpris {
-                Layout.maximumWidth: root.width / 2 - volume.width - midarea.width / 2 - 55 - notif.width - (battery.visible ? battery.width : 0)
-                Clickable {
-                    acceptedButtons: Qt.RightButton
-                    onClicked: root.toggleOverlay()
-                }
+        anchors.verticalCenter: parent.verticalCenter
+        Mpris {
+            maxWidth: root.width / 2 - 50 - volume.width - midarea.width / 2 - notif.width - (battery.visible ? battery.width : 0)
+            Clickable {
+                acceptedButtons: Qt.RightButton
+                onClicked: root.toggleOverlay()
             }
-            Volume {
-                id: volume
-            }
-            BatteryIcon {
-                id: battery
-                visible: PowerService.hasBattery
-                battery: PowerService.charge
-                charging: PowerService.charging
-            }
-            Notifications {
-                id: notif
-            }
+        }
+        Volume {
+            id: volume
+        }
+        BatteryIcon {
+            id: battery
+            visible: PowerService.hasBattery
+            battery: PowerService.charge
+            charging: PowerService.charging
+        }
+        Notifications {
+            id: notif
         }
     }
 }
