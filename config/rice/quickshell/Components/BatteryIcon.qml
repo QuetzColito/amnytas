@@ -1,5 +1,4 @@
 import QtQuick
-import Quickshell.Widgets
 import qs.Theme
 import qs.Components
 
@@ -13,7 +12,7 @@ Item {
 
     ColoredIcon {
         id: icon
-        name: `battery-${charging ? "c" : Math.floor(battery * 7)}`
+        name: `battery-${charging ? "c" : Math.floor(battery * 4)}`
 
         color: battery > .3 ? Theme.cyan : Theme.red
     }

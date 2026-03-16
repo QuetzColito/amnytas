@@ -183,6 +183,15 @@ PanelWindow {
             Layout.columnSpan: 4
             Music.Widget {}
         }
+        DashboardItemWrapping {
+            Layout.rowSpan: 5
+            Layout.columnSpan: 5
+            visible: BluetoothService.isPresent
+            System.BluetoothTab {
+                anchors.left: parent.left
+                anchors.leftMargin: 3
+            }
+        }
         // Padding {
         //     model: 63
         // }

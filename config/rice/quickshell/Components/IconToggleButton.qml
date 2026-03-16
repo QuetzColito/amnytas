@@ -12,7 +12,7 @@ Rectangle {
     required property string name
     property string altName
     property bool active: false
-    property color activeColor: Theme.purple
+    property color activeColor: Theme.blue
     property color inactiveColor: Theme.bg
     property real margin: 5
     implicitHeight: itemm.height + 2 * margin
