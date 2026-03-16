@@ -37,4 +37,6 @@ ShellRoot {
     LockScreen {}
 
     Keyboard {}
+
+    Mouseless {}
 }
