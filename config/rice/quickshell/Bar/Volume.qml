@@ -4,9 +4,10 @@ import qs.Theme
 import qs.Services
 import qs.Components
 
-MouseArea {
-    implicitWidth: row.implicitWidth
-    implicitHeight: row.implicitHeight
+ClickableWrapper {
+    onClicked: () => AudioService.toggleMute()
+    onWheel: e => e.angleDelta.y > 0 ? AudioService.increaseVolume() : AudioService.decreaseVolume()
+
     RowLayout {
         id: row
         anchors.fill: parent
@@ -20,8 +21,4 @@ MouseArea {
             color: AudioService.muted ? Theme.fg4 : Theme.blue
         }
     }
-    acceptedButtons: Qt.LeftButton | Qt.RightButton
-    cursorShape: Qt.PointingHandCursor
-    onClicked: () => AudioService.toggleMute()
-    onWheel: e => e.angleDelta.y > 0 ? AudioService.increaseVolume() : AudioService.decreaseVolume()
 }

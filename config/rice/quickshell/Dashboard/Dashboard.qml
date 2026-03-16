@@ -58,7 +58,7 @@ PanelWindow {
         // Both Grids can support 10x10
         id: left
         anchors.left: parent.left
-        anchors.top: parent.top
+        anchors.top: root.screen.width < root.screen.height ? right.bottom : parent.top
 
         DashboardItemWrapping {
             Layout.rowSpan: 5
@@ -140,7 +140,7 @@ PanelWindow {
     DashboardGrid {
         id: right
         anchors.right: parent.right
-        anchors.top: root.screen.width < root.screen.height ? left.bottom : parent.top
+        anchors.top: parent.top
         layoutDirection: Qt.RightToLeft
 
         DashboardItemWrapping {
@@ -209,6 +209,7 @@ PanelWindow {
         Layout.fillWidth: true
         Layout.fillHeight: true
         border.width: 2
+        radius: 3
         border.color: Theme.blue
         Clickable {
             cursorShape: Qt.ArrowCursor

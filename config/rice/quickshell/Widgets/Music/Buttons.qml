@@ -14,9 +14,8 @@ RowLayout {
     IconToggleButton {
         icon.size: 35
         activeColor: Theme.blue
-        // inactiveColor: "transparent"
         clickable.onClicked: MprisService.p.loopState = MprisService.p?.loopState == MprisLoopState.Track ? MprisLoopState.None : MprisService.p?.loopState == MprisLoopState.Playlist ? MprisLoopState.Track : MprisLoopState.Playlist
-        active: MprisService.p?.loopState == MprisLoopState.Track || MprisService.p?.loopState == MprisLoopState.Playlist
+        active: MprisService.p?.loopState == MprisLoopState.Track || MprisService.p?.loopState == MprisLoopState.Playlist || false
         name: MprisService.p?.loopState == MprisLoopState.Track ? "repeat-once" : "repeat"
         border.width: 0
     }
@@ -39,7 +38,7 @@ RowLayout {
         icon.size: 35
         activeColor: Theme.blue
         clickable.onClicked: MprisService.p.shuffle = true
-        active: MprisService.p?.shuffle
+        active: MprisService.p?.shuffle || false
         name: "shuffle"
         border.width: 0
     }

@@ -1,18 +1,11 @@
 import Quickshell // for PanelWindow
 import QtQuick // for Text
 import QtQuick.Layouts
-import Quickshell.Wayland
-import Quickshell.Widgets
-import Quickshell.Io
-import Quickshell.Hyprland
-import qs.Shapes
 import qs.Theme
 import qs.Components
 import qs.Services
+import qs.Windows
 import qs.Bar.SysTray as SysTray
-import qs.Widgets.System as System
-import qs.Widgets.Utils as Utils
-import qs.Widgets.Music as Music
 
 Rectangle {
     id: root
@@ -24,13 +17,7 @@ Rectangle {
     required property Item closer
     property SysTray.Bar systray: systray
     property Region mask: Region {
-        item: rightarea
-        Region {
-            item: midarea
-        }
-        Region {
-            item: leftarea
-        }
+        item: root
         Region {
             item: root.closer.visible ? root.closer : midarea
         }
@@ -55,24 +42,22 @@ Rectangle {
             Workspaces {
                 id: ws
             }
+            // Needs to be this way so this gets priority over Workspaces
             Clickable {
                 acceptedButtons: Qt.RightButton
                 onClicked: root.toggleOverlay()
             }
         }
+        KeyboardBarButton {}
         SysTray.Bar {
             id: systray
         }
     }
 
-    MouseArea {
+    ClickableWrapper {
         id: midarea
         anchors.centerIn: parent
         onClicked: root.toggleOverlay()
-        acceptedButtons: Qt.RightButton | Qt.LeftButton
-        cursorShape: Qt.PointingHandCursor
-        implicitWidth: time.implicitWidth
-        implicitHeight: time.implicitHeight
         Time {
             id: time
             anchors.fill: parent
@@ -83,11 +68,11 @@ Rectangle {
         id: rightarea
         anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
-        Mpris {
-            maxWidth: root.width / 2 - 50 - volume.width - midarea.width / 2 - notif.width - (battery.visible ? battery.width : 0)
-            Clickable {
-                acceptedButtons: Qt.RightButton
-                onClicked: root.toggleOverlay()
+        ClickableWrapper {
+            onClicked: root.toggleOverlay()
+            Mpris {
+                id: mpris
+                maxWidth: root.width / 2 - 50 - volume.width - midarea.width / 2 - notif.width - (battery.visible ? battery.width : 0)
             }
         }
         Volume {

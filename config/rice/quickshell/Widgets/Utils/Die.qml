@@ -146,7 +146,7 @@ WrapperMouseArea {
     component DieDot: ColoredIcon {
         required property var modelData
         color: Theme.blue
-        name: modelData.includes(root.value) ? "diamond-full" : ""
+        name: modelData.includes(root.value) ? "diamond-inner" : ""
         size: 19
     }
 }

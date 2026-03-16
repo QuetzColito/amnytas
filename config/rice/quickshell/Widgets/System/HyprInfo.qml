@@ -57,10 +57,7 @@ Item {
                 }
             }
             Repeater {
-                model: {
-                    Hyprland.refreshToplevels();
-                    return Hyprland.toplevels;
-                }
+                model: Hyprland.toplevels
 
                 delegate: Rectangle {
                     id: entry
@@ -97,11 +94,11 @@ Item {
                             color: Theme.cyan
                             text: {
                                 Hyprland.refreshToplevels();
-                                return entry.modelData.lastIpcObject.class;
+                                return entry.modelData.lastIpcObject.class || "";
                             }
                         }
                         ThemedText {
-                            text: entry.modelData.workspace.id
+                            text: entry.modelData.workspace?.id || ""
                         }
                     }
                 }

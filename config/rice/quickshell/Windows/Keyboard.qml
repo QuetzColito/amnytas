@@ -28,43 +28,35 @@ PanelWindow {
 
     ColumnLayout {
         id: layout
-        anchors {
-            left: parent.left
-            right: parent.right
-            top: parent.top
-            bottom: parent.bottom
-            margins: 9
-            topMargin: 0
-        }
+        anchors.fill: parent
+        anchors.margins: 5
+        spacing: 2
         Repeater {
             model: KBLayout.layout
             delegate: RowLayout {
                 id: row
-                Layout.fillWidth: true
-                Layout.fillHeight: true
                 required property var modelData
+                spacing: 2
+
+                readonly property int defaultWeight: 10
+                property double widthWeightSum: modelData.reduce((partialSum, a) => partialSum + (a?.width || defaultWeight), 0)
+                property double widthSum: layout.width - (modelData.length - 1) * row.spacing
+
                 Repeater {
                     model: row.modelData
                     delegate: Rectangle {
                         id: button
                         required property var modelData
-                        Layout.fillWidth: modelData.width == undefined
-                        Layout.fillHeight: true
 
-                        Layout.minimumWidth: modelData.width != undefined ? row.width / modelData.width : 0
-                        radius: 7
+                        implicitWidth: ((modelData.width || row.defaultWeight) / row.widthWeightSum) * row.widthSum
+                        implicitHeight: (layout.height - (KBLayout.layout.length - 1) * layout.spacing) / KBLayout.layout.length
+                        radius: 2
                         border.color: Theme.blue
-                        border.width: 2
+                        border.width: 1
                         color: root.clearable_modifiers.includes(modelData.code) ? Theme.blue : Theme.bg
 
                         Clickable {
-                            onPressed: {
-                                if (root.modifiers.includes(button.modelData.code)) {
-                                    root.sendKey(`${button.modelData.code}:1`);
-                                } else {
-                                    root.sendKey(`${button.modelData.code}:1`);
-                                }
-                            }
+                            onPressed: root.sendKey(`${button.modelData.code}:1`)
                             onReleased: {
                                 if (root.modifiers.includes(button.modelData.code)) {
                                     if (root.clearable_modifiers.includes(button.modelData.code)) {
@@ -83,14 +75,14 @@ PanelWindow {
 
                         RowLayout {
                             anchors.centerIn: parent
-                            Text {
+                            ThemedText {
                                 color: Theme.blue
                                 text: `${button.modelData.label}`
                             }
-                            Text {
+                            ThemedText {
                                 visible: button.modelData.shiftLabel || false
 
-                                color: Theme.fg3
+                                color: Theme.fg4
                                 text: `${button.modelData.shiftLabel}`
                             }
                         }
