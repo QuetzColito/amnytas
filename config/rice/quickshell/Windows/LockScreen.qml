@@ -82,6 +82,7 @@ Scope {
                             ColoredIcon {
                                 name: "account"
                                 color: Theme.fg
+                                size: 30
                             }
                             DisplayText {
                                 font.pointSize: 20

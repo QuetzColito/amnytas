@@ -5,6 +5,7 @@ import Quickshell.Wayland
 import Quickshell.Hyprland
 import Qt.labs.platform
 import qs.Theme
+import qs.Components
 
 PanelWindow {
     id: root
@@ -61,10 +62,11 @@ PanelWindow {
             width: splash.width
             height: splash.height
 
-            Text {
+            ThemedText {
                 id: splash
                 color: Theme.fg3
                 anchors.centerIn: parent
+                font.pointSize: 13
             }
             anchors.centerIn: parent
         }
