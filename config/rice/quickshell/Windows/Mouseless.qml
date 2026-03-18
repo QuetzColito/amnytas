@@ -60,19 +60,19 @@ PanelWindow {
             }
             Shortcut {
                 sequences: [StandardKey.MoveToNextChar]
-                onActivated: Quickshell.execDetached(["sh", "-c", `pos=$(hyprctl cursorpos -j); hyprctl dispatch movecursor "$(($(echo $pos | jq ".x") + 10))" "$(echo $pos | jq ".y")"`])
+                onActivated: Quickshell.execDetached(["sh", "-c", `pos=$(hyprctl cursorpos -j); hyprctl dispatch movecursor "$(echo $pos | jq ".x + 10")" "$(echo $pos | jq ".y")"`])
             }
             Shortcut {
                 sequences: [StandardKey.MoveToPreviousChar]
-                onActivated: Quickshell.execDetached(["sh", "-c", `pos=$(hyprctl cursorpos -j); hyprctl dispatch movecursor "$(($(echo $pos | jq ".x") - 10))" "$(echo $pos | jq ".y")"`])
+                onActivated: Quickshell.execDetached(["sh", "-c", `pos=$(hyprctl cursorpos -j); hyprctl dispatch movecursor "$(echo $pos | jq ".x - 10")" "$(echo $pos | jq ".y")"`])
             }
             Shortcut {
                 sequences: [StandardKey.MoveToNextLine]
-                onActivated: Quickshell.execDetached(["sh", "-c", `pos=$(hyprctl cursorpos -j); hyprctl dispatch movecursor "$(echo $pos | jq ".x")" "$(($(echo $pos | jq ".y") + 10))"`])
+                onActivated: Quickshell.execDetached(["sh", "-c", `pos=$(hyprctl cursorpos -j); hyprctl dispatch movecursor "$(echo $pos | jq ".x")" "$(echo $pos | jq ".y + 10")"`])
             }
             Shortcut {
                 sequences: [StandardKey.MoveToPreviousLine]
-                onActivated: Quickshell.execDetached(["sh", "-c", `pos=$(hyprctl cursorpos -j); hyprctl dispatch movecursor "$(echo $pos | jq ".x")" "$(($(echo $pos | jq ".y") - 10))"`])
+                onActivated: Quickshell.execDetached(["sh", "-c", `pos=$(hyprctl cursorpos -j); hyprctl dispatch movecursor "$(echo $pos | jq ".x")" "$(echo $pos | jq ".y - 10")"`])
             }
             Repeater {
                 model: ["A", "S", "D", "F", "G", "H", "J", "K", "L", ";"]
