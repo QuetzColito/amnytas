@@ -2,13 +2,15 @@ import QtQuick.Layouts
 import QtQuick
 import QtQuick.Controls
 import qs.Theme
-import Quickshell.Hyprland
+import Quickshell.Io
 import qs.Components
-import qs.Services
 
 Item {
     id: root
     anchors.fill: parent
+    property var model
+    Component.onCompleted: getClients.running = true
+    onVisibleChanged: getClients.running = true
 
     RowLayout {
         id: header
@@ -24,8 +26,16 @@ Item {
         IconButton {
             name: "arrow-counter-clockwise"
             color: Theme.cyan
-            clickable.onClicked: {
-                Hyprland.refreshToplevels();
+            clickable.onClicked: getClients.running = true
+        }
+    }
+
+    Process {
+        id: getClients
+        command: ["sh", "-c", `hyprctl clients -j | jq "map({class, title, wsid: .workspace.id})"`]
+        stdout: StdioCollector {
+            onStreamFinished: {
+                root.model = JSON.parse(text.trim());
             }
         }
     }
@@ -57,11 +67,11 @@ Item {
                 }
             }
             Repeater {
-                model: Hyprland.toplevels
+                model: root.model
 
                 delegate: Rectangle {
                     id: entry
-                    required property HyprlandToplevel modelData
+                    required property var modelData
                     height: grid.height + 20
                     width: grid.width + 15
                     border.width: 2
@@ -92,13 +102,10 @@ Item {
 
                             elide: Qt.ElideRight
                             color: Theme.cyan
-                            text: {
-                                Hyprland.refreshToplevels();
-                                return entry.modelData.lastIpcObject.class || "";
-                            }
+                            text: entry.modelData.class
                         }
                         ThemedText {
-                            text: entry.modelData.workspace?.id || ""
+                            text: entry.modelData.wsid || ""
                         }
                     }
                 }
