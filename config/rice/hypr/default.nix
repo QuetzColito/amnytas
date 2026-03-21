@@ -20,8 +20,9 @@
 
     environment.systemPackages = with pkgs; [
       libnotify
-      hyprpolkitagent
     ];
+
+    security.polkit.enable = true;
 
     nix.settings = {
       substituters = ["https://hyprland.cachix.org"];
@@ -44,8 +45,9 @@
       getty.autologinOnce = true;
     };
 
-    packages = [
-      pkgs.uwsm
+    packages = with pkgs; [
+      uwsm
+      hyprpolkitagent
     ];
 
     environment.loginShellInit = ''

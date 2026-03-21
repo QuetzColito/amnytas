@@ -50,8 +50,6 @@
       '';
     };
 
-    security.polkit.enable = true;
-
     networking.hostName = config.hostName;
     networking.networkmanager.enable = true;
 
