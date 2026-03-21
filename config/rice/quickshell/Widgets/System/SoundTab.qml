@@ -55,7 +55,7 @@ Item {
 
     ScrollView {
         id: scroll
-        implicitHeight: Math.min(content.height, 370)
+        implicitHeight: Math.min(content.height, 360)
         implicitWidth: content.width + 15
         anchors.leftMargin: 5
         Behavior on implicitHeight {
