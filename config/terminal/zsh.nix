@@ -17,7 +17,7 @@
       else "";
     EDITOR = "nvim";
     VISUAL = "nvim";
-    SHELL = "zsh";
+    SHELL = lib.getExe pkgs.zsh;
   };
 
   environment.shellAliases = {
