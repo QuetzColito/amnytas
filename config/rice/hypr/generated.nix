@@ -1,7 +1,6 @@
 {
   theme,
   config,
-  hh,
   ...
 }: {
   files = {
@@ -28,22 +27,6 @@
         misc {
           font_family = "${theme.sansSerif.name}"
         }
-      ''
-      + hh.mkList "workspace" ([
-          "name:pseudofullscreen, gapsin:0, gapsout:0, rounding:false, bordersize:0"
-        ]
-        ++ (builtins.concatLists (
-          map (
-            {
-              workspaces,
-              name,
-              ...
-            }:
-              map (ws: "${builtins.toString ws}, monitor:${name}") workspaces
-          )
-          config.monitors
-        )))
-      + ''
 
         env = XDG_CURRENT_DESKTOP,Hyprland
         env = XDG_SESSION_TYPE,wayland
@@ -74,28 +57,5 @@
         ''
         else ''''
       );
-
-    ".config/hypr/monitors.conf".text =
-      hh.mkList "monitor"
-      ([
-          ",highrr,auto,1"
-          "Unknown-1,disable"
-        ]
-        ++ (map (
-            {
-              name,
-              coords,
-              rotation ? "",
-              ...
-            } @ monitor:
-              monitor.config
-            or ("${name},preferred,${coords},1"
-                + (
-                  if rotation == ""
-                  then ""
-                  else ",transform," + rotation
-                ))
-          )
-          config.monitors));
   };
 }

@@ -48,9 +48,6 @@
     pkgs-unstable = inputs.nixpkgs-other.legacyPackages.${system};
     theme = import ./theme.nix pkgs;
     inherit (pkgs) lib;
-    hh = {
-      mkList = i: is: builtins.concatStringsSep "\n${i}=" ([""] ++ is);
-    };
     # builds the system flake output for every host
     mkSystemConfig = {
       host,
@@ -60,7 +57,7 @@
       # System Config
       value = nixpkgs.lib.nixosSystem {
         # pass these in so we can access all the flake inputs in the config
-        specialArgs = {inherit inputs self pkgs-unstable hh theme;};
+        specialArgs = {inherit inputs self pkgs-unstable theme;};
         modules = [
           ./config
           ./hosts/${host}.nix
@@ -80,7 +77,7 @@
       // {
         nixos = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = {inherit inputs self pkgs-unstable hh theme;};
+          specialArgs = {inherit inputs self pkgs-unstable theme;};
           modules = [
             inputs.nixos-wsl.nixosModules.default
             ./hosts/wsl.nix

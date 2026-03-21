@@ -16,6 +16,7 @@
       ["amnytas/config/rice/hypr/hypridle.conf" ".config/hypr/hypridle.conf"]
       ["amnytas/config/rice/hypr/rules.conf" ".config/hypr/rules.conf"]
       ["amnytas/config/rice/hypr/xdph.conf" ".config/hypr/xdph.conf"]
+      ["amnytas/hosts/hypr/${config.hostName}.conf" ".config/hypr/monitors.conf"]
     ];
 
     environment.systemPackages = with pkgs; [
