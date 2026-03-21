@@ -73,7 +73,27 @@ Singleton {
         property string password: ""
         command: ["sh", "-c", `nmcli d w c '${ssid}' ${password ? "password '" + password + "'" : ""}`]
         stdout: StdioCollector {
-            onStreamFinished: root.reScan()
+            onStreamFinished: {
+                if (text.includes("successfully")) {
+                    console.log("success");
+                    root.reScan();
+                } else {
+                    console.log("fail");
+                    cleanUpFail.ssid = connectNew.ssid;
+                    cleanUpFail.running = true;
+                }
+            }
+        }
+    }
+
+    Process {
+        id: cleanUpFail
+        property string ssid: ""
+        command: ["sh", "-c", `nmcli c delete '${cleanUpFail.ssid}'`]
+        stdout: StdioCollector {
+            onStreamFinished: {
+                root.reScan();
+            }
         }
     }
 

@@ -125,7 +125,7 @@ PanelWindow {
             model: 7
         }
         DashboardItemWrapping {
-            Layout.rowSpan: 5
+            Layout.rowSpan: NetworkService.hasWifi ? 5 : 1
             Layout.columnSpan: 5
             System.NetworkTab {
                 anchors.left: parent.left

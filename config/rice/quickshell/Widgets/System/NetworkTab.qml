@@ -9,6 +9,9 @@ import qs.Services
 
 ColumnLayout {
     id: root
+    anchors.centerIn: parent
+    implicitWidth: 100
+
     Behavior on implicitHeight {
         NumberAnimation {
             easing.type: Easing.InOutQuad
@@ -80,12 +83,17 @@ ColumnLayout {
             cursorShape: Qt.IBeamCursor
             WrapperRectangle {
                 color: Theme.bg3
-                radius: 5
                 TextInput {
+                    id: passwordInput
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.left: parent.left
+                    color: Theme.blue
+                    echoMode: TextInput.Password
                     onTextChanged: passwordItem.password = text
-                    onAccepted: NetworkService.connectNew(passwordItem.ssid, passwordItem.password)
+                    onAccepted: {
+                        NetworkService.connectNew(passwordItem.ssid, passwordItem.password);
+                        passwordItem.visible = false;
+                    }
                 }
             }
         }
@@ -104,7 +112,7 @@ ColumnLayout {
 
     ScrollView {
         id: scroll
-        implicitHeight: Math.min(content.height, 300)
+        implicitHeight: Math.min(content.height, 290)
         implicitWidth: 380
         Behavior on implicitHeight {
             NumberAnimation {
@@ -165,6 +173,7 @@ ColumnLayout {
                             if (uuid) {
                                 NetworkService.connect(uuid);
                             } else {
+                                passwordInput.text = "";
                                 passwordItem.ssid = network.modelData.ssid;
                                 passwordItem.visible = true;
                             }
