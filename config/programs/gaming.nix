@@ -31,10 +31,10 @@
   programs.ydotool.enable = true;
 
   programs.gamescope.enable = true;
+  programs.gamemode.enable = true;
 
   packages = with pkgs; [
     bottles
-    gamemode
     osu-lazer-bin
     prismlauncher
     heroic
